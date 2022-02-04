@@ -1,0 +1,22 @@
+PLANERING
+
+Tänkt arbetsflöde:
+
+Data som kolonner i CSV-fil (1 rad header, CSV)
+
+Konfiguration i JSON-fil som bestämmer:
+    -Parametrar för estetiska i figur (textstorlek, färg, marker, linethickness, legend, grid)
+    -Parametrar för dimensioner på figur (bredd)
+    -Parametrar för x- och y- ticks, labels
+
+Plotter som plottar data, funktioner som fixar allt annat
+
+
+
+
+alla tänkbara saker man kan bestämma i en figur: //lämnad detta så länge... 2022-02-04, 18:37
+
+High-Level:
+-bredd och höjd
+-subplots (flera delfigurer i en och samma figurruta)
+-

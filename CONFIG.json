@@ -1,0 +1,101 @@
+{
+  "updated"  : "2022-02-03, 17:01",
+  "fileName" : "20230103_1532_He_gaussian2",
+
+  "figure_width"  : 22,
+  "figure_height" : 14, 
+  
+  "font"            : "CMU Serif",
+  "fontSize_axis"   : 18,
+  "fontSize_ticks"  : 13,
+  "fontSize_legend" : 14,
+
+  "label_xAxis" : "Uppmätt våglängd [nm]",
+  "label_yAxis" : "Spänning [V]",
+
+  "invert_xAxis" : false,
+  "invert_yAxis" : false,
+
+  "xlim_min" : "None",
+  "xlim_max" : "None",
+  "ylim_min" : "None",
+  "ylim_max" : "None",
+    
+  "floatPrecision_yAxis" : 1,
+  "floatPrecision_xAxis" : 1,
+
+  "legend_on"       : true,
+  "legend_position" : "best", 
+  "legend_alpha"    : 1,
+
+  "grid_on" : true, 
+
+  "num_datasets" : 2,
+
+  "dataset": [
+    {
+    "datasetNum" : 1,
+    "x_column"   : 1,
+    "y_column"   : 2,
+
+    "errorbar_size"         : 0,
+    "errorbar_linewidth"    : 0,
+    "errorbar_capthickness" : 0, 
+
+    "datalabel" : "Mätdata",
+    
+    "marker_type"      : ".",  
+    "marker_size"      : 8,
+    "marker_thickness" : 2,
+    "marker_facecolor" : "None",
+
+    "line_style" : "",
+    "line_width" : 2.5,
+    "line_color" : "#f1311d"
+    },
+
+    {
+    "datasetNum" : 2,
+    "x_column"   : 1,
+    "y_column"   : 3,
+
+    "errorbar_size"         : 0,
+    "errorbar_linewidth"    : 0,
+    "errorbar_capthickness" : 0, 
+
+    "datalabel" : "Kurvanpassning",
+    
+    "marker_type"      : "",  
+    "marker_size"      : 8,
+    "marker_thickness" : 2,
+    "marker_facecolor" : "None",
+
+    "line_style" : "-",
+    "line_width" : 2.5,
+    "line_color" : "#000000" 
+    }, 
+
+    {
+    "datasetNum" : 3,
+    "x_column"   : 2,
+    "y_column"   : 3,
+
+    "errorbar_size"         : 0,
+    "errorbar_linewidth"    : 0,
+    "errorbar_capthickness" : 0, 
+
+    "datalabel" : "nummer 3",
+    
+    "marker_type"      : "o",  
+    "marker_size"      : 8,
+    "marker_thickness" : 2,
+    "marker_facecolor" : "None",
+
+    "line_style" : "-",
+    "line_width" : 2.5,
+    "line_color" : "#3ac20e"  
+    }
+
+  ]
+
+}
