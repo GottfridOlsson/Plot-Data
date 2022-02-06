@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-04, 
+#     Updated: 2022-02-06, 13:22
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
