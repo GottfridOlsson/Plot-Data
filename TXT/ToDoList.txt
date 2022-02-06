@@ -1,0 +1,21 @@
+2022-02-04:
+# TODO:
+  # gridlines mellan ticks för finare avläsning
+  # no whitespace above/below figure 
+  # plot in subplots. Source: https://www.pythonpool.com/matplotlib-gridspec/
+  # log scale for axis "log_scale" = True or False in .JSON
+  # use a pre-defined (standard) format for plots. Source: https://matplotlib.org/stable/tutorials/introductory/customizing.html
+  # look into using "constrained_layout" for better figure-width management. Source: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
+  #  
+
+
+## RECOMPILE OLD CODE WITH: //2022-02-04, 10:57
+  # FUNCTION FOR PLOTTING Data
+  # FUNCTIONS FOR FIXING STUFF:
+   # MARGINS
+   # FIG SIZE
+   # LEGEND
+   # so on...
+
+   plot vertical and horisontal lines at specified points (e.g. for showing peaks)
+   

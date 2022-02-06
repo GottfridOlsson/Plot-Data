@@ -2,12 +2,11 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-06, 19:44
+#     Updated: 2022-02-06, 20:53
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
 ##---------------------------------------------------------##
-
 
 ## IMPORT LIBRARIES ##
 
@@ -103,12 +102,12 @@ def export_figure_as_pdf(filePath):
 ## MAIN ##
 
 #temp
-CSV_readFilePath = "CSV/testdata1.csv"
+CSV_readFilePath = "CSV/20220202_1439_calibration_He_1_broad.csv"
 data = CSV_handler.read_CSV(CSV_readFilePath)
 header = CSV_handler.get_header(data)
 
 
-xCol_index = 0
+xCol_index = 1
 yCol_index = 2
 xData = data[header[xCol_index]]
 yData = data[header[yCol_index]]
@@ -133,7 +132,7 @@ legendAlpha = 0.9
 legendLocation = 'best'
 
 color = "#f1311d" #hex
-marker = 'o'
+marker = ''
 markerSize = 6
 markerThickness = 2.5
 markerFaceColor = 'None'
