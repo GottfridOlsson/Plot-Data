@@ -9,14 +9,59 @@ Konfiguration i JSON-fil som bestämmer:
     -Parametrar för dimensioner på figur (bredd)
     -Parametrar för x- och y- ticks, labels
 
-Plotter som plottar data, funktioner som fixar allt annat
+Plotter som plottar data, funktioner som fixar allt annat (subplots, fontSize, placering, figSize, osv.)
+
+Vill nog ha en massa raise Exception när data har fel längd och sånt!
+
+
+2022-02-06:
+    tänk igenom hur vi ska utforma JSON.
+    kanske bra mer lite fler överrubriker med underkategorier i dessa?
+    
+
+
+Funktioner:
+ (men ingen funktion) [X] Create fig (width and height) och ax
+ [ ] Plot data by using corresponding function (e.g. "plot_errorbar", and scatter, bar, barh, stem, step, fill_between, osv. See: https://matplotlib.org/devdocs/plot_types/index.html)
+    [X] plot_plot
+    [ ] plot_errorbar
+    [ ] ...
+ [X] Set datapoints esthetics (color, linewidth, markersize, ...)
+ [X] Set font
+ [ ] Render LaTeX
+ [X] Set fontSizes (title, x- and y-axis labels, legend)
+    [ ] major tick label, minor tick label
+ [] Set tick labels (x,y,major,minor)
+ [X] Set legend (text, pos., )
+    [ ] look into more handling (picture in legend for each datalabel)
+ [X] Set grid
+    [ ] look into subdiv lines
+ [X] Set comma as decimal separator
+ -Set ...
+
+ [X] Export fig 
+
+
+
+VERSION "Prokary":
+-plotta data
+-bestäm figurstorlek
+-CMU Serif 
+-textstorlek i förhållande till figurstorlek s.a. det ser bra ut i Overleaf
+-konsekvent bredd på själva plotten (s.a. flera plots align i L- och R-marginaler)
+-grid
+
+
+
+### HUR JAG VÄLJER ATT KODA ###
+ -Explicitly create Figures and Axes, and call methods on them (the "object-oriented (OO) style"). //2022-02-06
 
 
 
 
-alla tänkbara saker man kan bestämma i en figur: //lämnad detta så länge... 2022-02-04, 18:37
 
-High-Level:
--bredd och höjd
--subplots (flera delfigurer i en och samma figurruta)
--
+Gillar 2022-01-19:
+  röd: #f1311d
+ grön: #3ac20e
+  blå: #086BDE
+svart: #151515

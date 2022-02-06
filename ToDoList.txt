@@ -16,3 +16,6 @@
    # FIG SIZE
    # LEGEND
    # so on...
+
+   plot vertical and horisontal lines at specified points (e.g. for showing peaks)
+   

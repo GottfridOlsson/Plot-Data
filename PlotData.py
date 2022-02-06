@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-06, 13:22
+#     Updated: 2022-02-06, 19:44
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -11,102 +11,157 @@
 
 ## IMPORT LIBRARIES ##
 
+from time import time
 import matplotlib as mpl            # to plot
 from matplotlib import font_manager # to get CMU Serif
 import matplotlib.pyplot as plt     # to plot
 import matplotlib.ticker as tkr     # for comma in x- and y-axis
+import datetime                     # (perhaps unnecessary) to know when script last ran
 
 import CSV_handler 
 import JSON_handler
 
-
+## CONSTANTS ##
+CM2INCH1 = 1/2.54                   # centimeters per inch, for figsize
 
 ## FUNCTIONS ##
 
+# markeredgewidth, markerfacecolor
+def plot_plot(ax, xData, yData, dataLabel, color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth):
+    out = ax.plot(xData, yData, label=dataLabel, color=color, marker=marker, markersize=markerSize, \
+      markeredgewidth=markerThickness, markerfacecolor=markerFaceColor, linestyle=lineStyle, linewidth=lineWidth)
+    print("DONE: Plotted data")
+    return out
 
-def save_figure_as_pdf(filePath):
-  plt.savefig(filePath + '.pdf')
-  print("DONE: Exported PDF:" + filePath + ".pdf")
+def set_labels(ax, xLabel, yLabel): #TODO:#, majorTickLabel, minorTickLabel, legendLabel):
+    ax.set_xlabel(xLabel)
+    ax.set_ylabel(yLabel)
+    print("DONE: Set xLabel and yLabel")
+    #ax.set_major
+
+
+def set_font_size(defaultTextSize, xTickSize, yTickSize, legendFontSize): #TODO: major tick, minor tick 
+    plt.rc('font',       size=defaultTextSize) #controls default text size
+    #plt.rc('axes',  titlesize=10) #fontsize of the title
+    plt.rc('axes',  labelsize=defaultTextSize) #fontsize of the x and y labels
+    plt.rc('xtick', labelsize=xTickSize) #fontsize of the x tick labels
+    plt.rc('ytick', labelsize=yTickSize) #fontsize of the y tick labels
+    plt.rc('legend', fontsize=legendFontSize) #fontsize of the legend
+    print("DONE: Set font size")
+
+
+def set_plot_estethics():
+      ax.set
+      return 1
+      
+def set_legend(legendOn, alpha, location): #specify what "picture" to show in legend for each legendLabel
+      if legendOn:
+            plt.legend(framealpha=alpha, loc=location)
+      print("DONE: Set legend")
+
+def set_grid(gridOn): #subdivisions
+      ax.grid(gridOn)
+      print("DONE: Set grid")
+
+# Unsure whether or not this actually does anything... //2022-02-06
+#def set_ax_size(fig, ax_left, ax_bottom, ax_width, ax_height):
+#      plt.Axes(fig, [ax_left, ax_bottom, ax_width, ax_height])
+#      print("DONE: Set axis size")
+
+
+def get_ax_size(ax):
+    bbox = ax.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+    width, height = bbox.width, bbox.height
+    width *= fig.dpi
+    height *= fig.dpi
+    return width, height
 
 def set_CMU_serif_font(fontString, fontDirectory):
-  # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
-  font_dirs = fontDirectory
-  font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
-  for font_file in font_files:
-      font_manager.fontManager.addfont(font_file)
-  plt.rcParams['font.family'] = fontString
+    # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
+    font_dirs = fontDirectory
+    font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        font_manager.fontManager.addfont(font_file)
+    plt.rcParams['font.family'] = fontString
+    print("DONE: Set font to: " + fontString)
 
-# main plotting function
-def plot_errorbar(csv_data, xError, yError, num_datasets):
-  cm = 1/2.54  # centimeters in inches
-  fig, ax = plt.subplots(figsize = (c['figure_width']*cm, c['figure_height']*cm))
-  for i in range(0, num_datasets):
-    xCol_index = c['dataset'][i]['x_column'] - 1 #from human number to cpu index
-    yCol_index = c['dataset'][i]['y_column'] - 1
-    xData = csv_data[csv_header[xCol_index]]
-    yData = csv_data[csv_header[yCol_index]]
-
-    ax.errorbar(xData, yData, xError, yError,
-      capsize         = c['dataset'][i]['errorbar_size'],
-      capthick        = c['dataset'][i]['errorbar_capthickness'],
-      elinewidth      = c['dataset'][i]['errorbar_linewidth'],
-      marker          = c['dataset'][i]['marker_type'],
-      markersize      = c['dataset'][i]['marker_size'],
-      markeredgewidth = c['dataset'][i]['marker_thickness'],
-      markerfacecolor = c['dataset'][i]['marker_facecolor'],
-      linestyle       = c['dataset'][i]['line_style'],
-      linewidth       = c['dataset'][i]['line_width'],
-      color           = c['dataset'][i]['line_color'], 
-      label           = c['dataset'][i]['datalabel'])
-     
-  ax.set_xlabel(c['label_xAxis'], fontsize=c['fontSize_axis'])
-  ax.set_ylabel(c['label_yAxis'], fontsize=c['fontSize_axis'])
-  ax.tick_params(labelsize=c['fontSize_axis'])
-  #ax.set_xticklabels(xTickLabels, fontsize=xTickSize)
-  #ax.set_yticklabels(yTickLabels, fontsize=yTickSize)
-  ax.grid(c['grid'])
-
-  if c['legend_on']:
-    plt.legend(fontsize=c['fontSize_legend'], framealpha=c['legend_alpha'], loc=c['legend_position'])
-
-  if c['invert_xAxis']: ax.invert_xaxis()
-  if c['invert_xAxis']: ax.invert_yaxis()
-
-  ax.set( xlim=(c['xlim_min'], c['xlim_max']) )
-  ax.set( ylim=(c['ylim_min'], c['ylim_max']) )
-
-  #plt.rc('axes', unicode_minus=False) #gets rid of error: "Glyph 8722 missing from current font" #works but is ugly!
-  # https://github.com/matplotlib/matplotlib/issues/17007
-  # https://github.com/matplotlib/matplotlib/pull/18397
-
-  def set_axis_to_comma_with_precision(xAxis_precision, yAxis_precision):
+def set_commaDecimal_with_precision(ax, xAxis_precision, yAxis_precision):
+    # Modified from: https://stackoverflow.com/questions/8271564/matplotlib-comma-separated-number-format-for-axis
     xFormatString = '{:.' + str(xAxis_precision) + 'f}'
     yFormatString = '{:.' + str(yAxis_precision) + 'f}'
     ax.get_xaxis().set_major_formatter( tkr.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )
     ax.get_yaxis().set_major_formatter( tkr.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )
-    
-  set_axis_to_comma_with_precision(c['floatPrecision_xAxis'], c['floatPrecision_yAxis'])
-   # Modified from: https://stackoverflow.com/questions/8271564/matplotlib-comma-separated-number-format-for-axis
-  plt.tight_layout() #pad=0
+    print("DONE: Set comma as decimalseparator with precision: X: "+str(xAxis_precision)+", Y: "+str(yAxis_precision))
 
-  #plt.tight_layout(pad=1.08, h_pad=None)
-
-def plot_image(image):
-  cm = 1/2.54 #cm per inch
-  fig, ax = plt.subplots(figsize=(c['figure_width']*cm, c['figure_height']*cm*0.3), squeeze=True)
-  # TODO: magic number in figure_height should be 0.15 when figure height is 14 //2022-02-03, 16:00
-  plt.imshow(image, interpolation=None, origin='lower', aspect='auto')
-  ax.get_xaxis().set_visible(False)
-  ax.get_yaxis().set_visible(False)
-  #plt.tight_layout(pad=1.08, h_pad=None)
+def export_figure_as_pdf(filePath):
+    plt.savefig(filePath + '.pdf')
+    print("DONE: Exported PDF: " + filePath + ".pdf")
 
 
 
 
 ## MAIN ##
-CSV_readFilePath = "test.csv"
-CSV_data = CSV_handler.read_CSV(CSV_readFilePath)
-print(CSV_data)
+
+#temp
+CSV_readFilePath = "CSV/testdata1.csv"
+data = CSV_handler.read_CSV(CSV_readFilePath)
+header = CSV_handler.get_header(data)
+
+
+xCol_index = 0
+yCol_index = 2
+xData = data[header[xCol_index]]
+yData = data[header[yCol_index]]
+xLabel = header[xCol_index]
+yLabel = header[yCol_index]
+
+fig_height = 14
+fig_width = 22
+
+
+fontPath = "C:\Windows\Fonts"
+fontString = "CMU Serif"
+defaultFontSize = 18
+xTickSize = 16
+yTickSize = xTickSize
+legendFontSize = 16
+
+gridOn = True
+legendOn = True
+dataLabel = "Measurements 2022-02-06"
+legendAlpha = 0.9
+legendLocation = 'best'
+
+color = "#f1311d" #hex
+marker = 'o'
+markerSize = 6
+markerThickness = 2.5
+markerFaceColor = 'None'
+lineStyle = '-'
+lineWidth = 2.5
+
+filePathSaveFig = "PDF/testing"
+
+
+
+#actual main
+
+print(datetime.datetime.now())
+# FIRST 'plt.rc' 
+set_CMU_serif_font(fontString, fontPath)
+set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
+
+#INTIALIZE 'fig, ax'
+fig, ax = plt.subplots(figsize=(fig_width*CM2INCH1, fig_height*CM2INCH1)) #initialize fig, ax
+plot_plot(ax, xData, yData, dataLabel,color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth)
+set_labels(ax, xLabel, yLabel)
+set_commaDecimal_with_precision(ax, 1, 2)
+set_legend(legendOn, legendAlpha, legendLocation)
+set_grid(gridOn)
+export_figure_as_pdf(filePathSaveFig)
+
+plt.show()
+print() #for new line
 
 
 

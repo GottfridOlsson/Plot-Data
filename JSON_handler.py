@@ -2,17 +2,14 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 19:18
-#     Updated: 2022-02-04, 
+#     Updated: 2022-02-06, 20:48
 #       About: Read and write to JSON-files.
 ##---------------------------------------------------------##
 
 
-## IMPORT LIBRARIES ##
+## LIBRARIES ##
 
 import json                         # to save/write to JSON
-
-
-
 
 
 ## FUNCTIONS ##
@@ -31,15 +28,13 @@ def write_JSON(writeFilePath, JSON_data):
 
 
 
-
-
 ## FUNCTIONS ##
 
-JSON_readFilePath = "jtest.json"
-JSON_writeFilePath = "jtest2.json"
-JSON_data = read_JSON(JSON_readFilePath)
-print(JSON_data['created'])
-print(JSON_data['updated'])
-print(JSON_data['filename'])
-write_JSON(JSON_writeFilePath, JSON_data)
+#JSON_readFilePath = "jtest.json"
+#JSON_writeFilePath = "jtest2.json"
+#JSON_data = read_JSON(JSON_readFilePath)
+#print(JSON_data['created'])
+#print(JSON_data['updated'])
+#print(JSON_data['filename'])
+#write_JSON(JSON_writeFilePath, JSON_data)
 
