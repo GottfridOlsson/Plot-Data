@@ -30,11 +30,10 @@ def write_JSON(writeFilePath, JSON_data):
 
 ## FUNCTIONS ##
 
-#JSON_readFilePath = "jtest.json"
-#JSON_writeFilePath = "jtest2.json"
-#JSON_data = read_JSON(JSON_readFilePath)
-#print(JSON_data['created'])
-#print(JSON_data['updated'])
-#print(JSON_data['filename'])
-#write_JSON(JSON_writeFilePath, JSON_data)
+JSON_readFilePath = "JSON/CONFIG.json"
+JSON_writeFilePath = "JSON/test_write.json"
+JSON_data = read_JSON(JSON_readFilePath)
+print(JSON_data['updated'])
+print(JSON_data['filename'])
+write_JSON(JSON_writeFilePath, JSON_data)
 
