@@ -6,11 +6,11 @@
   "figure_height" : 14, 
   
   "font"            : "CMU Serif",
-  "fontSize_axis"   : 18,
-  "fontSize_ticks"  : 13,
+  "fontSize_axis"   : 16,
+  "fontSize_tick"   : 14,
   "fontSize_legend" : 14,
 
-  "label_xAxis" : "Uppmätt våglängd [nm]",
+  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyzåäö [nm]",
   "label_yAxis" : "Spänning [V]",
 
   "invert_xAxis" : false,

@@ -20,10 +20,10 @@ import datetime                     # (perhaps unnecessary) to know when script 
 import CSV_handler 
 import JSON_handler
 
-## CONSTANTS ##
-CM2INCH1 = 1/2.54                   # centimeters per inch, for figsize
 
 ## FUNCTIONS ##
+def cm2inch(cm):
+    return cm/2.54
 
 # markeredgewidth, markerfacecolor
 def plot_plot(ax, xData, yData, dataLabel, color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth):
@@ -49,10 +49,6 @@ def set_font_size(defaultTextSize, xTickSize, yTickSize, legendFontSize): #TODO:
     print("DONE: Set font size")
 
 
-def set_plot_estethics():
-      ax.set
-      return 1
-      
 def set_legend(legendOn, alpha, location): #specify what "picture" to show in legend for each legendLabel
       if legendOn:
             plt.legend(framealpha=alpha, loc=location)
@@ -106,40 +102,65 @@ CSV_readFilePath = "CSV/20220202_1439_calibration_He_1_broad.csv"
 data = CSV_handler.read_CSV(CSV_readFilePath)
 header = CSV_handler.get_header(data)
 
+JSON_readFilePath = "JSON/CONFIG.json"
+config = JSON_handler.read_JSON(JSON_readFilePath)
+c = config
 
-xCol_index = 1
-yCol_index = 2
-xData = data[header[xCol_index]]
-yData = data[header[yCol_index]]
-xLabel = header[xCol_index]
-yLabel = header[yCol_index]
+num_datasets = c['num_datasets']
+xCol_index = [-1]*num_datasets
+yCol_index = [-1]*num_datasets
+xData = [0]*num_datasets
+yData = [0]*num_datasets
+dataLabel = [""]*num_datasets
+color = [""]*num_datasets
+marker = [""]*num_datasets
+markerSize = [0]*num_datasets
+markerThickness = [0]*num_datasets
+markeFaceColor = [""]*num_datasets
+lineStyle = [""]*num_datasets
+lineWidth = [0]*num_datasets
 
-fig_height = 14
-fig_width = 22
+
+for i in range(0, c['num_datasets'])
+    xCol_index[i] = c['datasets'][i]['x_column'] - 1 #convert from human "1,2,3,..." to CPU index "0,1,2,..."
+    yCol_index[i] = c['datasets'][i]['y_column'] - 1
+    xData[i] = data[header[xCol_index[i]]]
+    yData[i] = data[header[xCol_index[i]]]
+    dataLabel[i] = c['dataset'][i]['datalabel']
+    color[i] = "#000000" #hex
+    marker[i] = ''
+    markerSize[i] = 6
+    markerThickness[i] = 2.5
+    markerFaceColor[i] = 'None'
+    lineStyle[i] = '-'
+    lineWidth[i] = 2.5
+    
+#xCol_index = 0
+#yCol_index = 2
+#xData = data[header[xCol_index]]
+#yData = data[header[yCol_index]]
+xLabel = c['label_xAxis']
+yLabel = c['label_yAxis']
+
+fig_height = c['figure_height']
+fig_width = c['figure_width']
 
 
 fontPath = "C:\Windows\Fonts"
-fontString = "CMU Serif"
-defaultFontSize = 18
-xTickSize = 16
-yTickSize = xTickSize
-legendFontSize = 16
+fontString = c['font']
+defaultFontSize = c['fontSize_axis']
+xTickSize = c['fontSize_tick']
+yTickSize = c['fontSize_tick']
+legendFontSize = c['fontSize_legend']
 
-gridOn = True
-legendOn = True
+gridOn = c['grid_on']
+legendOn = c['legend_on']
 dataLabel = "Measurements 2022-02-06"
-legendAlpha = 0.9
-legendLocation = 'best'
+legendAlpha = c['legend_alpha']
+legendLocation = c['legend_position']
 
-color = "#f1311d" #hex
-marker = ''
-markerSize = 6
-markerThickness = 2.5
-markerFaceColor = 'None'
-lineStyle = '-'
-lineWidth = 2.5
 
-filePathSaveFig = "PDF/testing"
+filePathSaveFig = "PDF/testing2"
 
 
 
@@ -151,7 +172,7 @@ set_CMU_serif_font(fontString, fontPath)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 #INTIALIZE 'fig, ax'
-fig, ax = plt.subplots(figsize=(fig_width*CM2INCH1, fig_height*CM2INCH1)) #initialize fig, ax
+fig, ax = plt.subplots(figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
 plot_plot(ax, xData, yData, dataLabel,color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth)
 set_labels(ax, xLabel, yLabel)
 set_commaDecimal_with_precision(ax, 1, 2)
