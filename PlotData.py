@@ -116,7 +116,7 @@ color = [""]*num_datasets
 marker = [""]*num_datasets
 markerSize = [0]*num_datasets
 markerThickness = [0]*num_datasets
-markeFaceColor = [""]*num_datasets
+markerFaceColor = [""]*num_datasets
 lineStyle = [""]*num_datasets
 lineWidth = [0]*num_datasets
 
