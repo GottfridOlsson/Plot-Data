@@ -93,8 +93,6 @@ def export_figure_as_pdf(filePath):
     print("DONE: Exported PDF: " + filePath + ".pdf")
 
 
-
-
 ## MAIN ##
 
 #temp
@@ -121,20 +119,25 @@ lineStyle = [""]*num_datasets
 lineWidth = [0]*num_datasets
 
 
-for i in range(0, c['num_datasets'])
+for i in range(0, num_datasets):
     xCol_index[i] = c['datasets'][i]['x_column'] - 1 #convert from human "1,2,3,..." to CPU index "0,1,2,..."
     yCol_index[i] = c['datasets'][i]['y_column'] - 1
     xData[i] = data[header[xCol_index[i]]]
-    yData[i] = data[header[xCol_index[i]]]
-    dataLabel[i] = c['dataset'][i]['datalabel']
+    yData[i] = data[header[yCol_index[i]]]
+    dataLabel[i] = c['datasets'][i]['datalabel']
     color[i] = "#000000" #hex
     marker[i] = ''
     markerSize[i] = 6
     markerThickness[i] = 2.5
     markerFaceColor[i] = 'None'
-    lineStyle[i] = '-'
+    lineStyle[i] = ':'
     lineWidth[i] = 2.5
-    
+
+print(len(xData[1]))
+print(len(yData[1]))
+
+#quit()
+
 #xCol_index = 0
 #yCol_index = 2
 #xData = data[header[xCol_index]]
@@ -173,7 +176,7 @@ set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 #INTIALIZE 'fig, ax'
 fig, ax = plt.subplots(figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
-plot_plot(ax, xData, yData, dataLabel,color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth)
+plot_plot(ax, xData, yData, dataLabel, color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth)
 set_labels(ax, xLabel, yLabel)
 set_commaDecimal_with_precision(ax, 1, 2)
 set_legend(legendOn, legendAlpha, legendLocation)

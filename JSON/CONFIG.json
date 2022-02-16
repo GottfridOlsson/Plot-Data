@@ -32,7 +32,7 @@
 
   "num_datasets" : 2,
 
-  "dataset": [
+  "datasets": [
     {
     "datasetNum" : 1,
     "x_column"   : 1,
