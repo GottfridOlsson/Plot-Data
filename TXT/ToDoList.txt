@@ -1,4 +1,4 @@
-2022-02-04:
+2022-02-04, 2022-02-17:
 # TODO:
   # gridlines mellan ticks för finare avläsning
   # no whitespace above/below figure 
@@ -6,7 +6,8 @@
   # log scale for axis "log_scale" = True or False in .JSON
   # use a pre-defined (standard) format for plots. Source: https://matplotlib.org/stable/tutorials/introductory/customizing.html
   # look into using "constrained_layout" for better figure-width management. Source: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
-  #  
+  # ThrowError: create checks for JSON; logical checks s.a. "num_subplots" = "num_subplots_x" * "num_subplots_y", and so on. Throw exception/error warning if necessary
+  # 
 
 
 ## RECOMPILE OLD CODE WITH: //2022-02-04, 10:57
