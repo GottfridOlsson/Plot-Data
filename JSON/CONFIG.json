@@ -1,9 +1,9 @@
 {
-  "updated"  : "2022-02-17, 16:48",
+  "updated"  : "2022-02-17, 22:00",
   "filename" : "testing",
 
-  "figure_width"  : 22,
-  "figure_height" : 14, 
+  "figure_width"  : 25,
+  "figure_height" : 17, 
   
   "font"            : "CMU Serif",
   "font_path"       : "C:\\Windows\\Fonts",
@@ -22,8 +22,8 @@
   "ylim_min" : "None",
   "ylim_max" : "None",
     
-  "floatPrecision_yAxis" : 1,
-  "floatPrecision_xAxis" : 1,
+  "floatPrec_yAxis" : 1,
+  "floatPrec_xAxis" : 1,
 
   "legend_on"       : true,
   "legend_position" : "best", 
@@ -87,7 +87,7 @@
     "errorbar_linewidth"    : 0,
     "errorbar_capthickness" : 0, 
 
-    "datalabel" : "nummer 3",
+    "datalabel" : "DatasetNum 3",
     
     "marker_type"      : "o",  
     "marker_size"      : 8,
@@ -100,32 +100,43 @@
     }
   ],
 
+  "num_subplots"   : 1, 
   "num_subplots_x" : 1,
-  "num_subplots_y" : 2, 
-  "num_subplots"   : 2, 
+  "num_subplots_y" : 1, 
 
   "subplots": [
     {
       "subplotNum" : 1, 
       "num_subplot_yDatasets" : 2,
+      "xLabel"     : "subplot 1, x-axis",
+      "yLabel"     : "subplot 1, y-axis",
       "xDataCol"   : 1,
-      "yDataCol"   : [
-        {
-          "1" : 1, 
-          "2" : 2
-        }
-      ]
+      "yDataCol"   : [ {"1" : 1}, {"2" : 2} ], 
+      "floatPrec_xAxis" : 1,
+      "floatPrec_yAxis" : 3, 
+      "gridOn"     : true
     },
     {
       "subplotNum" : 2, 
       "num_subplot_yDatasets" : 1,
+      "xLabel"     : "subplot 2, x-axis",
+      "yLabel"     : "subplot 2, y-axis",
+      "xDataCol"   : 3,
+      "yDataCol"   : [ {"1" : 3} ], 
+      "floatPrec_xAxis" : 1,
+      "floatPrec_yAxis" : 2, 
+      "gridOn"     : false
+    }, 
+    {
+      "subplotNum" : 3, 
+      "num_subplot_yDatasets" : 2,
+      "xLabel"     : "subplot 3, x-axis",
+      "yLabel"     : "subplot 3, y-axis",
       "xDataCol"   : 2,
-      "yDataCol"   : [
-        {
-          "1" : 1
-        }
-      ]
-
+      "yDataCol"   : [ {"1" : 1}, {"2" : 3} ], 
+      "floatPrec_xAxis" : 1,
+      "floatPrec_yAxis" : 1,
+      "gridOn"     : true
     }
   ]
 }
