@@ -121,10 +121,9 @@ gridOn          = c['grid_on']
 legendOn        = c['legend_on']
 legendAlpha     = c['legend_alpha']
 legendLocation  = c['legend_position']
-num_subplots_x  = c['num_subplots_x']
-num_subplots_y  = c['num_subplots_y']
-
-num_subplots = num_subplots_x*num_subplots_y
+subplots_x      = c['num_subplots_x']
+subplots_y      = c['num_subplots_y']
+num_subplots    = c['num_subplots']
 
 # INITIALIZE #
 
@@ -138,6 +137,10 @@ markerSize      = [0]*num_datasets
 markerThickness = [0]*num_datasets
 floatPrecision_yAxis = [0]*num_subplots #unsure //2022-02-17
 floatPrecision_xAxis = [0]*num_subplots #unsure //2022-02-17
+subplot_xCol    = [0]*num_subplots
+subplot_yCol    = [[0]*num_subplots] #matrix
+subplot_xData   = [0]*num_subplots
+subplot_yData   = [0]*num_subplots
 markerFaceColor = [""]*num_datasets
 lineStyle       = [""]*num_datasets
 lineColor       = [""]*num_datasets
@@ -160,8 +163,21 @@ for i in range(0, num_datasets):
     markerSize[i]      = c['datasets'][i]['marker_size']
     markerThickness[i] = c['datasets'][i]['marker_thickness']
     markerFaceColor[i] = c['datasets'][i]['marker_facecolor']
+    subplot_xCol[i]    = c['subplots'][i]['xDataCol'] - 1
+    for k in range(0, c['subplots'][i]['num_subplot_yDatasets']):
+        subplot_yCol[i][k]    = c['subplots'][i]['yDataCol'][k] - 1 #hmm, how make this right/good?
+    #subplot_xData[i]   = xData[subplot_xCol[i]]
+    #subplot_yData[i]   = yData[subplot_yCol[i]]
 
+print(subplot_xCol)
+print(subplot_yCol)
 
+    
+for i in range(0, num_subplots):
+    print("xDatacol[" + str(i) + "]: " + str(c['subplots'][i]['xDataCol']))
+    print("yDataCol[" + str(i) + "]: " + str(c['subplots'][i]['yDataCol']))
+    
+quit()
 
 
 filePathSaveFig = "PDF/testing2" #adhoc
@@ -176,12 +192,12 @@ set_CMU_serif_font(fontString, fontPath)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 #INTIALIZE 'fig, ax'
-fig, axs = plt.subplots(num_subplots_y, num_subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
+fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
 if num_subplots > 1: 
-    for k in range(0,num_subplots):
+    for k in range(0, num_subplots):
         #function that chooses which plot to plot (errorbar, plot, colormap,...)
-        for i in thingThatDecidesWhichDatasetsGoesIntoWhichSubplots: #ex. datasets_subplot[k]
-            plot_plot(axs[k], xData[i], yData[i], dataLabel[i], lineColor[i], lineStyle[i], lineWidth[i], \
+        for i in range(0, num_datasets_per_subplot):
+            plot_plot(axs[k], xData[subplot_xCol[i]], yData[subplot_yCol[i]], dataLabel[i], lineColor[i], lineStyle[i], lineWidth[i], \
             markerType[i], markerSize[i], markerThickness[i], markerFaceColor[i])
 else:
     for i in range(0, num_datasets):

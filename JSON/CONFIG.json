@@ -1,5 +1,5 @@
 {
-  "updated"  : "2022-02-17, 14:43",
+  "updated"  : "2022-02-17, 16:48",
   "filename" : "testing",
 
   "figure_width"  : 22,
@@ -30,9 +30,6 @@
   "legend_alpha"    : 1,
 
   "grid_on" : true, 
-
-  "num_subplots_x" : 1,
-  "num_subplots_y" : 1,
 
   "num_datasets" : 2,
 
@@ -101,7 +98,34 @@
     "line_style" : "-",
     "line_width" : 2.5  
     }
+  ],
 
+  "num_subplots_x" : 1,
+  "num_subplots_y" : 2, 
+  "num_subplots"   : 2, 
+
+  "subplots": [
+    {
+      "subplotNum" : 1, 
+      "num_subplot_yDatasets" : 2,
+      "xDataCol"   : 1,
+      "yDataCol"   : [
+        {
+          "1" : 1, 
+          "2" : 2
+        }
+      ]
+    },
+    {
+      "subplotNum" : 2, 
+      "num_subplot_yDatasets" : 1,
+      "xDataCol"   : 2,
+      "yDataCol"   : [
+        {
+          "1" : 1
+        }
+      ]
+
+    }
   ]
-
 }
