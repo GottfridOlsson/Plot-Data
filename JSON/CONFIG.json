@@ -1,17 +1,18 @@
 {
-  "updated"  : "2022-02-03, 17:01",
+  "updated"  : "2022-02-17, 14:43",
   "filename" : "testing",
 
   "figure_width"  : 22,
   "figure_height" : 14, 
   
   "font"            : "CMU Serif",
+  "font_path"       : "C:\\Windows\\Fonts",
   "fontSize_axis"   : 16,
   "fontSize_tick"   : 14,
   "fontSize_legend" : 14,
 
-  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyzåäö [nm]",
-  "label_yAxis" : "Spänning [V]",
+  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyz [nm]",
+  "label_yAxis" : "Spanning [V]",
 
   "invert_xAxis" : false,
   "invert_yAxis" : false,
@@ -30,55 +31,60 @@
 
   "grid_on" : true, 
 
+  "num_subplots_x" : 1,
+  "num_subplots_y" : 1,
+
   "num_datasets" : 2,
 
   "datasets": [
     {
     "datasetNum" : 1,
-    "x_column"   : 1,
-    "y_column"   : 2,
+    "x_column"   : 2,
+    "y_column"   : 3,
 
     "errorbar_size"         : 0,
     "errorbar_linewidth"    : 0,
     "errorbar_capthickness" : 0, 
 
-    "datalabel" : "Mätdata",
+    "datalabel" : "DatasetNum 1",
     
     "marker_type"      : ".",  
     "marker_size"      : 8,
     "marker_thickness" : 2,
     "marker_facecolor" : "None",
 
-    "line_style" : "",
-    "line_width" : 2.5,
-    "line_color" : "#f1311d"
+    "line_color" : "#f1311d",
+    "line_style" : "-",
+    "line_width" : 2.5
+    
     },
 
     {
     "datasetNum" : 2,
-    "x_column"   : 1,
+    "x_column"   : 2,
     "y_column"   : 3,
 
     "errorbar_size"         : 0,
     "errorbar_linewidth"    : 0,
     "errorbar_capthickness" : 0, 
 
-    "datalabel" : "Kurvanpassning",
+    "datalabel" : "DatasetNum 2",
     
     "marker_type"      : "",  
-    "marker_size"      : 8,
+    "marker_size"      : 4,
     "marker_thickness" : 2,
     "marker_facecolor" : "None",
 
-    "line_style" : "-",
-    "line_width" : 2.5,
-    "line_color" : "#000000" 
+    "line_color" : "#000000",
+    "line_style" : "--",
+    "line_width" : 1
+    
     }, 
 
     {
     "datasetNum" : 3,
-    "x_column"   : 2,
-    "y_column"   : 3,
+    "x_column"   : 3,
+    "y_column"   : 2,
 
     "errorbar_size"         : 0,
     "errorbar_linewidth"    : 0,
@@ -91,9 +97,9 @@
     "marker_thickness" : 2,
     "marker_facecolor" : "None",
 
+    "line_color" : "#3ac20e",
     "line_style" : "-",
-    "line_width" : 2.5,
-    "line_color" : "#3ac20e"  
+    "line_width" : 2.5  
     }
 
   ]

@@ -10,6 +10,7 @@
 
 ## IMPORT LIBRARIES ##
 
+from platform import java_ver
 from time import time
 import matplotlib as mpl            # to plot
 from matplotlib import font_manager # to get CMU Serif
@@ -26,9 +27,9 @@ def cm2inch(cm):
     return cm/2.54
 
 # markeredgewidth, markerfacecolor
-def plot_plot(ax, xData, yData, dataLabel, color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth):
-    out = ax.plot(xData, yData, label=dataLabel, color=color, marker=marker, markersize=markerSize, \
-      markeredgewidth=markerThickness, markerfacecolor=markerFaceColor, linestyle=lineStyle, linewidth=lineWidth)
+def plot_plot(ax, xData, yData, dataLabel, lineColor, lineStyle, lineWidth, markerType, markerSize, markerThickness, markerFaceColor):
+    out = ax.plot(xData, yData, label=dataLabel, color=lineColor, linestyle=lineStyle, linewidth=lineWidth, \
+        marker=markerType, markersize=markerSize, markeredgewidth=markerThickness, markerfacecolor=markerFaceColor, )
     print("DONE: Plotted data")
     return out
 
@@ -55,7 +56,7 @@ def set_legend(legendOn, alpha, location): #specify what "picture" to show in le
       print("DONE: Set legend")
 
 def set_grid(gridOn): #subdivisions
-      ax.grid(gridOn)
+      axs.grid(gridOn)
       print("DONE: Set grid")
 
 # Unsure whether or not this actually does anything... //2022-02-06
@@ -104,66 +105,66 @@ JSON_readFilePath = "JSON/CONFIG.json"
 config = JSON_handler.read_JSON(JSON_readFilePath)
 c = config
 
-num_datasets = c['num_datasets']
-xCol_index = [-1]*num_datasets
-yCol_index = [-1]*num_datasets
-xData = [0]*num_datasets
-yData = [0]*num_datasets
-dataLabel = [""]*num_datasets
-color = [""]*num_datasets
-marker = [""]*num_datasets
-markerSize = [0]*num_datasets
-markerThickness = [0]*num_datasets
-markerFaceColor = [""]*num_datasets
-lineStyle = [""]*num_datasets
-lineWidth = [0]*num_datasets
 
+# SET DATA FROM JSON #
+xLabel          = c['label_xAxis']
+yLabel          = c['label_yAxis']
+fig_height      = c['figure_height']
+fig_width       = c['figure_width']
+fontPath        = c['font_path']
+fontString      = c['font']
+defaultFontSize = c['fontSize_axis']
+xTickSize       = c['fontSize_tick']
+yTickSize       = c['fontSize_tick']
+legendFontSize  = c['fontSize_legend']
+gridOn          = c['grid_on']
+legendOn        = c['legend_on']
+legendAlpha     = c['legend_alpha']
+legendLocation  = c['legend_position']
+num_subplots_x  = c['num_subplots_x']
+num_subplots_y  = c['num_subplots_y']
+
+num_subplots = num_subplots_x*num_subplots_y
+
+# INITIALIZE #
+
+num_datasets    = c['num_datasets']
+xCol_index      = [0]*num_datasets
+yCol_index      = [0]*num_datasets
+xData           = [0]*num_datasets
+yData           = [0]*num_datasets
+lineWidth       = [0]*num_datasets
+markerSize      = [0]*num_datasets
+markerThickness = [0]*num_datasets
+floatPrecision_yAxis = [0]*num_subplots #unsure //2022-02-17
+floatPrecision_xAxis = [0]*num_subplots #unsure //2022-02-17
+markerFaceColor = [""]*num_datasets
+lineStyle       = [""]*num_datasets
+lineColor       = [""]*num_datasets
+dataLabel       = [""]*num_datasets
+markerType      = [""]*num_datasets
+
+
+# ASSIGN VALUES #
 
 for i in range(0, num_datasets):
-    xCol_index[i] = c['datasets'][i]['x_column'] - 1 #convert from human "1,2,3,..." to CPU index "0,1,2,..."
-    yCol_index[i] = c['datasets'][i]['y_column'] - 1
-    xData[i] = data[header[xCol_index[i]]]
-    yData[i] = data[header[yCol_index[i]]]
-    dataLabel[i] = c['datasets'][i]['datalabel']
-    color[i] = "#000000" #hex
-    marker[i] = ''
-    markerSize[i] = 6
-    markerThickness[i] = 2.5
-    markerFaceColor[i] = 'None'
-    lineStyle[i] = ':'
-    lineWidth[i] = 2.5
-
-print(len(xData[1]))
-print(len(yData[1]))
-
-#quit()
-
-#xCol_index = 0
-#yCol_index = 2
-#xData = data[header[xCol_index]]
-#yData = data[header[yCol_index]]
-xLabel = c['label_xAxis']
-yLabel = c['label_yAxis']
-
-fig_height = c['figure_height']
-fig_width = c['figure_width']
+    xCol_index[i]      = c['datasets'][i]['x_column'] - 1 #convert from human "1,2,3,..." to CPU index "0,1,2,..."
+    yCol_index[i]      = c['datasets'][i]['y_column'] - 1
+    xData[i]           = data[header[xCol_index[i]]]
+    yData[i]           = data[header[yCol_index[i]]]
+    dataLabel[i]       = c['datasets'][i]['datalabel']
+    lineColor[i]       = c['datasets'][i]['line_color']
+    lineStyle[i]       = c['datasets'][i]['line_style']
+    lineWidth[i]       = c['datasets'][i]['line_width']
+    markerType[i]      = c['datasets'][i]['marker_type']
+    markerSize[i]      = c['datasets'][i]['marker_size']
+    markerThickness[i] = c['datasets'][i]['marker_thickness']
+    markerFaceColor[i] = c['datasets'][i]['marker_facecolor']
 
 
-fontPath = "C:\Windows\Fonts"
-fontString = c['font']
-defaultFontSize = c['fontSize_axis']
-xTickSize = c['fontSize_tick']
-yTickSize = c['fontSize_tick']
-legendFontSize = c['fontSize_legend']
-
-gridOn = c['grid_on']
-legendOn = c['legend_on']
-dataLabel = "Measurements 2022-02-06"
-legendAlpha = c['legend_alpha']
-legendLocation = c['legend_position']
 
 
-filePathSaveFig = "PDF/testing2"
+filePathSaveFig = "PDF/testing2" #adhoc
 
 
 
@@ -175,11 +176,20 @@ set_CMU_serif_font(fontString, fontPath)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 #INTIALIZE 'fig, ax'
-fig, ax = plt.subplots(figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
-plot_plot(ax, xData, yData, dataLabel, color, marker, markerSize, markerThickness, markerFaceColor, lineStyle, lineWidth)
-set_labels(ax, xLabel, yLabel)
-set_commaDecimal_with_precision(ax, 1, 2)
-set_legend(legendOn, legendAlpha, legendLocation)
+fig, axs = plt.subplots(num_subplots_y, num_subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
+if num_subplots > 1: 
+    for k in range(0,num_subplots):
+        #function that chooses which plot to plot (errorbar, plot, colormap,...)
+        for i in thingThatDecidesWhichDatasetsGoesIntoWhichSubplots: #ex. datasets_subplot[k]
+            plot_plot(axs[k], xData[i], yData[i], dataLabel[i], lineColor[i], lineStyle[i], lineWidth[i], \
+            markerType[i], markerSize[i], markerThickness[i], markerFaceColor[i])
+else:
+    for i in range(0, num_datasets):
+        plot_plot(axs, xData[i], yData[i], dataLabel[i], lineColor[i], lineStyle[i], lineWidth[i], \
+            markerType[i], markerSize[i], markerThickness[i], markerFaceColor[i])
+    set_labels(axs, xLabel, yLabel)
+    set_commaDecimal_with_precision(axs, 1, 2)
+    set_legend(legendOn, legendAlpha, legendLocation)
 set_grid(gridOn)
 export_figure_as_pdf(filePathSaveFig)
 
