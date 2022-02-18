@@ -12,7 +12,7 @@
   "fontSize_tick"   : 14,
   "fontSize_legend" : 14,
 
-  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyz [nm]",
+  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyzåäö [nm]",
   "label_yAxis" : "Spanning [V]",
 
   "invert_xAxis" : false,

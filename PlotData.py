@@ -90,20 +90,28 @@ def set_commaDecimal_with_precision(ax, xAxis_precision, yAxis_precision, axNum)
     print("DONE: Set comma as decimalseparator on with precision: X: "+str(xAxis_precision)+", Y: "+str(yAxis_precision) + " on axs: "+str(axNum))
 
 def export_figure_as_pdf(filePath):
-    plt.savefig(filePath + '.pdf')
-    print("DONE: Exported PDF: " + filePath + ".pdf")
+    plt.savefig(filePath)
+    print("DONE: Exported PDF: " + filePath)
 
 
 ## MAIN ##
 
 #temp
-CSV_readFilePath = "CSV/testdata1.csv" #"CSV/20220202_1439_calibration_He_1_broad.csv"
+# OBS! must fill in JSON_readFilePath as of now #tofix!
+readJSONFilePathStringTEMP = "20220218_0838_He_broadAndGauss2"
+#"20220218_0938_fluorescens_mean"
+                        #"20220218_0925_absorption_I2_measurement2"
+                        #"20220202_1717_fluorescens_I2_measurement2"
+JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
+config = JSON_handler.read_JSON(JSON_readFilePath)
+c = config
+
+filename_csv = c['filename_csv']
+CSV_readFilePath = "CSV/"+str(filename_csv) + ".csv"  #"CSV/20220202_1439_calibration_He_1_broad.csv"
 data = CSV_handler.read_CSV(CSV_readFilePath)
 header = CSV_handler.get_header(data)
 
-JSON_readFilePath = "JSON/CONFIG.json"
-config = JSON_handler.read_JSON(JSON_readFilePath)
-c = config
+filePathSaveFig = "PDF/" + str(c['filename_pdf']) + ".pdf" #adhoc
 
 
 # SET DATA FROM JSON #
@@ -112,7 +120,7 @@ yLabel          = c['label_yAxis']
 fig_height      = c['figure_height']
 fig_width       = c['figure_width']
 fontPath        = c['font_path']
-fontString      = c['font']
+fontString      = c['font_string']
 defaultFontSize = c['fontSize_axis']
 xTickSize       = c['fontSize_tick']
 yTickSize       = c['fontSize_tick']
@@ -142,7 +150,7 @@ subplot_xCol    = [0]*num_subplots
 subplot_yCols   = [ [ None for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation; -5 for "fel" or "no real column"
 subplot_xData   = [0]*num_subplots
 subplot_yData   = [0]*num_subplots
-gridsOn         = [False for i in range(num_subplots)]
+gridsOn         = [ False for i in range(num_subplots) ]
 xLabels         = [""]*num_subplots
 yLabels         = [""]*num_subplots
 markerFacecolor = [""]*num_datasets
@@ -151,8 +159,8 @@ lineColor       = [""]*num_datasets
 dataLabel       = [""]*num_datasets
 markerType      = [""]*num_datasets
 
-
 datasets_per_subplot = [0]*num_subplots
+
 
 # ASSIGN VALUES #
 
@@ -184,12 +192,11 @@ if num_subplots > 1:
     
   
 
-filePathSaveFig = "PDF/testing2" #adhoc
 
-print(subplot_yCols)
-#actual main
 
-print(datetime.datetime.now())
+## ACTUAL MAIN ##
+
+print(datetime.datetime.now()) #helping text in terminal
 # FIRST 'plt.rc' 
 set_CMU_serif_font(fontString, fontPath)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
@@ -202,6 +209,8 @@ if num_subplots > 1:
         ## HEREGOES: function that chooses which plot to plot (errorbar, plot, colormap,...) foreach subplot
         for i in range(0, datasets_per_subplot[k]):
             if subplot_yCols[k][i] is not None:
+                print(data[header[subplot_xCol[i]]])
+                print(data[header[subplot_yCols[k][i]]])
                 plot_plot(axs[k], data[header[subplot_xCol[i]]], data[header[subplot_yCols[k][i]]], dataLabel[i],\
                      lineColor[i], lineStyle[i], lineWidth[i], markerType[i], markerSize[i], markerThickness[i], markerFacecolor[i], k)
         set_legend(axs[k], legendOn, legendAlpha, legendLocation, k)
@@ -217,6 +226,7 @@ if num_subplots <= 1:
     set_labels(axs, xLabel, yLabel, 1)
     set_grid(axs, gridOn, 1)
     set_legend(axs, legendOn, legendAlpha, legendLocation, 1)
+    set_commaDecimal_with_precision(axs, floatPrec_xAxis[0], floatPrec_yAxis[0], 1)
 
 plt.tight_layout() #unsure if this works w.r.t. Overleaf and textsize... //2022-02-17
 #plt.tight_layout(h_pad=1) #unsure if this works w.r.t. Overleaf and textsize... //2022-02-17
