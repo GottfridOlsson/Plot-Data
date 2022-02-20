@@ -1,106 +1,28 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-02-18, 08:38",
+  "updated"      : "2022-02-20, 17:44",
   "filename_csv" : "20220218_0838_He_broadAndGauss2",
   "filename_pdf" : "20220218_0838_He_broadAndGauss2",
 
   "figure_width"  : 22,
   "figure_height" : 16, 
   
-  "font_string"     : "CMU Serif",
-  "font_path"       : "C:\\Windows\\Fonts",
+  "font_family"     : "CMU serif",
   "fontSize_axis"   : 16,
   "fontSize_tick"   : 14,
   "fontSize_legend" : 14,
 
-  "label_xAxis" : "Abcdefghijklmnopqrstuvwxyzåäö [nm]",
-  "label_yAxis" : "Spanning [V]",
-
-  "invert_xAxis" : false,
-  "invert_yAxis" : false,
-
-  "xlim_min" : "None",
-  "xlim_max" : "None",
-  "ylim_min" : "None",
-  "ylim_max" : "None",
-    
-  "floatPrec_yAxis" : 1,
-  "floatPrec_xAxis" : 1,
-
-  "legend_on"       : true,
-  "legend_position" : "best", 
-  "legend_alpha"    : 1,
-
-  "grid_on" : true, 
-
   "num_datasets" : 2,
 
-  "datasets": [
-    {
-    "datasetNum" : 1,
-    "x_column"   : 2,
-    "y_column"   : 3,
-
-    "errorbar_size"         : 0,
-    "errorbar_linewidth"    : 0,
-    "errorbar_capthickness" : 0, 
-
-    "datalabel" : "Matdata",
-    
-    "marker_type"      : "",  
-    "marker_size"      : 6,
-    "marker_thickness" : 2,
-    "marker_facecolor" : "None",
-
-    "line_color" : "#f1311d",
-    "line_style" : "-",
-    "line_width" : 2.5
-    
-    },
-
-    {
-    "datasetNum" : 2,
-    "x_column"   : 4,
-    "y_column"   : 5,
-
-    "errorbar_size"         : 0,
-    "errorbar_linewidth"    : 0,
-    "errorbar_capthickness" : 0, 
-
-    "datalabel" : "Kurvanpassning",
-    
-    "marker_type"      : "",  
-    "marker_size"      : 4,
-    "marker_thickness" : 2,
-    "marker_facecolor" : "None",
-
-    "line_color" : "#000000",
-    "line_style" : "-",
-    "line_width" : 2.5
-    
-    }, 
-
-    {
-    "datasetNum" : 3,
-    "x_column"   : 4,
-    "y_column"   : 6,
-
-    "errorbar_size"         : 0,
-    "errorbar_linewidth"    : 0,
-    "errorbar_capthickness" : 0, 
-
-    "datalabel" : "Matdata",
-    
-    "marker_type"      : "o",  
-    "marker_size"      : 6,
-    "marker_thickness" : 2,
-    "marker_facecolor" : "None",
-
-    "line_color" : "#3ac20e",
-    "line_style" : "",
-    "line_width" : 2.5  
-    }
-  ],
+  "utf-8_encoding_help" : {
+    "comment" : true,
+    "Å" : "\u00c5", 
+    "Ä" : "\u00c4", 
+    "Ö" : "\u00d6", 
+    "å" : "\u00e5", 
+    "ä" : "\u00e4", 
+    "ö" : "\u00f6"
+  },
 
   "num_subplots"   : 2, 
   "num_subplots_x" : 1,
@@ -108,37 +30,155 @@
 
   "subplots": [
     {
-      "subplotNum" : 1, 
-      "num_subplot_yDatasets" : 1,
-      "xLabel"     : "Vaglangd (nm)",
-      "yLabel"     : "Spanning (V)",
-      "xDataCol"   : 2,
-      "yDataCol"   : [ {"1" : 3}], 
-      "gridOn"     : true,
+      "subplotNum"    : 1, 
+      "num_yDatasets" : 1,
+
+      "xDataCol"      : 2,
+      "yDataCol"      : [ {"1" : 3}], 
+      "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
+      "yLabel"        : "Sp\u00e4nning (V)",
+
+      "yDataset" : [{
+        "yDatasetNum" : 1,
+        "datalabel"   : "M\u00e4tdata",
+    
+        "marker_type"      : "",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#f1311d",
+        "line_style" : "-",
+        "line_width" : 2.5  
+      }
+      ],
+
+      "xlim_min" : 580,
+      "xlim_max" : 720,
+      "ylim_min" : 0,
+      "ylim_max" : 3,
+
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 1
+      "floatPrec_yAxis" : 2, 
+
+      "legend_on"       : true,
+      "legend_location" : "best", 
+      "legend_alpha"    : 1,
+      
+      "grid_on"         : true,
+
+      "invert_xAxis"    : false,
+      "invert_yAxis"    : false
+
     },
     {
-      "subplotNum" : 2, 
-      "num_subplot_yDatasets" : 2,
-      "xLabel"     : "Vaglangd (nm)",
-      "yLabel"     : "Spanning (V)",
-      "xDataCol"   : 4,
-      "yDataCol"   : [ {"1" : 5}, {"2" : 6} ], 
-      "gridOn"     : true,
+      "subplotNum"    : 2, 
+      "num_yDatasets" : 2,
+
+      "xDataCol"      : 4,
+      "yDataCol"      : [ {"1" : 5}, {"2" : 6} ], 
+      "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
+      "yLabel"        : "Sp\u00e4nning (V)",
+
+      "yDataset" : [{
+        "yDatasetNum" : 1,
+        "datalabel" : "M\u00e4tpunkter",
+    
+        "marker_type"      : "o",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#f1311d",
+        "line_style" : "",
+        "line_width" : 2.5  
+      }, 
+      {
+        "yDatasetNum" : 2,
+        "datalabel" : "Kurvanpassning",
+      
+        "marker_type"      : "",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#000000",
+        "line_style" : "-",
+        "line_width" : 2.5 
+      }
+      ],
+
+      "xlim_min" : 667.0,
+      "xlim_max" : 668.45,
+      "ylim_min" : false,
+      "ylim_max" : false,
+
       "floatPrec_xAxis" : 1,
-      "floatPrec_yAxis" : 1
+      "floatPrec_yAxis" : 1, 
+
+      "legend_on"       : true,
+      "legend_location" : "best", 
+      "legend_alpha"    : 1,
+      
+      "grid_on"         : true,
+
+      "invert_xAxis"    : false,
+      "invert_yAxis"    : false
     }, 
     {
-      "subplotNum" : 3, 
-      "num_subplot_yDatasets" : 2,
-      "xLabel"     : "subplot 3, x-axis",
-      "yLabel"     : "subplot 3, y-axis",
-      "xDataCol"   : 2,
-      "yDataCol"   : [ {"1" : 1}, {"2" : 3} ], 
-      "gridOn"     : true,
+      "subplotNum"    : 3, 
+      "num_yDatasets" : 2,
+      
+      "xDataCol"      : 4,
+      "yDataCol"      : [ {"1" : 5}, {"2" : 6} ], 
+      "xLabel"        : "test (nm)",
+      "yLabel"        : "test (V)",
+
+      "yDataset" : [{
+        "yDatasetNum" : 1,
+        "datalabel" : "subplot 2, ydataset 1",
+    
+        "marker_type"      : "o",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#3ac20e",
+        "line_style" : "",
+        "line_width" : 2.5  
+      }, 
+      {
+        "yDatasetNum" : 2,
+        "datalabel" : "subplot 2, ydataset 2",
+      
+        "marker_type"      : "x",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#3ac20e",
+        "line_style" : "",
+        "line_width" : 5 
+      }
+      ],
+
+      "xlim_min" : false,
+      "xlim_max" : false,
+      "ylim_min" : false,
+      "ylim_max" : false,
+
       "floatPrec_xAxis" : 1,
-      "floatPrec_yAxis" : 1
+      "floatPrec_yAxis" : 2, 
+
+      "legend_on"       : true,
+      "legend_location" : "best", 
+      "legend_alpha"    : 1,
+      
+      "grid_on"         : false,
+
+      "invert_xAxis"    : false,
+      "invert_yAxis"    : false
     }
-  ]
+  ],
+  "EOF" : true
 }

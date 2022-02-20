@@ -18,5 +18,7 @@
    # LEGEND
    # so on...
 
+   # invert axis
+
    plot vertical and horisontal lines at specified points (e.g. for showing peaks)
    

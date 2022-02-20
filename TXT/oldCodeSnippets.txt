@@ -1,0 +1,26 @@
+//2022-02-20
+
+#CHECK GLYPHS IN FONT
+import fontTools as fontTools
+from fontTools.ttLib import TTFont  #to check glyphs in font
+from fontTools.unicode import Unicode
+font = TTFont('C:\Windows\Fonts\cmunrm.ttf')
+
+def has_glyph(font, glyph):
+    for table in font['cmap'].tables:
+        if ord(glyph) in table.cmap.keys():
+            return True
+    return False
+
+print(has_glyph(font, 'å'))
+print(has_glyph(font, 'ä'))
+print(has_glyph(font, 'ö'))
+
+//2022-02-20
+
+
+    "errorbar_size"         : 0,
+    "errorbar_linewidth"    : 0,
+    "errorbar_capthickness" : 0, 
+
+    
