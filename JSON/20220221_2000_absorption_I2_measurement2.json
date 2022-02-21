@@ -1,17 +1,17 @@
 {
-  "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-02-21, 19:07",
-  "about"        : "MALL",
-  "filename_csv" : "testdata1",
-  "filename_pdf" : "testPDF1",
+  "author"       : "Gottfrid Olsson och Viktor Lilja",
+  "updated"      : "2022-02-21, 20:00",
+  "about"        : "Calibration with He-spectrum for TIF091 experimental physics 2",
+  "filename_csv" : "20220203_1130_absorption_I2_measurement2",
+  "filename_pdf" : "20220221_2000_absorption_I2_measurement2",
 
   "figure_width"  : 22,
-  "figure_height" : 16, 
+  "figure_height" : 14, 
   
   "font_family"     : "CMU serif",
-  "fontSize_axis"   : 16,
-  "fontSize_tick"   : 14,
-  "fontSize_legend" : 14,
+  "fontSize_axis"   : 17,
+  "fontSize_tick"   : 15,
+  "fontSize_legend" : 13,
 
   "utf-8_encoding_help" : {
     "comment" : true,
@@ -23,9 +23,9 @@
     "ö" : "\u00f6"
   },
 
-  "num_subplots"   : 2, 
+  "num_subplots"   : 1, 
   "num_subplots_x" : 1,
-  "num_subplots_y" : 2, 
+  "num_subplots_y" : 1, 
 
   "subplots": [
     {
@@ -48,17 +48,30 @@
     
         "line_color" : "#f1311d",
         "line_style" : "-",
-        "line_width" : 2.5  
+        "line_width" : 2.2  
+      }, 
+      {
+        "yDatasetNum" : 2,
+        "datalabel"   : "Simulering",
+    
+        "marker_type"      : "x",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#000000",
+        "line_style" : "-",
+        "line_width" : 2.2  
       }
       ],
 
-      "xlim_min" : 580,
-      "xlim_max" : 720,
+      "xlim_min" : 500,
+      "xlim_max" : 750,
       "ylim_min" : 0,
-      "ylim_max" : 3,
+      "ylim_max" : 2,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 1, 
+      "floatPrec_yAxis" : 2, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
@@ -84,7 +97,7 @@
         "datalabel" : "M\u00e4tpunkter",
     
         "marker_type"      : "o",  
-        "marker_size"      : 6,
+        "marker_size"      : 5,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     

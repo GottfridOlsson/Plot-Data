@@ -1,8 +1,8 @@
-## PLOT SCIENTIFIC DATA: MAIN PLOTTER                      ##
+## PLOT SCIENTIFIC DATA: PLOTTER                           ##
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-20, 17:44
+#     Updated: 2022-02-21, 20:17
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -12,11 +12,8 @@
 # IMPORT LIBRARIES #
 #------------------#
 
-import matplotlib           # to plot
-from matplotlib import font_manager # to get CMU Serif
-import matplotlib.pyplot as plt     # to plot
-import matplotlib.ticker as tkr     # for comma in x- and y-axis
-import datetime                     # (perhaps unnecessary) to know when script last ran
+import matplotlib                 
+import matplotlib.pyplot as plt     
 
 import CSV_handler 
 import JSON_handler
@@ -42,13 +39,22 @@ def set_labels(ax, xLabel, yLabel, axNum): #TODO:#, majorTickLabel, minorTickLab
     print("DONE: Set x- and y-label axs: " + str(axNum))
     #ax.set_major
 
+def set_font(fontFamily): #, fontDirectory): //2022-02-20
+    # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
+     #font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
+     #for font_file in font_files:
+     #    font_manager.fontManager.addfont(font_file) #commented //2022-02-20
+     #needs:  from matplotlib import font_manager # to get CMU Serif //don't use this part of the function anymore //2022-02-20
+    matplotlib.rcParams['font.family'] = fontFamily
+    print("DONE: Set font to: " + fontFamily)
+
 def set_font_size(defaultTextSize, xTickSize, yTickSize, legendFontSize): #TODO: major tick, minor tick 
-    plt.rc('font',       size=defaultTextSize) #controls default text size
-    #plt.rc('axes',  titlesize=10) #fontsize of the title
-    plt.rc('axes',  labelsize=defaultTextSize) #fontsize of the x and y labels
-    plt.rc('xtick', labelsize=xTickSize) #fontsize of the x tick labels
-    plt.rc('ytick', labelsize=yTickSize) #fontsize of the y tick labels
-    plt.rc('legend', fontsize=legendFontSize) #fontsize of the legend
+    plt.rc('font',   size=defaultTextSize)
+    plt.rc('axes',   titlesize=10)
+    plt.rc('axes',   labelsize=defaultTextSize) 
+    plt.rc('xtick',  labelsize=xTickSize)
+    plt.rc('ytick',  labelsize=yTickSize)
+    plt.rc('legend', fontsize=legendFontSize)
     print("DONE: Set font size")
 
 def set_legend(ax, legendOn, alpha, location, axNum):
@@ -67,14 +73,6 @@ def get_ax_size(ax):
     height *= fig.dpi
     return width, height
 
-def set_font(fontFamily): #, fontDirectory): //2022-02-20
-    # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
-     #font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
-     #for font_file in font_files:
-     #    font_manager.fontManager.addfont(font_file) #commented //2022-02-20
-    matplotlib.rcParams['font.family'] = fontFamily
-    print("DONE: Set font to: " + fontFamily)
-
 def set_limits(ax, xmin, xmax, ymin, ymax, axNum):
     if not xmin: xmin = None
     if not xmax: xmax = None
@@ -89,8 +87,8 @@ def set_commaDecimal_with_precision(ax, xAxis_precision, yAxis_precision, axNum)
     # Modified from: https://stackoverflow.com/questions/8271564/matplotlib-comma-separated-number-format-for-axis
     xFormatString = '{:.' + str(xAxis_precision) + 'f}'
     yFormatString = '{:.' + str(yAxis_precision) + 'f}'
-    ax.get_xaxis().set_major_formatter( tkr.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )
-    ax.get_yaxis().set_major_formatter( tkr.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )
+    ax.get_xaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )
+    ax.get_yaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )
     print("DONE: Set comma as decimalseparator on with precision: X: "+str(xAxis_precision)+", Y: "+str(yAxis_precision) + " on axs: "+str(axNum))
 
 def align_labels(fig):
@@ -107,16 +105,14 @@ def export_figure_as_pdf(filePath):
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220218_0838_He_broadAndGauss2"
-#"20220218_0938_fluorescens_mean"
-                        #"20220218_0925_absorption_I2_measurement2"
-                        #"20220202_1717_fluorescens_I2_measurement2"
+readJSONFilePathStringTEMP = "20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean" #"20220221_1934_HeBroadAndGauss2" #
+
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = JSON_handler.read_JSON(JSON_readFilePath)
 c = config
 
 filename_csv = c['filename_csv']
-CSV_readFilePath = "CSV/"+str(filename_csv) + ".csv"  #"CSV/20220202_1439_calibration_He_1_broad.csv"
+CSV_readFilePath = "CSV/"+str(filename_csv) + ".csv"
 data = CSV_handler.read_CSV(CSV_readFilePath)
 header = CSV_handler.get_header(data)
 
@@ -134,9 +130,10 @@ defaultFontSize = c['fontSize_axis']
 xTickSize       = c['fontSize_tick']
 yTickSize       = c['fontSize_tick']
 legendFontSize  = c['fontSize_legend']
+num_subplots    = c['num_subplots']
 subplots_x      = c['num_subplots_x']
 subplots_y      = c['num_subplots_y']
-num_subplots    = c['num_subplots']
+
 
 
 #------------#
@@ -193,7 +190,6 @@ for i in range(0, num_subplots):
     for k in range(0, c['subplots'][i]['num_yDatasets']):
         subplot_yCol[i][k]    = c['subplots'][i]['yDataCol'][k][str(k+1)] - 1
         dataLabel[i][k]       = c['subplots'][i]['yDataset'][k]['datalabel']
-        print(c['subplots'][i]['yDataset'][k]['datalabel'])
         lineColor[i][k]       = c['subplots'][i]['yDataset'][k]['line_color']
         lineStyle[i][k]       = c['subplots'][i]['yDataset'][k]['line_style']
         lineWidth[i][k]       = c['subplots'][i]['yDataset'][k]['line_width']
@@ -205,18 +201,14 @@ for i in range(0, num_subplots):
 
   
 
-
 ##---------------##
 ##  ACTUAL MAIN  ##
 ##---------------##
 
-print(datetime.datetime.now()) #helping text in terminal
-# FIRST 'plt.rc' 
 set_font(fontFamily)#, fontDirectory) #//2022-02-20
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
-# INTIALIZE 'fig, ax' #
-fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height))) #initialize fig, ax
+fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height)))
 
 if num_subplots > 1: 
     for k in range(0, num_subplots):
@@ -247,19 +239,11 @@ if num_subplots <= 1:
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[k], floatPrec_yAxis[k], k)
 
 align_labels(fig)
-plt.tight_layout() #unsure if this works w.r.t. Overleaf and textsize... //2022-02-17. Do test this out a bit in Overleaf //2022-02-20
-    #plt.tight_layout(h_pad=1) #unsure if this works w.r.t. Overleaf and textsize... //2022-02-17
+plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21
 export_figure_as_pdf(filePathSaveFig)
 
 plt.show()
 print() #for new line
-
-
-
-## SOURCES TO CHECK OUT:
-  # https://matplotlib.org/stable/tutorials/introductory/usage.html
-# for curve-fitting
-# https://towardsdatascience.com/basic-curve-fitting-of-scientific-data-with-python-9592244a2509
 
 
 ###-----###

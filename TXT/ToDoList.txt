@@ -22,3 +22,7 @@
 
    plot vertical and horisontal lines at specified points (e.g. for showing peaks)
    
+   ## SOURCES TO CHECK OUT:
+  # https://matplotlib.org/stable/tutorials/introductory/usage.html
+# for curve-fitting
+# https://towardsdatascience.com/basic-curve-fitting-of-scientific-data-with-python-9592244a2509

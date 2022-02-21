@@ -1,17 +1,17 @@
 {
-  "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-02-21, 19:07",
-  "about"        : "MALL",
-  "filename_csv" : "testdata1",
-  "filename_pdf" : "testPDF1",
+  "author"       : "Gottfrid Olsson och Viktor Lilja",
+  "updated"      : "2022-02-21, 19:34",
+  "about"        : "Calibration with He-spectrum for TIF091 experimental physics 2",
+  "filename_csv" : "20220221_1934_HeBroadAndGauss2",
+  "filename_pdf" : "20220221_1934_HeBroadAndGauss2",
 
   "figure_width"  : 22,
-  "figure_height" : 16, 
+  "figure_height" : 17, 
   
   "font_family"     : "CMU serif",
-  "fontSize_axis"   : 16,
-  "fontSize_tick"   : 14,
-  "fontSize_legend" : 14,
+  "fontSize_axis"   : 17,
+  "fontSize_tick"   : 15,
+  "fontSize_legend" : 13,
 
   "utf-8_encoding_help" : {
     "comment" : true,
@@ -84,7 +84,7 @@
         "datalabel" : "M\u00e4tpunkter",
     
         "marker_type"      : "o",  
-        "marker_size"      : 6,
+        "marker_size"      : 5,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     

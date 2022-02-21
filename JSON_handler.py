@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 19:18
-#     Updated: 2022-02-06, 20:48
+#     Updated: 2022-02-21, 19:39
 #       About: Read and write to JSON-files.
 ##---------------------------------------------------------##
 
@@ -35,3 +35,4 @@ JSON_writeFilePath = "JSON/test_write.json"
 JSON_data = read_JSON(JSON_readFilePath)
 write_JSON(JSON_writeFilePath, JSON_data)
 
+# EOF #

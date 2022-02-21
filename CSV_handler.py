@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:38
-#     Updated: 2022-02-06, 20:47
+#     Updated: 2022-02-21, 19:39
 #       About: Imports CSV- and prints data to a CSV-file.
 #              Has functions for moving, splitting, removing,
 #              and altering data in CSV-file.
@@ -12,7 +12,6 @@
 
 import pandas as pd
 #import csv
-
 
 ## CONSTANTS ##
 
@@ -41,14 +40,4 @@ def get_header(CSV_data):
     return CSV_data.columns.values
 
 
-## MAIN ##
-
-#CSV_readFilePath = "CSV/testdata1.csv"
-#CSV_writeFilePath = "test2.csv"
-
-
-#CSV_data = read_CSV(CSV_readFilePath)
-#print(CSV_data)
-#CSV_header = get_header(CSV_data)
-#print(CSV_header)
-
+# EOF #
