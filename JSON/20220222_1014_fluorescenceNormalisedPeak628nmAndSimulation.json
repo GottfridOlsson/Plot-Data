@@ -8,7 +8,8 @@
   "figure_width"  : 24,
   "figure_height" : 16, 
   
-  "font_family"     : "CMU serif",
+  "font_family"     : "CMU Serif",
+  "font_directory"  : "C:\\Windows\\Fonts",
   "fontSize_axis"   : 18.55,
   "fontSize_tick"   : 16.36,
   "fontSize_legend" : 14.18,
@@ -26,6 +27,7 @@
   "num_subplots"   : 2, 
   "num_subplots_x" : 1,
   "num_subplots_y" : 2, 
+  "max_yDatasets"  : 2,
 
   "subplots": [
     {

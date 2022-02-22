@@ -1,6 +1,6 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-02-21, 19:34",
+  "updated"      : "2022-02-22, 17:33",
   "about"        : "Calibration with He-spectrum for TIF091 experimental physics 2",
   "filename_csv" : "20220221_1934_HeBroadAndGauss2",
   "filename_pdf" : "20220221_1934_HeBroadAndGauss2",
@@ -9,6 +9,7 @@
   "figure_height" : 17, 
   
   "font_family"     : "CMU serif",
+  "font_directory"  : "C:\\Windows\\Fonts",
   "fontSize_axis"   : 17,
   "fontSize_tick"   : 15,
   "fontSize_legend" : 13,
@@ -26,6 +27,7 @@
   "num_subplots"   : 2, 
   "num_subplots_x" : 1,
   "num_subplots_y" : 2, 
+  "max_yDatasets"  : 2,
 
   "subplots": [
     {

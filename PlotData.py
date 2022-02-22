@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-22, 11:17
+#     Updated: 2022-02-22, 18:00
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -14,10 +14,10 @@
 
 import matplotlib                 
 import matplotlib.pyplot as plt     
+from matplotlib import font_manager # to get fonts not 'default' in matplotlib
 
 import CSV_handler 
 import JSON_handler
-
 
 
 ##---------------##
@@ -39,12 +39,10 @@ def set_labels(ax, xLabel, yLabel, axNum): #TODO:#, majorTickLabel, minorTickLab
     print("DONE: Set x- and y-label axs: " + str(axNum))
     #ax.set_major
 
-def set_font(fontFamily): #, fontDirectory): //2022-02-20
-    # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
-     #font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
-     #for font_file in font_files:
-     #    font_manager.fontManager.addfont(font_file) #commented //2022-02-20
-     #needs:  from matplotlib import font_manager # to get CMU Serif //don't use this part of the function anymore //2022-02-20
+def set_font(fontFamily, fontDirectory): # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
+    font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
+    for font_file in font_files:
+        font_manager.fontManager.addfont(font_file) #commented //2022-02-20, uncommented //2022-02-22
     matplotlib.rcParams['font.family'] = fontFamily
     print("DONE: Set font to: " + fontFamily)
 
@@ -99,7 +97,6 @@ def export_figure_as_pdf(filePath):
     print("DONE: Exported PDF: " + filePath)
 
 
-
 ##----------##
 ##   MAIN   ##
 ##----------##
@@ -126,6 +123,7 @@ filePathSaveFig = "PDF/" + str(c['filename_pdf']) + ".pdf" #adhoc
 fig_height      = c['figure_height']
 fig_width       = c['figure_width']
 fontFamily      = c['font_family']
+fontDirectory   = c['font_directory']
 defaultFontSize = c['fontSize_axis']
 xTickSize       = c['fontSize_tick']
 yTickSize       = c['fontSize_tick']
@@ -133,10 +131,7 @@ legendFontSize  = c['fontSize_legend']
 num_subplots    = c['num_subplots']
 subplots_x      = c['num_subplots_x']
 subplots_y      = c['num_subplots_y']
-
-#TOFIX:
-#TOFIX: do smth like this to fix the initialize/allocation of matrixes for things below //2022-02-22
- # max_yDatasets_per_subplot = c['max_yDatasets_per_subplot']
+max_yDatasets   = c['max_yDatasets']
 
 
 #------------#
@@ -146,19 +141,17 @@ subplots_y      = c['num_subplots_y']
 floatPrec_yAxis = [0]*num_subplots 
 floatPrec_xAxis = [0]*num_subplots
 subplot_xData   = [0]*num_subplots
-subplot_yData   = [0]*num_subplots 
-subplot_xCol    = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-subplot_yCol    = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-    #TOFIX: subplot_yCol should, in the second range, NOT have num_subplots but rather " max(c['subplots'][i]['num_yDatasets']) " //2022-02-22
-dataLabel       = [ [   "" for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?  
-#TOFIX: dataLabel should, in the second range, NOT have num_subplots but rather " max(c['subplots'][i]['num_yDatasets']) " //2022-02-22
-lineColor       = [ [   "" for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-lineStyle       = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-lineWidth       = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-markerSize      = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-markerThickness = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-markerType      = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
-markerFacecolor = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+subplot_yData   = [0]*num_subplots
+subplot_xCol    = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
+subplot_yCol    = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
+dataLabel       = [ [   "" for i in range(max_yDatasets) ] for i in range(num_subplots)] 
+lineColor       = [ [   "" for i in range(max_yDatasets) ] for i in range(num_subplots)]
+lineStyle       = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
+lineWidth       = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+markerSize      = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+markerThickness = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+markerType      = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
+markerFacecolor = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
 legendOn        = [ False for i in range(num_subplots) ]
 legendAlpha     = [ False for i in range(num_subplots) ]
 legendLocation  = [ False for i in range(num_subplots) ]
@@ -172,29 +165,27 @@ ylim_max        = [""]*num_subplots
 datasets_per_subplot = [0]*num_subplots
 
 
+
 #---------------#
 # ASSIGN VALUES #
 #---------------#
 
 for i in range(0, num_subplots):
-    datasets_per_subplot[i] = c['subplots'][i]['num_yDatasets']
-    xLabel[i]               = c['subplots'][i]['xLabel']
-    yLabel[i]               = c['subplots'][i]['yLabel']
-    xlim_min[i]             = c['subplots'][i]['xlim_min']
-    xlim_max[i]             = c['subplots'][i]['xlim_max']
-    ylim_min[i]             = c['subplots'][i]['ylim_min']
-    ylim_max[i]             = c['subplots'][i]['ylim_max']
-    floatPrec_xAxis[i]      = c['subplots'][i]['floatPrec_xAxis']
-    floatPrec_yAxis[i]      = c['subplots'][i]['floatPrec_yAxis']
-    legendOn[i]             = c['subplots'][i]['legend_on']
-    legendLocation[i]       = c['subplots'][i]['legend_location']
-    legendAlpha[i]          = c['subplots'][i]['legend_alpha']
-    gridOn[i]               = c['subplots'][i]['grid_on']
+    datasets_per_subplot[i]   = c['subplots'][i]['num_yDatasets']
+    xLabel[i]                 = c['subplots'][i]['xLabel']
+    yLabel[i]                 = c['subplots'][i]['yLabel']
+    xlim_min[i]               = c['subplots'][i]['xlim_min']
+    xlim_max[i]               = c['subplots'][i]['xlim_max']
+    ylim_min[i]               = c['subplots'][i]['ylim_min']
+    ylim_max[i]               = c['subplots'][i]['ylim_max']
+    floatPrec_xAxis[i]        = c['subplots'][i]['floatPrec_xAxis']
+    floatPrec_yAxis[i]        = c['subplots'][i]['floatPrec_yAxis']
+    legendOn[i]               = c['subplots'][i]['legend_on']
+    legendLocation[i]         = c['subplots'][i]['legend_location']
+    legendAlpha[i]            = c['subplots'][i]['legend_alpha']
+    gridOn[i]                 = c['subplots'][i]['grid_on']
 
     for k in range(0, c['subplots'][i]['num_yDatasets']):
-        print(i,k)
-        #print(c['subplots'][i]['yDataCol'][k][str(k+1)] - 1)
-        print(len(dataLabel))
         subplot_xCol[i][k]    = c['subplots'][i]['xDataCol'][k][str(k+1)] - 1
         subplot_yCol[i][k]    = c['subplots'][i]['yDataCol'][k][str(k+1)] - 1
         dataLabel[i][k]       = c['subplots'][i]['yDataset'][k]['datalabel']
@@ -207,24 +198,12 @@ for i in range(0, num_subplots):
         markerFacecolor[i][k] = c['subplots'][i]['yDataset'][k]['marker_facecolor']
         
 
-  
-
-
-
-#error searching:
-
-if False:
-    print(subplot_xCol)
-    print(subplot_yCol)
-    print(data)
-    print(xlim_min, xlim_max, ylim_min, ylim_max)
-    
 
 ##---------------##
 ##  ACTUAL MAIN  ##
 ##---------------##
 
-set_font(fontFamily)#, fontDirectory) #//2022-02-20
+set_font(fontFamily, fontDirectory)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height)))
@@ -233,7 +212,6 @@ if num_subplots > 1:
     for k in range(0, num_subplots):
         ## HEREGOES: function that chooses which plot to plot (errorbar, plot, colormap,...) foreach subplot
         for i in range(0, datasets_per_subplot[k]):
-            print(subplot_yCol)
             if subplot_yCol[k][i] is not None:
                 print("Plotting: x: "+ header[subplot_xCol[k][i]]+", and y: "+ header[subplot_yCol[k][i]])
                 plot_plot(axs[k], data[header[subplot_xCol[k][i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
@@ -245,7 +223,6 @@ if num_subplots > 1:
         set_grid(axs[k], gridOn[k], k)
         set_commaDecimal_with_precision(axs[k], floatPrec_xAxis[k], floatPrec_yAxis[k], k)
         
-
 if num_subplots <= 1:
     k = 0 #to avoid magic numbers
     for i in range(0, datasets_per_subplot[k]):
@@ -258,10 +235,9 @@ if num_subplots <= 1:
     set_grid(  axs, gridOn[k], k)
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[k], floatPrec_yAxis[k], k)
 
-#align_labels(fig)
-plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21
+align_labels(fig)
+plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21; looks like it works! //2022-02-22 
 export_figure_as_pdf(filePathSaveFig)
-
 plt.show()
 print() #for new line
 
