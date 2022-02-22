@@ -1,12 +1,12 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-02-21, 19:42",
-  "about"        : "Average of several fluorescence measurements for TIF091 experimental physics 2",
-  "filename_csv" : "20220218_0925_fluorescens_mean",
-  "filename_pdf" : "20220221_1942_fluorescens_mean",
+  "updated"      : "2022-02-22, 10:14",
+  "about"        : "Average of several fluorescence measurements and simulation for TIF091 experimental physics 2",
+  "filename_csv" : "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation",
+  "filename_pdf" : "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation",
 
   "figure_width"  : 24,
-  "figure_height" : 15, 
+  "figure_height" : 16, 
   
   "font_family"     : "CMU serif",
   "fontSize_axis"   : 18.55,
@@ -23,22 +23,35 @@
     "ö" : "\u00f6"
   },
 
-  "num_subplots"   : 1, 
+  "num_subplots"   : 2, 
   "num_subplots_x" : 1,
-  "num_subplots_y" : 1, 
+  "num_subplots_y" : 2, 
 
   "subplots": [
     {
       "subplotNum"    : 1, 
       "num_yDatasets" : 1,
 
-      "xDataCol"      : 1,
-      "yDataCol"      : [ {"1" : 2}], 
-      "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
-      "yLabel"        : "Sp\u00e4nning (V)",
+      "xDataCol"      : [{"1" : 5}, {"2" : 1}],
+      "yDataCol"      : [{"1" : 6}, {"2" : 4}], 
+      "xLabel"        : "",
+      "yLabel"        : "Normaliserad\nintensitet",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
+        "datalabel"   : "Simulering",
+    
+        "marker_type"      : "",  
+        "marker_size"      : 6,
+        "marker_thickness" : 2,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#101010",
+        "line_style" : "-",
+        "line_width" : 1.9  
+      }, 
+      {
+        "yDatasetNum" : 2,
         "datalabel"   : "M\u00e4tdata",
     
         "marker_type"      : "",  
@@ -48,30 +61,17 @@
     
         "line_color" : "#f1311d",
         "line_style" : "-",
-        "line_width" : 2.2  
-      }, 
-      {
-        "yDatasetNum" : 2,
-        "datalabel"   : "Simulering",
-    
-        "marker_type"      : "x",  
-        "marker_size"      : 6,
-        "marker_thickness" : 2,
-        "marker_facecolor" : "None",
-    
-        "line_color" : "#000000",
-        "line_style" : "-",
-        "line_width" : 2.2  
+        "line_width" : 2  
       }
       ],
 
-      "xlim_min" : 600,
+      "xlim_min" : 590,
       "xlim_max" : 800,
-      "ylim_min" : 0.11,
-      "ylim_max" : 0.15,
+      "ylim_min" : -0.02,
+      "ylim_max" : 1.15,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 3, 
+      "floatPrec_yAxis" : 1, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
@@ -85,25 +85,25 @@
     },
     {
       "subplotNum"    : 2, 
-      "num_yDatasets" : 2,
+      "num_yDatasets" : 1,
 
-      "xDataCol"      : 4,
-      "yDataCol"      : [ {"1" : 5}, {"2" : 6} ], 
+      "xDataCol"      : [{"1" : 1}],
+      "yDataCol"      : [ {"1" : 2}, {"2" : 6} ], 
       "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
       "yLabel"        : "Sp\u00e4nning (V)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
-        "datalabel" : "M\u00e4tpunkter",
+        "datalabel" : "M\u00e4tdata",
     
-        "marker_type"      : "o",  
+        "marker_type"      : "",  
         "marker_size"      : 5,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
         "line_color" : "#f1311d",
-        "line_style" : "",
-        "line_width" : 2.5  
+        "line_style" : "-",
+        "line_width" : 2 
       }, 
       {
         "yDatasetNum" : 2,
@@ -114,19 +114,19 @@
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
-        "line_color" : "#000000",
+        "line_color" : "#101010",
         "line_style" : "-",
         "line_width" : 2.5 
       }
       ],
 
-      "xlim_min" : 667.0,
-      "xlim_max" : 668.45,
-      "ylim_min" : false,
-      "ylim_max" : 0.85,
+      "xlim_min" : 590,
+      "xlim_max" : 800,
+      "ylim_min" : 0.11,
+      "ylim_max" : 0.15,
 
-      "floatPrec_xAxis" : 1,
-      "floatPrec_yAxis" : 1, 
+      "floatPrec_xAxis" : 0,
+      "floatPrec_yAxis" : 2, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
@@ -141,8 +141,8 @@
       "subplotNum"    : 3, 
       "num_yDatasets" : 2,
       
-      "xDataCol"      : 4,
-      "yDataCol"      : [ {"1" : 5}, {"2" : 6} ], 
+      "xDataCol"      : 1,
+      "yDataCol"      : [ {"1" : 2}, {"2" : 6} ], 
       "xLabel"        : "test (nm)",
       "yLabel"        : "test (V)",
 

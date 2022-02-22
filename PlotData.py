@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-21, 20:17
+#     Updated: 2022-02-22, 11:17
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -105,7 +105,7 @@ def export_figure_as_pdf(filePath):
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean" #"20220221_1934_HeBroadAndGauss2" #
+readJSONFilePathStringTEMP = "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean" #"20220221_1934_HeBroadAndGauss2" #
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = JSON_handler.read_JSON(JSON_readFilePath)
@@ -134,6 +134,9 @@ num_subplots    = c['num_subplots']
 subplots_x      = c['num_subplots_x']
 subplots_y      = c['num_subplots_y']
 
+#TOFIX:
+#TOFIX: do smth like this to fix the initialize/allocation of matrixes for things below //2022-02-22
+ # max_yDatasets_per_subplot = c['max_yDatasets_per_subplot']
 
 
 #------------#
@@ -144,16 +147,18 @@ floatPrec_yAxis = [0]*num_subplots
 floatPrec_xAxis = [0]*num_subplots
 subplot_xData   = [0]*num_subplots
 subplot_yData   = [0]*num_subplots 
-subplot_xCol    = [0]*num_subplots
-subplot_yCol    = [ [ None for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-dataLabel       = [ [   "" for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?  
-lineColor       = [ [   "" for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-lineStyle       = [ [ None for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-lineWidth       = [ [    0 for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-markerSize      = [ [    0 for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-markerThickness = [ [    0 for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-markerType      = [ [ None for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
-markerFacecolor = [ [ None for i in range(num_subplots) ] for i in range(num_subplots)] #perhaps too big of an allocation?
+subplot_xCol    = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+subplot_yCol    = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+    #TOFIX: subplot_yCol should, in the second range, NOT have num_subplots but rather " max(c['subplots'][i]['num_yDatasets']) " //2022-02-22
+dataLabel       = [ [   "" for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?  
+#TOFIX: dataLabel should, in the second range, NOT have num_subplots but rather " max(c['subplots'][i]['num_yDatasets']) " //2022-02-22
+lineColor       = [ [   "" for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+lineStyle       = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+lineWidth       = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+markerSize      = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+markerThickness = [ [    0 for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+markerType      = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
+markerFacecolor = [ [ None for i in range(5) ] for i in range(5)] #perhaps too big of an allocation?
 legendOn        = [ False for i in range(num_subplots) ]
 legendAlpha     = [ False for i in range(num_subplots) ]
 legendLocation  = [ False for i in range(num_subplots) ]
@@ -185,9 +190,12 @@ for i in range(0, num_subplots):
     legendLocation[i]       = c['subplots'][i]['legend_location']
     legendAlpha[i]          = c['subplots'][i]['legend_alpha']
     gridOn[i]               = c['subplots'][i]['grid_on']
-    subplot_xCol[i]         = c['subplots'][i]['xDataCol'] - 1 #-1 to go from CPU index to "human" index
 
     for k in range(0, c['subplots'][i]['num_yDatasets']):
+        print(i,k)
+        #print(c['subplots'][i]['yDataCol'][k][str(k+1)] - 1)
+        print(len(dataLabel))
+        subplot_xCol[i][k]    = c['subplots'][i]['xDataCol'][k][str(k+1)] - 1
         subplot_yCol[i][k]    = c['subplots'][i]['yDataCol'][k][str(k+1)] - 1
         dataLabel[i][k]       = c['subplots'][i]['yDataset'][k]['datalabel']
         lineColor[i][k]       = c['subplots'][i]['yDataset'][k]['line_color']
@@ -200,6 +208,17 @@ for i in range(0, num_subplots):
         
 
   
+
+
+
+#error searching:
+
+if False:
+    print(subplot_xCol)
+    print(subplot_yCol)
+    print(data)
+    print(xlim_min, xlim_max, ylim_min, ylim_max)
+    
 
 ##---------------##
 ##  ACTUAL MAIN  ##
@@ -214,10 +233,11 @@ if num_subplots > 1:
     for k in range(0, num_subplots):
         ## HEREGOES: function that chooses which plot to plot (errorbar, plot, colormap,...) foreach subplot
         for i in range(0, datasets_per_subplot[k]):
+            print(subplot_yCol)
             if subplot_yCol[k][i] is not None:
-                print("Plotting: x: "+ header[subplot_xCol[k]]+", and y: "+ header[subplot_yCol[k][i]])
-                plot_plot(axs[k], data[header[subplot_xCol[k]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
-                    lineColor[k][i], lineStyle[k][i], lineWidth[k][i], \
+                print("Plotting: x: "+ header[subplot_xCol[k][i]]+", and y: "+ header[subplot_yCol[k][i]])
+                plot_plot(axs[k], data[header[subplot_xCol[k][i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
+                    lineColor[k][i],  lineStyle[k][i],  lineWidth[k][i], \
                     markerType[k][i], markerSize[k][i], markerThickness[k][i], markerFacecolor[k][i], k)
         set_limits(axs[k], xlim_min[k], xlim_max[k], ylim_min[k], ylim_max[k], k)
         set_legend(axs[k], legendOn[k], legendAlpha[k], legendLocation[k], k)
@@ -229,8 +249,8 @@ if num_subplots > 1:
 if num_subplots <= 1:
     k = 0 #to avoid magic numbers
     for i in range(0, datasets_per_subplot[k]):
-            plot_plot(axs, data[header[subplot_xCol[i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
-                lineColor[k][i], lineStyle[k][i], lineWidth[k][i], \
+            plot_plot(axs, data[header[subplot_xCol[k][i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
+                lineColor[k][i],  lineStyle[k][i],  lineWidth[k][i], \
                 markerType[k][i], markerSize[k][i], markerThickness[k][i], markerFacecolor[k][i], k)
     set_limits(axs, xlim_min[k], xlim_max[k], ylim_min[k], ylim_max[k], k)
     set_legend(axs, legendOn[k], legendAlpha[k], legendLocation[k], k)
@@ -238,7 +258,7 @@ if num_subplots <= 1:
     set_grid(  axs, gridOn[k], k)
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[k], floatPrec_yAxis[k], k)
 
-align_labels(fig)
+#align_labels(fig)
 plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21
 export_figure_as_pdf(filePathSaveFig)
 
