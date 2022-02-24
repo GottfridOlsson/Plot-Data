@@ -1,0 +1,130 @@
+{
+    "author"       : "Gottfrid Olsson och Viktor Lilja",
+    "updated"      : "2022-02-23, 16:17",
+    "about"        : "Absorption, mean of measurements and simulation of I2 for TIF091 experimental physics 2",
+    "filename_csv" : "20220223_1617_absorbanceMeanAndSimulation",
+    "filename_pdf" : "20220223_1558_absorbanceMeanAndSimulation",
+  
+    "figure_width"  : 22,
+    "figure_height" : 17, 
+    
+    "font_family"     : "CMU serif",
+    "font_directory"  : "C:\\Windows\\Fonts",
+    "fontSize_axis"   : 17,
+    "fontSize_tick"   : 15,
+    "fontSize_legend" : 13,
+  
+    "utf-8_encoding_help" : {
+      "comment" : true,
+      "Å" : "\u00c5", 
+      "Ä" : "\u00c4", 
+      "Ö" : "\u00d6", 
+      "å" : "\u00e5", 
+      "ä" : "\u00e4", 
+      "ö" : "\u00f6"
+    },
+  
+    "num_subplots"   : 2, 
+    "num_subplots_x" : 1,
+    "num_subplots_y" : 2, 
+    "max_yDatasets"  : 1,
+  
+    "subplots": [
+      {
+        "subplotNum"    : 1, 
+        "num_yDatasets" : 1,
+  
+        "xDataCol"      : [ {"1" : 3} ],
+        "yDataCol"      : [ {"1" : 4} ], 
+        "xLabel"        : "",
+        "yLabel"        : "Absorbans",
+  
+        "yDataset" : [{
+          "yDatasetNum" : 1,
+          "datalabel"   : "Simulering",
+      
+          "marker_type"      : "",  
+          "marker_size"      : 6,
+          "marker_thickness" : 2,
+          "marker_facecolor" : "None",
+      
+          "line_color" : "#000000",
+          "line_style" : "-",
+          "line_width" : 2.5  
+        }
+        ],
+  
+        "xlim_min" : 520,
+        "xlim_max" : 660,
+        "ylim_min" : 0.35,
+        "ylim_max" : 0.95,
+  
+        "floatPrec_xAxis" : 0,
+        "floatPrec_yAxis" : 0, 
+  
+        "legend_on"       : true,
+        "legend_location" : "best", 
+        "legend_alpha"    : 1,
+        
+        "grid_on"         : true,
+  
+        "invert_xAxis"    : false,
+        "invert_yAxis"    : false
+  
+      },
+      {
+        "subplotNum"    : 2, 
+        "num_yDatasets" : 1,
+  
+        "xDataCol"      : [ {"1" : 1} ],
+        "yDataCol"      : [ {"1" : 2} ], 
+        "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
+        "yLabel"        : "Absorbans",
+  
+        "yDataset" : [{
+          "yDatasetNum" : 1,
+          "datalabel"   : "M\u00e4tdata",
+      
+          "marker_type"      : "",  
+          "marker_size"      : 5,
+          "marker_thickness" : 2,
+          "marker_facecolor" : "None",
+      
+          "line_color" : "#f1311d",
+          "line_style" : "-",
+          "line_width" : 2.5  
+        }, 
+        {
+          "yDatasetNum" : 2,
+          "datalabel" : "Kurvanpassning",
+        
+          "marker_type"      : "",  
+          "marker_size"      : 6,
+          "marker_thickness" : 2,
+          "marker_facecolor" : "None",
+      
+          "line_color" : "#000000",
+          "line_style" : "-",
+          "line_width" : 2.5 
+        }
+        ],
+  
+        "xlim_min" : 520,
+        "xlim_max" : 660,
+        "ylim_min" : 0.35,
+        "ylim_max" : 1,
+  
+        "floatPrec_xAxis" : 0,
+        "floatPrec_yAxis" : 0, 
+  
+        "legend_on"       : true,
+        "legend_location" : "best", 
+        "legend_alpha"    : 1,
+        
+        "grid_on"         : true,
+  
+        "invert_xAxis"    : false,
+        "invert_yAxis"    : false
+      }
+    ]
+  }

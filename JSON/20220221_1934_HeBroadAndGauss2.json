@@ -34,7 +34,7 @@
       "subplotNum"    : 1, 
       "num_yDatasets" : 1,
 
-      "xDataCol"      : 2,
+      "xDataCol"      : [ {"1" : 2} ],
       "yDataCol"      : [ {"1" : 3}], 
       "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
       "yLabel"        : "Sp\u00e4nning (V)",
@@ -76,7 +76,7 @@
       "subplotNum"    : 2, 
       "num_yDatasets" : 2,
 
-      "xDataCol"      : 4,
+      "xDataCol"      : [ {"1" : 4}, {"2" : 4} ],
       "yDataCol"      : [ {"1" : 5}, {"2" : 6} ], 
       "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
       "yLabel"        : "Sp\u00e4nning (V)",

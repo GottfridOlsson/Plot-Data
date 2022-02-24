@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-22, 18:00
+#     Updated: 2022-02-23, 16:48
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -102,7 +102,7 @@ def export_figure_as_pdf(filePath):
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean" #"20220221_1934_HeBroadAndGauss2" #
+readJSONFilePathStringTEMP = "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" # "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = JSON_handler.read_JSON(JSON_readFilePath)
