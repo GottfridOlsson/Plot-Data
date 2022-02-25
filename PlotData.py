@@ -2,7 +2,7 @@
 #----------------------------------------------------------##
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-23, 16:48
+#     Updated: 2022-02-25, 16:09
 #       About: Plot data in figures with matplotlib.
 #              Functions are used to make figure look nice. 
 #              Plot-settings as JSON. Export figure as PDF.
@@ -12,18 +12,44 @@
 # IMPORT LIBRARIES #
 #------------------#
 
+import json                         # to save/write to JSON
+import pandas as pd                 # for CSV
 import matplotlib                 
 import matplotlib.pyplot as plt     
 from matplotlib import font_manager # to get fonts not 'default' in matplotlib
-
-import CSV_handler 
-import JSON_handler
 
 
 ##---------------##
 ##   FUNCTIONS   ##
 ##---------------##
 
+## CSV_handler ##
+CSV_DELIMITER = ','
+
+def read_CSV(readFilePath):
+    #print("In progress: Reading CSV" + CSV_filePath)
+    CSV =  pd.read_csv(readFilePath, sep=CSV_DELIMITER)
+    print("DONE: Reading CSV: " + readFilePath)
+    return CSV
+
+def get_CSV_header(CSV_data):
+    return CSV_data.columns.values
+
+## JSON_handler ##
+def read_JSON(readFilePath):
+    with open(readFilePath, 'r') as jsonfile:
+        JSON = json.load(jsonfile)
+    print("DONE: Reading JSON: " + readFilePath)
+    return JSON
+
+def write_JSON(writeFilePath, JSON_data):
+    with open(writeFilePath, 'w', encoding='utf-8') as jsonfile:
+    #jsonfile.write(JSON) #commented out //2022-02-20
+        json.dump(JSON_data, jsonfile, ensure_ascii=False) #changed from "dumps()" to "dump()" and added encoding 'utf-8' and ensure_ascii=False //2022-02-20
+    print("DONE: Writing JSON: " + writeFilePath)
+
+
+## PLOTDATA ##
 def cm2inch(cm):
     return cm/2.54
 
@@ -105,13 +131,13 @@ def export_figure_as_pdf(filePath):
 readJSONFilePathStringTEMP = "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
-config = JSON_handler.read_JSON(JSON_readFilePath)
+config = read_JSON(JSON_readFilePath)
 c = config
 
 filename_csv = c['filename_csv']
 CSV_readFilePath = "CSV/"+str(filename_csv) + ".csv"
-data = CSV_handler.read_CSV(CSV_readFilePath)
-header = CSV_handler.get_header(data)
+data = read_CSV(CSV_readFilePath)
+header = get_CSV_header(data)
 
 filePathSaveFig = "PDF/" + str(c['filename_pdf']) + ".pdf" #adhoc
 
