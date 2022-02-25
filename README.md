@@ -11,7 +11,7 @@ TODO:
 4. Small fixes: fix ratio between textsize and figure_width, and also line width and figure_width.
 
 
-NOTE:
+Note:
 -JSON must be configured with UTF-8 encoding. Most notably for Swedish words is that 'å', 'ä', and'ö' must be encoded with "\u00e5", "\u00e4", and "\u00f6", respectively.
  -Headers in CSV must be unique (no duplicate headernames)
  -
