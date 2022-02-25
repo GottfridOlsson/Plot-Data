@@ -1,22 +1,21 @@
-## PLOT SCIENTIFIC DATA: PLOTTER                           ##
 #----------------------------------------------------------##
+#        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
 #     Updated: 2022-02-25, 16:09
-#       About: Plot data in figures with matplotlib.
-#              Functions are used to make figure look nice. 
-#              Plot-settings as JSON. Export figure as PDF.
+#       About: Plot data from CSV in figure with matplotlib.
+#              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
 
 #------------------#
-# IMPORT LIBRARIES #
+#    LIBRARIES     #
 #------------------#
 
-import json                         # to save/write to JSON
-import pandas as pd                 # for CSV
+import json                             # to save/write to JSON
+import pandas as pd                     # for CSV
 import matplotlib                 
-import matplotlib.pyplot as plt     
-from matplotlib import font_manager # to get fonts not 'default' in matplotlib
+import matplotlib.pyplot as plt         # to plot
+from matplotlib import font_manager     # to get fonts not 'default' in matplotlib
 
 
 ##---------------##
