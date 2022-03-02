@@ -280,7 +280,7 @@ if num_subplots > 1:
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
         set_grid(axs[i], gridOn[i], i)
         set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
-        
+
 if num_subplots <= 1:
     i = 0 #to avoid magic numbers
     for k in range(0, datasets_per_subplot[i]):
