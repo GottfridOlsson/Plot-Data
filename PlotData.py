@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-02-25, 16:09
+#     Updated: 2022-03-02, 11:16
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -51,12 +51,6 @@ def write_JSON(writeFilePath, JSON_data):
 ## PLOTDATA ##
 def cm2inch(cm):
     return cm/2.54
-
-def plot_plot(ax, xData, yData, dataLabel, lineColor, lineStyle, lineWidth, markerType, markerSize, markerThickness, markerFaceColor, axNum):
-    out = ax.plot(xData, yData, label=dataLabel, color=lineColor, linestyle=lineStyle, linewidth=lineWidth, \
-        marker=markerType, markersize=markerSize, markeredgewidth=markerThickness, markerfacecolor=markerFaceColor)
-    print("DONE: Plotted data on axs: " + str(axNum))
-    return out
 
 def set_labels(ax, xLabel, yLabel, axNum): #TODO:#, majorTickLabel, minorTickLabel, legendLabel):
     ax.set_xlabel(str(xLabel))
@@ -122,12 +116,26 @@ def export_figure_as_pdf(filePath):
     print("DONE: Exported PDF: " + filePath)
 
 
+def plot_plot(ax, xData, yData, dataLabel, lineColor, lineStyle, lineWidth, markerType, markerSize, markerThickness, markerFaceColor, axNum):
+    out = ax.plot(xData, yData, label=dataLabel, color=lineColor, linestyle=lineStyle, linewidth=lineWidth, \
+        marker=markerType, markersize=markerSize, markeredgewidth=markerThickness, markerfacecolor=markerFaceColor)
+    print("DONE: Plotted data with 'plot' on axs: " + str(axNum))
+    return out
+
+def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewidth, errorbarThickness, dataLabel, lineColor, lineStyle, lineWidth, markerType, markerSize, markerThickness, markerFaceColor, axNum):
+    out = ax.errorbar(xData, yData, label=dataLabel, color=lineColor, linestyle=lineStyle, linewidth=lineWidth, \
+        marker=markerType, markersize=markerSize, markeredgewidth=markerThickness, markerfacecolor=markerFaceColor, \
+            xerr=xError, yerr=yError, elinewidth=errorbarLinewidth, capsize=errorbarSize, capthick=errorbarThickness)
+    print("DONE: Plotted data with 'errorbar' on axs: " + str(axNum))
+    return out
+
+
 ##----------##
 ##   MAIN   ##
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
+readJSONFilePathStringTEMP = "CONFIG" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = read_JSON(JSON_readFilePath)
@@ -177,6 +185,12 @@ markerSize      = [ [    0 for i in range(max_yDatasets) ] for i in range(num_su
 markerThickness = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
 markerType      = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
 markerFacecolor = [ [ None for i in range(max_yDatasets) ] for i in range(num_subplots)]
+plot_type       = [ [   "" for i in range(max_yDatasets) ] for i in range(num_subplots)]
+xError          = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+yError          = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+errorbarSize    = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+errorbarLinewidth    = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
+errorbarCapthickness = [ [    0 for i in range(max_yDatasets) ] for i in range(num_subplots)]
 legendOn        = [ False for i in range(num_subplots) ]
 legendAlpha     = [ False for i in range(num_subplots) ]
 legendLocation  = [ False for i in range(num_subplots) ]
@@ -213,6 +227,7 @@ for i in range(0, num_subplots):
     for k in range(0, c['subplots'][i]['num_yDatasets']):
         subplot_xCol[i][k]    = c['subplots'][i]['xDataCol'][k][str(k+1)] - 1
         subplot_yCol[i][k]    = c['subplots'][i]['yDataCol'][k][str(k+1)] - 1
+        plot_type[i][k]       = c['subplots'][i]['yDataset'][k]['plot_type']
         dataLabel[i][k]       = c['subplots'][i]['yDataset'][k]['datalabel']
         lineColor[i][k]       = c['subplots'][i]['yDataset'][k]['line_color']
         lineStyle[i][k]       = c['subplots'][i]['yDataset'][k]['line_style']
@@ -222,8 +237,17 @@ for i in range(0, num_subplots):
         markerThickness[i][k] = c['subplots'][i]['yDataset'][k]['marker_thickness']
         markerFacecolor[i][k] = c['subplots'][i]['yDataset'][k]['marker_facecolor']
         
-
-
+        if plot_type[i][k] == "errorbar":
+            errorbarSize[i][k]          = c['subplots'][i]['yDataset'][k]['errorbar_size']
+            errorbarLinewidth[i][k]     = c['subplots'][i]['yDataset'][k]['errorbar_linewidth']
+            errorbarCapthickness[i][k]  = c['subplots'][i]['yDataset'][k]['errorbar_capthickness']
+            if c['subplots'][i]['yDataset'][k]['constant_errorbar']:
+                xError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_xError']
+                yError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_yError']
+            
+ #print(xError, yError)
+ #quit()
+        
 ##---------------##
 ##  ACTUAL MAIN  ##
 ##---------------##
@@ -234,14 +258,21 @@ set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height)))
 
 if num_subplots > 1: 
-    for k in range(0, num_subplots):
+    for i in range(0, num_subplots):
         ## HEREGOES: function that chooses which plot to plot (errorbar, plot, colormap,...) foreach subplot
-        for i in range(0, datasets_per_subplot[k]):
-            if subplot_yCol[k][i] is not None:
-                print("Plotting: x: "+ header[subplot_xCol[k][i]]+", and y: "+ header[subplot_yCol[k][i]])
-                plot_plot(axs[k], data[header[subplot_xCol[k][i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
-                    lineColor[k][i],  lineStyle[k][i],  lineWidth[k][i], \
-                    markerType[k][i], markerSize[k][i], markerThickness[k][i], markerFacecolor[k][i], k)
+        for k in range(0, datasets_per_subplot[i]):
+            if plot_type[i][k] == "plot":
+                if subplot_yCol[i][k] is not None:
+                    print("Plotting 'plot': x: "+ header[subplot_xCol[i][k]]+", and y: "+ header[subplot_yCol[i][k]])
+                    plot_plot(axs[k], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], dataLabel[i][k],\
+                        lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
+                        markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
+            if plot_type[i][k] == "errorbar":
+                if subplot_yCol[i][k] is not None:
+                    print("Plotting 'errorbar': x: "+ header[subplot_xCol[i][k]]+", and y: "+ header[subplot_yCol[i][k]])
+                    plot_errorbar(axs[k], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
+                        lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
+                        markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
         set_limits(axs[k], xlim_min[k], xlim_max[k], ylim_min[k], ylim_max[k], k)
         set_legend(axs[k], legendOn[k], legendAlpha[k], legendLocation[k], k)
         set_labels(axs[k], xLabel[k], yLabel[k], k) 
@@ -249,16 +280,23 @@ if num_subplots > 1:
         set_commaDecimal_with_precision(axs[k], floatPrec_xAxis[k], floatPrec_yAxis[k], k)
         
 if num_subplots <= 1:
-    k = 0 #to avoid magic numbers
-    for i in range(0, datasets_per_subplot[k]):
-            plot_plot(axs, data[header[subplot_xCol[k][i]]], data[header[subplot_yCol[k][i]]], dataLabel[k][i],\
-                lineColor[k][i],  lineStyle[k][i],  lineWidth[k][i], \
-                markerType[k][i], markerSize[k][i], markerThickness[k][i], markerFacecolor[k][i], k)
-    set_limits(axs, xlim_min[k], xlim_max[k], ylim_min[k], ylim_max[k], k)
-    set_legend(axs, legendOn[k], legendAlpha[k], legendLocation[k], k)
-    set_labels(axs, xLabel[k], yLabel[k], k) 
-    set_grid(  axs, gridOn[k], k)
-    set_commaDecimal_with_precision(axs, floatPrec_xAxis[k], floatPrec_yAxis[k], k)
+    i = 0 #to avoid magic numbers
+    for k in range(0, datasets_per_subplot[i]):
+        if plot_type[i][k] == "plot":
+            plot_plot(axs, data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], dataLabel[i][k],\
+                lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
+                markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
+        if plot_type[i][k] == "errorbar":
+                plot_errorbar(axs, data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
+                    lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
+                    markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
+        else:
+            print("keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
+    set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], k)
+    set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], k)
+    set_labels(axs, xLabel[i], yLabel[i], k) 
+    set_grid(  axs, gridOn[i], k)
+    set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], k)
 
 align_labels(fig)
 plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21; looks like it works! //2022-02-22 

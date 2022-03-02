@@ -1,10 +1,12 @@
 # Plot-Data
-Updated: 2022-02-25, 16:47
+Updated: 2022-03-02, 11:22
 Plots data from CSV-file.
 Settings specified in JSON-file.
 ### UNDER CONSTRUCTION ###
 
 TODO:
+-1. errorbar color (?)
+0. 'log_yscale' in JSON (y and x) 
 1. Program different plot types (and introduce changes to JSON as necessary):
     Most "urgent"/resonable:  plot, **scatter**, bar, contour(f), quiver, hist, **errorbar**, pie, (https://matplotlib.org/devdocs/plot_types/index.html) 
 2. Program exceptions/raise errors for wrongly configured JSON-files.
