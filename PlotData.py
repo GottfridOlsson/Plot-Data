@@ -273,11 +273,13 @@ if num_subplots > 1:
                     plot_errorbar(axs[k], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
                         lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
                         markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
-        set_limits(axs[k], xlim_min[k], xlim_max[k], ylim_min[k], ylim_max[k], k)
-        set_legend(axs[k], legendOn[k], legendAlpha[k], legendLocation[k], k)
-        set_labels(axs[k], xLabel[k], yLabel[k], k) 
-        set_grid(axs[k], gridOn[k], k)
-        set_commaDecimal_with_precision(axs[k], floatPrec_xAxis[k], floatPrec_yAxis[k], k)
+            else:
+                print("keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
+        set_limits(axs[i], xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
+        set_legend(axs[i], legendOn[i], legendAlpha[i], legendLocation[i], i)
+        set_labels(axs[i], xLabel[i], yLabel[i], i) 
+        set_grid(axs[i], gridOn[i], i)
+        set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
         
 if num_subplots <= 1:
     i = 0 #to avoid magic numbers
@@ -292,11 +294,11 @@ if num_subplots <= 1:
                     markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
         else:
             print("keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
-    set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], k)
-    set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], k)
-    set_labels(axs, xLabel[i], yLabel[i], k) 
-    set_grid(  axs, gridOn[i], k)
-    set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], k)
+    set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
+    set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], i)
+    set_labels(axs, xLabel[i], yLabel[i], i) 
+    set_grid(  axs, gridOn[i], i)
+    set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], i)
 
 align_labels(fig)
 plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21; looks like it works! //2022-02-22 

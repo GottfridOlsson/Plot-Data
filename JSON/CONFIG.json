@@ -24,9 +24,9 @@
     "ö" : "\u00f6"
   },
 
-  "num_subplots"   : 1, 
+  "num_subplots"   : 2, 
   "num_subplots_x" : 1,
-  "num_subplots_y" : 1, 
+  "num_subplots_y" : 2, 
   "max_yDatasets"  : 2,
 
   "subplots": [
@@ -56,9 +56,11 @@
         "constant_errorbar"     : true, 
         "constant_xError"       : 0.3, 
         "constant_yError"       : 0.1,
+        "errorbar_xError_col"  : 0,
+        "errorbar_yError_col"  : 0,
         "errorbar_size"         : 5,
         "errorbar_linewidth"    : 1.5,
-        "errorbar_capthickness" : 1 
+        "errorbar_capthickness" : 5
       }, 
       {
         "yDatasetNum" : 2,
@@ -78,9 +80,9 @@
         "constant_errorbar"     : true, 
         "constant_xError"       : 0.3, 
         "constant_yError"       : 0.1,
-        "errorbar_size"         : 0,
-        "errorbar_linewidth"    : 1.5,
-        "errorbar_capthickness" : 1 
+        "errorbar_size"         : 5,
+        "errorbar_linewidth"    : 2,
+        "errorbar_capthickness" : 1.5 
       }, 
       {
         "yDatasetNum" : 3,
