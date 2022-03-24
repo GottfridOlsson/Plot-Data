@@ -1,4 +1,4 @@
-2022-02-04, 2022-02-17:
+2022-02-04, 2022-02-17, 2022-03-24:
 # TODO:
   # gridlines mellan ticks för finare avläsning
   # no whitespace above/below figure 
@@ -7,6 +7,7 @@
   # use a pre-defined (standard) format for plots. Source: https://matplotlib.org/stable/tutorials/introductory/customizing.html
   # look into using "constrained_layout" for better figure-width management. Source: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
   # ThrowError: create checks for JSON; logical checks s.a. "num_subplots" = "num_subplots_x" * "num_subplots_y", and so on. Throw exception/error warning if necessary
+  # print pdf-file with current date and time automatically
   # 
 
 
