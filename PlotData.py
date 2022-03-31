@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-03-02, 11:16
+#     Updated: 2022-03-31, 22:25
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -11,7 +11,8 @@
 #    LIBRARIES     #
 #------------------#
 
-import json                             # to save/write to JSON
+import json
+from numpy import True_                             # to save/write to JSON
 import pandas as pd                     # for CSV
 import matplotlib                 
 import matplotlib.pyplot as plt         # to plot
@@ -107,6 +108,19 @@ def set_commaDecimal_with_precision(ax, xAxis_precision, yAxis_precision, axNum)
     ax.get_xaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )
     ax.get_yaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )
     print("DONE: Set comma as decimalseparator on with precision: X: "+str(xAxis_precision)+", Y: "+str(yAxis_precision) + " on axs: "+str(axNum))
+
+
+
+def set_scientific_ticklabel(ax):
+    formatter = matplotlib.ticker.ScalarFormatter(useMathText=True)
+    formatter.set_scientific(True)
+    ax.xaxis.set_major_formatter( formatter )
+    ax.yaxis.set_major_formatter( formatter )
+    #ax.ticklabel_format(style='sci', axis='y', useMathText=True)
+    ##### NGT är väldigt fel, fattar inte vad... //2022-03-31, 22:25
+
+
+
 
 def align_labels(fig):
     fig.align_labels() #lol vilken funktion (def), //2022-02-20
@@ -252,6 +266,12 @@ for i in range(0, num_subplots):
 ##  ACTUAL MAIN  ##
 ##---------------##
 
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif", 
+    "font.serif" : ["Computer Modern Roman"]
+})
+
 set_font(fontFamily, fontDirectory)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
@@ -280,6 +300,20 @@ if num_subplots > 1:
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
         set_grid(axs[i], gridOn[i], i)
         set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
+        set_scientific_ticklabel(axs[i])
+        
+        ###### skräp sTART
+        #matplotlib.ticker.ScalarFormatter(useOffset=True, useMathText=True)
+        #axs[i].ticklabel_formatter(axis='x', style='scientific', scilimits=(0,0))
+        #axs[i].yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter(useMathText=True))
+        
+        #axs[i].xaxis.set_major_formatter(ticker.ScalarFormatter.set_useMathText(True))
+        # ...set_useMathText(True)
+
+        #ticker.ScalarFormatter.set_scientific(True, True)
+        ###### skräp Slut
+
+
 
 if num_subplots <= 1:
     i = 0 #to avoid magic numbers
@@ -299,6 +333,8 @@ if num_subplots <= 1:
     set_labels(axs, xLabel[i], yLabel[i], i) 
     set_grid(  axs, gridOn[i], i)
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], i)
+
+
 
 align_labels(fig)
 plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21; looks like it works! //2022-02-22 

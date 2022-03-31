@@ -37,7 +37,7 @@
       "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}],
       "yDataCol"      : [{"1" : 1}, {"2" : 2}, {"3" : 3}], 
       "xLabel"        : "N\u00e5got tr\u00e5kigt",
-      "yLabel"        : "N\u00e5got kul",
+      "yLabel"        : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
