@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-03-31, 22:25
+#     Updated: 2022-04-06, 22:06
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -149,7 +149,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "CONFIG" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
+readJSONFilePathStringTEMP = "20220406_2122_testdataKandidat" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = read_JSON(JSON_readFilePath)
@@ -284,23 +284,24 @@ if num_subplots > 1:
             if plot_type[i][k] == "plot":
                 if subplot_yCol[i][k] is not None:
                     print("Plotting 'plot': x: "+ header[subplot_xCol[i][k]]+", and y: "+ header[subplot_yCol[i][k]])
-                    plot_plot(axs[k], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], dataLabel[i][k],\
+                    plot_plot(axs[i], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], dataLabel[i][k],\
                         lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
                         markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
-            if plot_type[i][k] == "errorbar":
+            elif plot_type[i][k] == "errorbar":
                 if subplot_yCol[i][k] is not None:
                     print("Plotting 'errorbar': x: "+ header[subplot_xCol[i][k]]+", and y: "+ header[subplot_yCol[i][k]])
-                    plot_errorbar(axs[k], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
+                    plot_errorbar(axs[i], data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
                         lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
                         markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
             else:
-                print("keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
+                print("ERROR: keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")            
         set_limits(axs[i], xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
         set_legend(axs[i], legendOn[i], legendAlpha[i], legendLocation[i], i)
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
         set_grid(axs[i], gridOn[i], i)
+        #set_scientific_ticklabel(axs[i])
         set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
-        set_scientific_ticklabel(axs[i])
+        
         
         ###### skräp sTART
         #matplotlib.ticker.ScalarFormatter(useOffset=True, useMathText=True)
@@ -322,19 +323,19 @@ if num_subplots <= 1:
             plot_plot(axs, data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], dataLabel[i][k],\
                 lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
                 markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
-        if plot_type[i][k] == "errorbar":
+        elif plot_type[i][k] == "errorbar":
                 plot_errorbar(axs, data[header[subplot_xCol[i][k]]], data[header[subplot_yCol[i][k]]], xError[i][k], yError[i][k], errorbarSize[i][k], errorbarLinewidth[i][k], errorbarCapthickness[i][k], dataLabel[i][k],\
                     lineColor[i][k],  lineStyle[i][k],  lineWidth[i][k], \
                     markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
         else:
-            print("keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
+            print("ERROR: keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
     set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
     set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], i)
     set_labels(axs, xLabel[i], yLabel[i], i) 
     set_grid(  axs, gridOn[i], i)
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], i)
 
-
+#print(data)
 
 align_labels(fig)
 plt.tight_layout() #I think this works. Mostly bcs I use figure_width as the baseline for all measurements //2022-02-21; looks like it works! //2022-02-22 

@@ -1,5 +1,5 @@
 # Plot-Data
-Updated: 2022-03-02, 11:22
+Updated: 2022-04-06, 22:02
 Plots data from CSV-file.
 Settings specified in JSON-file.
 ### UNDER CONSTRUCTION ###
@@ -17,5 +17,6 @@ TODO:
 Note:
 -JSON must be configured with UTF-8 encoding. Most notably for Swedish words is that 'å', 'ä', and'ö' must be encoded with "\u00e5", "\u00e4", and "\u00f6", respectively.
  -Headers in CSV must be unique (no duplicate headernames)
- -
+ -xDataCols given in JSON must be paired with corresponding yDataCols per subplot (that is to say that you need N number of xDataCols [ {"1": x}, {"2" : y}, ..., {"N" : w} ] if you have N number of yDataCols [ {"1": x}, {"2" : y}, ..., {"N" : w} ])
+ - 
 ### UNDER CONSTRUCTION ###
