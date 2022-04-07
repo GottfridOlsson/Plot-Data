@@ -90,6 +90,11 @@ def get_ax_size(ax):
     height *= fig.dpi
     return width, height
 
+def set_axis_scale(ax, xScale_string, yScale_string, axNum):
+    ax.set_xscale(xScale_string)
+    ax.set_yscale(yScale_string)
+    print("DONE: Set xScale to " + str(xScale_string) + " and yScale to " + str(yScale_string) + " on axs: " + str(axNum))
+
 def set_limits(ax, xmin, xmax, ymin, ymax, axNum):
     if not xmin: xmin = None
     if not xmax: xmax = None
@@ -211,6 +216,8 @@ legendLocation  = [ False for i in range(num_subplots) ]
 gridOn          = [ False for i in range(num_subplots) ]
 xLabel          = [""]*num_subplots
 yLabel          = [""]*num_subplots
+xScale          = [""]*num_subplots
+yScale          = [""]*num_subplots
 xlim_min        = [""]*num_subplots
 xlim_max        = [""]*num_subplots
 ylim_min        = [""]*num_subplots
@@ -227,6 +234,8 @@ for i in range(0, num_subplots):
     datasets_per_subplot[i]   = c['subplots'][i]['num_yDatasets']
     xLabel[i]                 = c['subplots'][i]['xLabel']
     yLabel[i]                 = c['subplots'][i]['yLabel']
+    xScale[i]                 = c['subplots'][i]['xScale']
+    yScale[i]                 = c['subplots'][i]['yScale']
     xlim_min[i]               = c['subplots'][i]['xlim_min']
     xlim_max[i]               = c['subplots'][i]['xlim_max']
     ylim_min[i]               = c['subplots'][i]['ylim_min']
@@ -258,9 +267,20 @@ for i in range(0, num_subplots):
             if c['subplots'][i]['yDataset'][k]['constant_errorbar']:
                 xError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_xError']
                 yError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_yError']
-            
- #print(xError, yError)
- #quit()
+            else:
+                errorbar_xError_col = c['subplots'][i]['yDataset'][k]['errorbar_xError_col']
+                errorbar_yError_col = c['subplots'][i]['yDataset'][k]['errorbar_yError_col']
+                if errorbar_xError_col is not False:
+                    xError[i][k] = data[header[errorbar_xError_col]]
+                else:
+                    xError[i][k] = 0 # can i make this more effective, coding-wise?
+
+                if errorbar_yError_col is not False:
+                    yError[i][k] = data[header[errorbar_yError_col]]
+                else:
+                    yError[i][k] = 0 # can i make this more effective, coding-wise?
+
+
         
 ##---------------##
 ##  ACTUAL MAIN  ##
@@ -296,6 +316,8 @@ if num_subplots > 1:
                         markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
             else:
                 print("ERROR: keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")            
+    
+        set_axis_scale(axs[i], xScale[i], yScale[i], i)
         set_limits(axs[i], xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
         set_legend(axs[i], legendOn[i], legendAlpha[i], legendLocation[i], i)
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
@@ -319,6 +341,8 @@ if num_subplots <= 1:
                     markerType[i][k], markerSize[i][k], markerThickness[i][k], markerFacecolor[i][k], k)
         else:
             print("ERROR: keyword 'plot_type' = " + str(plot_type[i][k]) + " is not yet implemented. Sorry :/")
+
+    set_axis_scale(axs, xScale[i], yScale[i], i)
     set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
     set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], i)
     set_labels(axs, xLabel[i], yLabel[i], i) 

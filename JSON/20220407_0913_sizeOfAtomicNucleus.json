@@ -1,8 +1,8 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-04-07, 09:13",
+  "updated"      : "2022-04-07, 14:15",
   "about"        : "[FUF050] Computer exercise: size of atomic nucleus",
-  "filename_csv" : "size of nucleus csv data",
+  "filename_csv" : "20220407_0913_sizeOfAtomicNucleus",
   "filename_pdf" : "20220407_0913_sizeOfAtomicNucleus",
 
   "figure_width"  : 22,
@@ -41,7 +41,7 @@
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "errorbar",
-        "datalabel"   : "Experiment (Frosch et al. (1968)",
+        "datalabel"   : "Experiment (Frosch et al. (1968))",
     
         "marker_type"      : "o",  
         "marker_size"      : 6,
@@ -52,11 +52,11 @@
         "line_style" : "",
         "line_width" : 2, 
 
-        "constant_errorbar"     : true, 
+        "constant_errorbar"     : false, 
         "constant_xError"       : 0, 
         "constant_yError"       : 0.1,
-        "errorbar_xError_col"  : 0,
-        "errorbar_yError_col"  : 0,
+        "errorbar_xError_col"   : false,
+        "errorbar_yError_col"   : 2,
         "errorbar_size"         : 5,
         "errorbar_linewidth"    : 1.5,
         "errorbar_capthickness" : 5
@@ -64,7 +64,7 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel"   : "Teori baserat p\u00e5 $\\chi^2(\\mathbf{X}_*)$",
+        "datalabel"   : "Simulering baserat p\u00e5 $\\chi^2(\\mathbf{X}_*)$",
     
         "marker_type"      : "",  
         "marker_size"      : 6,
@@ -75,13 +75,12 @@
         "line_style" : "-",
         "line_width" : 2, 
 
-
-        "constant_errorbar"     : true, 
+        "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
         "constant_yError"       : 0.1,
         "errorbar_size"         : 5,
         "errorbar_linewidth"    : 2,
-        "errorbar_capthickness" : 1.5 
+        "errorbar_capthickness" : 1.5
       }, 
       {
         "yDatasetNum" : 3,
@@ -97,7 +96,6 @@
         "line_style" : ":",
         "line_width" : 2, 
 
-
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
         "constant_yError"       : 0.1,
@@ -107,8 +105,11 @@
       }
       ],
 
-      "xlim_min" : false,
-      "xlim_max" : false,
+      "xScale" : "linear", 
+      "yScale" : "log", 
+
+      "xlim_min" : 30,
+      "xlim_max" : 130,
       "ylim_min" : false,
       "ylim_max" : false,
 
@@ -158,7 +159,7 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel" : "Kurvanpassning",
+        "datalabel"   : "Kurvanpassning",
       
         "marker_type"      : "",  
         "marker_size"      : 6,
@@ -178,10 +179,13 @@
       }
       ],
 
+      "xScale" : "linear", 
+      "yScale" : "linear", 
+
       "xlim_min" : false,
       "xlim_max" : false,
-      "ylim_min" : false,
-      "ylim_max" : false,
+      "ylim_min" : 0,
+      "ylim_max" : 0.08,
 
       "floatPrec_xAxis" : 0,
       "floatPrec_yAxis" : 2, 
@@ -228,7 +232,7 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel" : "subplot 2, ydataset 2",
+        "datalabel"   : "subplot 2, ydataset 2",
       
         "marker_type"      : "x",  
         "marker_size"      : 6,
@@ -247,6 +251,9 @@
         "errorbar_capthickness" : 1 
       }
       ],
+
+      "xScale" : "linear", 
+      "yScale" : "log", 
 
       "xlim_min" : false,
       "xlim_max" : false,
