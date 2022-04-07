@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-04-06, 22:06
+#     Updated: 2022-04-07, 08:57
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -301,17 +301,6 @@ if num_subplots > 1:
         #set_scientific_ticklabel(axs[i])
         set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
         
-        
-        ###### skräp sTART
-        #matplotlib.ticker.ScalarFormatter(useOffset=True, useMathText=True)
-        #axs[i].ticklabel_formatter(axis='x', style='scientific', scilimits=(0,0))
-        #axs[i].yaxis.set_major_formatter(matplotlib.ticker.ScalarFormatter(useMathText=True))
-        
-        #axs[i].xaxis.set_major_formatter(ticker.ScalarFormatter.set_useMathText(True))
-        # ...set_useMathText(True)
-
-        #ticker.ScalarFormatter.set_scientific(True, True)
-        ###### skräp Slut
 
 
 
