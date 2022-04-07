@@ -2,7 +2,7 @@
   "author"       : "Gottfrid Olsson och Viktor Lilja",
   "updated"      : "2022-04-07, 09:13",
   "about"        : "[FUF050] Computer exercise: size of atomic nucleus",
-  "filename_csv" : "testdata1",
+  "filename_csv" : "size of nucleus csv data",
   "filename_pdf" : "20220407_0913_sizeOfAtomicNucleus",
 
   "figure_width"  : 22,
@@ -33,8 +33,8 @@
       "subplotNum"    : 1, 
       "num_yDatasets" : 2,
 
-      "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}],
-      "yDataCol"      : [{"1" : 1}, {"2" : 2}, {"3" : 3}], 
+      "xDataCol"      : [{"1" : 1}, {"2" : 4}, {"3" : 1}],
+      "yDataCol"      : [{"1" : 2}, {"2" : 5}, {"3" : 3}], 
       "xLabel"        : "$\\theta$ (deg)",
       "yLabel"        : "$\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
 
@@ -129,8 +129,8 @@
       "subplotNum"    : 2, 
       "num_yDatasets" : 1,
 
-      "xDataCol"      : [ {"1" : 3} ],
-      "yDataCol"      : [ {"1" : 4}, {"2" : 6} ], 
+      "xDataCol"      : [ {"1" : 6} ],
+      "yDataCol"      : [ {"1" : 7}, {"2" : 6} ], 
       "xLabel"        : "$r$ (fm)",
       "yLabel"        : "$\\rho_{\\mathrm{ch}}(r;\\mathbf{X})$ (e fm$^{-3}$)",
 

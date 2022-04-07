@@ -1,8 +1,11 @@
 # Plot-Data
-Updated: 2022-04-06, 22:02
+Updated: 2022-04-07, 09:57
 Plots data from CSV-file.
 Settings specified in JSON-file.
 ### UNDER CONSTRUCTION ###
+
+TODO FUF050:
+    - log scale y- and x-axis
 
 TODO:
 -1. errorbar color (?)
