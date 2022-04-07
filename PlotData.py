@@ -11,8 +11,7 @@
 #    LIBRARIES     #
 #------------------#
 
-import json
-from numpy import True_                             # to save/write to JSON
+import json                             # to save/write to JSON
 import pandas as pd                     # for CSV
 import matplotlib                 
 import matplotlib.pyplot as plt         # to plot
