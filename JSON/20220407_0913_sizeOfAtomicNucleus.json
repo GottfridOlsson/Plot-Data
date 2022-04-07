@@ -1,13 +1,13 @@
 {
-  "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-04-07, 09:37",
-  "about"        : "TestaSaker",
+  "author"       : "Gottfrid Olsson och Viktor Lilja",
+  "updated"      : "2022-04-07, 09:13",
+  "about"        : "[FUF050] Computer exercise: size of atomic nucleus",
   "filename_csv" : "testdata1",
-  "filename_pdf" : "testpdf",
+  "filename_pdf" : "20220407_0913_sizeOfAtomicNucleus",
 
   "figure_width"  : 22,
-  "figure_height" : 16, 
-  
+  "figure_height" : 18, 
+
   "LaTeX_and_CMU"   : true,
   "fontSize_axis"   : 17,
   "fontSize_tick"   : 15,
@@ -35,25 +35,25 @@
 
       "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}],
       "yDataCol"      : [{"1" : 1}, {"2" : 2}, {"3" : 3}], 
-      "xLabel"        : "N\u00e5got tr\u00e5kigt",
-      "yLabel"        : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+      "xLabel"        : "$\\theta$ (deg)",
+      "yLabel"        : "$\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "errorbar",
-        "datalabel"   : "Simulering",
+        "datalabel"   : "Experiment (Frosch et al. (1968)",
     
         "marker_type"      : "o",  
         "marker_size"      : 6,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
-        "line_style" : "-",
+        "line_color" : "#f1311d",
+        "line_style" : "",
         "line_width" : 2, 
 
         "constant_errorbar"     : true, 
-        "constant_xError"       : 0.3, 
+        "constant_xError"       : 0, 
         "constant_yError"       : 0.1,
         "errorbar_xError_col"  : 0,
         "errorbar_yError_col"  : 0,
@@ -63,15 +63,15 @@
       }, 
       {
         "yDatasetNum" : 2,
-        "plot_type"   : "errorbar",
-        "datalabel"   : "M\u00e4tdata",
+        "plot_type"   : "plot",
+        "datalabel"   : "Teori baserat p\u00e5 $\\chi^2(\\mathbf{X}_*)$",
     
         "marker_type"      : "",  
         "marker_size"      : 6,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
-        "line_color" : "#f1311d",
+        "line_color" : "#101010",
         "line_style" : "-",
         "line_width" : 2, 
 
@@ -113,7 +113,7 @@
       "ylim_max" : false,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 1, 
+      "floatPrec_yAxis" : 2, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
@@ -129,22 +129,22 @@
       "subplotNum"    : 2, 
       "num_yDatasets" : 1,
 
-      "xDataCol"      : [{"1" : 1}],
-      "yDataCol"      : [ {"1" : 2}, {"2" : 6} ], 
-      "xLabel"        : "V\u00e5gl\u00e4ngd (nm)",
-      "yLabel"        : "Sp\u00e4nning (V)",
+      "xDataCol"      : [ {"1" : 3} ],
+      "yDataCol"      : [ {"1" : 4}, {"2" : 6} ], 
+      "xLabel"        : "$r$ (fm)",
+      "yLabel"        : "$\\rho_{\\mathrm{ch}}(r;\\mathbf{X})$ (e fm$^{-3}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel" : "M\u00e4tdata",
+        "datalabel" : "",
     
         "marker_type"      : "",  
         "marker_size"      : 5,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
-        "line_color" : "#f1311d",
+        "line_color" : "#101010",
         "line_style" : "-",
         "line_width" : 2,
 
@@ -186,7 +186,7 @@
       "floatPrec_xAxis" : 0,
       "floatPrec_yAxis" : 2, 
 
-      "legend_on"       : true,
+      "legend_on"       : false,
       "legend_location" : "best", 
       "legend_alpha"    : 1,
       

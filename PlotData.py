@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-04-07, 08:57
+#     Updated: 2022-04-07, 09:37
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -148,7 +148,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220406_2122_testdataKandidat" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
+readJSONFilePathStringTEMP = "20220407_0913_sizeOfAtomicNucleus" #"20220406_2122_testdataKandidat" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = read_JSON(JSON_readFilePath)
@@ -168,8 +168,9 @@ filePathSaveFig = "PDF/" + str(c['filename_pdf']) + ".pdf" #adhoc
 
 fig_height      = c['figure_height']
 fig_width       = c['figure_width']
-fontFamily      = c['font_family']
-fontDirectory   = c['font_directory']
+#fontFamily      = c['font_family'] # #2022-04-07, keeping it in case i want to implement this in the future for other fonts
+#fontDirectory   = c['font_directory'] # #2022-04-07
+LaTeX_and_CMU   = c['LaTeX_and_CMU']
 defaultFontSize = c['fontSize_axis']
 xTickSize       = c['fontSize_tick']
 yTickSize       = c['fontSize_tick']
@@ -265,13 +266,14 @@ for i in range(0, num_subplots):
 ##  ACTUAL MAIN  ##
 ##---------------##
 
-plt.rcParams.update({
-    "text.usetex": True,
-    "font.family": "serif", 
-    "font.serif" : ["Computer Modern Roman"]
-})
+if LaTeX_and_CMU:
+    plt.rcParams.update({
+        "text.usetex": True,
+        "font.family": "serif", 
+        "font.serif" : ["Computer Modern Roman"]
+    })
 
-set_font(fontFamily, fontDirectory)
+#set_font(fontFamily, fontDirectory)
 set_font_size(defaultFontSize, xTickSize, yTickSize, legendFontSize)
 
 fig, axs = plt.subplots(subplots_y, subplots_x, figsize=(cm2inch(fig_width), cm2inch(fig_height)))
