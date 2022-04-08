@@ -1,15 +1,14 @@
 {
     "author"       : "Gottfrid Olsson",
-    "updated"      : "2022-04-06, 21:22",
+    "updated"      : "2022-04-08, 16:21",
     "about"        : "Test data from kandidatarbete",
-    "filename_csv" : "testdata_kandidat",
+    "filename_csv" : "Kandidat_kalibrering_20220408_1615",
     "filename_pdf" : "testdata_kandidat",
   
     "figure_width"  : 22,
     "figure_height" : 16, 
     
-    "font_family"     : "CMU Serif",
-    "font_directory"  : "C:\\Windows\\Fonts",
+    "LaTeX_and_CMU"   : true,
     "fontSize_axis"   : 17,
     "fontSize_tick"   : 15,
     "fontSize_legend" : 13,
@@ -36,13 +35,13 @@
   
         "xDataCol"      : [{"1" : 6}, {"2" : 1} ],
         "yDataCol"      : [{"1" : 7}, {"2" : 1} ], 
-        "xLabel"        : "Oscilloscope time (s)",
-        "yLabel"        : "Oscilloscope voltage (V)",
+        "xLabel"        : "Oscilloskop: tid (s)",
+        "yLabel"        : "Oscilloskop: str\u00f6m (A)",
   
         "yDataset" : [{
           "yDatasetNum" : 1,
           "plot_type"   : "plot",
-          "datalabel"   : "Oscilloscope data",
+          "datalabel"   : "",
       
           "marker_type"      : "",  
           "marker_size"      : 6,
@@ -108,6 +107,9 @@
         }
         ],
   
+        "xScale" : "linear", 
+        "yScale" : "linear",
+
         "xlim_min" : false,
         "xlim_max" : false,
         "ylim_min" : false,
@@ -116,7 +118,7 @@
         "floatPrec_xAxis" : 3,
         "floatPrec_yAxis" : 1, 
   
-        "legend_on"       : true,
+        "legend_on"       : false,
         "legend_location" : "best", 
         "legend_alpha"    : 1,
         
@@ -133,8 +135,8 @@
   
         "xDataCol"      : [ {"1" : 2}, {"2" : 2}, {"3" : 2} ],
         "yDataCol"      : [ {"1" : 3}, {"2" : 4}, {"3" : 5} ], 
-        "xLabel"        : "Qualisys time (s?)",
-        "yLabel"        : "Qualisys position (mm?)",
+        "xLabel"        : "QTM tid (s)",
+        "yLabel"        : "QTM position (mm)",
   
         "yDataset" : [{
           "yDatasetNum" : 1,
@@ -200,7 +202,10 @@
           "errorbar_capthickness" : 1 
         }
         ],
-  
+
+        "xScale" : "linear", 
+        "yScale" : "linear",
+
         "xlim_min" : false,
         "xlim_max" : false,
         "ylim_min" : false,
