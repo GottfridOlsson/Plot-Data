@@ -1,6 +1,7 @@
-2022-02-04, 2022-02-17, 2022-03-24:
+2022-02-04, 2022-02-17, 2022-03-24, 2022-04-17:
 # TODO:
   # gridlines mellan ticks för finare avläsning
+    # minorGrid for x- and y-axis? choose which one/both?
   # no whitespace above/below figure 
   # plot in subplots. Source: https://www.pythonpool.com/matplotlib-gridspec/
   # log scale for axis "log_scale" = True or False in .JSON

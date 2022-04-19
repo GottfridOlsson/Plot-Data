@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-04-07, 09:37
+#     Updated: 2022-04-17, 14:56
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -79,9 +79,15 @@ def set_legend(ax, legendOn, alpha, location, axNum):
             ax.legend(framealpha=alpha, loc=location)
       print("DONE: Set legend on axs: " + str(axNum))
 
-def set_grid(ax, gridOn, axNum): #TODO: subdivisions?
-      ax.grid(gridOn)
-      print("DONE: Set grid on axs: " + str(axNum))
+def set_grid(ax, gridMajorOn, gridMinorOn, axNum): #TO DO: subdivisions?
+      if gridMajorOn:
+        ax.grid(gridMajorOn, which='major')
+      if gridMinorOn:
+        ax.minorticks_on()
+        ax.grid(gridMinorOn, which='minor', linewidth=0.25)
+
+      #ax.grid(gridMajorOn)
+      print("DONE: Set gridMajor=" + str(gridMajorOn) +" and gridMinor="+ str(gridMinorOn)+  " no axs: " + str(axNum))
 
 def get_ax_size(ax):
     bbox = ax.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
@@ -115,6 +121,7 @@ def set_commaDecimal_with_precision(ax, xAxis_precision, yAxis_precision, axNum)
 
 
 
+    ##### NGT är väldigt fel, fattar inte vad... //2022-03-31, 22:25
 def set_scientific_ticklabel(ax):
     formatter = matplotlib.ticker.ScalarFormatter(useMathText=True)
     formatter.set_scientific(True)
@@ -153,7 +160,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "20220406_2122_testdataKandidat" #"20220407_0913_sizeOfAtomicNucleus" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
+readJSONFilePathStringTEMP = "CONFIG" #"20220406_2122_testdataKandidat" #"20220407_0913_sizeOfAtomicNucleus" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = read_JSON(JSON_readFilePath)
@@ -213,7 +220,8 @@ errorbarCapthickness = [ [    0 for i in range(max_yDatasets) ] for i in range(n
 legendOn        = [ False for i in range(num_subplots) ]
 legendAlpha     = [ False for i in range(num_subplots) ]
 legendLocation  = [ False for i in range(num_subplots) ]
-gridOn          = [ False for i in range(num_subplots) ]
+gridMajorOn     = [ False for i in range(num_subplots) ]
+gridMinorOn     = [ False for i in range(num_subplots) ]
 xLabel          = [""]*num_subplots
 yLabel          = [""]*num_subplots
 xScale          = [""]*num_subplots
@@ -245,7 +253,8 @@ for i in range(0, num_subplots):
     legendOn[i]               = c['subplots'][i]['legend_on']
     legendLocation[i]         = c['subplots'][i]['legend_location']
     legendAlpha[i]            = c['subplots'][i]['legend_alpha']
-    gridOn[i]                 = c['subplots'][i]['grid_on']
+    gridMajorOn[i]                 = c['subplots'][i]['grid_on']
+    gridMinorOn[i]            = c['subplots'][i]['grid_minor_on']
 
     for k in range(0, c['subplots'][i]['num_yDatasets']):
         subplot_xCol[i][k]    = c['subplots'][i]['xDataCol'][k][str(k+1)] - 1
@@ -321,8 +330,7 @@ if num_subplots > 1:
         set_limits(axs[i], xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
         set_legend(axs[i], legendOn[i], legendAlpha[i], legendLocation[i], i)
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
-        set_grid(axs[i], gridOn[i], i)
-        #set_scientific_ticklabel(axs[i])
+        set_grid(  axs[i], gridMajorOn[i], gridMinorOn[i], i)
         set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
         
 
@@ -346,7 +354,7 @@ if num_subplots <= 1:
     set_limits(axs, xlim_min[i], xlim_max[i], ylim_min[i], ylim_max[i], i)
     set_legend(axs, legendOn[i], legendAlpha[i], legendLocation[i], i)
     set_labels(axs, xLabel[i], yLabel[i], i) 
-    set_grid(  axs, gridOn[i], i)
+    set_grid(  axs, gridMajorOn[i], gridMinorOn[i], i)
     set_commaDecimal_with_precision(axs, floatPrec_xAxis[i], floatPrec_yAxis[i], i)
 
 #print(data)
