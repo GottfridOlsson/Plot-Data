@@ -1,17 +1,17 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-04-07, 14:15",
+  "updated"      : "2022-04-21, 09:26",
   "about"        : "[FUF050] Computer exercise: size of atomic nucleus",
   "filename_csv" : "20220407_0913_sizeOfAtomicNucleus",
-  "filename_pdf" : "20220407_0913_sizeOfAtomicNucleus",
+  "filename_pdf" : "20220421_0812_sizeOfAtomicNucleus",
 
-  "figure_width"  : 22,
-  "figure_height" : 18, 
+  "figure_width"  : 24,
+  "figure_height" : 10, 
 
   "LaTeX_and_CMU"   : true,
   "fontSize_axis"   : 17,
-  "fontSize_tick"   : 15,
-  "fontSize_legend" : 13,
+  "fontSize_tick"   : 13.5,
+  "fontSize_legend" : 11,
 
   "utf-8_encoding_help" : {
     "comment" : true,
@@ -24,8 +24,8 @@
   },
 
   "num_subplots"   : 2, 
-  "num_subplots_x" : 1,
-  "num_subplots_y" : 2, 
+  "num_subplots_x" : 2,
+  "num_subplots_y" : 1, 
   "max_yDatasets"  : 2,
 
   "subplots": [
@@ -44,27 +44,27 @@
         "datalabel"   : "Experiment (Frosch et al. (1968))",
     
         "marker_type"      : "o",  
-        "marker_size"      : 6,
-        "marker_thickness" : 2,
+        "marker_size"      : 4,
+        "marker_thickness" : 1.4,
         "marker_facecolor" : "None",
     
         "line_color" : "#f1311d",
         "line_style" : "",
-        "line_width" : 2, 
+        "line_width" : 1, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0, 
         "constant_yError"       : 0.1,
         "errorbar_xError_col"   : false,
         "errorbar_yError_col"   : 2,
-        "errorbar_size"         : 5,
-        "errorbar_linewidth"    : 1.5,
-        "errorbar_capthickness" : 5
+        "errorbar_size"         : 3,
+        "errorbar_linewidth"    : 1.2,
+        "errorbar_capthickness" : 3
       }, 
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel"   : "Simulering baserat p\u00e5 $\\chi^2(\\mathbf{X}_*)$",
+        "datalabel"   : "Optimerad kurvanpassning",
     
         "marker_type"      : "",  
         "marker_size"      : 6,
@@ -88,20 +88,20 @@
         "datalabel"   : "Fuskdata",
     
         "marker_type"      : "",  
-        "marker_size"      : 6,
+        "marker_size"      : 4,
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
         "line_color" : "#f1311d",
         "line_style" : ":",
-        "line_width" : 2, 
+        "line_width" : 1.5, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
         "constant_yError"       : 0.1,
         "errorbar_size"         : 0,
         "errorbar_linewidth"    : 1.5,
-        "errorbar_capthickness" : 1 
+        "errorbar_capthickness" : 0.8 
       }
       ],
 
@@ -110,17 +110,18 @@
 
       "xlim_min" : 30,
       "xlim_max" : 130,
-      "ylim_min" : false,
-      "ylim_max" : false,
+      "ylim_min" : 0.00000000095,
+      "ylim_max" : 10,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 2, 
+      "floatPrec_yAxis" : 4, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
       "legend_alpha"    : 1,
       
       "grid_on"         : true,
+      "grid_minor_on"   : false,
 
       "invert_xAxis"    : false,
       "invert_yAxis"    : false
@@ -182,8 +183,8 @@
       "xScale" : "linear", 
       "yScale" : "linear", 
 
-      "xlim_min" : false,
-      "xlim_max" : false,
+      "xlim_min" : 0,
+      "xlim_max" : 8,
       "ylim_min" : 0,
       "ylim_max" : 0.08,
 
@@ -195,6 +196,7 @@
       "legend_alpha"    : 1,
       
       "grid_on"         : true,
+      "grid_minor_on"   : false,
 
       "invert_xAxis"    : false,
       "invert_yAxis"    : false
@@ -268,6 +270,7 @@
       "legend_alpha"    : 1,
       
       "grid_on"         : false,
+      "grid_minor_on"   : false,
 
       "invert_xAxis"    : false,
       "invert_yAxis"    : false

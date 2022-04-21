@@ -2,7 +2,7 @@
 #        Name: PLOT DATA
 #      Author: GOTTFRID OLSSON 
 #     Created: 2022-02-04, 18:15
-#     Updated: 2022-04-17, 14:56
+#     Updated: 2022-04-21, 08:39
 #       About: Plot data from CSV in figure with matplotlib.
 #              Plot-settings in JSON. Export figure as PDF.
 ##---------------------------------------------------------##
@@ -160,7 +160,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "CONFIG" #"20220406_2122_testdataKandidat" #"20220407_0913_sizeOfAtomicNucleus" #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
+readJSONFilePathStringTEMP = "20220421_0812_sizeOfAtomicNucleus" #"CONFIG" #"20220406_2122_testdataKandidat" # #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 config = read_JSON(JSON_readFilePath)
@@ -331,7 +331,8 @@ if num_subplots > 1:
         set_legend(axs[i], legendOn[i], legendAlpha[i], legendLocation[i], i)
         set_labels(axs[i], xLabel[i], yLabel[i], i) 
         set_grid(  axs[i], gridMajorOn[i], gridMinorOn[i], i)
-        set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
+        if yScale[i] != 'log' and xScale[i] != 'log':
+            set_commaDecimal_with_precision(axs[i], floatPrec_xAxis[i], floatPrec_yAxis[i], i)
         
 
 

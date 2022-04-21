@@ -1,4 +1,8 @@
-2022-02-04, 2022-02-17, 2022-03-24, 2022-04-17:
+2022-02-04, 2022-02-17, 2022-03-24, 2022-04-17, 2022-04-21:
+# NOTES:
+ #set_decimal_comma() function makes it so that you DON'T have "10^-x" in y-axis for logs - to fix! (if loop or smth for y_scale = log)
+ 
+
 # TODO:
   # gridlines mellan ticks för finare avläsning
     # minorGrid for x- and y-axis? choose which one/both?
