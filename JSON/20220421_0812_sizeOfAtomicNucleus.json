@@ -1,16 +1,16 @@
 {
   "author"       : "Gottfrid Olsson och Viktor Lilja",
-  "updated"      : "2022-04-21, 09:26",
+  "updated"      : "2022-04-24, 15:35",
   "about"        : "[FUF050] Computer exercise: size of atomic nucleus",
   "filename_csv" : "20220407_0913_sizeOfAtomicNucleus",
-  "filename_pdf" : "20220421_0812_sizeOfAtomicNucleus",
+  "filename_pdf" : "20220424_1535_sizeOfAtomicNucleus",
 
-  "figure_width"  : 24,
-  "figure_height" : 10, 
+  "figure_width"  : 12,
+  "figure_height" : 17, 
 
   "LaTeX_and_CMU"   : true,
-  "fontSize_axis"   : 17,
-  "fontSize_tick"   : 13.5,
+  "fontSize_axis"   : 16,
+  "fontSize_tick"   : 13,
   "fontSize_legend" : 11,
 
   "utf-8_encoding_help" : {
@@ -24,8 +24,8 @@
   },
 
   "num_subplots"   : 2, 
-  "num_subplots_x" : 2,
-  "num_subplots_y" : 1, 
+  "num_subplots_x" : 1,
+  "num_subplots_y" : 2, 
   "max_yDatasets"  : 2,
 
   "subplots": [
@@ -134,7 +134,7 @@
       "xDataCol"      : [ {"1" : 6} ],
       "yDataCol"      : [ {"1" : 7}, {"2" : 6} ], 
       "xLabel"        : "$r$ (fm)",
-      "yLabel"        : "$\\rho_{\\mathrm{ch}}(r;\\mathbf{X})$ (e fm$^{-3}$)",
+      "yLabel"        : "$\\rho_{\\mathrm{ch}}(r;\\mathbf{X}_\\star)$ (e fm$^{-3}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
