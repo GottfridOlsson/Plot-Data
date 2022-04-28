@@ -81,10 +81,10 @@ def set_legend(ax, legendOn, alpha, location, axNum):
 
 def set_grid(ax, gridMajorOn, gridMinorOn, axNum): #TO DO: subdivisions?
       if gridMajorOn:
-        ax.grid(gridMajorOn, which='major')
+        ax.grid(gridMajorOn, which='major', linewidth=0.95)
       if gridMinorOn:
         ax.minorticks_on()
-        ax.grid(gridMinorOn, which='minor', linewidth=0.25)
+        ax.grid(gridMinorOn, which='minor', linewidth=0.35)
 
       #ax.grid(gridMajorOn)
       print("DONE: Set gridMajor=" + str(gridMajorOn) +" and gridMinor="+ str(gridMinorOn)+  " no axs: " + str(axNum))
@@ -160,7 +160,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "S_measurements_time_Xvel_sigma5" #"20220421_0812_sizeOfAtomicNucleus"
+readJSONFilePathStringTEMP = "S_measurements_time_Xvel_sigma5_20220428" #"20220421_0812_sizeOfAtomicNucleus"
 #"IckeOptimeradeTriggers_300V"  #"CONFIG" #"20220406_2122_testdataKandidat" # #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18

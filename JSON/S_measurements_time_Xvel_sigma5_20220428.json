@@ -1,7 +1,7 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-04-28, 08:40",
-  "about"        : "TIFX04 LEMA, S13_through_S23_time_Xvel",
+  "updated"      : "2022-04-28, 11:32",
+  "about"        : "TIFX04 LEMA, S_measurements",
   "filename_csv" : "S_time_Xvel_20220428_sigma5",
   "filename_pdf" : "S_time_Xvel_20220428_sigma5_processed",
 
@@ -26,31 +26,31 @@
   "num_subplots"   : 1, 
   "num_subplots_x" : 1,
   "num_subplots_y" : 1, 
-  "max_yDatasets"  : 10,
+  "max_yDatasets"  : 11,
 
   "subplots": [
     {
       "subplotNum"    : 1, 
-      "num_yDatasets" : 10,
+      "num_yDatasets" : 11,
 
-      "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}, {"4" : 1}, {"5" : 1}, {"6" : 1}, {"7" : 1}, {"8" : 1}, {"9" : 1}, {"10" : 1}],
-      "yDataCol"      : [{"1" : 2}, {"2" : 3}, {"3" : 5}, {"4" : 6}, {"5" : 7}, {"6" : 8}, {"7" : 9}, {"8" : 10}, {"9" : 11}, {"10" : 12}], 
-      "xLabel"        : "Tid (ms)",
-      "yLabel"        : "Fart i $x$-led (mm/s)",
+      "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}, {"4" : 1}, {"5" : 1}, {"6" : 1}, {"7" : 1}, {"8" : 1}, {"9" : 1}, {"10" : 1}, {"11" : 1}],
+      "yDataCol"      : [{"1" : 3}, {"2" : 4}, {"3" : 5}, {"4" : 6}, {"5" : 7}, {"6" : 8}, {"7" : 9}, {"8" : 10}, {"9" : 11}, {"10" : 12}, {"11" : 2} ], 
+      "xLabel"        : "$t$ (ms)",
+      "yLabel"        : "$v_x$ (m/s)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 1",
+        "datalabel"   : "M\u00e4tserier",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -64,16 +64,16 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 2",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -87,16 +87,16 @@
       {
         "yDatasetNum" : 3,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 3",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -110,16 +110,16 @@
       {
         "yDatasetNum" : 4,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 4",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -133,16 +133,16 @@
       {
         "yDatasetNum" : 5,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 5",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -156,16 +156,16 @@
       {
         "yDatasetNum" : 6,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 6",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -179,16 +179,16 @@
       {
         "yDatasetNum" : 7,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 7",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -202,16 +202,16 @@
       {
         "yDatasetNum" : 8,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 8",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -225,16 +225,16 @@
       {
         "yDatasetNum" : 9,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 9",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -248,16 +248,39 @@
       {
         "yDatasetNum" : 10,
         "plot_type"   : "plot",
-        "datalabel"   : "x-fart 10",
+        "datalabel"   : "",
     
         "marker_type"      : "",  
         "marker_size"      : 2,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
-        "line_width" : 1, 
+        "line_width" : 0.9, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.3, 
+        "constant_yError"       : 0.1,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 5,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 5
+      }, 
+      {
+        "yDatasetNum" : 11,
+        "plot_type"   : "plot",
+        "datalabel"   : "Medelv\u00e4rdesbildning",
+    
+        "marker_type"      : "",  
+        "marker_size"      : 2,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#f1311d",
+        "line_style" : "-",
+        "line_width" : 2.2, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.3, 
@@ -273,13 +296,13 @@
       "xScale" : "linear", 
       "yScale" : "linear", 
 
-      "xlim_min" : false,
-      "xlim_max" : false,
-      "ylim_min" : false,
-      "ylim_max" : false,
+      "xlim_min" : -5,
+      "xlim_max" : 105,
+      "ylim_min" : -0.5,
+      "ylim_max" : 11,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 1, 
+      "floatPrec_yAxis" : 0, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
@@ -332,7 +355,7 @@
         "marker_thickness" : 2,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#8E8E8E",
         "line_style" : "-",
         "line_width" : 2.5,
 
