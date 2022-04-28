@@ -160,7 +160,8 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 ##----------##
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
-readJSONFilePathStringTEMP = "S_measurements_time_Xvel_sigma5_20220428" #"20220421_0812_sizeOfAtomicNucleus"
+
+readJSONFilePathStringTEMP = "processed_and_simulated_S__Xvel_sigma5_20220428" #"S_measurements_time_Xvel_sigma5_20220428" #"20220421_0812_sizeOfAtomicNucleus"
 #"IckeOptimeradeTriggers_300V"  #"CONFIG" #"20220406_2122_testdataKandidat" # #"20220222_1014_fluorescenceNormalisedPeak628nmAndSimulation" # "20220221_1934_HeBroadAndGauss2" #"20220223_1558_absorbanceMeanAndSimulation" #  #"20220221_2000_absorption_I2_measurement2" #"20220221_1942_fluorescens_mean"
 
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
@@ -275,11 +276,11 @@ for i in range(0, num_subplots):
             errorbarLinewidth[i][k]     = c['subplots'][i]['yDataset'][k]['errorbar_linewidth']
             errorbarCapthickness[i][k]  = c['subplots'][i]['yDataset'][k]['errorbar_capthickness']
             if c['subplots'][i]['yDataset'][k]['constant_errorbar']:
-                xError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_xError']
-                yError[i][k]  = c['subplots'][i]['yDataset'][k]['constant_yError']
+                xError[i][k]            = c['subplots'][i]['yDataset'][k]['constant_xError']
+                yError[i][k]            = c['subplots'][i]['yDataset'][k]['constant_yError']
             else:
-                errorbar_xError_col = c['subplots'][i]['yDataset'][k]['errorbar_xError_col']
-                errorbar_yError_col = c['subplots'][i]['yDataset'][k]['errorbar_yError_col']
+                errorbar_xError_col     = c['subplots'][i]['yDataset'][k]['errorbar_xError_col']
+                errorbar_yError_col     = c['subplots'][i]['yDataset'][k]['errorbar_yError_col']
                 if errorbar_xError_col is not False:
                     xError[i][k] = data[header[errorbar_xError_col]]
                 else:
