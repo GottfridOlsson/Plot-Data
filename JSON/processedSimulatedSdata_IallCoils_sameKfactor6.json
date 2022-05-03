@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-04-29, 15:23",
+  "updated"      : "2022-05-03, 10:11",
   "about"        : "TIFX04 LEMA, S_measurements, I_allCoils scaled factor 6",
   "filename_csv" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220429",
-  "filename_pdf" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220429",
+  "filename_pdf" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220503",
 
   "figure_width"  : 22,
   "figure_height" : 22, 
@@ -36,7 +36,7 @@
       "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}, {"4" : 1}, {"5" : 1}, {"6" : 1}, {"7" : 1}, {"8" : 1},  {"9" : 1},  {"10" : 1},  {"11" : 1}, {"12" : 13}, {"13" : 16}, {"14" : 19}, {"15" :22}, {"16" :25} ],
       "yDataCol"      : [{"1" : 3}, {"2" : 4}, {"3" : 5}, {"4" : 6}, {"5" : 7}, {"6" : 8}, {"7" : 9}, {"8" : 10}, {"9" : 11}, {"10" : 12}, {"11" : 2}, {"12" : 14}, {"13" : 17}, {"14" : 20}, {"15" :23}, {"16" :26}  ], 
       "xLabel"        : "$t$ (ms)",
-      "yLabel"        : "$v$ (m/s)",
+      "yLabel"        : "$v$ ($\\mathrm{m\\,s^{-1}}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
@@ -437,7 +437,7 @@
       "xDataCol"      : [ {"1" : 29}, {"2" : 13}, {"3" : 16}, {"4" : 19}, {"5" :22}, {"6" :25} ],
       "yDataCol"      : [ {"1" : 30}, {"2" : 15}, {"3" : 18}, {"4" : 21}, {"5" :24}, {"6" :27} ], 
       "xLabel"        : "$t$ (ms)",
-      "yLabel"        : "$I$, skalad med faktor 6 (A)",
+      "yLabel"        : "$i$, skalad med faktor 6 (A)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
@@ -576,7 +576,7 @@
       "ylim_max" : 62,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 4, 
+      "floatPrec_yAxis" : 0, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
