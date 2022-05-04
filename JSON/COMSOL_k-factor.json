@@ -1,6 +1,6 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-04, 16:06",
+  "updated"      : "2022-05-04, 18:59",
   "about"        : "TIFX04 LEMA, COMSOL simulation k-factor",
   "filename_csv" : "COMSOL_k_220503",
   "filename_pdf" : "COMSOL_k_220504",
@@ -26,31 +26,146 @@
   "num_subplots"   : 1, 
   "num_subplots_x" : 1,
   "num_subplots_y" : 1, 
-  "max_yDatasets"  : 1,
+  "max_yDatasets"  : 6,
 
   "subplots": [
     {
       "subplotNum"    : 1, 
-      "num_yDatasets" : 1,
+      "num_yDatasets" : 6,
 
-      "xDataCol"      : [ {"1" : 2} ],
-      "yDataCol"      : [ {"1" : 1} ], 
-      "xLabel"        : "",
-      "yLabel"        : "",
+      "xDataCol"      : [ {"1" : 1},{"2" : 1},{"3" : 1},{"4" : 1},{"5" : 1},{"6" : 1} ],
+      "yDataCol"      : [ {"1" : 2},{"2" : 3},{"3" : 4},{"4" : 5},{"5" : 6},{"6" : 7} ], 
+      "xLabel"        : "Projektilposition, $x$ ($\\mathrm{cm}$)",
+      "yLabel"        : "Kopplingskoefficient, $k$",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "M\u00e4tserier",
+        "datalabel"   : "Simulering, 200 varv",
     
         "marker_type"      : "o",  
+        "marker_size"      : 6,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#f1311d",
+        "line_style" : "",
+        "line_width" : 1.5, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.5, 
+        "constant_yError"       : 0.05,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 4,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 2.5
+      }, 
+      {
+        "yDatasetNum" : 2,
+        "plot_type"   : "plot",
+        "datalabel"   : "Simulering, 400 varv",
+    
+        "marker_type"      : "x",  
+        "marker_size"      : 6,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#3ac20e",
+        "line_style" : "",
+        "line_width" : 1.5, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.5, 
+        "constant_yError"       : 0.05,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 4,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 2.5
+      }, 
+      {
+        "yDatasetNum" : 3,
+        "plot_type"   : "plot",
+        "datalabel"   : "Simulering, 600 varv",
+    
+        "marker_type"      : "s",  
+        "marker_size"      : 6,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#086BDE",
+        "line_style" : "",
+        "line_width" : 1.5, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.5, 
+        "constant_yError"       : 0.05,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 4,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 2.5
+      }, 
+      {
+        "yDatasetNum" : 4,
+        "plot_type"   : "plot",
+        "datalabel"   : "Kurvanpassning, 200 varv",
+    
+        "marker_type"      : "",  
         "marker_size"      : 5,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#101010",
+        "line_color" : "#f1311d",
         "line_style" : "-",
-        "line_width" : 1.5, 
+        "line_width" : 2, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.5, 
+        "constant_yError"       : 0.05,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 4,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 2.5
+      }, 
+      {
+        "yDatasetNum" : 5,
+        "plot_type"   : "plot",
+        "datalabel"   : "Kurvanpassning, 400 varv",
+    
+        "marker_type"      : "",  
+        "marker_size"      : 5,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#3ac20e",
+        "line_style" : "--",
+        "line_width" : 2, 
+
+        "constant_errorbar"     : false, 
+        "constant_xError"       : 0.5, 
+        "constant_yError"       : 0.05,
+        "errorbar_xError_col"   : 0,
+        "errorbar_yError_col"   : 0,
+        "errorbar_size"         : 4,
+        "errorbar_linewidth"    : 1.5,
+        "errorbar_capthickness" : 2.5
+      }, 
+      {
+        "yDatasetNum" : 6,
+        "plot_type"   : "plot",
+        "datalabel"   : "Kurvanpassning, 600 varv",
+    
+        "marker_type"      : "",  
+        "marker_size"      : 5,
+        "marker_thickness" : 1.5,
+        "marker_facecolor" : "None",
+    
+        "line_color" : "#086BDE",
+        "line_style" : ":",
+        "line_width" : 2, 
 
         "constant_errorbar"     : false, 
         "constant_xError"       : 0.5, 
@@ -71,15 +186,15 @@
       "ylim_min" : false,
       "ylim_max" : false,
 
-      "floatPrec_xAxis" : 1,
-      "floatPrec_yAxis" : 1, 
+      "floatPrec_xAxis" : 0,
+      "floatPrec_yAxis" : 2, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
       "legend_alpha"    : 1,
       
       "grid_on"         : true,
-      "grid_minor_on"   : true,
+      "grid_minor_on"   : false,
 
       "invert_xAxis"    : false,
       "invert_yAxis"    : false

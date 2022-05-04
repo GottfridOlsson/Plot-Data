@@ -81,10 +81,10 @@ def set_legend(ax, legendOn, alpha, location, axNum):
 
 def set_grid(ax, gridMajorOn, gridMinorOn, axNum): #TO DO: subdivisions?
       if gridMajorOn:
-        ax.grid(gridMajorOn, which='major', linewidth=0.95)
+        ax.grid(gridMajorOn, which='major', linewidth=0.95) 
       if gridMinorOn:
         ax.minorticks_on()
-        ax.grid(gridMinorOn, which='minor', linewidth=0.35)
+        ax.grid(gridMinorOn, which='minor', linewidth=0.3)
 
       #ax.grid(gridMajorOn)
       print("DONE: Set gridMajor=" + str(gridMajorOn) +" and gridMinor="+ str(gridMinorOn)+  " no axs: " + str(axNum))
@@ -161,7 +161,7 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
 
-readJSONFilePathStringTEMP = "DX_stage2"  #"processedSimulatedSdata_IallCoils_sameKfactor6" #
+readJSONFilePathStringTEMP = "COMSOL_designPlot" #"COMSOL_k-factor" #"COMSOL_L" #"DX_stage2"  #"processedSimulatedSdata_IallCoils_sameKfactor6" #
 #"I_allCoils_nonCorrected"
 #"I_individualCoils_20220428_correctedCurrent"
 
