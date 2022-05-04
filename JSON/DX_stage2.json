@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-03, 17:17",
+  "updated"      : "2022-05-04, 15:16",
   "about"        : "TIFX04 LEMA, DX measurements for stage 2",
-  "filename_csv" : "DX_processed_20220503",
-  "filename_pdf" : "DX_processed_20220503_noUncertaintyInVel",
+  "filename_csv" : "DX_processed_20220504",
+  "filename_pdf" : "DX_processed_20220504",
 
   "figure_width"  : 22,
   "figure_height" : 12, 
@@ -35,8 +35,8 @@
 
       "xDataCol"      : [ {"1" : 2} ],
       "yDataCol"      : [ {"1" : 1} ], 
-      "xLabel"        : "$\\delta$ (mm)",
-      "yLabel"        : "$\\Delta v$ ($\\mathrm{m\\,s^{-1}}$)",
+      "xLabel"        : "$\\delta_2$ (mm)",
+      "yLabel"        : "$\\Delta v_2$ ($\\mathrm{m\\,s^{-1}}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
@@ -49,25 +49,25 @@
         "marker_facecolor" : "None",
     
         "line_color" : "#101010",
-        "line_style" : "-",
+        "line_style" : "",
         "line_width" : 1, 
 
         "constant_errorbar"     : true, 
         "constant_xError"       : 0.5, 
-        "constant_yError"       : 0,
+        "constant_yError"       : 0.05,
         "errorbar_xError_col"   : 0,
         "errorbar_yError_col"   : 0,
-        "errorbar_size"         : 5,
+        "errorbar_size"         : 4,
         "errorbar_linewidth"    : 1.5,
-        "errorbar_capthickness" : 4
+        "errorbar_capthickness" : 2.5
       }
       ],
 
       "xScale" : "linear", 
       "yScale" : "linear", 
 
-      "xlim_min" : false,
-      "xlim_max" : false,
+      "xlim_min" : 31,
+      "xlim_max" : 45,
       "ylim_min" : false,
       "ylim_max" : false,
 
@@ -105,7 +105,7 @@
         "marker_facecolor" : "None",
     
         "line_color" : "#f1311d",
-        "line_style" : "-",
+        "line_style" : "0",
         "line_width" : 2,
 
         "constant_errorbar"     : true, 
