@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-04, 18:59",
+  "updated"      : "2022-05-05, 13:44",
   "about"        : "TIFX04 LEMA, COMSOL simulation k-factor",
   "filename_csv" : "COMSOL_k_220503",
-  "filename_pdf" : "COMSOL_k_220504",
+  "filename_pdf" : "COMSOL_k_220505",
 
   "figure_width"  : 22,
   "figure_height" : 12, 
@@ -41,14 +41,14 @@
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "Simulering, 200 varv",
+        "datalabel"   : "Simulering i COMSOL, 200 varv",
     
         "marker_type"      : "o",  
         "marker_size"      : 6,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#f1311d",
+        "line_color" : "#101010",
         "line_style" : "",
         "line_width" : 1.5, 
 
@@ -64,14 +64,14 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel"   : "Simulering, 400 varv",
+        "datalabel"   : "Simulering i COMSOL, 400 varv",
     
         "marker_type"      : "x",  
         "marker_size"      : 6,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#3ac20e",
+        "line_color" : "#101010",
         "line_style" : "",
         "line_width" : 1.5, 
 
@@ -87,14 +87,14 @@
       {
         "yDatasetNum" : 3,
         "plot_type"   : "plot",
-        "datalabel"   : "Simulering, 600 varv",
+        "datalabel"   : "Simulering i COMSOL, 600 varv",
     
         "marker_type"      : "s",  
         "marker_size"      : 6,
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#086BDE",
+        "line_color" : "#101010",
         "line_style" : "",
         "line_width" : 1.5, 
 
@@ -117,7 +117,7 @@
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#f1311d",
+        "line_color" : "#101010",
         "line_style" : "-",
         "line_width" : 2, 
 
@@ -140,7 +140,7 @@
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#3ac20e",
+        "line_color" : "#101010",
         "line_style" : "--",
         "line_width" : 2, 
 
@@ -163,7 +163,7 @@
         "marker_thickness" : 1.5,
         "marker_facecolor" : "None",
     
-        "line_color" : "#086BDE",
+        "line_color" : "#101010",
         "line_style" : ":",
         "line_width" : 2, 
 
@@ -184,10 +184,10 @@
       "xlim_min" : false,
       "xlim_max" : false,
       "ylim_min" : false,
-      "ylim_max" : false,
+      "ylim_max" : 0.42,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 2, 
+      "floatPrec_yAxis" : 1, 
 
       "legend_on"       : true,
       "legend_location" : "best", 

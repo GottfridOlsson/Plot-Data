@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-04, 16:06",
+  "updated"      : "2022-05-05, 13:40",
   "about"        : "TIFX04 LEMA, COMSOL simulation, designplot",
   "filename_csv" : "designplot_220503",
-  "filename_pdf" : "COMSOL_designPlot_220504",
+  "filename_pdf" : "COMSOL_designPlot_220505",
 
   "figure_width"  : 22,
   "figure_height" : 16, 
@@ -41,7 +41,7 @@
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "Spolvarv (hundratal)",
+        "datalabel"   : "Spolvarv, $N$ (hundratal)",
     
         "marker_type"      : "",  
         "marker_size"      : 5,
@@ -64,7 +64,7 @@
       {
         "yDatasetNum" : 2,
         "plot_type"   : "plot",
-        "datalabel"   : "Fart\u00f6kning ($\\mathrm{m\\,s^{-1}}$)",
+        "datalabel"   : "Fart\u00f6kning, $\\Delta v$ ($\\mathrm{m\\,s^{-1}}$)",
     
         "marker_type"      : "",  
         "marker_size"      : 3,
@@ -87,7 +87,7 @@
       {
         "yDatasetNum" : 3,
         "plot_type"   : "plot",
-        "datalabel"   : "Verkningsgrad (\\%)",
+        "datalabel"   : "Verkningsgrad, $\\eta$ (\\%)",
     
         "marker_type"      : "",  
         "marker_size"      : 5,
@@ -110,7 +110,7 @@
       {
         "yDatasetNum" : 4,
         "plot_type"   : "plot",
-        "datalabel"   : "Startposition ($\\mathrm{cm}$)",
+        "datalabel"   : "Aktiveringsavst\u00e5nd, $\\delta$ ($\\mathrm{cm}$)",
     
         "marker_type"      : "",  
         "marker_size"      : 5,

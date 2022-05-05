@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-04, 16:06",
+  "updated"      : "2022-05-05, 13:39",
   "about"        : "TIFX04 LEMA, COMSOL simulation, inductance",
   "filename_csv" : "COMSOL_L_220503",
-  "filename_pdf" : "COMSOL_L_220504",
+  "filename_pdf" : "COMSOL_L_220505",
 
   "figure_width"  : 22,
   "figure_height" : 12, 
@@ -41,7 +41,7 @@
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "Simulering",
+        "datalabel"   : "Simulering i COMSOL",
     
         "marker_type"      : "o",  
         "marker_size"      : 7,
