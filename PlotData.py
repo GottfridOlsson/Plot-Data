@@ -161,8 +161,8 @@ def plot_errorbar(ax, xData, yData, xError, yError, errorbarSize, errorbarLinewi
 
 #temp # OBS! must fill in JSON_readFilePath as of now #tofix!
 
-readJSONFilePathStringTEMP = "COMSOL_k-factor" #"COMSOL_L" #"COMSOL_designPlot" #
- #"DX_stage2"  #"processedSimulatedSdata_IallCoils_sameKfactor6" #
+readJSONFilePathStringTEMP = "processedSimulatedSdata_IallCoils_sameKfactor6" #"COMSOL_k-factor" #"COMSOL_L" #"COMSOL_designPlot" #
+ #   #"DX_stage2"#"
 #"I_allCoils_nonCorrected"
 #"I_individualCoils_20220428_correctedCurrent"
 
