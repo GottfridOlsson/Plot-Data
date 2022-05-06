@@ -417,7 +417,7 @@
       "ylim_max" : 11,
 
       "floatPrec_xAxis" : 0,
-      "floatPrec_yAxis" : 3, 
+      "floatPrec_yAxis" : 0, 
 
       "legend_on"       : true,
       "legend_location" : "best", 
