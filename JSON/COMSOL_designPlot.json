@@ -1,9 +1,9 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-05, 13:40",
+  "updated"      : "2022-05-08, 18:15",
   "about"        : "TIFX04 LEMA, COMSOL simulation, designplot",
   "filename_csv" : "designplot_220503",
-  "filename_pdf" : "COMSOL_designPlot_220505",
+  "filename_pdf" : "COMSOL_designPlot_220508",
 
   "figure_width"  : 22,
   "figure_height" : 16, 

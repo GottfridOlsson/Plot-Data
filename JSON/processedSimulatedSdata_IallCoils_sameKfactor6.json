@@ -437,12 +437,12 @@
       "xDataCol"      : [ {"1" : 29}, {"2" : 13}, {"3" : 16}, {"4" : 19}, {"5" :22}, {"6" :25} ],
       "yDataCol"      : [ {"1" : 30}, {"2" : 15}, {"3" : 18}, {"4" : 21}, {"5" :24}, {"6" :27} ], 
       "xLabel"        : "$t$ (ms)",
-      "yLabel"        : "$i$, skalad med faktor 6 (A)",
+      "yLabel"        : "$i$ (A)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
         "plot_type"   : "plot",
-        "datalabel"   : "Uppm\u00e4tt",
+        "datalabel"   : "Uppm\u00e4tt str\u00f6m, skalad med faktor 6",
     
         "marker_type"      : "",  
         "marker_size"      : 5,

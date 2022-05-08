@@ -3,10 +3,10 @@
   "updated"      : "2022-05-05, 13:39",
   "about"        : "TIFX04 LEMA, COMSOL simulation, inductance",
   "filename_csv" : "COMSOL_L_220503",
-  "filename_pdf" : "COMSOL_L_220505",
+  "filename_pdf" : "COMSOL_L_220508",
 
   "figure_width"  : 22,
-  "figure_height" : 12, 
+  "figure_height" : 10, 
   
   "LaTeX_and_CMU"   : true,
   "fontSize_axis"   : 17,
