@@ -4,6 +4,15 @@ Plots data from CSV-file.
 Settings specified in JSON-file.
 ### UNDER CONSTRUCTION ###
 
+
+
+      "xlim_min" : -5,
+      "xlim_max" : 105,
+      "ylim_min" : -0.5,
+      "ylim_max" : 11,
+
+
+
 TODO FUF050:
     - log scale y- and x-axis
 

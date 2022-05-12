@@ -3,7 +3,7 @@
   "updated"      : "2022-05-04, 15:16",
   "about"        : "TIFX04 LEMA, DX measurements for stage 2",
   "filename_csv" : "DX_processed_20220504",
-  "filename_pdf" : "DX_processed_20220504",
+  "filename_pdf" : "DX_processed_20220512",
 
   "figure_width"  : 22,
   "figure_height" : 12, 
@@ -35,8 +35,8 @@
 
       "xDataCol"      : [ {"1" : 2} ],
       "yDataCol"      : [ {"1" : 1} ], 
-      "xLabel"        : "$\\delta_2$ (mm)",
-      "yLabel"        : "$\\Delta v_2$ ($\\mathrm{m\\,s^{-1}}$)",
+      "xLabel"        : "Aktiveringsavst\u00e5nd, $\\delta_2$ (mm)",
+      "yLabel"        : "Fart\u00f6kning, $\\Delta v_2$ ($\\mathrm{m\\,s^{-1}}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
