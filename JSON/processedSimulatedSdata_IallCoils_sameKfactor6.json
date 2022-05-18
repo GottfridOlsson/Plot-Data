@@ -1,12 +1,12 @@
 {
   "author"       : "Gottfrid Olsson",
-  "updated"      : "2022-05-12, 09:53",
+  "updated"      : "2022-05-18, 15:30",
   "about"        : "TIFX04 LEMA, S_measurements, I_allCoils scaled factor 6",
   "filename_csv" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220429",
-  "filename_pdf" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220512_zoomed",
+  "filename_pdf" : "processedSimulatedSdata_and_IallCoils_sameKfactor_20220518_vt_presentation",
 
   "figure_width"  : 22,
-  "figure_height" : 22, 
+  "figure_height" : 15, 
   
   "LaTeX_and_CMU"   : true,
   "fontSize_axis"   : 17,
@@ -23,9 +23,9 @@
     "ö" : "\u00f6"
   },
 
-  "num_subplots"   : 2, 
+  "num_subplots"   : 1, 
   "num_subplots_x" : 1,
-  "num_subplots_y" : 2, 
+  "num_subplots_y" : 1, 
   "max_yDatasets"  : 16,
 
   "subplots": [
@@ -35,8 +35,8 @@
 
       "xDataCol"      : [{"1" : 1}, {"2" : 1}, {"3" : 1}, {"4" : 1}, {"5" : 1}, {"6" : 1}, {"7" : 1}, {"8" : 1},  {"9" : 1},  {"10" : 1},  {"11" : 1}, {"12" : 13}, {"13" : 16}, {"14" : 19}, {"15" :22}, {"16" :25} ],
       "yDataCol"      : [{"1" : 3}, {"2" : 4}, {"3" : 5}, {"4" : 6}, {"5" : 7}, {"6" : 8}, {"7" : 9}, {"8" : 10}, {"9" : 11}, {"10" : 12}, {"11" : 2}, {"12" : 14}, {"13" : 17}, {"14" : 20}, {"15" :23}, {"16" :26}  ], 
-      "xLabel"        : "Tid, $t$ (ms)",
-      "yLabel"        : "Projektilfart, $v$ ($\\mathrm{m\\,s^{-1}}$)",
+      "xLabel"        : "Tid (ms)",
+      "yLabel"        : "Projektilfart ($\\mathrm{m\\,s^{-1}}$)",
 
       "yDataset" : [{
         "yDatasetNum" : 1,
