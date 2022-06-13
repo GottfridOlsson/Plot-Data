@@ -58,12 +58,12 @@ def set_labels(ax, xLabel, yLabel, axNum): #TODO:#, majorTickLabel, minorTickLab
     print("DONE: Set x- and y-label axs: " + str(axNum))
     #ax.set_major
 
-def set_font(fontFamily, fontDirectory): # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
-    font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
-    for font_file in font_files:
-        font_manager.fontManager.addfont(font_file) #commented //2022-02-20, uncommented //2022-02-22
-    matplotlib.rcParams['font.family'] = fontFamily
-    print("DONE: Set font to: " + fontFamily)
+#def set_font(fontFamily, fontDirectory): # CMU Serif:  https://fontlibrary.org/en/font/cmu-serif
+#    font_files = font_manager.findSystemFonts(fontpaths=fontDirectory) #e.g. "C:\Windows\Fonts"
+#    for font_file in font_files:
+#        font_manager.fontManager.addfont(font_file) #commented //2022-02-20, uncommented //2022-02-22
+#    matplotlib.rcParams['font.family'] = fontFamily
+#    print("DONE: Set font to: " + fontFamily)
 
 def set_font_size(defaultTextSize, xTickSize, yTickSize, legendFontSize): #TODO: major tick, minor tick 
     plt.rc('font',   size=defaultTextSize)
@@ -260,7 +260,7 @@ for i in range(0, num_subplots):
     legendOn[i]               = c['subplots'][i]['legend_on']
     legendLocation[i]         = c['subplots'][i]['legend_location']
     legendAlpha[i]            = c['subplots'][i]['legend_alpha']
-    gridMajorOn[i]                 = c['subplots'][i]['grid_on']
+    gridMajorOn[i]            = c['subplots'][i]['grid_on']
     gridMinorOn[i]            = c['subplots'][i]['grid_minor_on']
 
     for k in range(0, c['subplots'][i]['num_yDatasets']):
