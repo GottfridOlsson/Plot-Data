@@ -1,21 +1,24 @@
-## PLOT SCIENTIFIC DATA: CSV HANDLER                       ##
-#----------------------------------------------------------##
-#      Author: GOTTFRID OLSSON 
-#     Created: 2022-02-04, 18:38
-#     Updated: 2022-02-21, 19:39
-#       About: Imports CSV- and prints data to a CSV-file.
-#              Has functions for moving, splitting, removing,
-#              and altering data in CSV-file.
-##---------------------------------------------------------##
+##=============================================##
+##     Project: PLOT DATA
+##        File: CSV_handler.py
+##      Author: GOTTFRID OLSSON 
+##     Created: 2022-02-04, 18:38
+##     Updated: 2022-06-17, 11:02
+##       About: Imports data from a CSV-file.
+##              Has functions for reading data
+##              and getting the headers.
+##=============================================##
+
 
 ## LIBRARIES ##
 
 import pandas as pd
-#import csv
+
 
 ## CONSTANTS ##
 
 CSV_DELIMITER = ','
+
 
 ## FUNCTIONS ##
 
