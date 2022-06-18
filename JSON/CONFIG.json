@@ -1,29 +1,32 @@
 {
   "comment" : {
-    "project" : "TESTING",
+    "project" : "TESTING: REFACTORING",
     "author"  : "Gottfrid Olsson",
-    "updated" : "2022-06-17, 12:34",
-    "about"   : "TestaSaker"
+    "updated" : "2022-06-18, 17:15",
+    "about"   : "TestaSaker: later on it might become the STANDARD-settings"
   },
 
   "filename"  :{
-    "csv" : "testdata1.csv",
-    "pdf" : "testpdf.pdf" 
+    "json" : "CONFIG.json",
+    "csv"  : "testdata1.csv",
+    "pdf"  : "testpdf.pdf" 
   },
 
   "figure_size" : {
-    "width_cm"  : 22,
-    "height_cm" : 16, 
+    "width_cm"  : 16,
+    "height_cm" : 11.5, 
 
-    "figwidth_fraction_of_textwidth_overleaf" : 0.95,
-    "width_paper_a4_minus_twoTimes_margins_overleaf_cm" : 12345
+    "figwidth_fraction_of_textwidth_overleaf" : 1,
+    "font_size_overleaf_pt" : 11,
+    "width_paper_a4_minus_twoTimes_margins_overleaf_cm" : 16
   },
 
-  "font_size_units_unknown" :{
+  "font_size" :{
     "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
-    "axis"   : 17,
-    "tick"   : 15, 
-    "legend" : 13 
+    "unit"   : "pt (72,272 points per 2,54 centimeter)",
+    "axis"   : 12,
+    "tick"   : 10, 
+    "legend" : 10 
   },
   
   "LaTeX_and_CMU" : true,
@@ -40,9 +43,9 @@
 
 
   "subplot_setup" : {
-    "x"     : 1,
-    "y"     : 2, 
-    "total" : 2  
+    "x"              : 1,
+    "y"              : 1, 
+    "total_subplots" : 1  
   },
 
 
@@ -53,7 +56,7 @@
 
       "datasets":{
         
-        "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+        "plot_type"  : ["errorbar1", "errorbar2", "errorbar3"],
 
         "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
 
@@ -71,7 +74,7 @@
             "type" : ["o", "x", ""], 
             "size" : [4, 5, 0], 
             "thickness" : [1, 2, 4], 
-            "facecolor" : ["None", "None", "None"]
+            "facecolor" : ["", "", ""]
           }, 
 
           "errorbar" : {
@@ -79,8 +82,8 @@
 
             "constant" : {
               "on" : false, 
-              "x_constant_pm" : 5, 
-              "y_constant_pm" : 2 
+              "x_pm" : 5, 
+              "y_pm" : 2 
             },
 
             "x_col" : [1,2,3],
@@ -99,7 +102,7 @@
           "x" : {
             "label": "N\u00e5got roligt",            
 
-            "limits" : {
+            "limit" : {
               "min" : false, 
               "max" : false
             }, 
@@ -112,7 +115,7 @@
           "y" : {
             "label" : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
 
-            "limits" : {
+            "limit" : {
               "min" : false, 
               "max" : false
             }, 
@@ -132,11 +135,11 @@
         "grid" : {
           "major" : {
             "on" : true, 
-            "thickness" : 1
+            "linewidth" : 1
           },
           "minor" : {
             "on" : true, 
-            "thickness" : 0.5
+            "linewidth" : 0.5
           }
         }
 
