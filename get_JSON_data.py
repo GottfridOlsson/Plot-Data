@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-06-18, 19:09
+##     Updated: 2022-06-21, 20:43
 ##       About: Reads and stores standard settings if
 ##              not overwritten by user data in JSON
 ##====================================================##

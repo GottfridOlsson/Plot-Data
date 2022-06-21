@@ -7,6 +7,7 @@
 ##       About: Helper functions for plotting.
 ##=============================================##
 
+import matplotlib.pyplot
 import matplotlib as plt
 
 
@@ -87,9 +88,10 @@ def set_layout_tight(fig):
 
 
 def align_labels(fig):
-    fig.align_labels() #lol vilken funktion (def), //2022-02-20
+    fig.align_labels()
+    print("DONE: Aligned labels")
     
 
 def export_figure_as_pdf(filePath):
-    plt.savefig(filePath, format='pdf', bbox_inches='tight')#, metadata={"Author" : "Gottfrid Olsson", "Title" : "", "Keywords" : "Created with PlotData by Gottfrid Olsson"}) ##this could be implemented in the future, 2022-06-21
+    matplotlib.pyplot.savefig(filePath, format='pdf', bbox_inches='tight')#, metadata={"Author" : "Gottfrid Olsson", "Title" : "", "Keywords" : "Created with PlotData by Gottfrid Olsson"}) ##this could be implemented in the future, 2022-06-21
     print("DONE: Exported PDF: " + filePath)

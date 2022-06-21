@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-06-21, 17:46
+##     Updated: 2022-06-21, 20:43
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -15,7 +15,6 @@
 
  #import json                             # to save/write to JSON
  #import pandas as pd                     # for CSV
-import matplotlib                 
 import matplotlib.pyplot as plt         # to plot
 
 
@@ -80,13 +79,18 @@ if __name__ == "__main__":
         f.set_grid(         axs[i], JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i)
         f.set_axis_labels(  axs[i], JSON.axis_x_label[i], JSON.axis_y_label[i], i)
         f.set_axis_scale(   axs[i], JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
+        #f.set_comma_decimal_with_precision(axs[i], JSON.axis_x_float_precision[i], JSON.axis_y_float_precision[i], i) # needs to run before "f.set_axis_scale" (if not, it messes up log-plots)
         f.set_axis_limits(  axs[i], JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
 
 
+        # TODO: fix the bug where you can either have "axis_scale = log" OR use "set_comma_decimal_with_precision" as it is intended
+        #       if you use both, there is a problem. Exponent "10^n" becomes "100[..]00" OR no decimals at all (at least not with comma)
+        #  look at:  matplotlib.pyplot.ticklabel_format
+
+        
 
         f.align_labels(fig)
         f.set_layout_tight(fig)
-        #plt.savefig(JSON.filepath_pdf, format='pdf', bbox_inches='tight') #couldn't get this to work as "f.export_figure_as_pdf(JSON.filepath_pdf)"..., 2022-06-21
         f.export_figure_as_pdf(JSON.filepath_pdf)
 
     print("--- PLOT DATA End ---")      

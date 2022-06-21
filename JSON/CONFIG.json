@@ -2,7 +2,7 @@
   "comment" : {
       "project" : "TESTING: REFACTORING",
       "author"  : "Gottfrid Olsson",
-      "updated" : "2022-06-21, 20:06",
+      "updated" : "2022-06-21, 20:28",
       "about"   : "TestaSaker: later on it might become the STANDARD-settings"
   },
 
@@ -60,12 +60,12 @@
 
           "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
 
-          "CSV_column_x"   : [1,1,1],
+          "CSV_column_x"   : [0,0,0],
           "CSV_column_y"   : [1,2,3], 
 
           "plot_type_settings" : {
               "line": {
-                  "color" : ["#050505", "#101010", "#101010"],
+                  "color" : ["#f1311d", "#101010", "#f1311d"],
                   "style" : ["", "-", ":"],
                   "width" : [1, 1.5, 3]
               },
@@ -122,7 +122,7 @@
 
                   "scale"           : "log",
                   "invert"          : false, 
-                  "float_precision" : 2
+                  "float_precision" : 1
               }
           }, 
 
@@ -156,7 +156,7 @@
 
           "dataset_label" : ["Nummer 11", "Nummer 12"],
 
-          "CSV_column_x"   : [1,1],
+          "CSV_column_x"   : [0,0],
           "CSV_column_y"   : [1,2], 
 
           "plot_type_settings" : {
@@ -199,8 +199,8 @@
                   "label": "N\u00e5got roligt2",            
 
                   "limit" : {
-                      "min" : 5, 
-                      "max" : 95
+                      "min" : false, 
+                      "max" : false
                   }, 
 
                   "scale"           : "linear",
