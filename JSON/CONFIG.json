@@ -1,51 +1,51 @@
 {
   "comment" : {
-    "project" : "TESTING: REFACTORING",
-    "author"  : "Gottfrid Olsson",
-    "updated" : "2022-06-18, 17:15",
-    "about"   : "TestaSaker: later on it might become the STANDARD-settings"
+      "project" : "TESTING: REFACTORING",
+      "author"  : "Gottfrid Olsson",
+      "updated" : "2022-06-21, 20:06",
+      "about"   : "TestaSaker: later on it might become the STANDARD-settings"
   },
 
-  "filename"  :{
-    "json" : "CONFIG.json",
-    "csv"  : "testdata1.csv",
-    "pdf"  : "testpdf.pdf" 
+  "filepath"  :{
+      "json" : "JSON/CONFIG.json",
+      "csv"  : "CSV/testdata1.csv",
+      "pdf"  : "PDF/testpdf1.pdf" 
   },
 
   "figure_size" : {
-    "width_cm"  : 16,
-    "height_cm" : 11.5, 
+      "width_cm"  : 16,
+      "height_cm" : 11.5, 
 
-    "figwidth_fraction_of_textwidth_overleaf" : 1,
-    "font_size_overleaf_pt" : 11,
-    "width_paper_a4_minus_twoTimes_margins_overleaf_cm" : 16
+      "figwidth_fraction_of_textwidth_overleaf" : 1,
+      "font_size_overleaf_pt" : 11,
+      "width_paper_a4_minus_twoTimes_margins_overleaf_cm" : 16
   },
 
   "font_size" :{
-    "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
-    "unit"   : "pt (72,272 points per 2,54 centimeter)",
-    "axis"   : 12,
-    "tick"   : 10, 
-    "legend" : 10 
+     "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+      "unit"   : "pt (72,272 points per 2,54 centimeter)",
+      "axis"   : 12,
+      "tick"   : 10, 
+      "legend" : 10 
   },
   
   "LaTeX_and_CMU" : true,
 
   "utf-8_encoding_help" : {
-    "comment" : true,
-    "Å" : "\u00c5", 
-    "Ä" : "\u00c4", 
-    "Ö" : "\u00d6", 
-    "å" : "\u00e5", 
-    "ä" : "\u00e4", 
-    "ö" : "\u00f6"
+      "comment" : true,
+      "Å" : "\u00c5", 
+      "Ä" : "\u00c4", 
+      "Ö" : "\u00d6", 
+      "å" : "\u00e5", 
+      "ä" : "\u00e4", 
+      "ö" : "\u00f6"
   },
 
 
   "subplot_setup" : {
-    "x"              : 1,
-    "y"              : 1, 
-    "total_subplots" : 1  
+      "columns"        : 2,
+      "rows"           : 1, 
+      "total_subplots" : 2  
   },
 
 
@@ -56,94 +56,192 @@
 
       "datasets":{
         
-        "plot_type"  : ["errorbar1", "errorbar2", "errorbar3"],
+          "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-        "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
+          "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
 
-        "column_x"   : [1,1,2],
-        "column_y"   : [1,2,3], 
+          "CSV_column_x"   : [1,1,1],
+          "CSV_column_y"   : [1,2,3], 
 
-        "plot_type_settings" : {
-          "line": {
-            "color" : ["#101010", "#101010", "#101010"],
-            "style" : ["", "-", ":"],
-            "width" : [1, 1.5, 3]
+          "plot_type_settings" : {
+              "line": {
+                  "color" : ["#050505", "#101010", "#101010"],
+                  "style" : ["", "-", ":"],
+                  "width" : [1, 1.5, 3]
+              },
+
+              "marker" : {
+                  "type" : ["o", "x", ""], 
+                  "size" : [4, 5, 0], 
+                  "thickness" : [1, 2, 4], 
+                  "facecolor" : ["None", "None", "None"]
+              }, 
+
+              "errorbar" : {
+                  "on" : [true, true, false],
+
+                  "constant" : {
+                    "on"   : [false, false, false], 
+                    "x_pm" : [0.123, 0.123, 0.123], 
+                    "y_pm" : [0.246, 0.246, 0.246] 
+                  },
+
+                  "CSV_column_x" : [4,4,3],
+                  "CSV_column_y" : [4,4,3],
+
+                  "size"         : [2, 3, 7], 
+                  "linewidth"    : [2, 3, 2], 
+                  "capthickness" : [1, 2, 0]
+              }
+
+
           },
 
-          "marker" : {
-            "type" : ["o", "x", ""], 
-            "size" : [4, 5, 0], 
-            "thickness" : [1, 2, 4], 
-            "facecolor" : ["", "", ""]
+          "axis" : {
+
+              "x" : {
+                  "label": "N\u00e5got roligt",            
+
+                  "limit" : {
+                      "min" : false, 
+                      "max" : false
+                  }, 
+
+                  "scale"           : "linear",
+                  "invert"          : false,
+                  "float_precision" : 1
+              }, 
+
+              "y" : {
+                  "label" : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+
+                  "limit" : {
+                      "min" : false, 
+                      "max" : false
+                  }, 
+
+                  "scale"           : "log",
+                  "invert"          : false, 
+                  "float_precision" : 2
+              }
           }, 
 
-          "errorbar" : {
-            "on" : true,
+          "legend" : {
+              "on" : true, 
+              "alpha" : 1, 
+              "location" : "best"
+          },
 
-            "constant" : {
-              "on" : false, 
-              "x_pm" : 5, 
-              "y_pm" : 2 
+          "grid" : {
+              "major" : {
+                  "on" : true, 
+                  "linewidth" : 1
             },
-
-            "x_col" : [1,2,3],
-            "y_col" : [1,2,3],
-
-            "size"         : [2, 3, 7], 
-            "linewidth"    : [2, 3, 2], 
-            "capthickness" : [1, 2, 0]
+              "minor" : {
+                  "on" : true, 
+                  "linewidth" : 0.35
+            }
           }
+      } 
+    }, 
 
 
-        },
 
-        "axis" : {
+    {
+      "subplot_num"   : 2, 
 
-          "x" : {
-            "label": "N\u00e5got roligt",            
+      "datasets":{
+        
+          "plot_type"  : ["errorbar", "errorbar"],
 
-            "limit" : {
-              "min" : false, 
-              "max" : false
-            }, 
+          "dataset_label" : ["Nummer 11", "Nummer 12"],
 
-            "scale" : "lin",
-            "invert" : false,
-            "float_precision" : 1
+          "CSV_column_x"   : [1,1],
+          "CSV_column_y"   : [1,2], 
+
+          "plot_type_settings" : {
+              "line": {
+                  "color" : ["#543251", "#101010"],
+                  "style" : ["", "-", ":"],
+                  "width" : [1, 1.5, 3]
+              },
+
+              "marker" : {
+                  "type" : ["o", "x", ""], 
+                  "size" : [4, 5, 0], 
+                  "thickness" : [1, 2, 4], 
+                  "facecolor" : ["None", "None", "None"]
+              }, 
+
+              "errorbar" : {
+                "on" : [true, true, true],
+
+                "constant" : {
+                  "on"   : [true, true, true], 
+                  "x_pm" : [0.123, 0.123, 0.123], 
+                  "y_pm" : [0.246, 0.246, 0.246] 
+                },
+
+                "CSV_column_x" : [4,2,3],
+                "CSV_column_y" : [4,2,3],
+
+                "size"         : [2, 3, 7], 
+                "linewidth"    : [2, 3, 2], 
+                "capthickness" : [1, 2, 0]
+            }
+
+
+          },
+
+          "axis" : {
+
+              "x" : {
+                  "label": "N\u00e5got roligt2",            
+
+                  "limit" : {
+                      "min" : 5, 
+                      "max" : 95
+                  }, 
+
+                  "scale"           : "linear",
+                  "invert"          : false,
+                  "float_precision" : 1
+              }, 
+
+              "y" : {
+                  "label" : "N\u00e5got kul 2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+
+                  "limit" : {
+                      "min" : false, 
+                      "max" : false
+                  }, 
+
+                  "scale"           : "linear",
+                  "invert"          : true, 
+                  "float_precision" : 2
+              }
           }, 
 
-          "y" : {
-            "label" : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
-
-            "limit" : {
-              "min" : false, 
-              "max" : false
-            }, 
-
-            "scale" : "log",
-            "invert" : false, 
-            "float_precision" : 2
-          }
-        }, 
-
-        "legend" : {
-          "on" : true, 
-          "alpha" : 1, 
-          "location" : "Best"
-        },
-
-        "grid" : {
-          "major" : {
-            "on" : true, 
-            "linewidth" : 1
+          "legend" : {
+              "on" : true, 
+              "alpha" : 1, 
+              "location" : "best"
           },
-          "minor" : {
-            "on" : true, 
-            "linewidth" : 0.5
-          }
-        }
 
-      }
+          "grid" : {
+              "major" : {
+                  "on" : true, 
+                  "linewidth" : 2
+            },
+              "minor" : {
+                  "on" : false, 
+                  "linewidth" : 0.3
+            }
+          }
+      } 
     }
+
+
+
   ]
 }

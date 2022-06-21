@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-06-18, 119:09
+##     Updated: 2022-06-21, 17:46
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -18,9 +18,10 @@
 import matplotlib                 
 import matplotlib.pyplot as plt         # to plot
 
- #import JSON_handler as JSON
-#import get_JSON_data as JSON
-#import CSV_handler as CSV
+
+import get_JSON_data as JSON
+import CSV_handler as CSV
+import functions as f
 
 import errorbar
 
@@ -32,26 +33,70 @@ import errorbar
 
 
 if __name__ == "__main__":
-    print("---Program Start---")
+    print("--- PLOT DATA Start ---")
+
+    CSV_data   = CSV.read(JSON.filepath_csv)
+    CSV_header = CSV.get_header(CSV_data)
+
+    f.set_LaTeX_and_CMU(JSON.LaTeX_and_CMU) # needs to run before "fig, axs = [...]" to parse LaTeX correctly
+    f.set_font_size(JSON.font_size_axis, JSON.font_size_tick, JSON.font_size_legend)
+
+    fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height)))
+      #TODO: different sized subplots? ; https://www.statology.org/subplot-size-matplotlib/
 
 
-    #for i in subplots:
-        #if plot_type[i] == "errorbar":
-        #   errorbar.plot_errorbar(**Args) 
-        # and so on for all IMPLEMENTED plot_types
+    for i in range(JSON.subplot_setup_subplots): # forall subplots
+        for k in range(len(JSON.plot_type[i])):  # forall types of plots in each subplot
+
+            if JSON.plot_type[i][k] == "errorbar":
+                print("Plotting 'errorbar' on x: " + str(CSV_header[JSON.dataset_CSV_column_x[i][k]]) +", and y: "+ str(CSV_header[JSON.dataset_CSV_column_y[i][k]]))
+                
+                data_x     = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
+                data_y     = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
+                errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
+                errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
+
+                if JSON.errorbar_on[i][k] and JSON.errorbar_constant_on[i][k]:
+                    errorbar_x = [JSON.errorbar_constant_x_pm[i][k] for x_pm in data_x]
+                    errorbar_y = [JSON.errorbar_constant_y_pm[i][k] for y_pm in data_y]
+
+                errorbar.plot_errorbar(
+                    axs[i], data_x, data_y, JSON.errorbar_on, errorbar_x, errorbar_y, \
+                    JSON.errorbar_size[i][k], JSON.errorbar_linewidth[i][k], JSON.errorbar_capthickness[i][k], \
+                    JSON.dataset_label[i][k], JSON.line_color[i][k], JSON.line_style[i][k], JSON.line_width[i][k], \
+                    JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i
+                    )
+
+            ## HERE GOES OTHER 'plot_types' ##
+            #if JSON.plot_type[i] == "blahblah"
+                # ...
+
+
+            else:
+                print("ERROR: keyword 'plot_type' = " + str(JSON.plot_type[i][k]) + " is not implemented (yet). Sorry for the inconvenience.")
+
+        
+        f.set_legend(       axs[i], JSON.legend_on[i],  JSON.legend_alpha[i], JSON.legend_location[i], i)
+        f.set_grid(         axs[i], JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i)
+        f.set_axis_labels(  axs[i], JSON.axis_x_label[i], JSON.axis_y_label[i], i)
+        f.set_axis_scale(   axs[i], JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
+        f.set_axis_limits(  axs[i], JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
 
 
 
-  #  if LaTeX_and_CMU:
-  #      plt.rcParams.update({
-  #      "text.usetex": True,
-  #      "font.family": "serif", 
-  #      "font.serif" : ["Computer Modern Roman"]
-  #  })
+        f.align_labels(fig)
+        f.set_layout_tight(fig)
+        #plt.savefig(JSON.filepath_pdf, format='pdf', bbox_inches='tight') #couldn't get this to work as "f.export_figure_as_pdf(JSON.filepath_pdf)"..., 2022-06-21
+        f.export_figure_as_pdf(JSON.filepath_pdf)
+
+    print("--- PLOT DATA End ---")      
+    plt.show()
 
 
 
 
 
-    print("---Program End---")
-    
+
+
+
+

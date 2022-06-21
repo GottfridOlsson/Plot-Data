@@ -27,8 +27,8 @@ J = JSON.read(JSON_readFilePath) #Jason-file
 # GET DATA FROM JSON #
 #--------------------#
 
-filename_csv            = J['filename']['csv']
-filename_pdf            = J['filename']['pdf']
+filepath_csv            = J['filepath']['csv']
+filepath_pdf            = J['filepath']['pdf']
 
 figure_height           = J['figure_size']['height_cm'] # [cm]
 figure_width            = J['figure_size']['width_cm']  # [cm]
@@ -41,9 +41,9 @@ font_size_legend        = J['font_size']['legend'] # [pt]
 
 LaTeX_and_CMU           = J['LaTeX_and_CMU']
 
-subplot_setup_x_cols    = J['subplot_setup']['x']
-subplot_setup_y_cols    = J['subplot_setup']['y']
-subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO: raise error if "total != x*y"
+subplot_setup_rows      = J['subplot_setup']['rows']
+subplot_setup_columns   = J['subplot_setup']['columns']
+subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO: raise error if "total != rows*columns"
 
 
 ## DECLARE VARIABLE NAMES ##
@@ -54,8 +54,8 @@ subplot_num            = [i for i in subplots]
 plot_type              = []
 
 dataset_label          = []
-dataset_col_x          = []
-dataset_col_y          = []
+dataset_CSV_column_x   = []
+dataset_CSV_column_y   = []
 
 line_color             = []
 line_style             = []
@@ -70,8 +70,8 @@ errorbar_on            = []
 errorbar_constant_on   = []
 errorbar_constant_x_pm = []
 errorbar_constant_y_pm = []
-errorbar_x_col         = []
-errorbar_y_col         = []
+errorbar_CSV_column_x  = []
+errorbar_CSV_column_y  = []
 errorbar_size          = []
 errorbar_linewidth     = []
 errorbar_capthickness  = []
@@ -113,54 +113,96 @@ grid_minor_linewidth   = []
 ## PER SUBPLOT ##
 
 for i in subplots:
-    plot_type.append(               J['subplot_settings'][i]['datasets']['plot_type']                                   )
-    dataset_label.append(           J['subplot_settings'][i]['datasets']['dataset_label']                               )  
+    plot_type.append(               J['subplot_settings'][i]['datasets']['plot_type']                       )
+    dataset_label.append(           J['subplot_settings'][i]['datasets']['dataset_label']                   )  
 
-    dataset_col_x.append(           J['subplot_settings'][i]['datasets']['column_x']                                        )
-    dataset_col_y.append(           J['subplot_settings'][i]['datasets']['column_y']                                        )
+    dataset_CSV_column_x.append(    J['subplot_settings'][i]['datasets']['CSV_column_x']                    )
+    dataset_CSV_column_y.append(    J['subplot_settings'][i]['datasets']['CSV_column_y']                    )
 
-    axis_x_label.append(            J['subplot_settings'][i]['datasets']['axis']['x']['label']                              )
-    axis_x_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['min']                       )
-    axis_x_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['max']                       )
-    axis_x_scale.append(            J['subplot_settings'][i]['datasets']['axis']['x']['scale']                              )
-    axis_x_invert.append(           J['subplot_settings'][i]['datasets']['axis']['x']['invert']                             )
-    axis_x_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['x']['float_precision']                    )   
+    axis_x_label.append(            J['subplot_settings'][i]['datasets']['axis']['x']['label']              )
+    axis_x_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['min']       )
+    axis_x_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['max']       )
+    axis_x_scale.append(            J['subplot_settings'][i]['datasets']['axis']['x']['scale']              )
+    axis_x_invert.append(           J['subplot_settings'][i]['datasets']['axis']['x']['invert']             )
+    axis_x_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['x']['float_precision']    )   
 
-    axis_y_label.append(            J['subplot_settings'][i]['datasets']['axis']['y']['label']                              )
-    axis_y_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['min']                       )
-    axis_y_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['max']                       )
-    axis_y_scale.append(            J['subplot_settings'][i]['datasets']['axis']['y']['scale']                              )
-    axis_y_invert.append(           J['subplot_settings'][i]['datasets']['axis']['y']['invert']                             )
-    axis_y_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['y']['float_precision']                    )
+    axis_y_label.append(            J['subplot_settings'][i]['datasets']['axis']['y']['label']              )
+    axis_y_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['min']       )
+    axis_y_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['max']       )
+    axis_y_scale.append(            J['subplot_settings'][i]['datasets']['axis']['y']['scale']              )
+    axis_y_invert.append(           J['subplot_settings'][i]['datasets']['axis']['y']['invert']             )
+    axis_y_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['y']['float_precision']    )
 
-    legend_on.append(               J['subplot_settings'][i]['datasets']['legend']['on']                                    )
-    legend_alpha.append(            J['subplot_settings'][i]['datasets']['legend']['alpha']                                 )
-    legend_location.append(         J['subplot_settings'][i]['datasets']['legend']['location']                              )   
+    legend_on.append(               J['subplot_settings'][i]['datasets']['legend']['on']                    )
+    legend_alpha.append(            J['subplot_settings'][i]['datasets']['legend']['alpha']                 )
+    legend_location.append(         J['subplot_settings'][i]['datasets']['legend']['location']              )   
 
-    grid_major_on.append(           J['subplot_settings'][i]['datasets']['grid']['major']['on']                             )
-    grid_major_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['major']['linewidth']                      )
-    grid_minor_on.append(           J['subplot_settings'][i]['datasets']['grid']['minor']['on']                             )    
-    grid_minor_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['minor']['linewidth']                      )
+    grid_major_on.append(           J['subplot_settings'][i]['datasets']['grid']['major']['on']             )
+    grid_major_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['major']['linewidth']      )
+    grid_minor_on.append(           J['subplot_settings'][i]['datasets']['grid']['minor']['on']             )    
+    grid_minor_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['minor']['linewidth']      )
 
-    # TODO: "if":s that select what 'plot_type_settings' to get from JSON (line, marker, errorbar, ...)
-    line_color.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color']             )
-    line_style.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['style']             )
-    line_width.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['width']             )
 
-    marker_type.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['type']            )
-    marker_size.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['size']            )
-    marker_thickness.append(        J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['thickness']       )
-    marker_facecolor.append(        J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['facecolor']       )
 
-    errorbar_on.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['on']            )
-    errorbar_x_col.append(          J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['x_col']         )
-    errorbar_y_col.append(          J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['y_col']         )
-    errorbar_size.append(           J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['size']          )
-    errorbar_linewidth.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['linewidth']     )
-    errorbar_capthickness.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['capthickness']  )
-    errorbar_constant_on.append(    J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['on']    )
-    errorbar_constant_x_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['x_pm']  )
-    errorbar_constant_y_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['y_pm']  )
+    bin_line_color = []
+    bin_line_style = []
+    bin_line_width = []
+
+    bin_marker_type      = []
+    bin_marker_size      = []
+    bin_marker_thickness = []
+    bin_marker_facecolor = []
+
+    bin_errorbar_on            = []
+    bin_errorbar_CSV_column_x  = []
+    bin_errorbar_CSV_column_y  = []
+    bin_errorbar_size          = []
+    bin_errorbar_linewidth     = []
+    bin_errorbar_capthickness  = []
+    bin_errorbar_constant_on   = []
+    bin_errorbar_constant_x_pm = []
+    bin_errorbar_constant_y_pm = []
+
+    for k in range(len(plot_type[i])):
+        # TODO: "if":s that select what 'plot_type_settings' to get from JSON (line, marker, errorbar, ...)
+        bin_line_color.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]                  )
+        bin_line_style.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['style'][k]                  )
+        bin_line_width.append(              J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['width'][k]                  )
+
+        bin_marker_type.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['type'][k]                 )
+        bin_marker_size.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['size'][k]                 )
+        bin_marker_thickness.append(        J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['thickness'][k]            )
+        bin_marker_facecolor.append(        J['subplot_settings'][i]['datasets']['plot_type_settings']['marker']['facecolor'][k]            )
+        
+        bin_errorbar_on.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['on'][k]                 )
+        bin_errorbar_CSV_column_x.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['CSV_column_x'][k]       )
+        bin_errorbar_CSV_column_y.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['CSV_column_x'][k]       )
+        bin_errorbar_size.append(           J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['size'][k]               )
+        bin_errorbar_linewidth.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['linewidth'][k]          )
+        bin_errorbar_capthickness.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['capthickness'][k]       )
+        bin_errorbar_constant_on.append(    J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['on'][k]     )
+        bin_errorbar_constant_x_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['x_pm'][k]   )
+        bin_errorbar_constant_y_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['y_pm'][k]   )
+
+
+    line_color.append(bin_line_color)
+    line_style.append(bin_line_style)
+    line_width.append(bin_line_width)
+
+    marker_type.append(     bin_marker_type     )
+    marker_size.append(     bin_marker_size     )
+    marker_thickness.append(bin_marker_thickness)
+    marker_facecolor.append(bin_marker_facecolor)
+    
+    errorbar_on.append(             bin_errorbar_on             )
+    errorbar_CSV_column_x.append(   bin_errorbar_CSV_column_x   )
+    errorbar_CSV_column_y.append(   bin_errorbar_CSV_column_y   )
+    errorbar_size.append(           bin_errorbar_size           )
+    errorbar_linewidth.append(      bin_errorbar_linewidth      )
+    errorbar_capthickness.append(   bin_errorbar_capthickness   )
+    errorbar_constant_on.append(    bin_errorbar_constant_on    )
+    errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
+    errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
 
 
 

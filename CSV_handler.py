@@ -22,14 +22,14 @@ CSV_DELIMITER = ','
 
 ## FUNCTIONS ##
 
-def read_CSV(readFilePath):
+def read(readFilePath):
     #print("In progress: Reading CSV" + CSV_filePath)
     CSV =  pd.read_csv(readFilePath, sep=CSV_DELIMITER)
     print("DONE: Reading CSV: " + readFilePath)
     return CSV
 
 # i'm not sure how to do this nicely. yet. //2022-02-04, 19:12
-def write_CSV(CSV_data, writeFilePath):
+def write(CSV_data, writeFilePath):
     #print("In progress: Exporting CSV")
     #headers = get_header(CSV_data)
     #CSV_data.to_csv(writeFilePath)
