@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-06-21, 20:43
+##     Updated: 2022-06-23, 17:43
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -13,15 +13,10 @@
 #    IMPORTS    #
 #---------------#
 
- #import json                             # to save/write to JSON
- #import pandas as pd                     # for CSV
 import matplotlib.pyplot as plt         # to plot
-
-
 import get_JSON_data as JSON
 import CSV_handler as CSV
 import functions as f
-
 import errorbar
 
 
@@ -32,7 +27,7 @@ import errorbar
 
 
 if __name__ == "__main__":
-    print("--- PLOT DATA Start ---")
+    print("=== PLOT DATA Start ===")
 
     CSV_data   = CSV.read(JSON.filepath_csv)
     CSV_header = CSV.get_header(CSV_data)
@@ -43,12 +38,18 @@ if __name__ == "__main__":
     fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height)))
       #TODO: different sized subplots? ; https://www.statology.org/subplot-size-matplotlib/
 
-
     for i in range(JSON.subplot_setup_subplots): # forall subplots
+
+        if JSON.subplot_setup_subplots == 1:
+            axs_i = axs     # necessary to avoid several for-loops (since object "AxesSubplot" is not subscriptable)
+        else:
+            axs_i = axs[i]
+            
         for k in range(len(JSON.plot_type[i])):  # forall types of plots in each subplot
 
+
             if JSON.plot_type[i][k] == "errorbar":
-                print("Plotting 'errorbar' on x: " + str(CSV_header[JSON.dataset_CSV_column_x[i][k]]) +", and y: "+ str(CSV_header[JSON.dataset_CSV_column_y[i][k]]))
+                print("Plotting 'errorbar' on x: " + str(CSV_header[JSON.dataset_CSV_column_x[i][k]]) +", and y: "+ str(CSV_header[JSON.dataset_CSV_column_y[i][k]]) + " on axs: " + str(i))
                 
                 data_x     = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
                 data_y     = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
@@ -60,7 +61,7 @@ if __name__ == "__main__":
                     errorbar_y = [JSON.errorbar_constant_y_pm[i][k] for y_pm in data_y]
 
                 errorbar.plot_errorbar(
-                    axs[i], data_x, data_y, JSON.errorbar_on, errorbar_x, errorbar_y, \
+                    axs_i, data_x, data_y, JSON.errorbar_on[i][k], errorbar_x, errorbar_y, \
                     JSON.errorbar_size[i][k], JSON.errorbar_linewidth[i][k], JSON.errorbar_capthickness[i][k], \
                     JSON.dataset_label[i][k], JSON.line_color[i][k], JSON.line_style[i][k], JSON.line_width[i][k], \
                     JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i
@@ -70,30 +71,32 @@ if __name__ == "__main__":
             #if JSON.plot_type[i] == "blahblah"
                 # ...
 
-
             else:
                 print("ERROR: keyword 'plot_type' = " + str(JSON.plot_type[i][k]) + " is not implemented (yet). Sorry for the inconvenience.")
 
+
+
+
+        f.set_axis_scale(   axs_i, JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
+        f.set_axis_labels(  axs_i, JSON.axis_x_label[i], JSON.axis_y_label[i], i)
+        f.set_axis_invert(  axs_i, JSON.axis_x_invert[i], JSON.axis_y_invert[i], i)
+        f.set_axis_limits(  axs_i, JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
+  
+
+        f.set_grid(         axs_i, JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i) # set_grid must be after set_axis_scale for some reason (at least with 'log')
+        f.set_legend(       axs_i, JSON.legend_on[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
         
-        f.set_legend(       axs[i], JSON.legend_on[i],  JSON.legend_alpha[i], JSON.legend_location[i], i)
-        f.set_grid(         axs[i], JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i)
-        f.set_axis_labels(  axs[i], JSON.axis_x_label[i], JSON.axis_y_label[i], i)
-        f.set_axis_scale(   axs[i], JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
-        #f.set_comma_decimal_with_precision(axs[i], JSON.axis_x_float_precision[i], JSON.axis_y_float_precision[i], i) # needs to run before "f.set_axis_scale" (if not, it messes up log-plots)
-        f.set_axis_limits(  axs[i], JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
-
-
-        # TODO: fix the bug where you can either have "axis_scale = log" OR use "set_comma_decimal_with_precision" as it is intended
-        #       if you use both, there is a problem. Exponent "10^n" becomes "100[..]00" OR no decimals at all (at least not with comma)
-        #  look at:  matplotlib.pyplot.ticklabel_format
-
+        if JSON.axis_x_scale[i] != 'log':
+            f.set_commaDecimal_with_precision_x_axis(axs_i, JSON.axis_x_float_precision[i], i)
+        if JSON.axis_y_scale[i] != 'log':
+            f.set_commaDecimal_with_precision_y_axis(axs_i, JSON.axis_y_float_precision[i], i)
         
 
-        f.align_labels(fig)
-        f.set_layout_tight(fig)
-        f.export_figure_as_pdf(JSON.filepath_pdf)
+    f.align_labels(fig)
+    f.set_layout_tight(fig)
+    f.export_figure_as_pdf(JSON.filepath_pdf)
 
-    print("--- PLOT DATA End ---")      
+    print("=== PLOT DATA End ===")      
     plt.show()
 
 

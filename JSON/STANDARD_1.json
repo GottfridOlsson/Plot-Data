@@ -1,0 +1,155 @@
+{
+  "comment" : {
+      "project" : "TESTING: REFACTORING: STANDARD VALUES JSON (1)",
+      "author"  : "Gottfrid Olsson",
+      "updated" : "2022-06-23, 16:30",
+      "about"   : "TestaSaker: STANDARD-settings; TODO: COPY VALUES FROM CONFIG"
+  },
+
+  "filepath"  :{
+      "json" : "JSON/STANDARD_1.json",
+      "csv"  : "CSV/testdata1.csv",
+      "pdf"  : "PDF/testpdf1.pdf" 
+  },
+
+  "figure_size" : {
+      "width_cm"  : 16.0,
+      "height_cm" : 11.5, 
+
+      "overleaf_figwidth_fraction_of_textwidth" : 1,
+      "overleaf_font_size_pt"                   : 11,
+      "overleaf_margins_cm"                     : 2.5,
+
+      "width_paper_cm"                                 : 21.0,
+      "width_paper_minus_twoTimes_overleaf_margins_cm" : 16.0,
+      "width_paper_a4_cm"                              : 21.0
+      
+  },
+
+  "font_size" :{
+     "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+      "unit"   : "pt (72,272 points per 2,54 centimeter)",
+      "axis"   : 11,
+      "tick"   : 9, 
+      "legend" : 9 
+  },
+  
+  "LaTeX_and_CMU" : true,
+
+  "utf-8_encoding_help" : {
+      "comment" : true,
+      "Å" : "\u00c5", 
+      "Ä" : "\u00c4", 
+      "Ö" : "\u00d6", 
+      "å" : "\u00e5", 
+      "ä" : "\u00e4", 
+      "ö" : "\u00f6"
+  },
+
+ 
+  "subplot_setup" : {
+      "columns"        : 1,
+      "rows"           : 1, 
+      "total_subplots" : 1  
+  },
+
+
+
+  "subplot_settings": [
+    {
+      "subplot_num"   : 1, 
+
+      "datasets":{
+        
+          "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+          "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
+
+          "CSV_column_x"   : [0,0,0],
+          "CSV_column_y"   : [1,2,3], 
+
+          "plot_type_settings" : {
+              "line": {
+                  "color" : ["#f1311d", "#101010", "#f1311d"],
+                  "style" : ["", "-", ":"],
+                  "width" : [1, 1.5, 3]
+              },
+
+              "marker" : {
+                  "type" : ["o", "x", ""], 
+                  "size" : [4, 5, 0], 
+                  "thickness" : [1, 2, 4], 
+                  "facecolor" : ["None", "None", "None"]
+              }, 
+
+              "errorbar" : {
+                  "on" : [true, true, false],
+
+                  "constant" : {
+                    "on"   : [false, false, false], 
+                    "x_pm" : [0.123, 0.123, 0.123], 
+                    "y_pm" : [0.246, 0.246, 0.246] 
+                  },
+
+                  "CSV_column_x" : [4,4,3],
+                  "CSV_column_y" : [4,4,3],
+
+                  "size"         : [2, 3, 7], 
+                  "linewidth"    : [2, 3, 2], 
+                  "capthickness" : [1, 2, 0]
+              }
+
+
+          },
+
+          "axis" : {
+
+              "x" : {
+                  "label": "Aspernatur, possimus \u00e5\u00e4\u00f6\u00c5\u00c4\u00d6",            
+
+                  "limit" : {
+                      "min" : false, 
+                      "max" : false
+                  }, 
+
+                  "scale"           : "linear",
+                  "invert"          : false,
+                  "float_precision" : 1
+              }, 
+
+              "y" : {
+                  "label" : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+
+                  "limit" : {
+                      "min" : false, 
+                      "max" : false
+                  }, 
+
+                  "scale"           : "log",
+                  "invert"          : false, 
+                  "float_precision" : 1
+              }
+          }, 
+
+          "legend" : {
+              "on" : true, 
+              "alpha" : 1, 
+              "location" : "best"
+          },
+
+          "grid" : {
+              "major" : {
+                  "on" : true, 
+                  "linewidth" : 0.95
+            },
+              "minor" : {
+                  "on" : true, 
+                  "linewidth" : 0.35
+            }
+          }
+      } 
+    }
+
+
+  ]
+}

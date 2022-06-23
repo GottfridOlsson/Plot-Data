@@ -3,7 +3,7 @@
 ##        File: functions.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-21, 17:50
-##     Updated: 2022-06-21, 17:50
+##     Updated: 2022-06-23, 17:09
 ##       About: Helper functions for plotting.
 ##=============================================##
 
@@ -22,7 +22,7 @@ def set_LaTeX_and_CMU(LaTeX_and_CMU_on):
     "font.family": "serif", 
     "font.serif" : ["Computer Modern Roman"]
     })
-    print("DONE: Set LaTeX and CMU to: " + str(LaTeX_and_CMU_on))
+    print("DONE: set_LaTeX_and_CMU: " + str(LaTeX_and_CMU_on))
 
 
 def set_font_size(axis, tick, legend):
@@ -32,34 +32,34 @@ def set_font_size(axis, tick, legend):
     plt.rc('xtick',  labelsize=tick)
     plt.rc('ytick',  labelsize=tick)
     plt.rc('legend', fontsize=legend)
-    print("DONE: Set font sizes (axis, tick, legend): " + str(axis) + ", " + str(tick) + ", " + str(legend))
+    print("DONE: set_font_size: (axis, tick, legend): " + str(axis) + ", " + str(tick) + ", " + str(legend))
 
 
 def set_axis_labels(ax, xLabel, yLabel, axNum):
     ax.set_xlabel(str(xLabel))
     ax.set_ylabel(str(yLabel))
-    print("DONE: Set x- and y-label axs: " + str(axNum))
+    print("DONE: set_axis_labels: on axs: " + str(axNum))
 
 
-def set_legend(ax, legendOn, alpha, location, axNum):
-      if legendOn:
+def set_legend(ax, legend_on, alpha, location, axNum):
+      if legend_on:
             ax.legend(framealpha=alpha, loc=location)
-      print("DONE: Set legend on axs: " + str(axNum))
+      print("DONE: set_legend: (on, alpha, location): " + str(legend_on) + ", " + str(alpha) + ", " + str(location) + " on axs: " + str(axNum))
 
 
-def set_grid(ax, grid_major_on, grid_major_linewidth, grid_minor_on, grid_minor_linewidth, axNum): #TODO: subdivisions?
+def set_grid(ax, grid_major_on, grid_major_linewidth, grid_minor_on, grid_minor_linewidth, axNum):
       if grid_major_on:
         ax.grid(grid_major_on, which='major', linewidth=grid_major_linewidth) 
       if grid_minor_on:
         ax.minorticks_on()
         ax.grid(grid_minor_on, which='minor', linewidth=grid_minor_linewidth)
-      print("DONE: Set gridMajor = " + str(grid_major_on) +" and gridMinor = "+ str(grid_minor_on)+  " on axs: " + str(axNum))
+      print("DONE: set_grid: grid_major: " + str(grid_major_on) +", grid_minor: "+ str(grid_minor_on)+  " on axs: " + str(axNum))
 
 
 def set_axis_scale(ax, xScale_string, yScale_string, axNum):
     ax.set_xscale(xScale_string)
     ax.set_yscale(yScale_string)
-    print("DONE: Set x-axis scale to " + str(xScale_string) + " and y-axis scale to " + str(yScale_string) + " on axs: " + str(axNum))
+    print("DONE: set_axis_scale: X: " + str(xScale_string) + ", Y: " + str(yScale_string) + " on axs: " + str(axNum))
 
 
 def set_axis_limits(ax, xmin, xmax, ymin, ymax, axNum):
@@ -70,28 +70,37 @@ def set_axis_limits(ax, xmin, xmax, ymin, ymax, axNum):
     
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)
-    print("DONE: Set limits to x=(" + str(xmin) + ", " + str(xmax)+ ") and y=(" + str(ymin) + ", " + str(ymax)+ ") on axs: " + str(axNum))
+    print("DONE: set_axis_limits: x=(" + str(xmin) + ", " + str(xmax)+ ") and y=(" + str(ymin) + ", " + str(ymax)+ ") on axs: " + str(axNum))
 
 
-def set_comma_decimal_with_precision(ax, xAxis_precision, yAxis_precision, axNum):
-            # Modified from: https://stackoverflow.com/questions/8271564/matplotlib-comma-separated-number-format-for-axis
+def set_axis_invert(ax, x_invert, y_invert, axNum):
+    if x_invert: ax.invert_xaxis()
+    if y_invert: ax.invert_yaxis()
+    print("DONE: set_axis_invert: x: " + str(x_invert) + ", y: " + str(y_invert) + " on axs: " + str(axNum))
+
+
+def set_commaDecimal_with_precision_x_axis(ax, xAxis_precision, axNum):
     xFormatString = '{:.' + str(xAxis_precision) + 'f}'
+    ax.get_xaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )    
+    print("DONE: set_commaDecimal_with_precision_x_axis: "+str(xAxis_precision) + " on axs: "+str(axNum))
+
+
+def set_commaDecimal_with_precision_y_axis(ax, yAxis_precision, axNum):
     yFormatString = '{:.' + str(yAxis_precision) + 'f}'
-    ax.get_xaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )
-    ax.get_yaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )
-    print("DONE: Set comma as decimalseparator on with precision: X: "+str(xAxis_precision)+", Y: "+str(yAxis_precision) + " on axs: "+str(axNum))
+    ax.get_yaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )    
+    print("DONE: set_commaDecimal_with_precision_y_axis: "+str(yAxis_precision) + " on axs: "+str(axNum))
 
 
 def set_layout_tight(fig):
     fig.tight_layout()
-    print("DONE: Set tight layout")
+    print("DONE: set_layout_tight")
 
 
 def align_labels(fig):
     fig.align_labels()
-    print("DONE: Aligned labels")
+    print("DONE: align_labels")
     
 
 def export_figure_as_pdf(filePath):
     matplotlib.pyplot.savefig(filePath, format='pdf', bbox_inches='tight')#, metadata={"Author" : "Gottfrid Olsson", "Title" : "", "Keywords" : "Created with PlotData by Gottfrid Olsson"}) ##this could be implemented in the future, 2022-06-21
-    print("DONE: Exported PDF: " + filePath)
+    print("DONE: export_figure_as_pdf: " + filePath)

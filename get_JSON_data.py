@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-06-21, 20:43
+##     Updated: 2022-06-23, 16:05
 ##       About: Reads and stores standard settings if
 ##              not overwritten by user data in JSON
 ##====================================================##
@@ -16,7 +16,6 @@ import JSON_handler as JSON
 
 
 ##### TODO: fix this s.t. one gets a prompt and pop-up window from which user can select JSON-file
-
 readJSONFilePathStringTEMP = "CONFIG"
 JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
 J = JSON.read(JSON_readFilePath) #Jason-file
@@ -203,7 +202,6 @@ for i in subplots:
     errorbar_constant_on.append(    bin_errorbar_constant_on    )
     errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
-
 
 
 print("DONE: get_JSON_data.py")

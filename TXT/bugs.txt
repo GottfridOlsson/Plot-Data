@@ -1,0 +1,13 @@
+KNOWN BUGS:
+
+2. (feature) legend doesn't include datasets in order of occurence in JSON, but rather in order of mark_style and line_style. Or, perhaps, it just does whatever. I don't really know [found: 2022-06-23]
+
+
+
+
+
+
+FIXED BUGS:
+
+0. set_decimalComma_with_precision disrupted 'log'-scale exponent [found: 2022-06-21, fixed: 2022-06-23]
+1. cannot invert axis when it is scale 'log', regardless of order of function-calling [found: 2022-06-23, fixed: 2022-06-23]

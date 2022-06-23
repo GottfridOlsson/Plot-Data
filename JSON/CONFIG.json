@@ -2,7 +2,7 @@
   "comment" : {
       "project" : "TESTING: REFACTORING",
       "author"  : "Gottfrid Olsson",
-      "updated" : "2022-06-21, 20:28",
+      "updated" : "2022-06-23, 17:36",
       "about"   : "TestaSaker: later on it might become the STANDARD-settings"
   },
 
@@ -14,19 +14,23 @@
 
   "figure_size" : {
       "width_cm"  : 16,
-      "height_cm" : 11.5, 
+      "height_cm" : 9, 
 
       "figwidth_fraction_of_textwidth_overleaf" : 1,
       "font_size_overleaf_pt" : 11,
-      "width_paper_a4_minus_twoTimes_margins_overleaf_cm" : 16
+      "margins_overleaf_cm" : 2.5,
+      "width_paper_cm" : 21,
+      "width_paper_minus_twoTimes_margins_overleaf_cm" : 16,
+      "width_paper_a4_cm" : 21
+      
   },
 
   "font_size" :{
      "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
       "unit"   : "pt (72,272 points per 2,54 centimeter)",
-      "axis"   : 12,
-      "tick"   : 10, 
-      "legend" : 10 
+      "axis"   : 11,
+      "tick"   : 9, 
+      "legend" : 9 
   },
   
   "LaTeX_and_CMU" : true,
@@ -41,7 +45,7 @@
       "ö" : "\u00f6"
   },
 
-
+ 
   "subplot_setup" : {
       "columns"        : 2,
       "rows"           : 1, 
@@ -58,22 +62,22 @@
         
           "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-          "dataset_label" : ["Nummer 1", "Nummer 2", "Numm\u00e5r 3"],
+          "dataset_label" : ["R\u00f6d 1", "Gr\u00f6n 2", "Bl\u00e5 3"],
 
           "CSV_column_x"   : [0,0,0],
-          "CSV_column_y"   : [1,2,3], 
+          "CSV_column_y"   : [5,0,3], 
 
           "plot_type_settings" : {
               "line": {
-                  "color" : ["#f1311d", "#101010", "#f1311d"],
-                  "style" : ["", "-", ":"],
-                  "width" : [1, 1.5, 3]
+                  "color" : ["#f1311d", "#3ac20e", "#086BDE"],
+                  "style" : ["-", "-", "-"],
+                  "width" : [1.62, 1.62, 1.62]
               },
 
               "marker" : {
-                  "type" : ["o", "x", ""], 
-                  "size" : [4, 5, 0], 
-                  "thickness" : [1, 2, 4], 
+                  "type" : ["o", "o", "o"], 
+                  "size" : [3.3, 3.3, 3.3], 
+                  "thickness" : [1.7, 1.7, 1.7], 
                   "facecolor" : ["None", "None", "None"]
               }, 
 
@@ -81,30 +85,28 @@
                   "on" : [true, true, false],
 
                   "constant" : {
-                    "on"   : [false, false, false], 
-                    "x_pm" : [0.123, 0.123, 0.123], 
-                    "y_pm" : [0.246, 0.246, 0.246] 
+                    "on"   : [false, true, false], 
+                    "x_pm" : [0, 0.2, 0], 
+                    "y_pm" : [0, 2.0, 0] 
                   },
 
                   "CSV_column_x" : [4,4,3],
                   "CSV_column_y" : [4,4,3],
 
-                  "size"         : [2, 3, 7], 
-                  "linewidth"    : [2, 3, 2], 
-                  "capthickness" : [1, 2, 0]
+                  "size"         : [3, 3, 3], 
+                  "linewidth"    : [1, 1, 1], 
+                  "capthickness" : [50, 0, 1]
               }
-
-
           },
 
           "axis" : {
 
               "x" : {
-                  "label": "N\u00e5got roligt",            
+                  "label": "Aspernatur, possimus \u00e5\u00e4\u00f6\u00c5\u00c4\u00d6",            
 
                   "limit" : {
-                      "min" : false, 
-                      "max" : false
+                      "min" : -1, 
+                      "max" : 11
                   }, 
 
                   "scale"           : "linear",
@@ -116,13 +118,13 @@
                   "label" : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
 
                   "limit" : {
-                      "min" : false, 
-                      "max" : false
+                      "min" : -5,
+                      "max" : 35
                   }, 
 
-                  "scale"           : "log",
+                  "scale"           : "linear",
                   "invert"          : false, 
-                  "float_precision" : 1
+                  "float_precision" : 0
               }
           }, 
 
@@ -135,15 +137,17 @@
           "grid" : {
               "major" : {
                   "on" : true, 
-                  "linewidth" : 1
+                  "linewidth" : 0.7
             },
               "minor" : {
                   "on" : true, 
-                  "linewidth" : 0.35
+                  "linewidth" : 0.3
             }
           }
       } 
     }, 
+
+
 
 
 
@@ -189,8 +193,6 @@
                 "linewidth"    : [2, 3, 2], 
                 "capthickness" : [1, 2, 0]
             }
-
-
           },
 
           "axis" : {
@@ -203,9 +205,9 @@
                       "max" : false
                   }, 
 
-                  "scale"           : "linear",
-                  "invert"          : false,
-                  "float_precision" : 1
+                  "scale"           : "log",
+                  "invert"          : true,
+                  "float_precision" : 0
               }, 
 
               "y" : {
@@ -217,8 +219,8 @@
                   }, 
 
                   "scale"           : "linear",
-                  "invert"          : true, 
-                  "float_precision" : 2
+                  "invert"          : false, 
+                  "float_precision" : 3
               }
           }, 
 
@@ -231,11 +233,11 @@
           "grid" : {
               "major" : {
                   "on" : true, 
-                  "linewidth" : 2
+                  "linewidth" : 1.5
             },
               "minor" : {
-                  "on" : false, 
-                  "linewidth" : 0.3
+                  "on" : true, 
+                  "linewidth" : 1
             }
           }
       } 
