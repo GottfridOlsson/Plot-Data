@@ -3,22 +3,17 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-06-23, 16:05
-##       About: Reads and stores standard settings if
-##              not overwritten by user data in JSON
+##     Updated: 2022-07-05, 11:03
+##       About: Reads and stores user data from JSON.
 ##====================================================##
 
-# Q. that remains: 
-# https://stackoverflow.com/questions/19993795/how-would-i-access-variables-from-one-class-to-another
-
-
 import JSON_handler as JSON
+import easygui
 
 
-##### TODO: fix this s.t. one gets a prompt and pop-up window from which user can select JSON-file
-readJSONFilePathStringTEMP = "CONFIG"
-JSON_readFilePath = "JSON/"+ readJSONFilePathStringTEMP + ".json" #make it such that you can ask for what file it is or smht//2022-02-18
-J = JSON.read(JSON_readFilePath) #Jason-file
+#JSON_readFilePath = "JSON/"+ "CONFIG" + ".json" #keeping this line for myself when I'm working with figures //2022-07-05
+JSON_readFilePath = easygui.fileopenbox(title="Please choose your JSON-file")
+J = JSON.read(JSON_readFilePath)
 
 
 
@@ -31,18 +26,16 @@ filepath_pdf            = J['filepath']['pdf']
 
 figure_height           = J['figure_size']['height_cm'] # [cm]
 figure_width            = J['figure_size']['width_cm']  # [cm]
-# textwidth_external    = J['figure_size']['textwidth'] # [cm]
 
 font_size_axis          = J['font_size']['axis']   # [pt]
 font_size_tick          = J['font_size']['tick']   # [pt]
 font_size_legend        = J['font_size']['legend'] # [pt]
-# font_size_external    = J['font_size']['external'] # [pt]
 
 LaTeX_and_CMU           = J['LaTeX_and_CMU']
 
 subplot_setup_rows      = J['subplot_setup']['rows']
 subplot_setup_columns   = J['subplot_setup']['columns']
-subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO: raise error if "total != rows*columns"
+subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO?: raise error if "total != rows*columns"
 
 
 ## DECLARE VARIABLE NAMES ##
@@ -105,7 +98,7 @@ grid_minor_linewidth   = []
 # ASSIGN VALUES #
 #---------------#
 
-###### TODO: do this for standard JSON-values
+###### TODO: do this for standard JSON-values ##//2022-07-05: is it worth it? why just not copy and paste and change the values you need to change? I can create a JSON-template to copy forall plot_types
 ###### TODO: figure out how to "check" if a value in JSON exists (if not, don't overwrite standard values; if exists, do write over)
  
 

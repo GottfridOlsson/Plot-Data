@@ -64,4 +64,4 @@ Gillar 2022-01-19:
   röd: #f1311d
  grön: #3ac20e
   blå: #086BDE
-svart: #151515
+svart: #101010, #151515
