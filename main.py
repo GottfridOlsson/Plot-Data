@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-06-23, 17:43
+##     Updated: 2022-07-08, 12:05
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -26,7 +26,7 @@ import errorbar
 #------------#
 
 
-if __name__ == "__main__":
+def main():
     print("=== PLOT DATA Start ===")
 
     CSV_data   = CSV.read(JSON.filepath_csv)
@@ -99,6 +99,10 @@ if __name__ == "__main__":
     print("=== PLOT DATA End ===")      
     plt.show()
 
+
+
+if __name__ == "__main__":
+    main()
 
 
 
