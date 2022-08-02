@@ -51,11 +51,24 @@ def main():
             if JSON.plot_type[i][k] == "errorbar":
                 print("Plotting 'errorbar' on x: " + str(CSV_header[JSON.dataset_CSV_column_x[i][k]]) +", and y: "+ str(CSV_header[JSON.dataset_CSV_column_y[i][k]]) + " on axs: " + str(i))
                 
-                data_x     = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
-                data_y     = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
-                errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
-                errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
+                data_x = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
+                data_y = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
 
+                if JSON.errorbar_CSV_column_x[i][k] == -1:
+                    print("xxxxxxxxxxxxxxxxxx = none")
+                    errorbar_x = None
+                else:
+                    errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
+                    
+                print(JSON.errorbar_CSV_column_x[i][k], JSON.errorbar_CSV_column_y[i][k])
+                if JSON.errorbar_CSV_column_y[i][k] == -1:
+                    print("yyyyyyyyyyyyyyyyy = none")
+                    errorbar_y = None
+                else:
+                    errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
+                
+                    
+                                
                 if JSON.errorbar_on[i][k] and JSON.errorbar_constant_on[i][k]:
                     errorbar_x = [JSON.errorbar_constant_x_pm[i][k] for x_pm in data_x]
                     errorbar_y = [JSON.errorbar_constant_y_pm[i][k] for y_pm in data_y]
