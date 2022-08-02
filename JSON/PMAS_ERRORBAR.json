@@ -1,0 +1,136 @@
+{
+    "comment" : {
+        "project" : "PMAS ANALYSIS IN PYTHON",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-08-02 15:00",
+        "about"   : ""
+    },
+
+    "filepath"  :{
+        "json" : "PMAS_ERRORBAR.json",
+        "csv"  : "PMAS_PlotData_from_2021-01-01_to_2022-08-01.csv",
+        "pdf"  : "PMAS_Latitude_Measurements.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9, 
+
+        "external_font_size_pt"      : 11,
+        "external_paper_width_cm"    : 21,
+        "external_paper_width_a4_cm" : 21,
+        "external_paper_margins_cm"  : 2.5,
+        "external_paper_width_minus_two_margins_cm" : 16,
+        "external_figwidth_fraction_of_textwidth"   : 1
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : " 'pt' (72,272 pts per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets" : {
+        
+            "plot_type" : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Theoretical", "Fitted", "Datapoints"],
+
+            "CSV_column_x" : [0,0,3],
+            "CSV_column_y" : [1,2,4], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#101010"],
+                    "style" : ["--", "-", ""],
+                    "width" : [1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "o"], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.7, 1.7, 1.7], 
+                    "facecolor" : ["None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, true],
+
+                    "constant" : {
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0,0,5],
+                    "CSV_column_y" : [0,0,],
+
+                    "size"         : [0,0,3], 
+                    "linewidth"    : [0,0,1], 
+                    "capthickness" : [0,0,0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Day $$x$$ from 2021-01-01 (Jan 1 = 0)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Measured angle $$\alpha$$ (deg)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : false, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+
+
+
+  ]
+}
