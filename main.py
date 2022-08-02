@@ -55,18 +55,14 @@ def main():
                 data_y = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
 
                 if JSON.errorbar_CSV_column_x[i][k] == -1:
-                    print("xxxxxxxxxxxxxxxxxx = none")
                     errorbar_x = None
                 else:
                     errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
                     
-                print(JSON.errorbar_CSV_column_x[i][k], JSON.errorbar_CSV_column_y[i][k])
                 if JSON.errorbar_CSV_column_y[i][k] == -1:
-                    print("yyyyyyyyyyyyyyyyy = none")
                     errorbar_y = None
                 else:
                     errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
-                
                     
                                 
                 if JSON.errorbar_on[i][k] and JSON.errorbar_constant_on[i][k]:

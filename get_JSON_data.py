@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-07-05, 11:03
+##     Updated: 2022-08-02, 15:32
 ##       About: Reads and stores user data from JSON.
 ##====================================================##
 
@@ -168,7 +168,7 @@ for i in subplots:
         
         bin_errorbar_on.append(             J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['on'][k]                 )
         bin_errorbar_CSV_column_x.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['CSV_column_x'][k]       )
-        bin_errorbar_CSV_column_y.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['CSV_column_x'][k]       )
+        bin_errorbar_CSV_column_y.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['CSV_column_y'][k]       )
         bin_errorbar_size.append(           J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['size'][k]               )
         bin_errorbar_linewidth.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['linewidth'][k]          )
         bin_errorbar_capthickness.append(   J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['capthickness'][k]       )

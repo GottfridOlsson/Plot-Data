@@ -63,7 +63,7 @@
 
                 "marker" : {
                     "type"      : ["", "", "x"], 
-                    "size"      : [5, 3.3, 5], 
+                    "size"      : [5, 3.3, 7], 
                     "thickness" : [1.7, 1.7, 2], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
@@ -78,11 +78,11 @@
                     },
 
                     "CSV_column_x" : [-1,-1,-1],
-                    "CSV_column_y" : [-1,-1,123456],
+                    "CSV_column_y" : [-1,-1,5],
 
                     "size"         : [0,0,5], 
-                    "linewidth"    : [0,0,2], 
-                    "capthickness" : [0,0,1]
+                    "linewidth"    : [0,0,1.75], 
+                    "capthickness" : [0,0,0]
                 }
             },
 
