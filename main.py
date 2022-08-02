@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-07-08, 12:05
+##     Updated: 2022-08-02, 15:58
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -100,7 +100,7 @@ def main():
         if JSON.axis_y_scale[i] != 'log':
             f.set_commaDecimal_with_precision_y_axis(axs_i, JSON.axis_y_float_precision[i], i)
         
-
+    f.set_title(JSON.figure_title)
     f.align_labels(fig)
     f.set_layout_tight(fig)
     f.export_figure_as_pdf(JSON.filepath_pdf)
@@ -114,9 +114,4 @@ if __name__ == "__main__":
     main()
 
 
-
-
-
-
-
-
+## EOF ##

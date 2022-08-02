@@ -24,6 +24,7 @@ J = JSON.read(JSON_readFilePath)
 filepath_csv            = J['filepath']['csv']
 filepath_pdf            = J['filepath']['pdf']
 
+figure_title            = J['figure_title']
 figure_height           = J['figure_size']['height_cm'] # [cm]
 figure_width            = J['figure_size']['width_cm']  # [cm]
 

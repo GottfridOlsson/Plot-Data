@@ -9,12 +9,12 @@
     "filepath"  :{
         "json" : "JSON/PMAS_ERRORBAR.json",
         "csv"  : "CSV/PMAS_PlotData_from_2021-01-01_to_2022-08-01.csv",
-        "pdf"  : "PDF/PMAS_Latitude_Measurements.pdf" 
+        "pdf"  : "PDF/PMAS_Latitude_Measurements_2022-08-02.pdf" 
     },
 
     "figure_size" : {
-        "width_cm"  : 28,
-        "height_cm" : 16, 
+        "width_cm"  : 35,
+        "height_cm" : 20, 
 
         "external_font_size_pt"      : 11,
         "external_paper_width_cm"    : 21,
@@ -27,12 +27,13 @@
     "font_size" :{
         "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
         "unit"   : " 'pt' (72,272 pts per 2,54 centimeter)",
-        "axis"   : 15,
-        "tick"   : 14, 
-        "legend" : 13 
+        "axis"   : 16,
+        "tick"   : 15, 
+        "legend" : 15 
     },
   
     "LaTeX_and_CMU" : true,
+    "figure_title"  : "Fitted curve: $57.310 + 23.14\\cos{(0.0173x + 0.1801)}$ \n Theoretical: $\\,\\,57.679 + 23.44\\cos{(0.0172x + 0.1721)}$",
 
     "subplot_setup" : {
         "columns"        : 1,
@@ -49,7 +50,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Theoretical", "Fitted", "Datapoints"],
+            "dataset_label" : ["Theoretical", "Fitted curve", "Datapoints"],
 
             "CSV_column_x" : [0,0,3],
             "CSV_column_y" : [1,2,4], 
@@ -58,12 +59,12 @@
                 "line": {
                     "color" : ["#000000", "#0000FF", "#FF0000"],
                     "style" : ["--", "-", ""],
-                    "width" : [1.62, 1.62, 1.62]
+                    "width" : [2, 2, 1.62]
                 },
 
                 "marker" : {
                     "type"      : ["", "", "x"], 
-                    "size"      : [5, 3.3, 7], 
+                    "size"      : [5, 3.3, 6.5], 
                     "thickness" : [1.7, 1.7, 2], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
@@ -81,7 +82,7 @@
                     "CSV_column_y" : [-1,-1,5],
 
                     "size"         : [0,0,5], 
-                    "linewidth"    : [0,0,1.75], 
+                    "linewidth"    : [0,0,1.5], 
                     "capthickness" : [0,0,0]
                 }
             },

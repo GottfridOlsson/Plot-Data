@@ -3,12 +3,11 @@
 ##        File: functions.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-21, 17:50
-##     Updated: 2022-06-23, 17:09
+##     Updated: 2022-08-02, 15:40
 ##       About: Helper functions for plotting.
 ##=============================================##
 
-import matplotlib.pyplot
-import matplotlib as plt
+import matplotlib
 
 
 def cm_2_inch(cm):
@@ -17,7 +16,7 @@ def cm_2_inch(cm):
 
 def set_LaTeX_and_CMU(LaTeX_and_CMU_on):
     if LaTeX_and_CMU_on:
-        plt.rcParams.update({
+        matplotlib.rcParams.update({
     "text.usetex": True,
     "font.family": "serif", 
     "font.serif" : ["Computer Modern Roman"]
@@ -26,14 +25,18 @@ def set_LaTeX_and_CMU(LaTeX_and_CMU_on):
 
 
 def set_font_size(axis, tick, legend):
-    plt.rc('font',   size=axis)      #2022-06-21: not sure what the difference is, to test later on!
-    plt.rc('axes',   titlesize=axis) #2022-06-21: not sure what the difference is, to test later on!
-    plt.rc('axes',   labelsize=axis) #2022-06-21: not sure what the difference is, to test later on!
-    plt.rc('xtick',  labelsize=tick)
-    plt.rc('ytick',  labelsize=tick)
-    plt.rc('legend', fontsize=legend)
+    matplotlib.rc('font',   size=axis)      #2022-06-21: not sure what the difference is, to test later on!
+    matplotlib.rc('axes',   titlesize=axis) #2022-06-21: not sure what the difference is, to test later on!
+    matplotlib.rc('axes',   labelsize=axis) #2022-06-21: not sure what the difference is, to test later on!
+    matplotlib.rc('xtick',  labelsize=tick)
+    matplotlib.rc('ytick',  labelsize=tick)
+    matplotlib.rc('legend', fontsize=legend)
     print("DONE: set_font_size: (axis, tick, legend): " + str(axis) + ", " + str(tick) + ", " + str(legend))
 
+
+def set_title(title):
+    matplotlib.pyplot.title(title)
+    print("DONE: set_title to: " + str(title))
 
 def set_axis_labels(ax, xLabel, yLabel, axNum):
     ax.set_xlabel(str(xLabel))
@@ -81,13 +84,13 @@ def set_axis_invert(ax, x_invert, y_invert, axNum):
 
 def set_commaDecimal_with_precision_x_axis(ax, xAxis_precision, axNum):
     xFormatString = '{:.' + str(xAxis_precision) + 'f}'
-    ax.get_xaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )    
+    ax.get_xaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )    
     print("DONE: set_commaDecimal_with_precision_x_axis: "+str(xAxis_precision) + " on axs: "+str(axNum))
 
 
 def set_commaDecimal_with_precision_y_axis(ax, yAxis_precision, axNum):
     yFormatString = '{:.' + str(yAxis_precision) + 'f}'
-    ax.get_yaxis().set_major_formatter( plt.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )    
+    ax.get_yaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )    
     print("DONE: set_commaDecimal_with_precision_y_axis: "+str(yAxis_precision) + " on axs: "+str(axNum))
 
 
