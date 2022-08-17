@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-08-02, 15:58
+##     Updated: 2022-08-17, 11:32
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -27,7 +27,7 @@ import errorbar
 
 
 def main():
-    print("=== PLOT DATA Start ===")
+    print("===== PLOT DATA Start =====")
 
     CSV_data   = CSV.read(JSON.filepath_csv)
     CSV_header = CSV.get_header(CSV_data)
@@ -85,27 +85,32 @@ def main():
 
 
 
-
         f.set_axis_scale(   axs_i, JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
         f.set_axis_labels(  axs_i, JSON.axis_x_label[i], JSON.axis_y_label[i], i)
         f.set_axis_invert(  axs_i, JSON.axis_x_invert[i], JSON.axis_y_invert[i], i)
         f.set_axis_limits(  axs_i, JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
   
-
         f.set_grid(         axs_i, JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i) # set_grid must be after set_axis_scale for some reason (at least with 'log')
         f.set_legend(       axs_i, JSON.legend_on[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
         
-        if JSON.axis_x_scale[i] != 'log':
-            f.set_commaDecimal_with_precision_x_axis(axs_i, JSON.axis_x_float_precision[i], i)
-        if JSON.axis_y_scale[i] != 'log':
-            f.set_commaDecimal_with_precision_y_axis(axs_i, JSON.axis_y_float_precision[i], i)
-        
+        if JSON.commaDecimal:
+            if JSON.axis_x_scale[i] != 'log':
+                f.set_commaDecimal_with_precision_x_axis(axs_i, JSON.axis_x_float_precision[i], i)
+            if JSON.axis_y_scale[i] != 'log':
+                f.set_commaDecimal_with_precision_y_axis(axs_i, JSON.axis_y_float_precision[i], i)
+        if JSON.pointDecimal:
+            if JSON.axis_x_scale[i] != 'log':
+                f.set_pointDecimal_with_precision_x_axis(axs_i, JSON.axis_x_float_precision[i], i)
+            if JSON.axis_y_scale[i] != 'log':
+                f.set_pointDecimal_with_precision_y_axis(axs_i, JSON.axis_y_float_precision[i], i)
+                    
+            
     f.set_title(JSON.figure_title)
     f.align_labels(fig)
     f.set_layout_tight(fig)
     f.export_figure_as_pdf(JSON.filepath_pdf)
 
-    print("=== PLOT DATA End ===")      
+    print("===== PLOT DATA End =====")      
     plt.show()
 
 

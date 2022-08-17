@@ -32,11 +32,12 @@ font_size_axis          = J['font_size']['axis']   # [pt]
 font_size_tick          = J['font_size']['tick']   # [pt]
 font_size_legend        = J['font_size']['legend'] # [pt]
 
-LaTeX_and_CMU           = J['LaTeX_and_CMU']
-
 subplot_setup_rows      = J['subplot_setup']['rows']
 subplot_setup_columns   = J['subplot_setup']['columns']
 subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO?: raise error if "total != rows*columns"
+
+LaTeX_and_CMU           = J['LaTeX_and_CMU'] # bool
+point_or_decimal_comma  = J['point_or_decimal_comma'] # string, "." or ","
 
 
 ## DECLARE VARIABLE NAMES ##
@@ -197,5 +198,10 @@ for i in subplots:
     errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
 
+commaDecimal, pointDecimal = False, False
+if point_or_decimal_comma == ",":
+    commaDecimal = True
+if point_or_decimal_comma == ".":
+    pointDecimal = True
 
 print("DONE: get_JSON_data.py")

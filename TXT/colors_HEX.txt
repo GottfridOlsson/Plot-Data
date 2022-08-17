@@ -1,0 +1,13 @@
+2022-08-17: mer mute:ade färger, men ändå tydliga (gör inte lika ont i ögonen som FF0000, 00FF00, och 0000FF)
+  röd: #F43542
+ grön: #4FCE29
+  blå: #0A7DFF
+
+
+
+Gillar 2022-01-19:
+  röd: #f1311d
+ grön: #3ac20e
+  blå: #086BDE
+svart: #101010, #151515
+

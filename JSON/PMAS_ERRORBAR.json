@@ -34,6 +34,7 @@
   
     "LaTeX_and_CMU" : true,
     "figure_title"  : "Fitted curve: $57.310 + 23.14\\cos{(0.0173x + 0.1801)}$ \n Theoretical: $\\,\\,57.679 + 23.44\\cos{(0.0172x + 0.1721)}$",
+    "point_or_decimal_comma" : ".",
 
     "subplot_setup" : {
         "columns"        : 1,
@@ -134,4 +135,4 @@
 
 
   ]
-}
+}   

@@ -87,11 +87,21 @@ def set_commaDecimal_with_precision_x_axis(ax, xAxis_precision, axNum):
     ax.get_xaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x).replace('.', ',')) )    
     print("DONE: set_commaDecimal_with_precision_x_axis: "+str(xAxis_precision) + " on axs: "+str(axNum))
 
-
 def set_commaDecimal_with_precision_y_axis(ax, yAxis_precision, axNum):
     yFormatString = '{:.' + str(yAxis_precision) + 'f}'
     ax.get_yaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x).replace('.', ',')) )    
     print("DONE: set_commaDecimal_with_precision_y_axis: "+str(yAxis_precision) + " on axs: "+str(axNum))
+
+
+def set_pointDecimal_with_precision_x_axis(ax, xAxis_precision, axNum):
+    xFormatString = '{:.' + str(xAxis_precision) + 'f}'
+    ax.get_xaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: xFormatString.format(x)) )    
+    print("DONE: set_pointDecimal_with_precision_x_axis: "+str(xAxis_precision) + " on axs: "+str(axNum))
+
+def set_pointDecimal_with_precision_y_axis(ax, yAxis_precision, axNum):
+    yFormatString = '{:.' + str(yAxis_precision) + 'f}'
+    ax.get_yaxis().set_major_formatter( matplotlib.ticker.FuncFormatter(lambda x, pos: yFormatString.format(x)) )    
+    print("DONE: set_pointDecimal_with_precision_y_axis: "+str(yAxis_precision) + " on axs: "+str(axNum))
 
 
 def set_layout_tight(fig):
