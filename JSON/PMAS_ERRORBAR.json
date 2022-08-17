@@ -26,7 +26,7 @@
 
     "font_size" :{
         "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
-        "unit"   : " 'pt' (72,272 pts per 2,54 centimeter)",
+        "unit"   : " pt (72,272 pts per 2,54 centimeter)",
         "axis"   : 16,
         "tick"   : 15, 
         "legend" : 15 

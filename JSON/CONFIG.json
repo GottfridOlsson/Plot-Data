@@ -36,7 +36,7 @@
     },
   
     "LaTeX_and_CMU" : true,
-    "figure_title"  : "test_figure",
+    "figure_title"  : "test figure",
 
     "utf-8_encoding_help" : {
         "comment" : true,

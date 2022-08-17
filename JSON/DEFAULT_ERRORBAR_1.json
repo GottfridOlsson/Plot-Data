@@ -33,6 +33,8 @@
     },
   
     "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+
 
     "subplot_setup" : {
         "columns"        : 1,
