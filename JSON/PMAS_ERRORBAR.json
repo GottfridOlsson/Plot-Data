@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "PMAS ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-08-14 21:51",
+        "updated" : "2022-09-17 15:58",
         "about"   : ""
     },
 
     "filepath"  :{
         "json" : "JSON/PMAS_ERRORBAR.json",
-        "csv"  : "CSV/PMAS_PlotData_from_2021-01-01_to_2022-08-14.csv",
-        "pdf"  : "PDF/PMAS_Latitude_Measurements_2022-08-14.pdf" 
+        "csv"  : "CSV/PMAS_PlotData_from_2021-01-01_to_2022-09-17.csv",
+        "pdf"  : "PDF/PMAS_Latitude_Measurements_2022-09-17.pdf" 
     },
 
     "figure_size" : {
@@ -97,7 +97,7 @@
                     "float_precision" : 0,
                     "limit" : {
                         "min" : -0.01, 
-                        "max" : 600
+                        "max" : 650
                     }
                 }, 
 
