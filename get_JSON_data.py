@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-08-02, 15:32
+##     Updated: 2022-09-22, 19:15
 ##       About: Reads and stores user data from JSON.
 ##====================================================##
 
@@ -12,7 +12,8 @@ import easygui
 
 
 #JSON_readFilePath = "JSON/"+ "CONFIG" + ".json" #keeping this line for myself when I'm working with figures //2022-07-05
-JSON_readFilePath = easygui.fileopenbox(title="Please choose your JSON-file")
+JSON_default_path = "JSON/"
+JSON_readFilePath = easygui.fileopenbox(title="Please choose your JSON-file", default=JSON_default_path)
 J = JSON.read(JSON_readFilePath)
 
 

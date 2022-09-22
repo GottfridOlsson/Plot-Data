@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-08-17, 11:32
+##     Updated: 2022-09-22, 19:08
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -54,20 +54,27 @@ def main():
                 data_x = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
                 data_y = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
 
-                if JSON.errorbar_CSV_column_x[i][k] == -1:
-                    errorbar_x = None
-                else:
-                    errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
-                    
-                if JSON.errorbar_CSV_column_y[i][k] == -1:
-                    errorbar_y = None
-                else:
-                    errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
-                    
-                                
-                if JSON.errorbar_on[i][k] and JSON.errorbar_constant_on[i][k]:
-                    errorbar_x = [JSON.errorbar_constant_x_pm[i][k] for x_pm in data_x]
-                    errorbar_y = [JSON.errorbar_constant_y_pm[i][k] for y_pm in data_y]
+                if JSON.errorbar_on[i][k]: #### TEST 2022-09-22, remove this and below if it fucks something up later on
+                    if JSON.errorbar_CSV_column_x[i][k] == -1:
+                        errorbar_x = None
+                    else:
+                        errorbar_x = CSV_data[CSV_header[JSON.errorbar_CSV_column_x[i][k]]]
+                        
+                    if JSON.errorbar_CSV_column_y[i][k] == -1:
+                        errorbar_y = None
+                    else:
+                        errorbar_y = CSV_data[CSV_header[JSON.errorbar_CSV_column_y[i][k]]]
+                        
+                                    
+                    if JSON.errorbar_on[i][k] and JSON.errorbar_constant_on[i][k]:
+                        errorbar_x = [JSON.errorbar_constant_x_pm[i][k] for x_pm in data_x]
+                        errorbar_y = [JSON.errorbar_constant_y_pm[i][k] for y_pm in data_y]
+                
+                else:#### TEST 2022-09-22, remove this and two rows below if it fucks something up later on
+                        errorbar_x = [[0] for x in data_x]
+                        errorbar_y = [[0] for x in data_y]
+                        
+                            
 
                 errorbar.plot_errorbar(
                     axs_i, data_x, data_y, JSON.errorbar_on[i][k], errorbar_x, errorbar_y, \

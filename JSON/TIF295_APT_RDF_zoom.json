@@ -1,0 +1,153 @@
+﻿{
+    "comment" : {
+        "project" : "TIF295 APT RDF for 10h and 100h sample",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-09-22, 19:34",
+        "about"   : "Zoom in on the radial distribution function in atomic probe tomography lab"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/TIF295_APT_RDF_zoom.json",
+        "csv"  : "CSV/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr.csv",
+        "pdf"  : "PDF/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr_zoom.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 15.4,
+        "height_cm" : 9, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.8,
+            "external_paper_width_minus_two_margins_cm" : 15.4,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar"],
+
+            "dataset_label" : ["10$\\,$h", "100$\\,$h"],
+
+            "CSV_column_x" : [0, 0],
+            "CSV_column_y" : [1, 2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#F43542", "#4FCE29"],
+                    "style" : ["-", "-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["o", "s"], 
+                    "size"      : [3.6, 3.6], 
+                    "thickness" : [1.7, 1.7], 
+                    "facecolor" : ["#F43542", "#4FCE29"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false],
+
+                    "constant" : {
+                        "on"   : [false, false], 
+                        "x_pm" : [0, 0.2], 
+                        "y_pm" : [0, 2.0] 
+                    },
+
+                    "CSV_column_x" : [4, 4],
+                    "CSV_column_y" : [4, 4],
+
+                    "size"         : [3, 3], 
+                    "linewidth"    : [1, 1], 
+                    "capthickness" : [50, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Distance ($\\mathrm{nm}$)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 3, 
+                        "max" : 8
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Bulk normalized concentration (Cr-Cr)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 4,
+                    "limit" : {
+                        "min" : 0.9975,
+                        "max" : 1.000
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+
+
+    
+
+  ]
+}
