@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "TIF295 APT RDF for 10h and 100h sample",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-09-22, 18:43",
-        "about"   : "Radial distribution function in atomic probe tomography lab"
+        "updated" : "2022-10-05, 13:54",
+        "about"   : "Radial distribution function in atomic probe tomography lab and linear regression to first 4 and 5 points for 10h and 100h, respectively"
     },
 
     "filepath"  :{
         "json" : "JSON/TIF295_APT_RDF.json",
-        "csv"  : "CSV/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr.csv",
-        "pdf"  : "PDF/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr.pdf" 
+        "csv"  : "CSV/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr_linReg.csv",
+        "pdf"  : "PDF/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr_linReg.pdf" 
     },
 
     "figure_size" : {
@@ -63,42 +63,42 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar", "errorbar"],
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["10$\\,$h", "100$\\,$h"],
+            "dataset_label" : ["10$\\,$h sample", "100$\\,$h sample", "Linear fit", ""],
 
-            "CSV_column_x" : [0, 0],
-            "CSV_column_y" : [1, 2], 
+            "CSV_column_x" : [0, 0, 4, 6],
+            "CSV_column_y" : [1, 2, 3, 5], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#F43542", "#4FCE29"],
-                    "style" : ["-", "-"],
-                    "width" : [1.62, 1.62]
+                    "color" : ["#F43542", "#4FCE29", "#000000", "#000000"],
+                    "style" : ["-", "-", "--", "--"],
+                    "width" : [1.62, 1.62, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["o", "s"], 
-                    "size"      : [3.6, 3.6], 
-                    "thickness" : [1.7, 1.7], 
-                    "facecolor" : ["#F43542", "#4FCE29"]
+                    "type"      : ["o", "s", "", ""], 
+                    "size"      : [3.6, 3.6, 3.6, 3.6], 
+                    "thickness" : [1.7, 1.7, 1.7, 1.7], 
+                    "facecolor" : ["#F43542", "#4FCE29", "None", "None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [false, false],
+                    "on" : [false, false, false, false],
 
                     "constant" : {
-                        "on"   : [false, false], 
-                        "x_pm" : [0, 0.2], 
-                        "y_pm" : [0, 2.0] 
+                        "on"   : [false, false, false, false], 
+                        "x_pm" : [0, 0.2, 0, 0], 
+                        "y_pm" : [0, 2.0, 0, 0] 
                     },
 
-                    "CSV_column_x" : [4, 4],
-                    "CSV_column_y" : [4, 4],
+                    "CSV_column_x" : [4, 4, 0, 0],
+                    "CSV_column_y" : [4, 4, 0, 0],
 
-                    "size"         : [3, 3], 
-                    "linewidth"    : [1, 1], 
-                    "capthickness" : [50, 0]
+                    "size"         : [3, 3, 0, 0], 
+                    "linewidth"    : [1, 1, 0, 0], 
+                    "capthickness" : [50, 0, 0, 0]
                 }
             },
 

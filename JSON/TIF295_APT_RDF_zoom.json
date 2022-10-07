@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "TIF295 APT RDF for 10h and 100h sample",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-09-22, 19:34",
+        "updated" : "2022-10-05, 12:24",
         "about"   : "Zoom in on the radial distribution function in atomic probe tomography lab"
     },
 
     "filepath"  :{
         "json" : "JSON/TIF295_APT_RDF_zoom.json",
         "csv"  : "CSV/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr.csv",
-        "pdf"  : "PDF/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr_zoom.pdf" 
+        "pdf"  : "PDF/RDF_removedPole_dist10nm_step0,2nm_bulkNormalizedConc_10h_100h_Cr_zoom_2.pdf" 
     },
 
     "figure_size" : {
@@ -30,9 +30,9 @@
     "font_size" :{
         "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
         "unit"   : "pt (72,272 points per 2,54 centimeter)",
-        "axis"   : 11,
-        "tick"   : 9, 
-        "legend" : 9 
+        "axis"   : 13,
+        "tick"   : 11, 
+        "legend" : 11 
     },
   
     "LaTeX_and_CMU" : true,
@@ -108,10 +108,10 @@
                     "label"           : "Distance ($\\mathrm{nm}$)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 0,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : 3, 
-                        "max" : 8
+                        "min" : 6, 
+                        "max" : 9
                     }
                 }, 
 
@@ -122,7 +122,7 @@
                     "float_precision" : 4,
                     "limit" : {
                         "min" : 0.9975,
-                        "max" : 1.000
+                        "max" : 0.9995
                     }
                 }
             }, 
