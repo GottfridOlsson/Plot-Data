@@ -1,0 +1,239 @@
+﻿{
+    "comment" : {
+        "project" : "TIF285, LEARNING FROM DATA, PROJECT 2",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-10-27, 11:12",
+        "about"   : "Figure 6"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/TIF285_LFD_P2_Fig6.json",
+        "csv"  : "CSV/LFD_P2_figure6.csv",
+        "pdf"  : "PDF/LFD_P2_Figure6.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["ANN, MAE loss", "ANN, MAE + energy loss", "Brutus numerical derivative", "Brutus"],
+
+            "CSV_column_x" : [10, 10, 10, 10],
+            "CSV_column_y" : [0, 1, 2, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#808080", "#000000", "#6D7B8D", "#000000"],
+                    "style" : ["-", "-", "-", "--"],
+                    "width" : [1.62, 1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "", ""], 
+                    "size"      : [2, 3.3, 1.5, 1.5], 
+                    "thickness" : [1.5, 1.7, 1.5, 1.5], 
+                    "facecolor" : ["None", "None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false, false],
+
+                    "constant" : {
+                        "on"   : [false, false, false, false], 
+                        "x_pm" : [0, 0.2, 0, 0], 
+                        "y_pm" : [0, 2.0, 0, 0] 
+                    },
+
+                    "CSV_column_x" : [4, 3, 0, 0],
+                    "CSV_column_y" : [4, 3, 0, 0],
+
+                    "size"         : [3, 3, 0, 0], 
+                    "linewidth"    : [1, 1, 0, 0], 
+                    "capthickness" : [50, 1, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Time",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Relative energy error",
+                    "scale"           : "log",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "lower right"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : false, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Brutus", "Reference ANN", "Reference propagated circle"],
+
+            "CSV_column_x" : [0, 6, 8],
+            "CSV_column_y" : [1, 7, 9], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#B3D9B3", "#007F00", "#000000"],
+                    "style" : ["-", "--", ""],
+                    "width" : [1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "."], 
+                    "size"      : [3.3, 3.3, 1.5], 
+                    "thickness" : [1.7, 1.7, 1.5], 
+                    "facecolor" : ["None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "constant" : {
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0, 0.2, 0], 
+                        "y_pm" : [0, 2.0, 0] 
+                    },
+
+                    "CSV_column_x" : [4, 3, 0],
+                    "CSV_column_y" : [4, 3, 0],
+
+                    "size"         : [3, 3, 0], 
+                    "linewidth"    : [1, 1, 0], 
+                    "capthickness" : [50, 1, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Position particle 2, $x_2$",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Position particle 2, $y_2$",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : false, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : false, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+
+
+    
+  ]
+}
