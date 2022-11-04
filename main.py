@@ -52,26 +52,29 @@ def main():
             axs_ij = axs     # necessary to avoid several for-loops (since object "AxesSubplot" is not subscriptable)
         else:
 
-            if JSON.subplot_setup_rows < 2:
+            if JSON.subplot_setup_columns == 1 and JSON.subplot_setup_rows >= 2:
                 axs_ij = axs[i]
             else:
-
-                if i+1 <= JSON.subplot_setup_rows:
-                    axs_ij = axs[0][i]
+                if JSON.subplot_setup_rows < 2:
+                    axs_ij = axs[i]
                 else:
-                    if 1+i <= 2*JSON.subplot_setup_rows:
-                        mod_i = i % JSON.subplot_setup_columns
-                        axs_ij = axs[1][mod_i]
+                    if i+1 <= JSON.subplot_setup_rows:
+                        axs_ij = axs[0][i]
                     else:
-                        if 1+i <= 3*JSON.subplot_setup_rows:
+                        if 1+i <= 2*JSON.subplot_setup_rows:
                             mod_i = i % JSON.subplot_setup_columns
-                            axs_ij = axs[2][mod_i]
-                        #and so on for higher orders of subplots.
-                        # this is ugly - yes.
-                        # this can be done with clever modulus calculations - yes.
-                        # I'll eventually find an even better way of doing this - yes.
-                        # but not today. 2022-10-27
-            
+                            axs_ij = axs[1][mod_i]
+                        else:
+                            if 1+i <= 3*JSON.subplot_setup_rows:
+                                mod_i = i % JSON.subplot_setup_columns
+                                axs_ij = axs[2][mod_i]
+                            #and so on for higher orders of subplots.
+                            # this is ugly - yes.
+                            # this can be done with clever modulus calculations - yes.
+                            # I'll eventually find an even better way of doing this - yes.
+                            # but not today. //2022-10-27
+                            # had to add an extra if if you wanted columns and not row - FIX THIS MESS! //2022-11-04
+                
 
 
         for k in range(len(JSON.plot_type[i])):  # forall types of plots in each subplot
