@@ -2,19 +2,19 @@
     "comment" : {
         "project" : "TIF300: Lab 1 optics",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-04, 08:46",
-        "about"   : "Infrared spectrum"
+        "updated" : "2022-11-08, 19:42",
+        "about"   : "Infrared spectrum (fourier transform)"
     },
 
     "filepath"  :{
-        "json" : "JSON/TIF300_Lab1_IR_spectra.json",
-        "csv"  : "CSV/TIF300_Lab1_IR_spectra.csv",
-        "pdf"  : "PDF/TIF300_Lab1_IR_spectra.pdf" 
+        "json" : "JSON/TIF300_Lab1_spectra_FTIR.json",
+        "csv"  : "CSV/TIF300_Lab1_spectra_FTIR.csv",
+        "pdf"  : "PDF/TIF300_Lab1_spectra_FTIR.pdf" 
     },
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 16, 
+        "height_cm" : 20, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -52,8 +52,8 @@
 
     "subplot_setup" : {
         "columns"        : 1,
-        "rows"           : 3, 
-        "total_subplots" : 3  
+        "rows"           : 4, 
+        "total_subplots" : 4  
     },
 
 
@@ -65,7 +65,97 @@
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["Sample A"],
+            "dataset_label" : ["PDMS"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [4],
+                    "CSV_column_y" : [4],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [5]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "$\\nu\\,\\,(\\mathrm{cm}^{-1})$",            
+                    "scale"           : "linear",
+                    "invert"          : true,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 2000, 
+                        "max" : 600
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Transmission (\\%)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : -0.01,
+                        "max" : 1.1
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "lower left"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+
+
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["DICING"],
 
             "CSV_column_x" : [0],
             "CSV_column_y" : [1], 
@@ -105,23 +195,23 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "(guess) $\\nu\\,\\,\\mathrm{cm}^{-1}$",            
+                    "label"           : "$\\nu\\,\\,(\\mathrm{cm}^{-1})$",            
                     "scale"           : "linear",
-                    "invert"          : false,
+                    "invert"          : true,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 2000, 
+                        "max" : 600
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Absorption (a.u.)",
+                    "label"           : "Transmission (\\%)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 0.2,
+                        "min" : -0.01,
                         "max" : 1.1
                     }
                 }
@@ -130,7 +220,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "lower right"
+                "location" : "lower left"
             },
 
             "grid" : {
@@ -146,19 +236,17 @@
         } 
     }, 
 
-
-
     {
-        "subplot_num" : 2, 
+        "subplot_num" : 3, 
 
         "datasets":{
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["Sample B"],
+            "dataset_label" : ["KAPTON"],
 
-            "CSV_column_x" : [2],
-            "CSV_column_y" : [3], 
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [4], 
 
             "plot_type_settings" : {
                 "line": {
@@ -195,23 +283,23 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "(guess) $\\nu\\,\\,\\mathrm{cm}^{-1}$",            
+                    "label"           : "$\\nu\\,\\,(\\mathrm{cm}^{-1})$",            
                     "scale"           : "linear",
-                    "invert"          : false,
+                    "invert"          : true,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 2000, 
+                        "max" : 600
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Absorption (a.u.)",
+                    "label"           : "Transmission (\\%)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 0.2,
+                        "min" : -0.01,
                         "max" : 1.1
                     }
                 }
@@ -220,7 +308,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "lower right"
+                "location" : "lower left"
             },
 
             "grid" : {
@@ -237,15 +325,15 @@
     }, 
 
     {
-        "subplot_num" : 3, 
+        "subplot_num" : 4, 
 
         "datasets":{
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["Sample C"],
+            "dataset_label" : ["PMMA"],
 
-            "CSV_column_x" : [4],
+            "CSV_column_x" : [0],
             "CSV_column_y" : [5], 
 
             "plot_type_settings" : {
@@ -283,23 +371,23 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "(guess) $\\nu\\,\\,\\mathrm{cm}^{-1}$",            
+                    "label"           : "$\\nu\\,\\,(\\mathrm{cm}^{-1})$",            
                     "scale"           : "linear",
-                    "invert"          : false,
+                    "invert"          : true,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 2000, 
+                        "max" : 600
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Absorption (a.u.)",
+                    "label"           : "Transmission (\\%)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 0.2,
+                        "min" : -0.01,
                         "max" : 1.1
                     }
                 }
@@ -308,7 +396,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "lower right"
+                "location" : "lower left"
             },
 
             "grid" : {
