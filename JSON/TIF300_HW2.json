@@ -1,0 +1,245 @@
+﻿{
+    "comment" : {
+        "project" : "TIF300 Spectroscopy",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-11-10, 15:26",
+        "about"   : "Homework 2: surfaces of apsherical lenses for three different cases"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/TIF300_HW2.json",
+        "csv"  : "CSV/TIF300_HW2_xy_data.csv",
+        "pdf"  : "PDF/TIF300_HW2_aspherical_lenses_surfaces.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 11, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Source A, C", " Source B", "Case A", "Case B", "Case C", "Spherical surface"],
+
+            "CSV_column_x" : [6, 0, 0, 4, 0, 0],
+            "CSV_column_y" : [7, 1, 2, 5, 3, 8], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#101010", "#f1311d", "#f1311d", "#3ac20e", "#086BDE", "#101010"],
+                    "style" : ["", "-", "-", "-", "-", "--"],
+                    "width" : [1.62, 1.62, 1.62, 1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["x", "", "", "", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3, 3, 3, 3], 
+                    "thickness" : [1.7, 1.7, 1.7, 1, 1, 1], 
+                    "facecolor" : ["None", "None", "None", "None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false, false, false, false],
+
+                    "constant" : {
+                        "on"   : [false, true, false, false, false, false], 
+                        "x_pm" : [0, 0.2, 0, 0, 0, 0], 
+                        "y_pm" : [0, 2.0, 0, 0, 0, 0] 
+                    },
+
+                    "CSV_column_x" : [4, 4, 3, 0, 0, 0],
+                    "CSV_column_y" : [4, 4, 3, 0, 0, 0],
+
+                    "size"         : [3, 3, 3, 0, 0, 0], 
+                    "linewidth"    : [1, 1, 1, 0, 0, 0], 
+                    "capthickness" : [50, 0, 1, 0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "$x$ (arbitrary length unit)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "$y$ (arbitrary length unit)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+
+
+
+
+    {
+        "subplot_num" : 2, 
+
+        "datasets" : {
+        
+            "plot_type" : ["errorbar", "errorbar"],
+
+            "dataset_label" : ["Nummer 11", "Nummer 12"],
+
+            "CSV_column_x" : [0,0],
+            "CSV_column_y" : [1,2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#543251", "#101010"],
+                    "style" : ["", "-", ":"],
+                    "width" : [1, 1.5, 3]
+                },
+
+                "marker" : {
+                    "type"      : ["o", "x", ""], 
+                    "size"      : [4, 5, 0], 
+                    "thickness" : [1, 2, 4], 
+                    "facecolor" : ["None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [true, true, true],
+
+                    "constant" : {
+                        "on"   : [true, true, true], 
+                        "x_pm" : [0.123, 0.123, 0.123], 
+                        "y_pm" : [0.246, 0.246, 0.246] 
+                    },
+
+                "CSV_column_x" : [4,2,3],
+                "CSV_column_y" : [4,2,3],
+
+                "size"         : [2, 3, 7], 
+                "linewidth"    : [2, 3, 2], 
+                "capthickness" : [1, 2, 0]
+            }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "N\u00e5got roligt2",            
+                    "scale"           : "log",
+                    "invert"          : true,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "G2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 3,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 1.5
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 1
+                }
+            }
+        } 
+    }
+
+
+    
+
+  ]
+}
