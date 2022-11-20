@@ -1,15 +1,15 @@
 {
     "comment" : {
-        "project" : "PMAS ANALYSIS IN PYTHON",
+        "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-09-17 15:58",
+        "updated" : "2022-11-20 14:07",
         "about"   : ""
     },
 
     "filepath"  :{
-        "json" : "JSON/PMAS_ERRORBAR.json",
-        "csv"  : "CSV/PMAS_PlotData_from_2021-01-01_to_2022-09-17.csv",
-        "pdf"  : "PDF/PMAS_Latitude_Measurements_2022-09-17.pdf" 
+        "json" : "JSON/SVM_ERRORBAR.json",
+        "csv"  : "CSV/SVM_PlotData_from_2021-01-01_to_2022-11-20.csv",
+        "pdf"  : "PDF/SVM_Latitude_Measurements_2022-11-20.pdf" 
     },
 
     "figure_size" : {
@@ -33,7 +33,7 @@
     },
   
     "LaTeX_and_CMU" : true,
-    "figure_title"  : "Fitted curve: $57.310 + 23.14\\cos{(0.0173x + 0.1801)}$ \n Theoretical: $\\,\\,57.679 + 23.44\\cos{(0.0172x + 0.1721)}$",
+    "figure_title"  : "NOT UPDATED LATELY (see JSON file) Fitted curve: $57.310 + 23.14\\cos{(0.0173x + 0.1801)}$ \n Theoretical: $\\,\\,57.679 + 23.44\\cos{(0.0172x + 0.1721)}$",
     "point_or_decimal_comma" : ".",
 
     "subplot_setup" : {
@@ -51,7 +51,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Theoretical", "Fitted curve", "Datapoints"],
+            "dataset_label" : ["Theoretical (leap day corrected)", "Fitted curve", "Datapoints"],
 
             "CSV_column_x" : [0,0,3],
             "CSV_column_y" : [1,2,4], 
