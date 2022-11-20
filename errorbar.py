@@ -9,7 +9,6 @@
 
 
 
-
 ## FUNCTIONS ##
 
 def plot_errorbar(ax, data_x, data_y, errorbar_on, errorbar_x, errorbar_y, errorbar_size, errorbar_linewidth, errorbar_capthickness, data_label, line_color, line_style, line_width, marker_type, marker_size, marker_thickness, marker_facecolor, ax_num):

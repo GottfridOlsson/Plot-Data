@@ -27,12 +27,4 @@ def write(file_path, JSON_data):
     json.dump(JSON_data, json_file, ensure_ascii=False) #changed from "dumps()" to "dump()" and added encoding 'utf-8' and ensure_ascii=False //2022-02-20
   print("DONE: Writing JSON: " + file_path)
 
-
-## FUNCTIONS ##
-
-#JSON_readFilePath = "JSON/CONFIG.json"
-#JSON_writeFilePath = "JSON/test_write.json"
-#JSON_data = read_JSON(JSON_readFilePath)
-#write_JSON(JSON_writeFilePath, JSON_data)
-
 # EOF #

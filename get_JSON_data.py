@@ -199,10 +199,11 @@ for i in subplots:
     errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
 
-commaDecimal, pointDecimal = False, False
+
+commaDecimal = False
+pointDecimal = True
 if point_or_decimal_comma == ",":
-    commaDecimal = True
-if point_or_decimal_comma == ".":
-    pointDecimal = True
+            pointDecimal = False
+            commaDecimal = True
 
 print("DONE: get_JSON_data.py")
