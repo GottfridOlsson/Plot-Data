@@ -1,0 +1,244 @@
+﻿{
+    "comment" : {
+        "project" : "FKA121_H1a_P1_energy_vs_volume.json",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-11-23",
+        "about"   : ""
+    },
+
+    "filepath"  :{
+        "json" : "JSON/FKA121_H1a_P1_energy_vs_volume.json",
+        "csv"  : "CSV/FKA121_H1a_P1_energy_vs_volume_fit.csv",
+        "pdf"  : "PDF/FKA121_H1a_P1_energy_vs_volume.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar"],
+            "dataset_label" : ["Calculated energy", "Fitted quadratic\n$E(x)=0.004715x^2 - 0.6173 x + 6.767$"],
+
+            "CSV_column_x" : [0, 0],
+            "CSV_column_y" : [1, 2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000"],
+                    "style" : ["-", "--"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", ""], 
+                    "size"      : [2, 2], 
+                    "thickness" : [1.7, 1.7], 
+                    "facecolor" : ["None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false,false],
+
+                    "constant" : {
+                        "on"   : [false,false], 
+                        "x_pm" : [0,0], 
+                        "y_pm" : [0,0] 
+                    },
+
+                    "CSV_column_x" : [0,0],
+                    "CSV_column_y" : [0,0],
+
+                    "size"         : [0,0], 
+                    "linewidth"    : [0,0], 
+                    "capthickness" : [0,0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Unit cell volume (Å$^3$)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : 63.5, 
+                        "max" : 67.0
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Potential energy per unit cell (eV)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 3,
+                    "limit" : {
+                        "min" : -13.445,
+                        "max" : -13.420
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+
+
+
+
+    {
+        "subplot_num" : 2, 
+
+        "datasets" : {
+        
+            "plot_type" : ["errorbar", "errorbar"],
+
+            "dataset_label" : ["Nummer 11", "Nummer 12"],
+
+            "CSV_column_x" : [0,0],
+            "CSV_column_y" : [1,2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#543251", "#101010"],
+                    "style" : ["", "-", ":"],
+                    "width" : [1, 1.5, 3]
+                },
+
+                "marker" : {
+                    "type"      : ["o", "x", ""], 
+                    "size"      : [4, 5, 0], 
+                    "thickness" : [1, 2, 4], 
+                    "facecolor" : ["None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [true, true, true],
+
+                    "constant" : {
+                        "on"   : [true, true, true], 
+                        "x_pm" : [0.123, 0.123, 0.123], 
+                        "y_pm" : [0.246, 0.246, 0.246] 
+                    },
+
+                "CSV_column_x" : [4,2,3],
+                "CSV_column_y" : [4,2,3],
+
+                "size"         : [2, 3, 7], 
+                "linewidth"    : [2, 3, 2], 
+                "capthickness" : [1, 2, 0]
+            }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "N\u00e5got roligt2",            
+                    "scale"           : "log",
+                    "invert"          : true,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "G2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 3,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 1.5
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 1
+                }
+            }
+        } 
+    }
+
+
+    
+
+  ]
+}
