@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "FKA121 H1a, Problem 3",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-24, 16:29",
+        "updated" : "2022-11-24, 16:59",
         "about"   : "Temperature, pressure, total energy, and volume as funtion of time during equilibration",
         "OBS"     : "REMEMBER TO PUT ON 'sharex' IN SUBPLOTS IN main-py"
     },
@@ -54,7 +54,8 @@
     "subplot_setup" : {
         "columns"        : 1,
         "rows"           : 4, 
-        "total_subplots" : 4  
+        "total_subplots" : 4, 
+        "share_x"        : true
     },
 
 

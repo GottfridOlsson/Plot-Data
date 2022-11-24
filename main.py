@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 10:56
-##     Updated: 2022-11-20, 19:40
+##     Updated: 2022-11-24, 17:05
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -48,7 +48,7 @@ def main():
     # implemented share_x and share_y 2022-11-25
     fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height)), sharex=JSON.subplot_setup_share_x, sharey=JSON.subplot_setup_share_y)
 
-    
+
     #TODO: different sized subplots? ; https://www.statology.org/subplot-size-matplotlib/
   
 
