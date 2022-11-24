@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17, 11:54
-##     Updated: 2022-09-22, 19:15
+##     Updated: 2022-11-24, 16:58
 ##       About: Reads and stores user data from JSON.
 ##====================================================##
 
@@ -36,6 +36,21 @@ font_size_legend        = J['font_size']['legend'] # [pt]
 subplot_setup_rows      = J['subplot_setup']['rows']
 subplot_setup_columns   = J['subplot_setup']['columns']
 subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO?: raise error if "total != rows*columns"
+
+## subplot_setup_share_x and _y implemented 2022-11-24. It seems to be working! :D
+try:
+    subplot_setup_share_x = J['subplot_setup']['share_x']
+except:
+    print("subplot_setup_share_x could not be read from get_JSON_data.py. Setting it to False and continuing anyway")
+    subplot_setup_share_x = False
+
+try:
+    subplot_setup_share_y = J['subplot_setup']['share_y']
+except:
+    print("subplot_setup_share_y could not be read from get_JSON_data.py. Setting it to False and continuing anyway")
+    subplot_setup_share_y = False
+
+
 
 LaTeX_and_CMU           = J['LaTeX_and_CMU'] # bool
 point_or_decimal_comma  = J['point_or_decimal_comma'] # string, "." or ","
