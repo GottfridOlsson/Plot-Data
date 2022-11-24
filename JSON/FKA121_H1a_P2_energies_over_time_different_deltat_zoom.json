@@ -1,20 +1,21 @@
 ﻿{
     "comment" : {
-        "project" : "TESTING: REFACTORING",
+        "project" : "FKA121 H1a Problem 2",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-08-17, 12:21",
-        "about"   : "TestaSaker: refactoring and figuring things out"
+        "updated" : "2022-11-24, 11:42",
+        "about"   : "Energies over time with dt = 0.010 ps, and dt = 0.001 ps, zoomed in on total energy"
     },
 
     "filepath"  :{
-        "json" : "JSON/CONFIG.json",
-        "csv"  : "CSV/testdata1.csv",
-        "pdf"  : "PDF/testpdf1.pdf" 
+        "json" : "JSON/FKA121_H1a_P2_energies_over_time_different_deltat_zoom.json",
+        "csv"  : "CSV//properties_vs_time_dt0.010.csv",
+        "_temp_comment_csv" : "CSV//FKA121_H1a_P2_properties_vs_time_dt0.100_dt0.010_dt0.001.csv",
+        "pdf"  : "PDF/FKA121_H1a_P2_energies_over_time_different_deltat_zoom.pdf" 
     },
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 9, 
+        "height_cm" : 12, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -52,8 +53,8 @@
 
     "subplot_setup" : {
         "columns"        : 1,
-        "rows"           : 1, 
-        "total_subplots" : 1  
+        "rows"           : 2, 
+        "total_subplots" : 2  
     },
 
 
@@ -63,66 +64,66 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+            "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["R\u00f6d 1", "Gr\u00f6n 2", "Bl\u00e5 3"],
+            "dataset_label" : ["Total"],
 
-            "CSV_column_x" : [0, 0, 0],
-            "CSV_column_y" : [5, 0, 3], 
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [3], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#F43542", "#4FCE29", "#0A7DFF"],
-                    "style" : ["-", "-", "-"],
-                    "width" : [1.62, 1.62, 1.62]
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["o", "o", "o"], 
-                    "size"      : [3.3, 3.3, 3.3], 
-                    "thickness" : [1.7, 1.7, 1.7], 
-                    "facecolor" : ["None", "None", "None"]
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [true, true, false],
+                    "on" : [false],
 
                     "constant" : {
-                        "on"   : [false, true, false], 
-                        "x_pm" : [0, 0.2, 0], 
-                        "y_pm" : [0, 2.0, 0] 
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
                     },
 
-                    "CSV_column_x" : [4, 4, 3],
-                    "CSV_column_y" : [4, 4, 3],
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
 
-                    "size"         : [3, 3, 3], 
-                    "linewidth"    : [1, 1, 1], 
-                    "capthickness" : [50, 0, 1]
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [5]
                 }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "Aspernatur, possimus \u00e5\u00e4\u00f6\u00c5\u00c4\u00d6",            
+                    "label"           : "Time (ps), $\\Delta t = 0.010\\,\\mathrm{ps}$",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : -1, 
-                        "max" : 11
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "N\u00e5got kul $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "label"           : "Energy (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 0,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : -5,
-                        "max" : 35
+                        "min" :false,
+                        "max" : false
                     }
                 }
             }, 
@@ -147,60 +148,57 @@
     }, 
 
 
-
-
-
     {
         "subplot_num" : 2, 
 
-        "datasets" : {
+        "datasets":{
         
-            "plot_type" : ["errorbar", "errorbar"],
+            "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["Nummer 11", "Nummer 12"],
+            "dataset_label" : ["Total"],
 
-            "CSV_column_x" : [0,0],
-            "CSV_column_y" : [1,2], 
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [3], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#543251", "#101010"],
-                    "style" : ["", "-", ":"],
-                    "width" : [1, 1.5, 3]
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["o", "x", ""], 
-                    "size"      : [4, 5, 0], 
-                    "thickness" : [1, 2, 4], 
-                    "facecolor" : ["None", "None", "None"]
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [true, true, true],
+                    "on" : [false],
 
                     "constant" : {
-                        "on"   : [true, true, true], 
-                        "x_pm" : [0.123, 0.123, 0.123], 
-                        "y_pm" : [0.246, 0.246, 0.246] 
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
                     },
 
-                "CSV_column_x" : [4,2,3],
-                "CSV_column_y" : [4,2,3],
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
 
-                "size"         : [2, 3, 7], 
-                "linewidth"    : [2, 3, 2], 
-                "capthickness" : [1, 2, 0]
-            }
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [5]
+                }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "N\u00e5got roligt2",            
-                    "scale"           : "log",
-                    "invert"          : true,
-                    "float_precision" : 0,
+                    "label"           : "Time (ps), $\\Delta t = 0.001\\,\\mathrm{ps}$",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
                     "limit" : {
                         "min" : false, 
                         "max" : false
@@ -208,12 +206,12 @@
                 }, 
 
                 "y" : {
-                    "label"           : "G2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "label"           : "Energy (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 3,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : false, 
+                        "min" :false,
                         "max" : false
                     }
                 }
@@ -228,16 +226,15 @@
             "grid" : {
                 "major" : {
                     "on"        : true, 
-                    "linewidth" : 1.5
+                    "linewidth" : 0.7
                 },
                 "minor" : {
                     "on"        : true, 
-                    "linewidth" : 1
-                }
+                    "linewidth" : 0.3
+                }   
             }
         } 
     }
-
 
     
 

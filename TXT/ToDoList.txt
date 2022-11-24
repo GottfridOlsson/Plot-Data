@@ -1,6 +1,14 @@
 2022-02-04, 2022-02-17, 2022-03-24, 2022-04-17, 2022-04-21:
 # NOTES:
  #set_decimal_comma() function makes it so that you DON'T have "10^-x" in y-axis for logs - to fix! (if loop or smth for y_scale = log)
+
+
+# TODO
+implement share_x and share_y in JSON
+program JSON_handler with "try, catch" to catch if there is no share_x or share_y in JSON
+then, in main, "if share_x", "if share_y" and so on, choose what plt.subplots(..., sharex=true/falase, sharey=true/false) is
+(do several ifs for this, its easiest)
+//2022-11-24
  
 
 # TODO:

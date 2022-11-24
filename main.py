@@ -46,8 +46,8 @@ def main():
     f.set_font_size(JSON.font_size_axis, JSON.font_size_tick, JSON.font_size_legend)
 
     ## TODO: implement shared x- and/or y-axis along: all subplots, rows, or columns. See: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html
-    #fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height)), sharex=True)
-    fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height))) #uncomment this and comment the one above if you need!
+    fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height)), sharex=True)
+    #fig, axs = plt.subplots(JSON.subplot_setup_rows, JSON.subplot_setup_columns, figsize=(f.cm_2_inch(JSON.figure_width), f.cm_2_inch(JSON.figure_height))) #uncomment this and comment the one above if you need!
     
       #TODO: different sized subplots? ; https://www.statology.org/subplot-size-matplotlib/
   

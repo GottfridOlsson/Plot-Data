@@ -1,15 +1,15 @@
 ﻿{
     "comment" : {
-        "project" : "FKA121_H1a_P1_energy_vs_volume.json",
+        "project" : "TESTING: REFACTORING",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-23",
-        "about"   : ""
+        "updated" : "2022-11-24, 15:01",
+        "about"   : "Mall för default errorbar med 3 curvor per subplot"
     },
 
     "filepath"  :{
-        "json" : "JSON/FKA121_H1a_P1_energy_vs_volume.json",
-        "csv"  : "CSV/FKA121_H1a_P1_energy_vs_volume_fit.csv",
-        "pdf"  : "PDF/FKA121_H1a_P1_energy_vs_volume.pdf" 
+        "json" : "JSON/DEFAULT_ERRORBAR_3curves.json",
+        "csv"  : "CSV/testdata1.csv",
+        "pdf"  : "PDF/testpdf1.pdf" 
     },
 
     "figure_size" : {
@@ -63,65 +63,66 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar", "errorbar"],
-            "dataset_label" : ["Calculated energy", "Fitted quadratic\n$E(x)=0.004715x^2 - 0.6173 x + 6.767$"],
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-            "CSV_column_x" : [0, 0],
-            "CSV_column_y" : [1, 2], 
+            "dataset_label" : ["data 1", "data 2", "data 3"],
+
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [1, 2, 3], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#000000", "#000000"],
-                    "style" : ["-", "--"],
-                    "width" : [1.62, 1.62]
+                    "color" : ["#000000", "#000000", "#000000"],
+                    "style" : ["-", "--", "-."],
+                    "width" : [1.62, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["", ""], 
-                    "size"      : [2, 2], 
-                    "thickness" : [1.7, 1.7], 
-                    "facecolor" : ["None", "None"]
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.7, 1.7, 1.7], 
+                    "facecolor" : ["None", "None", "None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [false,false],
+                    "on" : [false, false, false],
 
                     "constant" : {
-                        "on"   : [false,false], 
-                        "x_pm" : [0,0], 
-                        "y_pm" : [0,0] 
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0, 0.2, 0], 
+                        "y_pm" : [0, 2.0, 0] 
                     },
 
-                    "CSV_column_x" : [0,0],
-                    "CSV_column_y" : [0,0],
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0],
 
-                    "size"         : [0,0], 
-                    "linewidth"    : [0,0], 
-                    "capthickness" : [0,0]
+                    "size"         : [3, 3, 3], 
+                    "linewidth"    : [1, 1, 1], 
+                    "capthickness" : [1, 1, 1]
                 }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "Unit cell volume (\u00c5$^3$)",            
+                    "label"           : "x",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 63.5, 
-                        "max" : 67.0
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Potential energy per unit cell (eV)",
+                    "label"           : "y $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 3,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : -13.445,
-                        "max" : -13.420
+                        "min" : false,
+                        "max" : false
                     }
                 }
             }, 
@@ -146,60 +147,57 @@
     }, 
 
 
-
-
-
     {
         "subplot_num" : 2, 
 
-        "datasets" : {
+        "datasets":{
         
-            "plot_type" : ["errorbar", "errorbar"],
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Nummer 11", "Nummer 12"],
+            "dataset_label" : ["data 1", "data 2", "data 3"],
 
-            "CSV_column_x" : [0,0],
-            "CSV_column_y" : [1,2], 
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [1, 2, 3], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#543251", "#101010"],
-                    "style" : ["", "-", ":"],
-                    "width" : [1, 1.5, 3]
+                    "color" : ["#000000", "#000000", "#000000"],
+                    "style" : ["-", "--", "-."],
+                    "width" : [1.62, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["o", "x", ""], 
-                    "size"      : [4, 5, 0], 
-                    "thickness" : [1, 2, 4], 
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.7, 1.7, 1.7], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [true, true, true],
+                    "on" : [false, false, false],
 
                     "constant" : {
-                        "on"   : [true, true, true], 
-                        "x_pm" : [0.123, 0.123, 0.123], 
-                        "y_pm" : [0.246, 0.246, 0.246] 
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0, 0.2, 0], 
+                        "y_pm" : [0, 2.0, 0] 
                     },
 
-                "CSV_column_x" : [4,2,3],
-                "CSV_column_y" : [4,2,3],
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0],
 
-                "size"         : [2, 3, 7], 
-                "linewidth"    : [2, 3, 2], 
-                "capthickness" : [1, 2, 0]
-            }
+                    "size"         : [3, 3, 3], 
+                    "linewidth"    : [1, 1, 1], 
+                    "capthickness" : [1, 1, 1]
+                }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "N\u00e5got roligt2",            
-                    "scale"           : "log",
-                    "invert"          : true,
-                    "float_precision" : 0,
+                    "label"           : "x",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
                     "limit" : {
                         "min" : false, 
                         "max" : false
@@ -207,12 +205,12 @@
                 }, 
 
                 "y" : {
-                    "label"           : "G2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "label"           : "y $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 3,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : false, 
+                        "min" : false,
                         "max" : false
                     }
                 }
@@ -227,12 +225,12 @@
             "grid" : {
                 "major" : {
                     "on"        : true, 
-                    "linewidth" : 1.5
+                    "linewidth" : 0.7
                 },
                 "minor" : {
                     "on"        : true, 
-                    "linewidth" : 1
-                }
+                    "linewidth" : 0.3
+                }   
             }
         } 
     }
