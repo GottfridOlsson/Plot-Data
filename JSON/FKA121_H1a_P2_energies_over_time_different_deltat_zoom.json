@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "FKA121 H1a Problem 2",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-24, 11:42",
+        "updated" : "2022-11-25, 08:35",
         "about"   : "Energies over time with dt = 0.010 ps, and dt = 0.001 ps, zoomed in on total energy"
     },
 
@@ -15,7 +15,7 @@
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 12, 
+        "height_cm" : 10.8, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -54,7 +54,8 @@
     "subplot_setup" : {
         "columns"        : 1,
         "rows"           : 2, 
-        "total_subplots" : 2  
+        "total_subplots" : 2, 
+        "share_x"        : true
     },
 
 
@@ -106,7 +107,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Time (ps), $\\Delta t = 0.010\\,\\mathrm{ps}$",            
+                    "label"           : "",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 1,
@@ -117,7 +118,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy (eV)",
+                    "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
@@ -129,7 +130,7 @@
             }, 
 
             "legend" : {
-                "on"       : true, 
+                "on"       : false, 
                 "alpha"    : 1, 
                 "location" : "best"
             },
@@ -195,7 +196,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Time (ps), $\\Delta t = 0.001\\,\\mathrm{ps}$",            
+                    "label"           : "Time (ps)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 1,
@@ -206,7 +207,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy (eV)",
+                    "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
@@ -218,7 +219,7 @@
             }, 
 
             "legend" : {
-                "on"       : true, 
+                "on"       : false, 
                 "alpha"    : 1, 
                 "location" : "best"
             },

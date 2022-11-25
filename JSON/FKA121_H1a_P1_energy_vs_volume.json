@@ -104,7 +104,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Unit cell volume (\u00c5$^3$)",            
+                    "label"           : "Volume per cell (\u00c5$^3$)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 1,
@@ -115,7 +115,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Potential energy per unit cell (eV)",
+                    "label"           : "Potential energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 3,

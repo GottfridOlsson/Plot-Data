@@ -2,9 +2,8 @@
     "comment" : {
         "project" : "FKA121 H1a, Problem 3",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-24, 16:59",
-        "about"   : "Temperature, pressure, total energy, and volume as funtion of time during equilibration",
-        "OBS"     : "REMEMBER TO PUT ON 'sharex' IN SUBPLOTS IN main-py"
+        "updated" : "2022-11-25, 08:41",
+        "about"   : "Temperature, pressure, total energy, and volume as funtion of time during equilibration"
     },
 
     "filepath"  :{
@@ -15,7 +14,7 @@
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 16, 
+        "height_cm" : 19, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -119,7 +118,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Temperature (K)",
+                    "label"           : "Temperature ($^\\circ \\mathrm{C}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,
@@ -209,7 +208,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Pressure (eV/\u00c5$^3$)",
+                    "label"           : "Pressure (GPa)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 2,
@@ -297,7 +296,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy (eV)",
+                    "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,
@@ -334,7 +333,7 @@
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["Supercell volume"],
+            "dataset_label" : [""],
 
             "CSV_column_x" : [0],
             "CSV_column_y" : [6], 
@@ -385,7 +384,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Volume (\u00c5$^3$)",
+                    "label"           : "Volume per cell (\u00c5$^3$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,
