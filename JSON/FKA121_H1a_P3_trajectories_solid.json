@@ -2,8 +2,9 @@
     "comment" : {
         "project" : "FKA121 H1a, Problem 3",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-24, 15:01",
-        "about"   : "Trajectories of three particles over time. Small deviations = solid material"
+        "updated" : "2022-11-25, 09:09",
+        "about"   : "Trajectories (x- and y-component) of three particles over time. Small deviations = solid material", 
+        "OBS_commment" : "remember to put plt.axis('square') at the end of main for this plot"
     },
 
     "filepath"  :{
@@ -13,8 +14,8 @@
     },
 
     "figure_size" : {
-        "width_cm"  : 16,
-        "height_cm" : 9, 
+        "width_cm"  : 10,
+        "height_cm" : 10, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -53,7 +54,8 @@
     "subplot_setup" : {
         "columns"        : 1,
         "rows"           : 1, 
-        "total_subplots" : 1  
+        "total_subplots" : 1,
+        "share_y"        : false
     },
 
 
@@ -67,13 +69,13 @@
 
             "dataset_label" : ["Atom 1", "Atom 2", "Atom 3"],
 
-            "CSV_column_x" : [0, 0, 1],
-            "CSV_column_y" : [1, 2, 2], 
+            "CSV_column_x" : [0, 3, 6],
+            "CSV_column_y" : [1, 4, 7], 
 
             "plot_type_settings" : {
                 "line": {
                     "color" : ["#f1311d", "#3ac20e", "#086BDE"],
-                    "style" : ["-", "--", "-."],
+                    "style" : ["-", "-", "-"],
                     "width" : [1.62, 1.62, 1.62]
                 },
 
@@ -108,7 +110,7 @@
                     "label"           : "$x$-coordinate (\u00c5)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
                         "min" : false, 
                         "max" : false
@@ -119,7 +121,7 @@
                     "label"           : "$y$-coordinate (\u00c5)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
                         "min" : false,
                         "max" : false
@@ -135,11 +137,11 @@
 
             "grid" : {
                 "major" : {
-                    "on"        : true, 
+                    "on"        : false, 
                     "linewidth" : 0.7
                 },
                 "minor" : {
-                    "on"        : true, 
+                    "on"        : false, 
                     "linewidth" : 0.3
                 }   
             }

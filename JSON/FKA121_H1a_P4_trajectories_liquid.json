@@ -1,20 +1,21 @@
 ﻿{
     "comment" : {
-        "project" : "FKA121 H1a Problem 2",
+        "project" : "FKA121 H1a, Problem 4",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-23, 17:10",
-        "about"   : "Energies over time with dt = 0.001 ps"
+        "updated" : "2022-11-25, 09:13",
+        "about"   : "Trajectories (x- and y-component) of three particles over time. Large deviations = liquid material", 
+        "OBS_commment" : "remember to put plt.axis('square') at the end of main for this plot"
     },
 
     "filepath"  :{
-        "json" : "JSON/FKA121_H1a_P1_energy_over_time_dt0.001.json",
-        "csv"  : "CSV//properties_vs_time_dt0.001.csv",
-        "pdf"  : "PDF/FKA121_H1a_P1_energy_over_time_dt0.001.pdf" 
+        "json" : "JSON/FKA121_H1a_P4_trajectories_liquid.json",
+        "csv"  : "CSV/FKA121_H1a_P4_trajectories_liquid.csv",
+        "pdf"  : "PDF/FKA121_H1a_P4_trajectories_liquid.pdf" 
     },
 
     "figure_size" : {
-        "width_cm"  : 16,
-        "height_cm" : 9, 
+        "width_cm"  : 10,
+        "height_cm" : 10, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -65,10 +66,99 @@
         
             "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Total", "Potential", "Kinetic"],
+            "dataset_label" : ["Atom 1", "Atom 2", "Atom 3"],
+
+            "CSV_column_x" : [0, 3, 6],
+            "CSV_column_y" : [1, 4, 7], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#f1311d", "#3ac20e", "#086BDE"],
+                    "style" : ["-", "-", "-"],
+                    "width" : [1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.7, 1.7, 1.7], 
+                    "facecolor" : ["None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "constant" : {
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0, 0.2, 0], 
+                        "y_pm" : [0, 2.0, 0] 
+                    },
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0],
+
+                    "size"         : [3, 3, 3], 
+                    "linewidth"    : [1, 1, 1], 
+                    "capthickness" : [1, 1, 1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "$x$-coordinate (\u00c5)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "$y$-coordinate (\u00c5)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : false, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : false, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["data 1", "data 2", "data 3"],
 
             "CSV_column_x" : [0, 0, 0],
-            "CSV_column_y" : [3, 1, 2], 
+            "CSV_column_y" : [1, 2, 3], 
 
             "plot_type_settings" : {
                 "line": {
@@ -98,17 +188,17 @@
 
                     "size"         : [3, 3, 3], 
                     "linewidth"    : [1, 1, 1], 
-                    "capthickness" : [50, 0, 1]
+                    "capthickness" : [1, 1, 1]
                 }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "Time (ps)",            
+                    "label"           : "x",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 2,
+                    "float_precision" : 1,
                     "limit" : {
                         "min" : false, 
                         "max" : false
@@ -116,12 +206,12 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy (eV)",
+                    "label"           : "y $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 3,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" :false,
+                        "min" : false,
                         "max" : false
                     }
                 }
@@ -142,98 +232,6 @@
                     "on"        : true, 
                     "linewidth" : 0.3
                 }   
-            }
-        } 
-    }, 
-
-
-
-
-
-    {
-        "subplot_num" : 2, 
-
-        "datasets" : {
-        
-            "plot_type" : ["errorbar", "errorbar"],
-
-            "dataset_label" : ["Nummer 11", "Nummer 12"],
-
-            "CSV_column_x" : [0,0],
-            "CSV_column_y" : [1,2], 
-
-            "plot_type_settings" : {
-                "line": {
-                    "color" : ["#543251", "#101010"],
-                    "style" : ["", "-", ":"],
-                    "width" : [1, 1.5, 3]
-                },
-
-                "marker" : {
-                    "type"      : ["o", "x", ""], 
-                    "size"      : [4, 5, 0], 
-                    "thickness" : [1, 2, 4], 
-                    "facecolor" : ["None", "None", "None"]
-                }, 
-
-                "errorbar" : {
-                    "on" : [true, true, true],
-
-                    "constant" : {
-                        "on"   : [true, true, true], 
-                        "x_pm" : [0.123, 0.123, 0.123], 
-                        "y_pm" : [0.246, 0.246, 0.246] 
-                    },
-
-                "CSV_column_x" : [4,2,3],
-                "CSV_column_y" : [4,2,3],
-
-                "size"         : [2, 3, 7], 
-                "linewidth"    : [2, 3, 2], 
-                "capthickness" : [1, 2, 0]
-            }
-            },
-
-            "axis" : {
-
-                "x" : {
-                    "label"           : "N\u00e5got roligt2",            
-                    "scale"           : "log",
-                    "invert"          : true,
-                    "float_precision" : 0,
-                    "limit" : {
-                        "min" : false, 
-                        "max" : false
-                    }
-                }, 
-
-                "y" : {
-                    "label"           : "G2 $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
-                    "scale"           : "linear",
-                    "invert"          : false, 
-                    "float_precision" : 3,
-                    "limit" : {
-                        "min" : false, 
-                        "max" : false
-                    }
-                }
-            }, 
-
-            "legend" : {
-                "on"       : true, 
-                "alpha"    : 1, 
-                "location" : "best"
-            },
-
-            "grid" : {
-                "major" : {
-                    "on"        : true, 
-                    "linewidth" : 1.5
-                },
-                "minor" : {
-                    "on"        : true, 
-                    "linewidth" : 1
-                }
             }
         } 
     }

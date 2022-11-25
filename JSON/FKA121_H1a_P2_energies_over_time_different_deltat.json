@@ -2,20 +2,19 @@
     "comment" : {
         "project" : "FKA121 H1a Problem 2",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-25, 08:32",
-        "about"   : "Energies over time with dt = 0.100 ps, dt = 0.010 ps, and dt = 0.001 ps"
+        "updated" : "2022-11-25, 10:56",
+        "about"   : "Energies over time with dt = 0.005 ps, dt = 0.010 ps, and dt = 0.020 ps"
     },
 
     "filepath"  :{
         "json" : "JSON/FKA121_H1a_P2_energies_over_time_different_deltat.json",
-        "csv"  : "CSV//properties_vs_time_dt0.010.csv",
-        "_temp_comment_csv" : "CSV//FKA121_H1a_P2_properties_vs_time_dt0.100_dt0.010_dt0.001.csv",
-        "pdf"  : "PDF/FKA121_H1a_P2_energies_over_time_different_deltat.pdf" 
+        "csv"  : "CSV/FKA121_H1a_P2_energies_vs_time_different_timesteps.csv",
+        "pdf"  : "PDF/FKA121_H1a_P2_energies_over_time_different_time_steps.pdf" 
     },
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 16, 
+        "height_cm" : 15, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -74,8 +73,8 @@
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#000000", "#000000", "#000000"],
-                    "style" : ["-", "--", "-."],
+                    "color" : ["#000000", "#086BDE", "#f1311d"],
+                    "style" : ["-", "-", "-"],
                     "width" : [1.62, 1.62, 1.62]
                 },
 
@@ -112,8 +111,8 @@
                     "invert"          : false,
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : -0.05, 
+                        "max" : 3.05
                     }
                 }, 
 
@@ -121,10 +120,10 @@
                     "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 0,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" :false,
-                        "max" : false
+                        "min" : -0.05,
+                        "max" : 0.85
                     }
                 }
             }, 
@@ -161,13 +160,13 @@
 
             "dataset_label" : ["Total", "Potential", "Kinetic"],
 
-            "CSV_column_x" : [0, 0, 0],
-            "CSV_column_y" : [3, 1, 2], 
+            "CSV_column_x" : [4, 4, 4],
+            "CSV_column_y" : [7, 5, 6], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#000000", "#000000", "#000000"],
-                    "style" : ["-", "--", "-."],
+                    "color" : ["#000000", "#086BDE", "#f1311d"],
+                    "style" : ["-", "-", "-"],
                     "width" : [1.62, 1.62, 1.62]
                 },
 
@@ -204,8 +203,8 @@
                     "invert"          : false,
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : -0.05, 
+                        "max" : 3.05
                     }
                 }, 
 
@@ -213,10 +212,10 @@
                     "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 0,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" :false,
-                        "max" : false
+                        "min" : -0.05,
+                        "max" : 0.85
                     }
                 }
             }, 
@@ -249,13 +248,13 @@
 
             "dataset_label" : ["Total", "Potential", "Kinetic"],
 
-            "CSV_column_x" : [0, 0, 0],
-            "CSV_column_y" : [3, 1, 2], 
+            "CSV_column_x" : [8, 8, 8],
+            "CSV_column_y" : [11, 9, 10], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#000000", "#000000", "#000000"],
-                    "style" : ["-", "--", "-."],
+                    "color" : ["#000000", "#086BDE", "#f1311d"],
+                    "style" : ["-", "-", "-"],
                     "width" : [1.62, 1.62, 1.62]
                 },
 
@@ -292,8 +291,8 @@
                     "invert"          : false,
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : -0.05, 
+                        "max" : 3.05
                     }
                 }, 
 
@@ -301,10 +300,10 @@
                     "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 0,
+                    "float_precision" : 1,
                     "limit" : {
-                        "min" : false,
-                        "max" : false
+                        "min" : -0.05,
+                        "max" : 0.85
                     }
                 }
             }, 

@@ -56,7 +56,7 @@ def main():
     for i in range(JSON.subplot_setup_subplots): # forall subplots; subplot_i = i
 
         axs_ij = get_axs_ij(axs, i, JSON.subplot_setup_rows, JSON.subplot_setup_columns, JSON.subplot_setup_subplots)
-
+      
         ## PLOT ##
         for k in range(len(JSON.plot_type[i])):  # forall types of plots in each subplot
 
@@ -114,16 +114,17 @@ def main():
                 print("ERROR: keyword 'plot_type' = " + str(JSON.plot_type[i][k]) + " is not yet implemented. Sorry for the inconvenience.")
 
 
-
         ## SET AXIS, GRID, LEGEND, DECIMAL PRECISION ##
         f.set_axis_scale(   axs_ij, JSON.axis_x_scale[i], JSON.axis_y_scale[i], i)
         f.set_axis_labels(  axs_ij, JSON.axis_x_label[i], JSON.axis_y_label[i], i)
         f.set_axis_invert(  axs_ij, JSON.axis_x_invert[i], JSON.axis_y_invert[i], i)
         f.set_axis_limits(  axs_ij, JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
-  
+    
         f.set_grid(         axs_ij, JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i) # set_grid must be after set_axis_scale for some reason (at least with 'log')
         f.set_legend(       axs_ij, JSON.legend_on[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
         
+
+
         if JSON.commaDecimal:
             if JSON.axis_x_scale[i] != 'log':
                 f.set_commaDecimal_with_precision_x_axis(axs_ij, JSON.axis_x_float_precision[i], i)
@@ -134,13 +135,32 @@ def main():
                 f.set_pointDecimal_with_precision_x_axis(axs_ij, JSON.axis_x_float_precision[i], i)
             if JSON.axis_y_scale[i] != 'log':
                 f.set_pointDecimal_with_precision_y_axis(axs_ij, JSON.axis_y_float_precision[i], i)
+        
+
+        #plt.axis('square') #works for last subplot
+        #axs_ij.set_aspect('equal', adjustable="datalim")
+
+        # TEST TO SET AXIS IN SUBPLOT TO A RATIO #
+        #define y-unit to x-unit ratio
+        #ratio = 1.0
+
+        #get x and y limits
+        #x_left, x_right = axs_ij.get_xlim()
+        #y_low, y_high = axs_ij.get_ylim()
+
+        #set aspect ratio
+        #axs_ij.set_aspect(abs((x_right-x_left)/(y_low-y_high))*ratio) #somehow doesnt work...
                     
     
     ## SET NICE LAYOUT AND EXPORT ##
+    #plt.axis('square') #makes only last subplot square /comment out or in depeinding on case. should fix this some time //2022-11-25
     f.set_title(JSON.figure_title)
     f.align_labels(fig)
     f.set_layout_tight(fig)
     f.export_figure_as_pdf(PDF_path)
+    #if JSON.subplot_axis_ratio_square_axis: #implemented 2022-22-25 //not yet
+    
+    
 
     print("===== PLOT DATA End =====")      
     plt.show()

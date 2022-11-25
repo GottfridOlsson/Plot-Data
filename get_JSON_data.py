@@ -51,7 +51,6 @@ except:
     subplot_setup_share_y = False
 
 
-
 LaTeX_and_CMU           = J['LaTeX_and_CMU'] # bool
 point_or_decimal_comma  = J['point_or_decimal_comma'] # string, "." or ","
 

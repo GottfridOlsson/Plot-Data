@@ -1,15 +1,15 @@
 ﻿{
     "comment" : {
-        "project" : "FKA121 H1a, Problem 3",
+        "project" : "FKA121 H1a, Problem 4",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-25, 08:41",
+        "updated" : "2022-11-25, 12:41",
         "about"   : "Temperature, pressure, total energy, and volume as funtion of time during equilibration"
     },
 
     "filepath"  :{
-        "json" : "JSON/FKA121_H1a_P3_equilibration_properties.json",
-        "csv"  : "CSV/FKA121_H1a_P3_equilibration_properties_vs_time.csv",
-        "pdf"  : "PDF/FKA121_H1a_P3_equilibration_properties.pdf" 
+        "json" : "JSON/FKA121_H1a_P4_equilibration_properties.json",
+        "csv"  : "CSV/FKA121_H1a_P4_equilibration_properties_vs_time.csv",
+        "pdf"  : "PDF/FKA121_H1a_P4_equilibration_properties.pdf" 
     },
 
     "figure_size" : {
@@ -299,7 +299,7 @@
                     "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 2,
+                    "float_precision" : 1,
                     "limit" : {
                         "min" : false,
                         "max" : false
@@ -379,7 +379,7 @@
                     "float_precision" : 0,
                     "limit" : {
                         "min" : -0.5, 
-                        "max" : 30.5
+                        "max" : 60.5
                     }
                 }, 
 
