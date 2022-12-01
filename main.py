@@ -13,6 +13,7 @@
 #    IMPORTS    #
 #---------------#
 
+import matplotlib
 import matplotlib.pyplot as plt         # to plot
 import get_JSON_data as JSON
 import CSV_handler as CSV
