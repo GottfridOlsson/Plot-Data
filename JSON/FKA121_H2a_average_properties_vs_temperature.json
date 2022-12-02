@@ -35,7 +35,7 @@
         "legend" : 9 
     },
   
-    "LaTeX_and_CMU" : false,
+    "LaTeX_and_CMU" : true,
     "figure_title"  : "",
     "point_or_decimal_comma" : ".",
 
