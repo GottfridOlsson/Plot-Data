@@ -293,7 +293,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Order parameter $\\left| P \\right|$",
+                    "label"           : "Long order  $P$",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
@@ -369,7 +369,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Temperature (K)",            
+                    "label"           : "Temperature $T$ (K)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -380,7 +380,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Order parameter $r$",
+                    "label"           : "Short order $r$",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,

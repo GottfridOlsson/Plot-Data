@@ -2,19 +2,19 @@
     "comment" : {
         "project" : "FKA121 H2a",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-12-01",
-        "about"   : "Total energy as function of step in MC algorithm"
+        "updated" : "2022-12-02",
+        "about"   : "Analytical properties versus temperature"
     },
 
     "filepath"  :{
-        "json" : "JSON/FKA121_H2a_energy_per_step.json",
-        "csv"  : "CSV/FKA121_H2a_energy_per_step_1e06burninsteps.csv",
-        "pdf"  : "PDF/FKA121_H2a_energy_per_step_1e06burninsteps.pdf" 
+        "json" : "JSON/FKA121_H2a_analytical_properties_vs_temperature.json",
+        "csv"  : "CSV/FKA121_H2a_analytical_properties_vs_T.csv",
+        "pdf"  : "PDF/FKA121_H2a_analytical_properties_vs_T.pdf" 
     },
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 9, 
+        "height_cm" : 14.25, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -52,8 +52,9 @@
 
     "subplot_setup" : {
         "columns"        : 1,
-        "rows"           : 1, 
-        "total_subplots" : 1  
+        "rows"           : 3, 
+        "total_subplots" : 3, 
+        "share_x"        : true
     },
 
 
@@ -65,10 +66,10 @@
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["data 1"],
+            "dataset_label" : [""],
 
             "CSV_column_x" : [0],
-            "CSV_column_y" : [1], 
+            "CSV_column_y" : [2], 
 
             "plot_type_settings" : {
                 "line": {
@@ -105,8 +106,8 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Step",            
-                    "scale"           : "log",
+                    "label"           : "",            
+                    "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
@@ -154,7 +155,94 @@
         
             "plot_type"  : ["errorbar"],
 
-            "dataset_label" : ["data 1"],
+            "dataset_label" : [""],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Heat capacity $C$ (eV/K)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+    {
+        "subplot_num" : 3, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : [""],
 
             "CSV_column_x" : [0],
             "CSV_column_y" : [1], 
@@ -194,10 +282,10 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "x",            
+                    "label"           : "Temperature $T$ (K)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
                         "min" : false, 
                         "max" : false
@@ -205,19 +293,106 @@
                 }, 
 
                 "y" : {
-                    "label"           : "y $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "label"           : "Long order $P$",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false,
-                        "max" : false
+                        "min" : -0.05,
+                        "max" : 1.05
                     }
                 }
             }, 
 
             "legend" : {
-                "on"       : true, 
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+    {
+        "subplot_num" : 4, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : [""],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [4], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Temperature (K)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Order parameter $r$",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : -0.05,
+                        "max" : 1.05
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
                 "alpha"    : 1, 
                 "location" : "best"
             },
