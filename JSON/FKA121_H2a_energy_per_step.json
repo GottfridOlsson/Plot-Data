@@ -2,8 +2,8 @@
     "comment" : {
         "project" : "FKA121 H2a",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-12-01",
-        "about"   : "Total energy as function of step in MC algorithm"
+        "updated" : "2022-12-02",
+        "about"   : "Total energy for three temperatures as function of step in Metropolis algorithm"
     },
 
     "filepath"  :{
@@ -35,7 +35,7 @@
         "legend" : 9 
     },
   
-    "LaTeX_and_CMU" : true,
+    "LaTeX_and_CMU" : false,
     "figure_title"  : "",
     "point_or_decimal_comma" : ".",
 
@@ -63,42 +63,42 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar"],
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["data 1"],
+            "dataset_label" : ["$T=1000$\\,K", "$T=750$\\,K", "$T=500$\\,K"],
 
-            "CSV_column_x" : [0],
-            "CSV_column_y" : [1], 
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [3, 2, 1], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#000000"],
-                    "style" : ["-"],
-                    "width" : [1.62, 1.62]
+                    "color" : ["#f1311d", "#3ac20e", "#086BDE"],
+                    "style" : ["-", "-", "-"],
+                    "width" : [1.62, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : [""], 
-                    "size"      : [3.3], 
-                    "thickness" : [1.7], 
-                    "facecolor" : ["None"]
+                    "type"      : ["","",""], 
+                    "size"      : [3.3,3.3,3.3], 
+                    "thickness" : [1.7,1.7,1.7], 
+                    "facecolor" : ["None","None","None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [false],
+                    "on" : [false, false, false],
 
                     "constant" : {
-                        "on"   : [false], 
-                        "x_pm" : [0], 
-                        "y_pm" : [0] 
+                        "on"   : [false, false, false], 
+                        "x_pm" : [0,0,0], 
+                        "y_pm" : [0,0,0] 
                     },
 
-                    "CSV_column_x" : [0],
-                    "CSV_column_y" : [0],
+                    "CSV_column_x" : [0,0,0],
+                    "CSV_column_y" : [0,0,0],
 
-                    "size"         : [3], 
-                    "linewidth"    : [1], 
-                    "capthickness" : [1]
+                    "size"         : [0,0,0], 
+                    "linewidth"    : [0,0,0], 
+                    "capthickness" : [0,0,0]
                 }
             },
 
@@ -106,7 +106,7 @@
 
                 "x" : {
                     "label"           : "Step",            
-                    "scale"           : "log",
+                    "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
@@ -128,7 +128,7 @@
             }, 
 
             "legend" : {
-                "on"       : false, 
+                "on"       : true, 
                 "alpha"    : 1, 
                 "location" : "best"
             },

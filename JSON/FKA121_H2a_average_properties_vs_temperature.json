@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "FKA121 H2a",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-12-01",
+        "updated" : "2022-12-02",
         "about"   : "Average properties versus temperature"
     },
 
     "filepath"  :{
         "json" : "JSON/FKA121_H2a_average_properties_vs_temperature.json",
-        "csv"  : "CSV/FKA121_H2a_average_properties_vs_T_1e7steps_1e5_burninsteps.csv",
-        "pdf"  : "PDF/FKA121_H2a_average_properties_vs_T_1e7steps_1e5_burninsteps.pdf" 
+        "csv"  : "CSV/FKA121_H2a_average_properties_vs_T_1e7steps_1e6_burninsteps.csv",
+        "pdf"  : "PDF/FKA121_H2a_average_properties_vs_T_1e7steps_1e6_burninsteps.pdf" 
     },
 
     "figure_size" : {
@@ -35,7 +35,7 @@
         "legend" : 9 
     },
   
-    "LaTeX_and_CMU" : true,
+    "LaTeX_and_CMU" : false,
     "figure_title"  : "",
     "point_or_decimal_comma" : ".",
 
