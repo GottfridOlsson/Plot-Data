@@ -109,10 +109,10 @@
                     "label"           : "",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
-                        "min" : -0.05, 
-                        "max" : 3.05
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 
@@ -131,7 +131,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best"
+                "location" : "lower right"
             },
 
             "grid" : {
@@ -201,10 +201,10 @@
                     "label"           : "",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
-                        "min" : -0.05, 
-                        "max" : 3.05
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 
@@ -223,7 +223,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best"
+                "location" : "lower right"
             },
 
             "grid" : {
@@ -289,10 +289,10 @@
                     "label"           : "Time (ps)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
-                        "min" : -0.05, 
-                        "max" : 3.05
+                        "min" : -0.0001, 
+                        "max" : 50
                     }
                 }, 
 
@@ -311,7 +311,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best"
+                "location" : "lower right"
             },
 
             "grid" : {

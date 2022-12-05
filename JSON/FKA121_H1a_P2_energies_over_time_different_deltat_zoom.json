@@ -120,7 +120,7 @@
                     "label"           : "Energy per cell (eV)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 3,
+                    "float_precision" : 2,
                     "limit" : {
                         "min" : 0.745,
                         "max" : 0.785
@@ -198,10 +198,10 @@
                     "label"           : "Time (ps)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
                         "min" : -0.05, 
-                        "max" : 3.05
+                        "max" : 50.05
                     }
                 }, 
 
