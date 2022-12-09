@@ -2,8 +2,8 @@
 ##     Project: PLOT DATA
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
-##     Created: 2022-06-17, 11:54
-##     Updated: 2022-11-24, 16:58
+##     Created: 2022-06-17
+##     Updated: 2022-12-09
 ##       About: Reads and stores user data from JSON.
 ##====================================================##
 
@@ -41,13 +41,13 @@ subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO?: raise err
 try:
     subplot_setup_share_x = J['subplot_setup']['share_x']
 except:
-    print("subplot_setup_share_x could not be read from get_JSON_data.py. Setting it to False and continuing anyway")
+    print("MISSING OPTIONAL SETTING: subplot_setup_share_x could not be read from get_JSON_data.py. Setting it to False and continuing")
     subplot_setup_share_x = False
 
 try:
     subplot_setup_share_y = J['subplot_setup']['share_y']
 except:
-    print("subplot_setup_share_y could not be read from get_JSON_data.py. Setting it to False and continuing anyway")
+    print("MISSING OPTIONAL SETTING: subplot_setup_share_y could not be read from get_JSON_data.py. Setting it to False and continuing")
     subplot_setup_share_y = False
 
 
@@ -84,6 +84,7 @@ errorbar_CSV_column_y  = []
 errorbar_size          = []
 errorbar_linewidth     = []
 errorbar_capthickness  = []
+errorbar_color         = []
 
 axis_x_label           = []
 axis_x_limit_min       = []
@@ -171,6 +172,8 @@ for i in subplots:
     bin_errorbar_constant_on   = []
     bin_errorbar_constant_x_pm = []
     bin_errorbar_constant_y_pm = []
+    bin_erorrbar_color         = []
+
 
     for k in range(len(plot_type[i])):
         # TODO: "if":s that select what 'plot_type_settings' to get from JSON (line, marker, errorbar, ...)
@@ -192,7 +195,13 @@ for i in subplots:
         bin_errorbar_constant_on.append(    J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['on'][k]     )
         bin_errorbar_constant_x_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['x_pm'][k]   )
         bin_errorbar_constant_y_pm.append(  J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['constant']['y_pm'][k]   )
-
+        
+        # added 2022-12-09
+        try:
+            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['errorbar_color'][k]     )
+        except:
+            print(f"MISSING OPTIONAL SETTING: errorbar_color could not be read from get_JSON_data.py for subplot {i} errorbar {k}. Setting it to None and continuing")
+            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]                  )
 
     line_color.append(bin_line_color)
     line_style.append(bin_line_style)
@@ -212,6 +221,7 @@ for i in subplots:
     errorbar_constant_on.append(    bin_errorbar_constant_on    )
     errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
+    errorbar_color.append (         bin_erorrbar_color          )
 
 
 commaDecimal = False
