@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-11-20 14:07",
+        "updated" : "2022-12-10",
         "about"   : ""
     },
 
     "filepath"  :{
         "json" : "JSON/SVM_ERRORBAR.json",
-        "csv"  : "CSV/SVM_PlotData_from_2021-01-01_to_2022-11-20.csv",
-        "pdf"  : "PDF/SVM_Latitude_Measurements_2022-11-20.pdf" 
+        "csv"  : "CSV/SVM_PlotData_from_2022-01-01_to_2022-12-10.csv",
+        "pdf"  : "PDF/SVM_Latitude_Measurements_from_2022-01-01_to_2022-12-10.pdf" 
     },
 
     "figure_size" : {
@@ -33,7 +33,7 @@
     },
   
     "LaTeX_and_CMU" : true,
-    "figure_title"  : "NOT UPDATED LATELY (see JSON file) Fitted curve: $57.310 + 23.14\\cos{(0.0173x + 0.1801)}$ \n Theoretical: $\\,\\,57.679 + 23.44\\cos{(0.0172x + 0.1721)}$",
+    "figure_title"  : "REMEMBER TO CHANGE THE JSON FILE FOR FITTED CURVE! Fitted curve: $57.85 + 23.58\\cos{(0.0168x + 0.419)}$ \n Theoretical: $\\,\\,57.68 + 23.44\\cos{(0.0172x + 0.172)}$",
     "point_or_decimal_comma" : ".",
 
     "subplot_setup" : {
@@ -96,8 +96,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : -0.01, 
-                        "max" : 650
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 
@@ -107,8 +107,8 @@
                     "invert"          : false, 
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 32,
-                        "max" : 82
+                        "min" : 30,
+                        "max" : 85
                     }
                 }
             }, 
