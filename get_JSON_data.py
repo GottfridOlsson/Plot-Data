@@ -3,7 +3,7 @@
 ##        File: get_JSON_data.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17
-##     Updated: 2022-12-09
+##     Updated: 2022-12-12
 ##       About: Reads and stores user data from JSON.
 ##====================================================##
 
@@ -200,8 +200,8 @@ for i in subplots:
         try:
             bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['errorbar_color'][k]     )
         except:
-            print(f"MISSING OPTIONAL SETTING: errorbar_color could not be read from get_JSON_data.py for subplot {i} errorbar {k}. Setting it to None and continuing")
-            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]                  )
+            print(f"MISSING OPTIONAL SETTING: errorbar_color could not be read from get_JSON_data.py for subplot {i} errorbar {k}. Setting it to line_color and continuing")
+            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]          )
 
     line_color.append(bin_line_color)
     line_style.append(bin_line_style)
@@ -223,6 +223,7 @@ for i in subplots:
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
     errorbar_color.append (         bin_erorrbar_color          )
 
+print(f"errorbar_color: {errorbar_color}")
 
 commaDecimal = False
 pointDecimal = True
