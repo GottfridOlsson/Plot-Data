@@ -111,8 +111,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 280, 
+                        "max" : 1020
                     }
                 }, 
 
@@ -200,8 +200,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 280, 
+                        "max" : 1020
                     }
                 }, 
 
@@ -211,8 +211,8 @@
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false,
-                        "max" : false
+                        "min" : -0.02,
+                        "max" : 0.5201
                     }
                 }
             }, 
@@ -287,8 +287,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 280, 
+                        "max" : 1020
                     }
                 }, 
 
@@ -369,13 +369,13 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Temperature (K)",            
+                    "label"           : "Temperature $T$ (K)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 280, 
+                        "max" : 1020
                     }
                 }, 
 

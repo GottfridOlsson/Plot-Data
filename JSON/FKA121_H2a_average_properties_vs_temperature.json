@@ -213,8 +213,8 @@
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : false,
-                        "max" : false
+                        "min" : -0.02,
+                        "max" : 0.52
                     }
                 }
             }, 
@@ -378,8 +378,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : 280, 
+                        "max" : 1020
                     }
                 }, 
 
