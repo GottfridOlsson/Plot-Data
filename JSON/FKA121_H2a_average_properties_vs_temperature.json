@@ -3,7 +3,7 @@
         "project" : "FKA121 H2a",
         "author"  : "Gottfrid Olsson",
         "updated" : "2022-12-09",
-        "about"   : "Average properties and their 1 sigma error bars versus temperature"
+        "about"   : "Average properties and their 2 sigma error bars versus temperature (OBS! Temporarily add a factor 2 for the y_errorbar in main.py for the 2 sigma errorbars, CSV has 1 sigma)"
     },
 
     "filepath"  :{
@@ -75,7 +75,7 @@
                 "line": {
                     "color" : ["#000000"],
                     "style" : ["-"],
-                    "width" : [1.62, 1.62]
+                    "width" : [1.3, 1.3]
                 },
 
                 "marker" : {
@@ -87,7 +87,7 @@
 
                 "errorbar" : {
                     "on" : [true],
-                    "errorbar_color" : ["#808080"],
+                    "errorbar_color" : ["#737373"],
 
                     "constant" : {
                         "on"   : [false], 
@@ -99,8 +99,8 @@
                     "CSV_column_y" : [2],
 
                     "size"         : [0], 
-                    "linewidth"    : [1], 
-                    "capthickness" : [1]
+                    "linewidth"    : [0.55], 
+                    "capthickness" : [0]
                 }
             },
 
@@ -165,7 +165,7 @@
                 "line": {
                     "color" : ["#000000"],
                     "style" : ["-"],
-                    "width" : [1.62, 1.62]
+                    "width" : [1.3, 1.3]
                 },
 
                 "marker" : {
@@ -177,7 +177,7 @@
 
                 "errorbar" : {
                     "on" : [true],
-                    "errorbar_color" : ["#808080"],
+                    "errorbar_color" : ["#737373"],
 
                     "constant" : {
                         "on"   : [false], 
@@ -189,8 +189,8 @@
                     "CSV_column_y" : [5],
 
                     "size"         : [0], 
-                    "linewidth"    : [1], 
-                    "capthickness" : [1]
+                    "linewidth"    : [0.55], 
+                    "capthickness" : [0]
                 }
             },
 
@@ -253,7 +253,7 @@
                 "line": {
                     "color" : ["#000000"],
                     "style" : ["-"],
-                    "width" : [1.62, 1.62]
+                    "width" : [1.3, 1.3]
                 },
 
                 "marker" : {
@@ -265,7 +265,7 @@
 
                 "errorbar" : {
                     "on" : [true],
-                    "errorbar_color" : ["#808080"],
+                    "errorbar_color" : ["#737373"],
 
                     "constant" : {
                         "on"   : [false], 
@@ -277,8 +277,8 @@
                     "CSV_column_y" : [8],
 
                     "size"         : [0], 
-                    "linewidth"    : [1], 
-                    "capthickness" : [1]
+                    "linewidth"    : [0.55], 
+                    "capthickness" : [0]
                 }
             },
 
@@ -341,7 +341,7 @@
                 "line": {
                     "color" : ["#000000"],
                     "style" : ["-"],
-                    "width" : [1.62, 1.62]
+                    "width" : [1.3, 1.3]
                 },
 
                 "marker" : {
@@ -353,7 +353,7 @@
 
                 "errorbar" : {
                     "on" : [true],
-                    "errorbar_color" : ["#808080"],
+                    "errorbar_color" : ["#737373"],
 
                     "constant" : {
                         "on"   : [false], 
@@ -365,8 +365,8 @@
                     "CSV_column_y" : [11],
 
                     "size"         : [0], 
-                    "linewidth"    : [1], 
-                    "capthickness" : [1]
+                    "linewidth"    : [0.55], 
+                    "capthickness" : [0]
                 }
             },
 

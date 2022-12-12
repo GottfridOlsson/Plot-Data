@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17
-##     Updated: 2022-12-09
+##     Updated: 2022-12-12
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -92,13 +92,14 @@ def main():
                 else:#### TEST 2022-09-22, remove this and two rows below if it fucks something up later on
                         errorbar_x = [[0] for x in data_x]
                         errorbar_y = [[0] for x in data_y]
-                        
+                
                 errorbar.plot_errorbar(
                     axs_ij, data_x, data_y, JSON.errorbar_on[i][k], errorbar_x, errorbar_y, \
                     JSON.errorbar_size[i][k], JSON.errorbar_linewidth[i][k], JSON.errorbar_capthickness[i][k], \
                     JSON.dataset_label[i][k], JSON.line_color[i][k], JSON.line_style[i][k], JSON.line_width[i][k], \
                     JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i, JSON.errorbar_color[i][k]
                     )
+
 
 
             # HEATMAP #
