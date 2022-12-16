@@ -15,7 +15,7 @@ def plot_errorbar(ax, data_x, data_y, errorbar_on, errorbar_x, errorbar_y, error
     if errorbar_on:  
         out = ax.errorbar(data_x, data_y, label=data_label, color=line_color, linestyle=line_style, linewidth=line_width, \
             marker=marker_type, markersize=marker_size, markeredgewidth=marker_thickness, markerfacecolor=marker_facecolor, \
-                xerr=errorbar_x, yerr=errorbar_y, elinewidth=errorbar_linewidth, capsize=errorbar_size, capthick=errorbar_capthickness, ecolor=ecolor)
+                xerr=errorbar_x, yerr=errorbar_y, elinewidth=errorbar_linewidth, capsize=errorbar_size, capthick=errorbar_capthickness, ecolor=ecolor, alpha=0.7) #alpha is temporary for FKA121 H3 P4
         print("DONE: Plotted data with 'errorbar' on axs: " + str(ax_num))
     else:
         out = ax.plot(data_x, data_y, label=data_label, color=line_color, linestyle=line_style, linewidth=line_width, \

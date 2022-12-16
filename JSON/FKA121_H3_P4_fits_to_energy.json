@@ -14,7 +14,7 @@
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 9, 
+        "height_cm" : 12, 
 
         "external_values": {
             "external_font_size_pt"      : 11,
@@ -35,7 +35,7 @@
         "legend" : 9 
     },
   
-    "LaTeX_and_CMU" : false,
+    "LaTeX_and_CMU" : true,
     "figure_title"  : "",
     "point_or_decimal_comma" : ".",
 
@@ -65,28 +65,28 @@
         
             "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Linear data", "Quadratic data", "Linear fit", "Quadratic fit"],
+            "dataset_label" : ["1st order fit, 10$\\sigma$ prediction interval", "2st order fit, 10$\\sigma$ prediction interval", "1st order data, 2$\\sigma$ errorbars", "1st order data, 2$\\sigma$ errorbars"],
 
-            "CSV_column_x" : [0, 0, 5, 5],
-            "CSV_column_y" : [1, 3, 6, 8], 
+            "CSV_column_x" : [5, 5, 0, 0],
+            "CSV_column_y" : [6, 8, 1, 3], 
 
             "plot_type_settings" : {
                 "line": {
                     "color" : ["#f1311d", "#086BDE", "#f1311d", "#086BDE"],
-                    "style" : ["", "", "-", "-"],
+                    "style" : ["-", "-", "", ""],
                     "width" : [1.62, 1.62, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["o", "o", "", ""], 
-                    "size"      : [3.3, 3.3, 3.3, 3.3], 
+                    "type"      : ["", "", "o", "o"], 
+                    "size"      : [3.3, 3.3, 1.7, 1.7], 
                     "thickness" : [1.7, 1.7, 1.7, 1.7], 
                     "facecolor" : ["None", "None", "None", "None"]
                 }, 
 
                 "errorbar" : {
                     "on" : [true, true, true, true],
-                    "errorbar_color" : ["#f45d4d", "#f45d4d", "#2285f7", "#2285f7"],
+                    "errorbar_color" : ["#f1311d", "#086BDE", "#f1311d", "#086BDE"],
 
                     "constant" : {
                         "on"   : [false, false, false, false], 
@@ -95,10 +95,10 @@
                     },
 
                     "CSV_column_x" : [-1, -1, -1, -1],
-                    "CSV_column_y" : [2, 4, 7, 9],
+                    "CSV_column_y" : [7, 9, 2, 4],
 
-                    "size"         : [3, 3, 1, 1], 
-                    "linewidth"    : [1, 1, 1, 1], 
+                    "size"         : [0, 0, 2, 2], 
+                    "linewidth"    : [0.345, 0.345, 1, 1], 
                     "capthickness" : [1, 1, 1, 1]
                 }
             },
@@ -109,10 +109,10 @@
                     "label"           : "$\\Delta \\tau$ (a.u.)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 3,
+                    "float_precision" : 2,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : -0.02, 
+                        "max" : 0.42
                     }
                 }, 
 
@@ -122,8 +122,8 @@
                     "invert"          : false, 
                     "float_precision" : 2,
                     "limit" : {
-                        "min" : false,
-                        "max" : false
+                        "min" : -3.04,
+                        "max" : -2.89
                     }
                 }
             }, 
