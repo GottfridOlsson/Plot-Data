@@ -97,7 +97,7 @@ def main():
                     axs_ij, data_x, data_y, JSON.errorbar_on[i][k], errorbar_x, errorbar_y, \
                     JSON.errorbar_size[i][k], JSON.errorbar_linewidth[i][k], JSON.errorbar_capthickness[i][k], \
                     JSON.dataset_label[i][k], JSON.line_color[i][k], JSON.line_style[i][k], JSON.line_width[i][k], \
-                    JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i, JSON.errorbar_color[i][k]
+                    JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i, JSON.errorbar_color[i][k], JSON.errorbar_alpha[i][k]
                     )
 
 

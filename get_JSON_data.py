@@ -85,6 +85,7 @@ errorbar_size          = []
 errorbar_linewidth     = []
 errorbar_capthickness  = []
 errorbar_color         = []
+errorbar_alpha         = []
 
 axis_x_label           = []
 axis_x_limit_min       = []
@@ -173,6 +174,7 @@ for i in subplots:
     bin_errorbar_constant_x_pm = []
     bin_errorbar_constant_y_pm = []
     bin_erorrbar_color         = []
+    bin_errorbar_alpha         = []
 
 
     for k in range(len(plot_type[i])):
@@ -201,7 +203,14 @@ for i in subplots:
             bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['errorbar_color'][k]     )
         except:
             print(f"MISSING OPTIONAL SETTING: errorbar_color could not be read from get_JSON_data.py for subplot {i} errorbar {k}. Setting it to line_color and continuing")
-            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]          )
+            bin_erorrbar_color.append(      J['subplot_settings'][i]['datasets']['plot_type_settings']['line']['color'][k]                  )
+
+        try:
+            bin_errorbar_alpha.append (     J['subplot_settings'][i]['datasets']['plot_type_settings']['errorbar']['errorbar_alpha'][k]     )
+        except:
+            print(f"MISSING OPTIONAL SETTING: errorbar_alpha could not be read from get_JSON_data.py for subplot {i} errorbar {k}. Setting it to 1 and continuing")
+            bin_errorbar_alpha.append (1)
+
 
     line_color.append(bin_line_color)
     line_style.append(bin_line_style)
@@ -222,6 +231,7 @@ for i in subplots:
     errorbar_constant_x_pm.append(  bin_errorbar_constant_x_pm  )
     errorbar_constant_y_pm.append(  bin_errorbar_constant_y_pm  )
     errorbar_color.append (         bin_erorrbar_color          )
+    errorbar_alpha.append(          bin_errorbar_alpha          )
 
 print(f"errorbar_color: {errorbar_color}")
 

@@ -120,7 +120,7 @@
                     "label"           : "$E_\\mathrm{T}$ (a.u.)",
                     "scale"           : "linear",
                     "invert"          : false, 
-                    "float_precision" : 1,
+                    "float_precision" : 2,
                     "limit" : {
                         "min" : false,
                         "max" : false
@@ -200,8 +200,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : false, 
-                        "max" : false
+                        "min" : -100,
+                        "max" : 2100
                     }
                 }, 
 
