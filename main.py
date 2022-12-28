@@ -3,7 +3,7 @@
 ##        File: main.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2022-06-17
-##     Updated: 2022-12-12
+##     Updated: 2022-12-28
 ##       About: Plot data from CSV with matplotlib.
 ##              Plot-settings in JSON, export as PDF.
 ##====================================================##
@@ -30,8 +30,7 @@ import numpy as np # for ceiling
 
 
 def main():
-    print("===== PLOT DATA Start =====")
-
+    print("===== PLOT DATA: Plot (start) =====")
 
     ## READ CSV ##
     CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -164,7 +163,7 @@ def main():
     
     
 
-    print("===== PLOT DATA End =====")      
+    print("===== PLOT DATA: Plot (end) =====")  
     plt.show()
 
 

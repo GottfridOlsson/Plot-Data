@@ -9,7 +9,8 @@
     "filepath"  :{
         "json" : "JSON/CONFIG.json",
         "csv"  : "CSV/testdata1.csv",
-        "pdf"  : "PDF/testpdf1_2by2_matrix.pdf" 
+        "pdf"  : "PDF/testpdf1_2by2_matrix.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json" 
     },
 
     "figure_size" : {
