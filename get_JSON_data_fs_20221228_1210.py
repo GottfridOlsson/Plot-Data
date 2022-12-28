@@ -9,15 +9,12 @@
 
 import JSON_handler as JSON
 import easygui
-import os
+
 
 #JSON_readFilePath = "JSON/"+ "CONFIG" + ".json" #keeping this line for myself when I'm working with figures //2022-07-05
 JSON_default_path = "JSON/"
 JSON_readFilePath = easygui.fileopenbox(title="Please choose your JSON-file", default=JSON_default_path)
 J = JSON.read(JSON_readFilePath)
-
-CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
-STANDARD_VALUES_JSON_PATH = CURRENT_PATH + "//" + 'STANDARD_VALUES.json'
 
 
 
@@ -27,9 +24,6 @@ STANDARD_VALUES_JSON_PATH = CURRENT_PATH + "//" + 'STANDARD_VALUES.json'
 
 filepath_csv            = J['filepath']['csv']
 filepath_pdf            = J['filepath']['pdf']
-try: filepath_standard_values_json = J['filepath']['standard_values']
-except: filepath_standard_values_json = STANDARD_VALUES_JSON_PATH
-S = JSON.READ(filepath_standard_values_json)
 
 figure_title            = J['figure_title']
 figure_height           = J['figure_size']['height_cm'] # [cm]
@@ -44,22 +38,21 @@ subplot_setup_columns   = J['subplot_setup']['columns']
 subplot_setup_subplots  = J['subplot_setup']['total_subplots'] #TODO?: raise error if "total != rows*columns"
 
 ## subplot_setup_share_x and _y implemented 2022-11-24. It seems to be working! :D
-try: subplot_setup_share_x = J['subplot_setup']['share_x']
+try:
+    subplot_setup_share_x = J['subplot_setup']['share_x']
 except:
-    print(f"Optiomal setting missing: subplot_setup_share_x. Taking value from {filepath_standard_values_json} instead")
-    subplot_setup_share_x = S['subplot_setup']['share_x']
+    print("MISSING OPTIONAL SETTING: subplot_setup_share_x could not be read from get_JSON_data.py. Setting it to False and continuing")
+    subplot_setup_share_x = False
 
-try: subplot_setup_share_y = J['subplot_setup']['share_y']
+try:
+    subplot_setup_share_y = J['subplot_setup']['share_y']
 except:
-    print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-    subplot_setup_share_x = S['subplot_setup']['share_x']
+    print("MISSING OPTIONAL SETTING: subplot_setup_share_y could not be read from get_JSON_data.py. Setting it to False and continuing")
+    subplot_setup_share_y = False
 
-try:    LaTeX_and_CMU = J['LaTeX_and_CMU'] # bool
-except: LaTeX_and_CMU = S['LaTeX_and_CMU']
 
-try:    point_or_decimal_comma  = J['point_or_decimal_comma'] # string, "." or ","
-except: point_or_decimal_comma  = S['point_or_decimal_comma'] # string, "." or ","
-
+LaTeX_and_CMU           = J['LaTeX_and_CMU'] # bool
+point_or_decimal_comma  = J['point_or_decimal_comma'] # string, "." or ","
 
 
 ## DECLARE VARIABLE NAMES ##
@@ -131,125 +124,34 @@ grid_minor_linewidth   = []
 ## PER SUBPLOT ##
 
 for i in subplots:
-    # PLOT TYPE, DATA #
-
-    try: plot_type.append(  J['subplot_settings'][i]['datasets']['plot_type']                       )
-    except:
-        print(f"Optiomal setting missing: plot_type. Taking value from {filepath_standard_values_json} instead")
-        plot_type.append(   S['subplot_settings']['datasets']['plot_type'])
-
-    try: dataset_label.append(       J['subplot_settings'][i]['datasets']['dataset_label']                   )  
-    except:
-        print(f"Optiomal setting missing: dataset_label. Taking value from {filepath_standard_values_json} instead")
-        dataset_label.append(   S['subplot_settings']['datasets']['dataset_label'])
+    plot_type.append(               J['subplot_settings'][i]['datasets']['plot_type']                       )
+    dataset_label.append(           J['subplot_settings'][i]['datasets']['dataset_label']                   )  
 
     dataset_CSV_column_x.append(    J['subplot_settings'][i]['datasets']['CSV_column_x']                    )
     dataset_CSV_column_y.append(    J['subplot_settings'][i]['datasets']['CSV_column_y']                    )
 
+    axis_x_label.append(            J['subplot_settings'][i]['datasets']['axis']['x']['label']              )
+    axis_x_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['min']       )
+    axis_x_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['max']       )
+    axis_x_scale.append(            J['subplot_settings'][i]['datasets']['axis']['x']['scale']              )
+    axis_x_invert.append(           J['subplot_settings'][i]['datasets']['axis']['x']['invert']             )
+    axis_x_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['x']['float_precision']    )   
 
-    #x-AXIS #
-    try: axis_x_label.append(        J['subplot_settings'][i]['datasets']['axis']['x']['label']              )
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_label.append("x-axis")
+    axis_y_label.append(            J['subplot_settings'][i]['datasets']['axis']['y']['label']              )
+    axis_y_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['min']       )
+    axis_y_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['max']       )
+    axis_y_scale.append(            J['subplot_settings'][i]['datasets']['axis']['y']['scale']              )
+    axis_y_invert.append(           J['subplot_settings'][i]['datasets']['axis']['y']['invert']             )
+    axis_y_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['y']['float_precision']    )
 
-    try: axis_x_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['min']       )
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_limit_min.append(False)
-    
-    try: axis_x_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['x']['limit']['max']       )
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_limit_max.append(False)
+    legend_on.append(               J['subplot_settings'][i]['datasets']['legend']['on']                    )
+    legend_alpha.append(            J['subplot_settings'][i]['datasets']['legend']['alpha']                 )
+    legend_location.append(         J['subplot_settings'][i]['datasets']['legend']['location']              )   
 
-    try: axis_x_scale.append(            J['subplot_settings'][i]['datasets']['axis']['x']['scale']              )
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_scale.append("linear") 
-        
-    try: axis_x_invert.append(           J['subplot_settings'][i]['datasets']['axis']['x']['invert']             )
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_invert.append(False) 
-
-    try: axis_x_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['x']['float_precision']    )   
-    except:
-        print(f"Optiomal setting missing: subplot_setup_share_y. Taking value from {filepath_standard_values_json} instead")
-        axis_x_float_precision.append(1) 
-
-
-
-    # y-AXIS #
-    try: axis_y_label.append(   J['subplot_settings'][i]['datasets']['axis']['y']['label']  )
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_label could not be read from get_JSON_data.py for subplot {i}. Setting it to 'x-axis' and continuing")
-        axis_y_label.append("x-axis")
-
-    try: axis_y_limit_min.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['min']       )
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_limit_min could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        axis_y_limit_min.append(False)
-    
-    try: axis_y_limit_max.append(        J['subplot_settings'][i]['datasets']['axis']['y']['limit']['max']       )
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_limit_max could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        axis_y_limit_max.append(False)
-
-    try: axis_y_scale.append(            J['subplot_settings'][i]['datasets']['axis']['y']['scale']              )
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_scale could not be read from get_JSON_data.py for subplot {i}. Setting it to 'linear' and continuing")
-        axis_y_scale.append("linear") 
-        
-    try: axis_y_invert.append(           J['subplot_settings'][i]['datasets']['axis']['y']['invert']             )
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_invert could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        axis_y_invert.append(False) 
-
-    try: axis_y_float_precision.append(  J['subplot_settings'][i]['datasets']['axis']['y']['float_precision']    )   
-    except:
-        print(f"MISSING OPTIONAL SETTING: axis_y_float_precision could not be read from get_JSON_data.py for subplot {i}. Setting it to '1' and continuing")
-        axis_y_float_precision.append(1) 
-
-
-    # LEGEND #
-    try: legend_on.append(               J['subplot_settings'][i]['datasets']['legend']['on']                    )
-    except:
-        print(f"MISSING OPTIONAL SETTING: legend_on could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        legend_on.append(False) 
-
-    try: legend_alpha.append(            J['subplot_settings'][i]['datasets']['legend']['alpha']                 )
-    except:
-        print(f"MISSING OPTIONAL SETTING: legend_alpha could not be read from get_JSON_data.py for subplot {i}. Setting it to '1' and continuing")
-        legend_alpha.append(1) 
-
-    try: legend_location.append(         J['subplot_settings'][i]['datasets']['legend']['location']              )
-    except:
-        print(f"MISSING OPTIONAL SETTING: legend_location could not be read from get_JSON_data.py for subplot {i}. Setting it to 'best' and continuing")
-        legend_location.append("best")    
-
-
-    # GRID #
-    try: grid_major_on.append(           J['subplot_settings'][i]['datasets']['grid']['major']['on']             )
-    except:
-        print(f"MISSING OPTIONAL SETTING: grid_major_on could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        grid_major_on.append(False) 
-
-    try: grid_major_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['major']['linewidth']      )
-    except:
-        print(f"MISSING OPTIONAL SETTING: grid_major_linewidth could not be read from get_JSON_data.py for subplot {i}. Setting it to '0.7' and continuing")
-        grid_major_linewidth.append(0.7) 
-
-    try: grid_minor_on.append(           J['subplot_settings'][i]['datasets']['grid']['minor']['on']             )
-    except:
-        print(f"MISSING OPTIONAL SETTING: grid_minor_on could not be read from get_JSON_data.py for subplot {i}. Setting it to 'False' and continuing")
-        grid_minor_on.append(False) 
-
-    try: grid_minor_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['minor']['linewidth']      )
-    except:
-        print(f"MISSING OPTIONAL SETTING: grid_minor_linewidth could not be read from get_JSON_data.py for subplot {i}. Setting it to '0.3' and continuing")
-        grid_minor_linewidth.append(0.3) 
-
+    grid_major_on.append(           J['subplot_settings'][i]['datasets']['grid']['major']['on']             )
+    grid_major_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['major']['linewidth']      )
+    grid_minor_on.append(           J['subplot_settings'][i]['datasets']['grid']['minor']['on']             )    
+    grid_minor_linewidth.append(    J['subplot_settings'][i]['datasets']['grid']['minor']['linewidth']      )
 
 
 
