@@ -44,10 +44,15 @@ def set_axis_labels(ax, xLabel, yLabel, axNum):
     print("DONE: set_axis_labels: on axs: " + str(axNum))
 
 
-def set_legend(ax, legend_on, alpha, location, axNum):
-      if legend_on:
-            ax.legend(framealpha=alpha, loc=location)
-      print("DONE: set_legend: (on, alpha, location): " + str(legend_on) + ", " + str(alpha) + ", " + str(location) + " on axs: " + str(axNum))
+def set_legend(ax, legend_on, legend_order_on, legend_order, legend_labels, alpha, location, axNum):
+            
+    if legend_on:
+        if legend_order_on:
+            print("OBS! The order of the items in legend is not implemented. Something might have gone wrong!")
+            #ax.legend(handles=legend_order, labels=legend_labels, framealpha=alpha, loc=location)
+
+        ax.legend(framealpha=alpha, loc=location)
+    print("DONE: set_legend: (on, alpha, location): " + str(legend_on) + ", " + str(alpha) + ", " + str(location) + ", on axs: " + str(axNum))
 
 
 def set_grid(ax, grid_major_on, grid_major_linewidth, grid_minor_on, grid_minor_linewidth, axNum):

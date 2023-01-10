@@ -122,9 +122,7 @@ def main():
         f.set_axis_limits(  axs_ij, JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
     
         f.set_grid(         axs_ij, JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i) # set_grid must be after set_axis_scale for some reason (at least with 'log')
-        f.set_legend(       axs_ij, JSON.legend_on[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
-        
-
+        f.set_legend(       axs_ij, JSON.legend_on[i], JSON.legend_order_on[i], JSON.legend_order[i], JSON.legend_labels[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
 
         if JSON.commaDecimal:
             if JSON.axis_x_scale[i] != 'log':

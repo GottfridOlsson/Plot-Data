@@ -134,6 +134,9 @@ axis_y_float_precision = []
 legend_on              = []
 legend_alpha           = []
 legend_location        = []
+legend_order_on        = []
+legend_order           = []
+legend_labels          = []
 
 grid_major_on          = []
 grid_major_linewidth   = []
@@ -169,12 +172,12 @@ for i in subplots:
     try: dataset_CSV_column_x.append(    J['subplot_settings'][i]['datasets']['CSV_column_x']                    )
     except:
         print(f"Optional setting missing: dataset_CSV_column_x on subplot {i}. Taking value from {filepath_standard_values_json} instead")
-        dataset_label.append(   S['subplot_settings']['CSV_column_x'])
+        dataset_CSV_column_x.append(   S['subplot_settings']['CSV_column_x'])
     
     try: dataset_CSV_column_y.append(    J['subplot_settings'][i]['datasets']['CSV_column_y']                    )
     except:
         print(f"Optional setting missing: dataset_CSV_column_y on subplot {i}. Taking value from {filepath_standard_values_json} instead")
-        dataset_label.append(   S['subplot_settings']['dataset_CSV_column_y'])
+        dataset_CSV_column_y.append(   S['subplot_settings']['dataset_CSV_column_y'])
 
 
 
@@ -260,6 +263,22 @@ for i in subplots:
         print(f"Optional setting missing: legend_location on subplot {i}. Taking value from {filepath_standard_values_json} instead")
         legend_location.append(S['subplot_settings']['legend']['location'])    
 
+    try: legend_order_on.append(         J['subplot_settings'][i]['datasets']['legend']['order_on']              )
+    except:
+        print(f"Optional setting missing: legend_ordeR_on on subplot {i}. Taking value from {filepath_standard_values_json} instead")
+        legend_order_on.append(S['subplot_settings']['legend']['order_on'])   
+    
+    try: legend_order.append( J['subplot_settings'][i]['datasets']['legend']['order'] )
+    except:
+        print(f"Optional setting missing: legend_order on subplot {i}. Taking value from {filepath_standard_values_json} instead")
+        legend_order.append( S['subplot_settings']['legend']['order']   )
+
+    if legend_order_on[i]:
+        # legend_labels are handled in main
+        try: legend_labels.append(J['subplot_settings'][i]['datasets']['legend']['labels'] )
+        except:
+            print(f"Optional setting missing: legend_labels on subplot {i}. Setting it to nothing instead")
+            legend_labels.append(None)
 
 
     # GRID #
@@ -433,5 +452,7 @@ pointDecimal = True
 if point_or_decimal_comma == ",":
             pointDecimal = False
             commaDecimal = True
+
+
 
 print("===== PLOT DATA: Read JSON (end) =====")

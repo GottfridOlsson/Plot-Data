@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "REFACTORING: STANDARD PLOT VALUES",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2022-12-28, 14:41",
+        "updated" : "2023-01-10",
         "about"   : "Refactoring the code, adding standard values not needed to declare in JSON file per specific plot"
     },
 
@@ -127,7 +127,10 @@
         "legend" : {
             "on"       : false, 
             "alpha"    : 1, 
-            "location" : "best"
+            "location" : "best", 
+	    "order_on" : false, 
+	    "order"    : 0, 
+	    "labels"   : "NO STANDARD SETTING FOR LABELS, SET 'legend_order_on' = False IN JSON"
         },
 
         "grid" : {
