@@ -91,8 +91,8 @@
                     "y_pm" : 0 
                 },
 
-                "CSV_column_x" : 2,
-                "CSV_column_y" : 3,
+                "CSV_column_x" : -1,
+                "CSV_column_y" : -1,
 
                 "size"         : 3, 
                 "linewidth"    : 1, 

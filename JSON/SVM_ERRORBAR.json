@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-10",
+        "updated" : "2023-01-11",
         "about"   : ""
     },
 
@@ -52,34 +52,33 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Measurements", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$","Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$"],
+            "dataset_label" : ["Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "Measurements"],
 
-            "CSV_column_x" : [3,0,0],
-            "CSV_column_y" : [4,2,1], 
+            "CSV_column_x" : [0, 0, 3],
+            "CSV_column_y" : [1, 2, 4], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#FF0000", "#0000FF", "#000000"],
-                    "style" : ["", "-", "--"],
-                    "width" : [1.62, 2, 2]
+                    "color" : ["#000000", "#0000FF", "#FF0000"],
+                    "style" : ["--", "-", ""],
+                    "width" : [2, 2, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : ["x", "", ""], 
-                    "size"      : [6.5, 3.3, 5], 
-                    "thickness" : [2, 1.7, 1.7], 
+                    "type"      : ["", "", "x"], 
+                    "size"      : [5, 3.3, 6.5], 
+                    "thickness" : [1.7, 1.7, 2], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
 
                 "errorbar" : {
-                    "on" : [true, false, false],
-		    "color" : ["#FF0000"],
+                    "on" : [false, false, true],
+		            "color" : ["#FF0000", "#FF0000", "#FF0000"],
 
-                    "CSV_column_x" : [-1,-1,-1],
-                    "CSV_column_y" : [5, -1,-1],
+                    "CSV_column_y" : [-1, -1, 5],
 
-                    "size"         : [5,0,0], 
-                    "linewidth"    : [1.5,0,0], 
+                    "size"         : [0,0,5], 
+                    "linewidth"    : [0,0,1.5], 
                     "capthickness" : [0,0,0]
                 }
             },
@@ -112,10 +111,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best", 
-		"order_on" : true, 
-		"order"    : [1, 2, 3], 
-		"labels"   : ["Data points", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$","Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$"]
+                "location" : "best"
             },
 
             "grid" : {

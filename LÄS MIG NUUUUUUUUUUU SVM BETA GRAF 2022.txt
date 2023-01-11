@@ -1,7 +1,7 @@
             "dataset_label" : ["Measurements", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$","Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$"],
 
 ATT GÖRA:
-[ ] ändra ordning så att measurements hamnar överst (sist)
+[X] ändra ordning så att measurements hamnar överst (sist)
 [ ] fixa så att den ser bra ut
 [ ] spara pdf i overleaf (engelska)
 [ ] ändra språk till engelska, spara
