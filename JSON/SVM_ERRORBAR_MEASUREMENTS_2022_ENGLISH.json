@@ -3,7 +3,7 @@
         "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-01-12",
-        "about"   : ""
+        "about"   : "Measurements taken with SVM version beta during 2022 (english)"
     },
 
     "filepath"  :{
@@ -52,7 +52,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "Measurements"],
+            "dataset_label" : ["Theoretical\n$\\beta(x) = 57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Fitted curve\n$\\beta(x)=57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "Measurements"],
 
             "CSV_column_x" : [0, 0, 3],
             "CSV_column_y" : [1, 2, 4], 

@@ -3,19 +3,19 @@
         "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-01-12",
-        "about"   : ""
+        "about"   : "Measurements taken with SVM version beta during 2022 (svenska)"
     },
 
     "filepath"  :{
         "json" : "JSON/SVM_ERRORBAR.json",
         "csv"  : "CSV/SVM_PlotData_from_2022-01-01_to_2022-12-31.csv",
-        "pdf"  : "PDF/SVM_Latitude_Measurements_SVM_beta_during_2022.pdf", 
+        "pdf"  : "PDF/SVM_Latitude_Measurements_beta_during_2022_zoom.pdf", 
 	"standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
     "figure_size" : {
-        "width_cm"  : 35,
-        "height_cm" : 20, 
+        "width_cm"  : 13,
+        "height_cm" : 8, 
 
         "external_font_size_pt"      : 11,
         "external_paper_width_cm"    : 21,
@@ -28,14 +28,14 @@
     "font_size" :{
         "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
         "unit"   : " pt (72,272 pts per 2,54 centimeter)",
-        "axis"   : 16,
-        "tick"   : 15, 
-        "legend" : 15 
+        "axis"   : 14,
+        "tick"   : 13, 
+        "legend" : 13 
     },
   
     "LaTeX_and_CMU" : true,
-    "figure_title"  : "Measurements with SVM version beta during 2022",
-    "point_or_decimal_comma" : ".",
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ",",
 
     "subplot_setup" : {
         "columns"        : 1,
@@ -52,7 +52,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "Measurements"],
+            "dataset_label" : ["Teoretiskt\n$\\beta(x) = 57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Anpassad kurva\n$\\beta(x)=57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "M\u00e4tpunkter"],
 
             "CSV_column_x" : [0, 0, 3],
             "CSV_column_y" : [1, 2, 4], 
@@ -86,30 +86,30 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Day $x$ from 2021-01-01",            
+                    "label"           : "",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 350, 
-                        "max" : 750
+                        "min" : 508, 
+                        "max" : 566
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Angle $\\beta$ (deg)",
+                    "label"           : "",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 32,
-                        "max" : 82
+                        "min" : 33.75,
+                        "max" : 37.25
                     }
                 }
             }, 
 
             "legend" : {
-                "on"       : true, 
+                "on"       : false, 
                 "alpha"    : 1, 
                 "location" : "best"
             },

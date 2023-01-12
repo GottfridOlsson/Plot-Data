@@ -3,13 +3,13 @@
         "project" : "SVM ANALYSIS IN PYTHON",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-01-12",
-        "about"   : ""
+        "about"   : "Measurements taken with SVM version beta during 2022 (svenska)"
     },
 
     "filepath"  :{
         "json" : "JSON/SVM_ERRORBAR.json",
         "csv"  : "CSV/SVM_PlotData_from_2022-01-01_to_2022-12-31.csv",
-        "pdf"  : "PDF/SVM_Latitude_Measurements_SVM_beta_during_2022.pdf", 
+        "pdf"  : "PDF/SVM_Latitudmätningar_SVM_beta_under_2022.pdf", 
 	"standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
@@ -34,8 +34,8 @@
     },
   
     "LaTeX_and_CMU" : true,
-    "figure_title"  : "Measurements with SVM version beta during 2022",
-    "point_or_decimal_comma" : ".",
+    "figure_title"  : "M\u00e4tningar med SVM version beta under 2022",
+    "point_or_decimal_comma" : ",",
 
     "subplot_setup" : {
         "columns"        : 1,
@@ -52,7 +52,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Theoretical\n$57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Fitted curve\n$57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "Measurements"],
+            "dataset_label" : ["Teoretiskt\n$\\beta(x) = 57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Anpassad kurva\n$\\beta(x)=57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "M\u00e4tpunkter"],
 
             "CSV_column_x" : [0, 0, 3],
             "CSV_column_y" : [1, 2, 4], 
@@ -86,7 +86,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Day $x$ from 2021-01-01",            
+                    "label"           : "Dag $x$ fr\u00e5n 2021-01-01",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -97,7 +97,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Angle $\\beta$ (deg)",
+                    "label"           : "Vinkel $\\beta$ (deg)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,

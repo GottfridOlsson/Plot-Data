@@ -2,9 +2,9 @@
 
 ATT GÖRA:
 [X] ändra ordning så att measurements hamnar överst (sist)
-[ ] fixa så att den ser bra ut
-[ ] spara pdf i overleaf (engelska)
-[ ] ändra språk till engelska, spara
+[X] fixa så att den ser bra ut
+[X] spara pdf i overleaf (engelska)
+[X] ändra språk till engelska, spara
 [ ] gör minst en zoom-in vid ex. minimat för att man bättre ska se errorbar
 [ ] lägg in zoom-in i ursprungliga bilden (svenska/engelska) om den får plats rimligt
 [ ] skriv om resultatet i Overleaf
