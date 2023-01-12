@@ -5,7 +5,7 @@ ATT GÖRA:
 [X] fixa så att den ser bra ut
 [X] spara pdf i overleaf (engelska)
 [X] ändra språk till engelska, spara
-[ ] gör minst en zoom-in vid ex. minimat för att man bättre ska se errorbar
-[ ] lägg in zoom-in i ursprungliga bilden (svenska/engelska) om den får plats rimligt
-[ ] skriv om resultatet i Overleaf
+[X] gör minst en zoom-in vid ex. minimat för att man bättre ska se errorbar
+[X] lägg in zoom-in i ursprungliga bilden (svenska/engelska) om den får plats rimligt
+[X] skriv om resultatet i Overleaf
 
