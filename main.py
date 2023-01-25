@@ -60,7 +60,7 @@ def main():
         ## PLOT ##
         for k in range(len(JSON.plot_type[i])):  # forall types of plots in each subplot
 
-
+            
             ## PLOT IN A CERTAIN TYPE OF PLOT ##
 
             # ERRORBAR #

@@ -3,13 +3,13 @@
         "project" : "TIF320, Assignment 1, Task 4",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-01-24",
-        "about"   : "Helium wavefunction calulated"
+        "about"   : "Helium wavefunction calulated in task 1 and task 4"
     },
 
     "filepath"  :{
         "json" : "JSON/TIF320_A1_T4_helium_wavefunction.json",
-        "csv"  : "CSV/TIF320_A1_T4_helium_wavefunction.csv",
-        "pdf"  : "PDF/TIF320_A1_T4_helium_wavefunction.pdf", 
+        "csv"  : "CSV/TIF320_A1_T4_comparison_helium_wavefunction_T1_T4.csv",
+        "pdf"  : "PDF/TIF320_A1_T4_comparison_helium_wavefunction.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
@@ -64,18 +64,18 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar"],
+            "plot_type"  : ["errorbar", "errorbar"],
 
-            "dataset_label" : ["Calculated wavefunction", "Theoretical wavefunction", "Calculated $N=10$"],
+            "dataset_label" : ["Calculated wavefunction in Task 1", "Calculated wavefunction in Task 4", "Calculated $N=10$"],
 
-            "CSV_column_x" : [0],
-            "CSV_column_y" : [1], 
+            "CSV_column_x" : [0, 2],
+            "CSV_column_y" : [1, 3], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#FF0000", "#000000", "#FF0000"],
+                    "color" : ["#000000", "#000000", "#FF0000"],
                     "style" : ["-", "--", ""],
-                    "width" : [2.0, 1.62, 1.62]
+                    "width" : [1.62, 1.62, 1.62]
                 },
 
                 "marker" : {

@@ -1,13 +1,12 @@
 import CSV_handler
 
 # name of output file
-output_string = "A1_Task2_Hartree_potential.csv"
+output_string = "A1_T4_comparison_hydrogen_wavefunction_T1_T4.csv"
 
 #names of csv files to get columns from and print to output file
 raw_paths = [
-    "A1_Task2_Hartree_potential_N=10.csv", 
-    "A1_Task2_Hartree_potential_N=100.csv", 
-    "A1_Task2_Hartree_potential_N=1000.csv", 
+    "A1_Task1_hydrogen_wavefunction_4gaussians_as_basis_N=1000.csv", 
+    "A1_Task4_helium_wavefunction_N=1000.csv", 
 ]
 
 
