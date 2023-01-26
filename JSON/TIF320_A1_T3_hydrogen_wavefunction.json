@@ -66,7 +66,7 @@
         
             "plot_type"  : ["errorbar", "errorbar"],
 
-            "dataset_label" : ["Calculated wavefunction", "Theoretical wavefunction", "Calculated $N=10$"],
+            "dataset_label" : ["Calculated", "Theoretical", "Calculated $N=10$"],
 
             "CSV_column_x" : [0, 0],
             "CSV_column_y" : [2, 1], 
@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Probability amplitude",
+                    "label"           : "Wavefunction $\\psi(r)$ (a.u.)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,

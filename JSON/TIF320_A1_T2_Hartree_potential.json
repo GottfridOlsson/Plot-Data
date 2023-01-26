@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy (a.u.)",
+                    "label"           : "Energy $E$ (a.u.)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
