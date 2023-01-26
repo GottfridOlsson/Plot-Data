@@ -1,0 +1,224 @@
+﻿{
+    "comment" : {
+        "project" : "SPRINGDATA",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-01-26",
+        "about"   : "Tid 10 km löpning alla år"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/SPRINGDATA_all_years.json",
+        "csv"  : "CSV/SPRINGDATA [2023-01-25].csv",
+        "pdf"  : "PDF/SPRINGDATA_all_years.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "Springtider 10$\\,$km",
+    "point_or_decimal_comma" : ",",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar", "errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+
+            "CSV_column_x" : [0,0,0,0,0,0,0],
+            "CSV_column_y" : [1,2,3,4,5,6,7], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#FF0000", "#00FF00", "#0000FF", "#FF0000", "#00FF00", "#0000FF", "#000000"],
+                    "style" : ["-", "-", "-", "-", "-", "-", "-"],
+                    "width" : []
+                },
+
+                "marker" : {
+                    "type"      : ["x", "x", "x", "o", "o", "o", "s"], 
+                    "size"      : [], 
+                    "thickness" : [], 
+                    "facecolor" : ["None"]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Vecka",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : -2, 
+                        "max" : 54
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Tid (min)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 30,
+                        "max" : 60
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 0.85, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["data 1"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [1], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "x",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "y $\\mathrm{d}\\sigma/\\mathrm{d}\\Omega$ (mb/sr)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 0.85, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}
