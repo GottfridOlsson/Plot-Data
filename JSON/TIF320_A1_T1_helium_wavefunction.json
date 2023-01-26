@@ -1,0 +1,134 @@
+﻿{
+    "comment" : {
+        "project" : "TIF320, Assignment 1, Task 1",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-01-26",
+        "about"   : "Helium wavefunction, with 4 gaussians as basis functions"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/TIF320_A1_T1_helium_wavefunction.json",
+        "csv"  : "CSV/TIF320_A1_T1_helium_wavefunction_4gaussians_as_basis.csv",
+        "pdf"  : "PDF/TIF320_A1_T1_helium_wavefunction_4gaussians_as_basis.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["Calculated wavefunction", "Theoretical", "Calculated $N=10$"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [1], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#FF0000", "#000000", "#FF0000"],
+                    "style" : ["-", "--", ""],
+                    "width" : [2.0, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "."], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.7, 1.7, 1.7], 
+                    "facecolor" : ["None", "None"]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Radial coordinate $r$ (a.u.)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Probability amplitude",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : -0.05,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+
+  ]
+}
