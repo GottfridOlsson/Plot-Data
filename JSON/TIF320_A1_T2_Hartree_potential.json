@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "TIF320, Assignment 1, Task 2",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-24",
+        "updated" : "2023-02-03",
         "about"   : "Hartree potential, comparison theoretical vs. calulated"
     },
 
@@ -89,7 +89,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Radial coordinate $r$ (a.u.)",            
+                    "label"           : "Radial coordinate $r$ ($a_0$)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Energy $E$ (a.u.)",
+                    "label"           : "Potential $V_\\mathrm{H}$ ($E_\\mathrm{h}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,

@@ -70,8 +70,6 @@ def main():
                 data_x = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
                 data_y = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
 
-
-
                 if JSON.errorbar_on[i][k]: #### TEST 2022-09-22, remove this and below if it fucks something up later on
                     if JSON.errorbar_CSV_column_x[i][k] == -1:
                         errorbar_x = None

@@ -3,7 +3,7 @@
         "project" : "TIF320, Assignment 1, Task 4",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-01-26",
-        "about"   : "Helium wavefunction calculated in task 1, 4, 5, and 6"
+        "about"   : "Helium wavefunction calculated in task 1, 4, 5, and 6. Was plotted by scaling data_y by np.sqrt(4*np.pi)*data_x in main-py (fullösning)"
     },
 
     "filepath"  :{
@@ -89,24 +89,24 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Radial coordinate $r$ (a.u.)",            
+                    "label"           : "Radial coordinate $r$ ($a_0$)",            
                     "scale"           : "linear",
                     "invert"          : false,
-                    "float_precision" : 1,
+                    "float_precision" : 0,
                     "limit" : {
-                        "min" : -0.05, 
-                        "max" : 1.05
+                        "min" : -0.2, 
+                        "max" : 5.2
                     }
                 }, 
 
                 "y" : {
-                    "label"           : "Wavefunction $\\psi(r)$ (a.u.)",
+                    "label"           : "Radial wavefunction $u(r)$ ($a_{0}^{-0.5}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 0.15,
-                        "max" : false
+                        "min" : -0.05,
+                        "max" : 1.00
                     }
                 }
             }, 

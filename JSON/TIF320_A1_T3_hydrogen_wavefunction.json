@@ -2,8 +2,8 @@
     "comment" : {
         "project" : "TIF320, Assignment 1, Task 3",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-24",
-        "about"   : "Hydrogen wavefunction, comparison theoretical vs. calulated"
+        "updated" : "2023-02-03",
+        "about"   : "Hydrogen wavefunction, comparison theoretical vs. calulated.Was plotted by scaling data_y by np.sqrt(4*np.pi)*data_x in main-py (fullösning)"
     },
 
     "filepath"  :{
@@ -89,7 +89,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Radial coordinate $r$ (a.u.)",            
+                    "label"           : "Radial coordinate $r$ ($a_0$)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -100,13 +100,13 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Wavefunction $\\psi(r)$ (a.u.)",
+                    "label"           : "Radial wavefunction $u(r)$ ($a_{0}^{-0.5}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : -0.02,
-                        "max" : false
+                        "min" : -0.04,
+                        "max" : 0.78
                     }
                 }
             }, 

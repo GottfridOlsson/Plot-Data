@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "TIF320, Assignment 1, Task 1",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-26",
+        "updated" : "2023-02-03",
         "about"   : "Helium wavefunction, with 4 gaussians as basis functions"
     },
 
@@ -89,7 +89,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Radial coordinate $r$ (a.u.)",            
+                    "label"           : "Radial coordinate $r$ ($a_0$)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Wavefunction $\\psi(r)$ (a.u.)",
+                    "label"           : "Wavefunction $\\psi(r)$ ($a_{0}^{-1.5}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 1,

@@ -89,7 +89,7 @@
             "axis" : {
 
                 "x" : {
-                    "label"           : "Maximum radial coordinate $r_\\mathrm{max}$ (a.u.)",            
+                    "label"           : "Maximum radial coordinate $r_\\mathrm{max}$ ($a_0$)",            
                     "scale"           : "linear",
                     "invert"          : false,
                     "float_precision" : 0,
@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Ground energy $E_0$ (a.u.)",
+                    "label"           : "Ground energy $E_0$ ($E_\\mathrm{h}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 4,
@@ -171,7 +171,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "Ground energy $E_0$ (a.u.)",
+                    "label"           : "Ground energy $E_0$ ($E_\\mathrm{h}$)",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 3,
