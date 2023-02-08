@@ -1,0 +1,419 @@
+﻿{
+    "comment" : {
+        "project" : "FKA121 H1a, Problem 4",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-11-25, 12:41",
+        "about"   : "Temperature, pressure, total energy, and volume as funtion of time during equilibration"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/FKA121_H1a_P4_equilibration_properties.json",
+        "csv"  : "CSV/FKA121_H1a_P4_equilibration_properties_vs_time.csv",
+        "pdf"  : "PDF/FKA121_H1a_P4_equilibration_properties.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 17, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 4, 
+        "total_subplots" : 4, 
+        "share_x"        : true
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["Temperature"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [4], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",
+                    "comment"         : "only x-label on the bottom subplot since we want to 'sharex'",       
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Temperature ($^\\circ \\mathrm{C}$)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["Pressure"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [5], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",   
+                    "comment"         : "only x-label on the bottom subplot since we want to 'sharex'",         
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Pressure (GPa)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    },
+
+    {
+        "subplot_num" : 3, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["Total energy"],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Energy per cell (eV)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    },
+
+    {
+        "subplot_num" : 4, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : [""],
+
+            "CSV_column_x" : [0],
+            "CSV_column_y" : [6], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000"],
+                    "style" : ["-"],
+                    "width" : [1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : [""], 
+                    "size"      : [3.3], 
+                    "thickness" : [1.7], 
+                    "facecolor" : ["None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false],
+
+                    "constant" : {
+                        "on"   : [false], 
+                        "x_pm" : [0], 
+                        "y_pm" : [0] 
+                    },
+
+                    "CSV_column_x" : [0],
+                    "CSV_column_y" : [0],
+
+                    "size"         : [3], 
+                    "linewidth"    : [1], 
+                    "capthickness" : [1]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Time (ps)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : -0.5, 
+                        "max" : 60.5
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Volume per cell (\u00c5$^3$)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : false, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}

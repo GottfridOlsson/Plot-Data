@@ -11,3 +11,6 @@ Gillar 2022-01-19:
   blå: #086BDE
 svart: #101010, #151515
 
+Färg för att plotta rådata i bakgrunden:
+grå: #b0b0b0
+

@@ -1,0 +1,151 @@
+﻿{
+    "comment" : {
+        "project" : "FKA121 H3",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2022-12-16",
+        "about"   : "Fits to the calculated E_T vs. Delta tau for linear and quadratic decomposition"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/FKA121_H3_P4_fits_to_energy.json",
+        "csv"  : "CSV/FKA121_H3_P4_fits_to_energy.csv",
+        "pdf"  : "PDF/FKA121_H3_P4_fits_to_energy.pdf" 
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 11, 
+
+        "external_values": {
+            "external_font_size_pt"      : 11,
+            "external_paper_width_cm"    : 21,
+            "external_paper_width_a4_cm" : 21,
+            "external_paper_margins_cm"  : 2.5,
+            "external_paper_width_minus_two_margins_cm" : 16,
+            "external_figwidth_fraction_of_textwidth"   : 1,
+            "comment" : "if external_figwidth_fraction_of_textwidth  * external_paper_width_minus_two_margins_cm = width_cm as well as external_font_size_pt = font_size_pt, then the ratio of figure width to text is the same in the external paper as is gendered in this program"
+        }
+    },
+
+    "font_size" :{
+        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
+        "unit"   : "pt (72,272 points per 2,54 centimeter)",
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "LaTeX_and_CMU" : true,
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "utf-8_encoding_help" : {
+        "comment" : true,
+        "Å" : "\u00c5", 
+        "Ä" : "\u00c4", 
+        "Ö" : "\u00d6", 
+        "å" : "\u00e5", 
+        "ä" : "\u00e4", 
+        "ö" : "\u00f6"
+    },
+
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["1st order fit, 10$\\sigma$ prediction interval", "2nd order fit, 10$\\sigma$ prediction interval", "1st order data, 2$\\sigma$ errorbars", "2nd order data, 2$\\sigma$ errorbars"],
+
+            "CSV_column_x" : [5, 5, 0, 0],
+            "CSV_column_y" : [6, 8, 1, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#f1311d", "#086BDE", "#f1311d", "#086BDE"],
+                    "style" : ["-", "-", "", ""],
+                    "width" : [1.62, 1.62, 1.62, 1.62]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "o", "o"], 
+                    "size"      : [3.3, 3.3, 1.5, 1.5], 
+                    "thickness" : [1.7, 1.7, 1.5, 1.5], 
+                    "facecolor" : ["None", "None", "None", "None"]
+                }, 
+
+                "errorbar" : {
+                    "on" : [true, true, true, true],
+                    "errorbar_color" : ["#f1311d", "#086BDE", "#f1311d", "#086BDE"],
+                    "errorbar_alpha" : [0.5, 0.5, 1, 1],
+
+                    "constant" : {
+                        "on"   : [false, false, false, false], 
+                        "x_pm" : [0, 0, 0, 0], 
+                        "y_pm" : [0, 0, 0, 0] 
+                    },
+
+                    "CSV_column_x" : [-1, -1, -1, -1],
+                    "CSV_column_y" : [7, 9, 2, 4],
+
+                    "size"         : [0, 0, 1.75, 1.75], 
+                    "linewidth"    : [0.3425, 0.3425, 0.8, 0.8], 
+                    "capthickness" : [1, 1, 0.8, 50]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "$\\Delta \\tau$ (a.u.)",            
+                    "scale"           : "linear",
+                    "invert"          : false,
+                    "float_precision" : 2,
+                    "limit" : {
+                        "min" : -0.02, 
+                        "max" : 0.42
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "$E_\\mathrm{T}$ (a.u.)",
+                    "scale"           : "linear",
+                    "invert"          : false, 
+                    "float_precision" : 2,
+                    "limit" : {
+                        "min" : -3.04,
+                        "max" : -2.89
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true, 
+                    "linewidth" : 0.7
+                },
+                "minor" : {
+                    "on"        : true, 
+                    "linewidth" : 0.3
+                }   
+            }
+        } 
+    }
+  ]
+}
