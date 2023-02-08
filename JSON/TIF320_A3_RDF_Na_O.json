@@ -3,12 +3,12 @@
         "project" : "TIF320, Assignment 3",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-02-08",
-        "about"   : "RDF for Na and O, solvation shell to be calculated"
+        "about"   : "RDF for Na and O both our and their simulation, solvation shell to be calculated"
     },
 
     "filepath"  :{
         "json" : "JSON/TIF320_A3_RDF_Na_O.json",
-        "csv"  : "CSV/TIF320_A3_RDF_histogram.csv",
+        "csv"  : "CSV/TIF320_A3_RDF_Na-O_our_their.csv",
         "pdf"  : "PDF/TIF320_A3_RDF_Na_O.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
@@ -64,23 +64,23 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar"],
+            "plot_type"  : ["errorbar", "errorbar"],
 
-            "dataset_label" : [""],
+            "dataset_label" : ["Our simulation", "Provided simulation"],
 
-            "CSV_column_x" : [0],
-            "CSV_column_y" : [2], 
+            "CSV_column_x" : [0, 3],
+            "CSV_column_y" : [2, 5], 
 
             "plot_type_settings" : {
                 "line": {
                     "color" : ["#FF0000", "#000000", "#FF0000"],
-                    "style" : ["-", "--", ""],
+                    "style" : ["-", "-", ""],
                     "width" : [1.6, 1.62, 1.62]
                 },
 
                 "marker" : {
-                    "type"      : [".", "", "."], 
-                    "size"      : [3.3, 3.3, 3.3], 
+                    "type"      : ["o", "s", "."], 
+                    "size"      : [1.75, 1.75, 3.3], 
                     "thickness" : [1.7, 1.7, 1.7], 
                     "facecolor" : ["None", "None"]
                 }
@@ -112,7 +112,7 @@
             }, 
 
             "legend" : {
-                "on"       : false, 
+                "on"       : true, 
                 "alpha"    : 1, 
                 "location" : "best"
             },
