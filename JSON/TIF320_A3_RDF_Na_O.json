@@ -100,7 +100,7 @@
                 }, 
 
                 "y" : {
-                    "label"           : "RDF Na-O",
+                    "label"           : "RDF $g_\\mathrm{NaO}(r)$",
                     "scale"           : "linear",
                     "invert"          : false, 
                     "float_precision" : 0,
