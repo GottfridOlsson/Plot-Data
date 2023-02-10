@@ -1,13 +1,12 @@
 import CSV_handler
 
 # name of output file
-output_string = "TIF320_A3_RDF_Na-O_our_simulation_different_simulation_timeintervals.csv"
+output_string = "TIF320_A3_RDF_Na-O_our_different_simulation_timeintervals_and_their.csv"
 
 #names of csv files to get columns from and print to output file
 raw_paths = [
-    "TIF320_A3_RDF_histogram_our_simulation_0ps_to_1ps.csv",
-    "TIF320_A3_RDF_histogram_our_simulation_0.5ps_to_1.5ps.csv", 
-    "TIF320_A3_RDF_histogram_our_simulation_1ps_to_2ps.csv"
+    "TIF320_A3_RDF_Na-O_our_simulation_different_simulation_timeintervals.csv",
+    "TIF320_A3_RDF_Na-O_our_their.csv"
 ]
 
 

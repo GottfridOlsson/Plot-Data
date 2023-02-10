@@ -15,7 +15,7 @@
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 16, 
+        "height_cm" : 14, 
 
         "external_values": {
             "external_font_size_pt"      : 11,

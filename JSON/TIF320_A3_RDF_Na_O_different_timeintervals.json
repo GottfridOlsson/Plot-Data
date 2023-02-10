@@ -2,14 +2,14 @@
     "comment" : {
         "project" : "TIF320, Assignment 3",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-02-09",
-        "about"   : "RDF for Na and O for our simulation, different simulation time intervals"
+        "updated" : "2023-02-10",
+        "about"   : "RDF for Na and O for our simulation with different simulation time intervals, and their RDF"
     },
 
     "filepath"  :{
         "json" : "JSON/TIF320_A3_RDF_Na_O_different_timeintervals.json",
-        "csv"  : "CSV/TIF320_A3_RDF_Na-O_our_simulation_different_simulation_timeintervals.csv",
-        "pdf"  : "PDF/TIF320_A3_RDF_Na_O_different_timeintervals.pdf", 
+        "csv"  : "CSV/TIF320_A3_RDF_Na-O_our_different_simulation_timeintervals_and_their.csv",
+        "pdf"  : "PDF/TIF320_A3_RDF_Na_O_different_timeintervals_ours_their.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
@@ -64,24 +64,24 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["0.0 ps to 1.0 ps", "0.5 ps to 1.5 ps", "1.0 ps to 2.0 ps"],
+            "dataset_label" : ["Our, 0.0 ps to 1.0 ps", "Our, 0.5 ps to 1.5 ps", "Our, 1.0 ps to 2.0 ps", "Given, 1 ps to 7 ps"],
 
-            "CSV_column_x" : [0, 3, 6],
-            "CSV_column_y" : [2, 5, 8], 
+            "CSV_column_x" : [0, 3, 6, 12],
+            "CSV_column_y" : [2, 5, 8, 14], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#c0c0c0", "#707070", "#000000"],
-                    "style" : ["-", "-", "-"],
-                    "width" : [1.6, 1.6, 1.6]
+                    "color" : ["#c0c0c0", "#707070", "#000000", "#FF0000"],
+                    "style" : ["-", "-", "-", "--"],
+                    "width" : [1.6, 1.6, 1.6, 1.6]
                 },
 
                 "marker" : {
-                    "type"      : [".", ".", "."], 
-                    "size"      : [1.65, 1.65, 1.65], 
-                    "thickness" : [1.7, 1.7, 1.7], 
+                    "type"      : [".", "s", "", ""], 
+                    "size"      : [1.7, 1.5, 1.65, 1.65], 
+                    "thickness" : [1.7, 1.7, 1.7, 1.7], 
                     "facecolor" : ["None", "None"]
                 }
             },
