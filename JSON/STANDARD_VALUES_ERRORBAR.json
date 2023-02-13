@@ -2,7 +2,7 @@
     "comment" : {
         "project" : "REFACTORING: STANDARD PLOT VALUES",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-10",
+        "updated" : "2023-02-13",
         "about"   : "Refactoring the code, adding standard values not needed to declare in JSON file per specific plot"
     },
 
@@ -26,7 +26,6 @@
     },
 
     "font_size" :{
-        "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
         "unit"   : "pt (72,272 points per 2,54 centimeter)",
         "axis"   : 11,
         "tick"   : 9, 
@@ -128,9 +127,11 @@
             "on"       : false, 
             "alpha"    : 1, 
             "location" : "best", 
-	    "order_on" : false, 
-	    "order"    : 0, 
-	    "labels"   : "NO STANDARD SETTING FOR LABELS, SET 'legend_order_on' = False IN JSON"
+        
+            "developer_comment" :"Below are some ideas for legend that might get implemented in the future",
+	        "order_on" : false, 
+	        "order"    : 0, 
+	        "labels"   : "NO STANDARD SETTING FOR LABELS, SET 'legend': {order_on: false}' IN JSON"
         },
 
         "grid" : {
