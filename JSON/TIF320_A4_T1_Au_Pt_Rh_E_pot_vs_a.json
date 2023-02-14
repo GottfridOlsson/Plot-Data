@@ -1,0 +1,187 @@
+﻿{
+    "comment" : {
+        "project" : "TIF320 A4 T1",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-02-14",
+        "about"   : "Potential energy vs lattice parameter for Au, Pt, Rh"
+    },
+
+    "filepath"  :{
+        "csv"  : "CSV/TIF320_A4_T1_Au_energy_vs_lattice_parameter_fit.csv",
+        "pdf"  : "PDF/TIF320_A4_T1_Au-Pt-Rh_E-pot_vs_a.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 9
+    },
+
+    "font_size" :{
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1, 
+        "share_x"        : false  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar"],
+
+            "dataset_label" : ["Au", "Pt", "Rh"],
+
+            "CSV_column_x" : [2, 0, 0],
+            "CSV_column_y" : [3, 2, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000", "#000000"],
+                    "style" : ["-", "--", ":"],
+                    "width" : [1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Lattice parameter $a$ (\u00c5)",            
+                    "scale"           : "linear",
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Potential energy (eV)",
+                    "scale"           : "linear",
+                    "float_precision" : 2,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["", "", ""],
+
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [1, 2, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000", "#000000"],
+                    "style" : ["-", "--", ":"],
+                    "width" : [1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}
