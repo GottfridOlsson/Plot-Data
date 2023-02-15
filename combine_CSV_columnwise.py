@@ -2,13 +2,13 @@ import CSV_handler
 
 
 # name of output file (TO CHANGE)
-output_string = "TIF320_A4_T1_Au-Pt-Rh_energy_vs_lattice-parameter_fit.csv"
+output_string = "TIF320_A4_T1_Au-Pt-Rh_energy_vs_lattice-parameter_fit_step0.01.csv"
 
 #names of csv files to get columns from and print to output file (TO CHANGE)
 raw_paths = [
-    "TIF320_A4_T1_Au_energy_vs_lattice_parameter_fit.csv",
-    "TIF320_A4_T1_Pt_energy_vs_lattice_parameter_fit.csv",
-    "TIF320_A4_T1_Rh_energy_vs_lattice_parameter_fit.csv"
+    "TIF320_A4_T1_Au_energy_vs_lattice_parameter_step0.01_fit.csv",
+    "TIF320_A4_T1_Pt_energy_vs_lattice_parameter_step0.01_fit.csv",
+    "TIF320_A4_T1_Rh_energy_vs_lattice_parameter_step0.01_fit.csv"
 ]
 
 

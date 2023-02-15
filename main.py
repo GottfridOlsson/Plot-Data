@@ -70,6 +70,7 @@ def main():
                 data_x = CSV_data[CSV_header[JSON.dataset_CSV_column_x[i][k]]]
                 data_y = CSV_data[CSV_header[JSON.dataset_CSV_column_y[i][k]]]
 
+
                 if JSON.errorbar_on[i][k]: #### TEST 2022-09-22, remove this and below if it fucks something up later on
                     if JSON.errorbar_CSV_column_x[i][k] == -1:
                         errorbar_x = None
@@ -96,8 +97,9 @@ def main():
                     JSON.dataset_label[i][k], JSON.line_color[i][k], JSON.line_style[i][k], JSON.line_width[i][k], \
                     JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i, JSON.errorbar_color[i][k], JSON.errorbar_alpha[i][k]
                     )
+                
 
-
+                
 
             # HEATMAP #
             # if JSON.heatmap_on[i][k]:
