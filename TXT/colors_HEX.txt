@@ -1,3 +1,9 @@
+2023-02-14: Triadic colors based on the red #f43542 (https://www.color-hex.com/color/f43542):
+  red: #f43542
+green: #42f435
+ blue: #3542f4
+
+
 2022-08-17: mer mute:ade färger, men ändå tydliga (gör inte lika ont i ögonen som FF0000, 00FF00, och 0000FF)
   röd: #F43542
  grön: #4FCE29
@@ -11,6 +17,7 @@ Gillar 2022-01-19:
   blå: #086BDE
 svart: #101010, #151515
 
-Färg för att plotta rådata i bakgrunden:
-grå: #b0b0b0
+
+Rådata i bakgrunden:
+  grå: #b0b0b0
 

@@ -1,12 +1,14 @@
 import CSV_handler
 
-# name of output file
-output_string = "TIF320_A3_RDF_Na-O_our_different_simulation_timeintervals_and_their.csv"
 
-#names of csv files to get columns from and print to output file
+# name of output file (TO CHANGE)
+output_string = "TIF320_A4_T1_Au-Pt-Rh_energy_vs_lattice-parameter_fit.csv"
+
+#names of csv files to get columns from and print to output file (TO CHANGE)
 raw_paths = [
-    "TIF320_A3_RDF_Na-O_our_simulation_different_simulation_timeintervals.csv",
-    "TIF320_A3_RDF_Na-O_our_their.csv"
+    "TIF320_A4_T1_Au_energy_vs_lattice_parameter_fit.csv",
+    "TIF320_A4_T1_Pt_energy_vs_lattice_parameter_fit.csv",
+    "TIF320_A4_T1_Rh_energy_vs_lattice_parameter_fit.csv"
 ]
 
 
