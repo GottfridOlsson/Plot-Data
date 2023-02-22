@@ -2,12 +2,12 @@ import CSV_handler
 
 
 # name of output file (TO CHANGE)
-output_string = "TIF326_Tensile_test_LDPE_CM_MD_strain_percent_stress_MPa.csv"
+output_string = "TIF326_Tensile_test.csv"
 
 #names of csv files to get columns from and print to output file (TO CHANGE)
 raw_paths = [
-    "TIF326_Tensile_testing_LDPE_CD_Data_CD_strain_percent_stress_MPa.csv",
-    "TIF326_Tensile_testing_LDPE_MD_Data_MD_strain_percent_stress_MPa.csv"
+    "TIF326_Group2-160C-2h_tensile-test.csv",
+    "TIF326_Tensile_reference_material.csv"
 ]
 
 
