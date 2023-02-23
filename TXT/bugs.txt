@@ -2,6 +2,10 @@ KNOWN BUGS:
 
 2. (feature) legend doesn't include datasets in order of occurence in JSON, but rather in order of mark_style and line_style. Or, perhaps, it just does whatever. I don't really know [found: 2022-06-23]
 
+2023-02-23:
+-when using scale='log' on y-axis and then minor_grid_on='True', minor grids do NOT show in the plot
+-->This need to use plt.semilogy(), or plt.loglog(), instead of setting scale to log. 
+
 
 
 

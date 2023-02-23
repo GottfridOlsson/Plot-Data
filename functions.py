@@ -52,12 +52,13 @@ def set_legend(ax, legend_on, alpha, location, axNum):
 
 
 def set_grid(ax, grid_major_on, grid_major_linewidth, grid_minor_on, grid_minor_linewidth, axNum):
-      if grid_major_on:
+    if grid_major_on:
         ax.grid(grid_major_on, which='major', linewidth=grid_major_linewidth) 
-      if grid_minor_on:
+    if grid_minor_on:
         ax.minorticks_on()
         ax.grid(grid_minor_on, which='minor', linewidth=grid_minor_linewidth)
-      print("DONE: set_grid: grid_major: " + str(grid_major_on) +", grid_minor: "+ str(grid_minor_on)+  " on axs: " + str(axNum))
+    ###ax.grid(True, which='both', linewidth=grid_minor_linewidth) # TEMP 2023-02-23, did NOT put logarithmic grids on my linear-log plot (x-y)
+    print("DONE: set_grid: grid_major: " + str(grid_major_on) +", grid_minor: "+ str(grid_minor_on)+  " on axs: " + str(axNum))
 
 
 def set_axis_scale(ax, xScale_string, yScale_string, axNum):

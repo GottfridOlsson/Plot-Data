@@ -1,0 +1,188 @@
+﻿{
+    "comment" : {
+        "project" : "TIF320 A4 T7",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-02-23",
+        "about"   : "Reaction rate CO2 for catalysts Au, Pt, Rh as function of temperature"
+    },
+
+    "filepath"  :{
+        "json" : "JSON/TIF320_A4_T7_reactionRate_temperature.json",
+        "csv"  : "CSV/TIF320_A4_T7_r_vs_T.csv",
+        "pdf"  : "PDF/TIF320_A4_T7_reactionRate_temperature.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 16
+    },
+
+    "font_size" :{
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 2, 
+        "total_subplots" : 2, 
+        "share_x"        : true  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Au", "Pt", "Rh"],
+
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [1, 2, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#f43542", "#42f435", "#3542f4"],
+                    "style" : ["-", "-", "-"],
+                    "width" : [1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Reaction rate ($\\mathrm{mol}\\,\\mathrm{m}^{-2}\\,\\mathrm{s}^{-1}$)",
+                    "scale"           : "log",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 1e-22,
+                        "max" : 1e-6
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 0.85, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar","errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Au, $\\theta_\\mathrm{CO}$", "Au, $\\theta_\\mathrm{O}$", "Pt, $\\theta_\\mathrm{CO}$","Pt, $\\theta_\\mathrm{O}$", "Rh, $\\theta_\\mathrm{CO}$", "Rh, $\\theta_\\mathrm{O}$"],
+
+            "CSV_column_x" : [0, 0, 0, 0, 0, 0],
+            "CSV_column_y" : [4, 7, 5, 8, 6, 9], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#f43542", "#f43542", "#42f435", "#42f435", "#3542f4", "#3542f4"],
+                    "style" : ["-", "--", "-", "--", "-", "--"],
+                    "width" : [1.5, 1.5, 1.5, 1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "", "", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false, false, false, false],
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Temperature ($\\mathrm{K}$)",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : -0.00001, 
+                        "max" : 2000
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Fractional coverage",
+                    "scale"           : "log",
+                    "float_precision" : 1,
+                    "limit" : {
+                        "min" : 1e-18,
+                        "max" : 1.5e0
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 0.85, 
+                "location" : "lower right"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}

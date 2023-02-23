@@ -120,7 +120,6 @@ def main():
         f.set_axis_labels(  axs_ij, JSON.axis_x_label[i], JSON.axis_y_label[i], i)
         f.set_axis_invert(  axs_ij, JSON.axis_x_invert[i], JSON.axis_y_invert[i], i)
         f.set_axis_limits(  axs_ij, JSON.axis_x_limit_min[i], JSON.axis_x_limit_max[i], JSON.axis_y_limit_min[i],JSON.axis_y_limit_max[i], i)
-    
         f.set_grid(         axs_ij, JSON.grid_major_on[i], JSON.grid_major_linewidth[i], JSON.grid_minor_on[i], JSON.grid_minor_linewidth[i], i) # set_grid must be after set_axis_scale for some reason (at least with 'log')
         f.set_legend(       axs_ij, JSON.legend_on[i], JSON.legend_alpha[i], JSON.legend_location[i], i)
 
