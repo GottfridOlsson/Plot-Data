@@ -86,7 +86,7 @@
                     "scale"           : "log",
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 1e-22,
+                        "min" : 1e-25,
                         "max" : 1e-6
                     }
                 }
