@@ -86,8 +86,8 @@
                     "scale"           : "log",
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 1e-25,
-                        "max" : 1e-6
+                        "min" : 1e-15,
+                        "max" : 2e-2
                     }
                 }
             }, 
@@ -160,8 +160,8 @@
                     "scale"           : "log",
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 1e-18,
-                        "max" : 1.5e0
+                        "min" : 7e-16,
+                        "max" : 5e0
                     }
                 }
             }, 
