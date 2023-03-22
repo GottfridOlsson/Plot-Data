@@ -86,7 +86,7 @@
                     "scale"           : "log",
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 1e-15,
+                        "min" : 1e-13,
                         "max" : 2e-2
                     }
                 }
@@ -160,7 +160,7 @@
                     "scale"           : "log",
                     "float_precision" : 1,
                     "limit" : {
-                        "min" : 7e-16,
+                        "min" : 1e-14,
                         "max" : 5e0
                     }
                 }
@@ -169,7 +169,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 0.85, 
-                "location" : "lower right"
+                "location" : "lower center"
             },
 
             "grid" : {
