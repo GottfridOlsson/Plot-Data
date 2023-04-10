@@ -2,13 +2,13 @@
     "comment" : {
         "project" : "SPRINGDATA",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-30",
+        "updated" : "2023-04-03",
         "about"   : "Tid 10km löpning 2023"
     },
 
     "filepath"  :{
         "json" : "JSON/SPRINGDATA_2023.json",
-        "csv"  : "CSV/SPRINGDATA [2023-01-25].csv",
+        "csv"  : "CSV/SPRINGDATA [2023-04-03].csv",
         "pdf"  : "PDF/SPRINGDATA_2023.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
