@@ -8,14 +8,14 @@
 
     "filepath"  :{
         "json" : "JSON/SVM_ERRORBAR.json",
-        "csv"  : "CSV/SVM_PlotData_from_2022-01-01_to_2022-12-31.csv",
+        "csv"  : "CSV/SVM_PlotData_Beta_MK_BA_fits_simple_model_curve_2023-04-16.csv",
         "pdf"  : "PDF/SVM_Latitude_Measurements_beta_during_2022_zoom.pdf", 
 	"standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
     "figure_size" : {
-        "width_cm"  : 13,
-        "height_cm" : 8, 
+        "width_cm"  : 5.7,
+        "height_cm" : 3.5, 
 
         "external_font_size_pt"      : 11,
         "external_paper_width_cm"    : 21,
@@ -28,9 +28,9 @@
     "font_size" :{
         "comment": "figure out what unit and do smth smart w.r.t. size of A4-paper in overleaf and width of fig and \\figwidth in overleaf",
         "unit"   : " pt (72,272 pts per 2,54 centimeter)",
-        "axis"   : 14,
-        "tick"   : 13, 
-        "legend" : 13 
+        "axis"   : 4.6,
+        "tick"   : 3.2, 
+        "legend" : 3.2 
     },
   
     "LaTeX_and_CMU" : true,
@@ -54,20 +54,20 @@
 
             "dataset_label" : ["Teoretiskt\n$\\beta(x) = 57.679+23.44\\cos\\left(0.0172x+0.172 \\right)$", "Anpassad kurva\n$\\beta(x)=57.742+23.49\\cos\\left(0.0169x+0.385\\right)$", "M\u00e4tpunkter"],
 
-            "CSV_column_x" : [0, 0, 3],
-            "CSV_column_y" : [1, 2, 4], 
+            "CSV_column_x" : [0, 0, 4],
+            "CSV_column_y" : [3, 2, 5], 
 
             "plot_type_settings" : {
                 "line": {
                     "color" : ["#000000", "#0000FF", "#FF0000"],
                     "style" : ["--", "-", ""],
-                    "width" : [2, 2, 1.62]
+                    "width" : [0.534, 0.534, 0.534]
                 },
 
                 "marker" : {
-                    "type"      : ["", "", "x"], 
-                    "size"      : [5, 3.3, 6.5], 
-                    "thickness" : [1.7, 1.7, 2], 
+                    "type"      : ["", "", "o"], 
+                    "size"      : [5, 3.3, 0.8], 
+                    "thickness" : [1.7, 1.7, 0.534], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
 
@@ -75,10 +75,10 @@
                     "on" : [false, false, true],
 		            "color" : ["#FF0000", "#FF0000", "#FF0000"],
 
-                    "CSV_column_y" : [-1, -1, 5],
+                    "CSV_column_y" : [-1, -1, 6],
 
-                    "size"         : [0,0,5], 
-                    "linewidth"    : [0,0,1.5], 
+                    "size"         : [0,0,1.2], 
+                    "linewidth"    : [0,0,0.534], 
                     "capthickness" : [0,0,0]
                 }
             },
@@ -91,8 +91,8 @@
                     "invert"          : false,
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 508, 
-                        "max" : 566
+                        "min" : 143, 
+                        "max" : 201
                     }
                 }, 
 

@@ -15,7 +15,7 @@
 
     "figure_size" : {
         "width_cm"  : 16,
-        "height_cm" : 9, 
+        "height_cm" : 10, 
 
         "external_font_size_pt"      : 11,
         "external_paper_width_cm"    : 21,
@@ -51,7 +51,7 @@
         
             "plot_type" : ["errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["Uppm\u00e4tta v\u00e4rden $\\beta(x)$", "Anpassad kurva\n$f_\\mathrm{fit}(x) = 57.74+23.50\\cos\\left(\\frac{2\\pi}{372.72}(x+16.12) \\right)$", "Enkel modell\n$f(x) = 57.68+23.44\\cos\\left(\\frac{2\\pi}{365.24}(x+10.00) \\right)$"],
+            "dataset_label" : ["Mätv\u00e4rden", "Anpassad kurva", "Enkel modell"],
             "CSV_column_x" : [4, 0, 0],
             "CSV_column_y" : [5, 2, 3], 
 
@@ -59,13 +59,13 @@
                 "line": {
                     "color" : ["#FF0000", "#0000FF", "#000000"],
                     "style" : ["", "-", "--"],
-                    "width" : [1.62, 1.62, 1.62]
+                    "width" : [1.5, 1.5, 1.5]
                 },
 
                 "marker" : {
-                    "type"      : ["x", "", ""], 
-                    "size"      : [5, 5, 1], 
-                    "thickness" : [1.6, 1, 1], 
+                    "type"      : ["o", "", ""], 
+                    "size"      : [2, 1, 1], 
+                    "thickness" : [1.5, 1, 1], 
                     "facecolor" : ["None", "None", "None"]
                 }, 
 
@@ -75,7 +75,7 @@
 
                     "CSV_column_y" : [6, -1, -1],
 
-                    "size"         : [5, 0, 0], 
+                    "size"         : [2.5, 0, 0], 
                     "linewidth"    : [1.5, 0, 0], 
                     "capthickness" : [0, 0, 0]
                 }
@@ -100,8 +100,8 @@
                     "invert"          : false, 
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 32,
-                        "max" : 82
+                        "min" : false,
+                        "max" : false
                     }
                 }
             }, 
@@ -109,7 +109,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best"
+                "location" : "lower right"
             },
 
             "grid" : {
