@@ -2,13 +2,13 @@
     "comment" : {
         "project" : "SPRINGDATA",
         "author"  : "Gottfrid Olsson",
-        "updated" : "2023-01-26",
+        "updated" : "2023-05-27",
         "about"   : "Tid 10 km löpning alla år"
     },
 
     "filepath"  :{
         "json" : "JSON/SPRINGDATA_all_years.json",
-        "csv"  : "CSV/SPRINGDATA [2023-01-25].csv",
+        "csv"  : "CSV/SPRINGDATA [2023-05-27].csv",
         "pdf"  : "PDF/SPRINGDATA_all_years.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
@@ -80,7 +80,7 @@
 
                 "marker" : {
                     "type"      : ["x", "x", "x", "o", "o", "o", "s"], 
-                    "size"      : [], 
+                    "size"      : [3.5,3.5,3.5,3.5,3.5,3.5,3.5], 
                     "thickness" : [], 
                     "facecolor" : ["None"]
                 }
