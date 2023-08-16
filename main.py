@@ -30,7 +30,7 @@ import numpy as np # for ceiling
 
 
 def main():
-    print("===== PLOT DATA: Plot (start) =====")
+    print("\n===== PLOT DATA: Plot (start) =====")
 
     ## READ CSV ##
     CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
