@@ -14,7 +14,7 @@
     },
 
     "figure_size" : {
-        "width_cm"  : 18,
+        "width_cm"  : 16,
         "height_cm" : 12
     },
 
@@ -29,9 +29,9 @@
 
     "subplot_setup" : {
         "columns"        : 1,
-        "rows"           : 1, 
-        "total_subplots" : 1, 
-        "share_x"        : false  
+        "rows"           : 2, 
+        "total_subplots" : 2, 
+        "share_x"        : true  
     },
 
 
@@ -41,32 +41,107 @@
 
         "datasets":{
         
-            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar", "errorbar"],
+            "plot_type"  : ["errorbar", "errorbar"],
 
-            "dataset_label" : ["W", "C", "Co", "Cr", "Ti"],
+            "dataset_label" : ["W", "C"],
 
-            "CSV_column_x" : [0, 0, 0, 0, 0],
-            "CSV_column_y" : [4,2,3,6,11], 
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [4,2], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#987654", "#050505", "#0000cd",  "#ff77ff", "#664c28"],
-                    "style" : ["-", "-", "-", "-", "-"],
-                    "width" : [1.5, 1.5, 1.5, 1.5, 1.5]
+                    "color" : ["#987654", "#050505"],
+                    "style" : ["-", "-"],
+                    "width" : [1.5, 1.5]
                 },
 
                 "marker" : {
-                    "type"      : ["", "", "", "", ""], 
-                    "size"      : [3.3, 3.3, 3.3, 3.3, 3.3], 
-                    "thickness" : [1.5, 1.5, 1.5, 1.5, 1.5]
+                    "type"      : ["", ""], 
+                    "size"      : [3.3, 3.3], 
+                    "thickness" : [1.5, 1.5]
                 }, 
 
                 "errorbar" : {
-                    "on" : [true, true, true, true, true],
-                    "color" : ["#987654", "#050505", "#0000cd","#ff77ff", "#664c28"],
+                    "on" : [true, true],
+                    "color" : ["#987654", "#050505"],
 
                     "CSV_column_x" : [-1, -1, -1, -1, -1],
-                    "CSV_column_y" : [27,25,26,29,34]
+                    "CSV_column_y" : [27,25]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 4, 
+                        "max" : 22
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Concentration (atomic \\%)",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 34,
+                        "max" : 56
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "lower right"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : false
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : [ "Co", "Ti", "Cr"],
+
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [3,11,6], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#0000cd", "#664c28", "#ff77ff"],
+                    "style" : [ "-", "-", "-"],
+                    "width" : [1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [true, true, true],
+                    "color" : ["#0000cd", "#664c28", "#ff77ff"],
+
+                    "CSV_column_x" : [-1, -1, -1],
+                    "CSV_column_y" : [26,34,29]
                 }
             },
 
@@ -96,7 +171,7 @@
             "legend" : {
                 "on"       : true, 
                 "alpha"    : 1, 
-                "location" : "best"
+                "location" : "upper right"
             },
 
             "grid" : {
@@ -105,80 +180,6 @@
                 },
                 "minor" : {
                     "on"        : false
-                }   
-            }
-        } 
-    }, 
-
-    
-    {
-        "subplot_num" : 2, 
-
-        "datasets":{
-        
-            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
-
-            "dataset_label" : ["", "", ""],
-
-            "CSV_column_x" : [0, 0, 0],
-            "CSV_column_y" : [1, 2, 3], 
-
-            "plot_type_settings" : {
-                "line": {
-                    "color" : ["#000000", "#000000", "#000000"],
-                    "style" : ["-", "--", ":"],
-                    "width" : [1.5, 1.5, 1.5]
-                },
-
-                "marker" : {
-                    "type"      : ["", "", ""], 
-                    "size"      : [3.3, 3.3, 3.3], 
-                    "thickness" : [1.5, 1.5, 1.5]
-                }, 
-
-                "errorbar" : {
-                    "on" : [false, false, false],
-
-                    "CSV_column_x" : [0, 0, 0],
-                    "CSV_column_y" : [0, 0, 0]
-                }
-            },
-
-            "axis" : {
-
-                "x" : {
-                    "label"           : "",            
-                    "scale"           : "linear",
-                    "float_precision" : 0,
-                    "limit" : {
-                        "min" : false, 
-                        "max" : false
-                    }
-                }, 
-
-                "y" : {
-                    "label"           : "",
-                    "scale"           : "linear",
-                    "float_precision" : 0,
-                    "limit" : {
-                        "min" : false,
-                        "max" : false
-                    }
-                }
-            }, 
-
-            "legend" : {
-                "on"       : true, 
-                "alpha"    : 1, 
-                "location" : "best"
-            },
-
-            "grid" : {
-                "major" : {
-                    "on"        : true
-                },
-                "minor" : {
-                    "on"        : true
                 }   
             }
         } 

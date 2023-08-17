@@ -3,13 +3,12 @@
         "project" : "RESEARCH PROJECT CHALMERS SUMMER 2023 WC-Co CUTTING TOOLS",
         "author"  : "Gottfrid Olsson",
         "updated" : "2023-08-16",
-        "about"   : "Proxigram WC/WC grainboundary in material PFP022"
+        "about"   : "Proxigram ... grainboundary in material ..."
     },
 
     "filepath"  :{
-        "json" : "JSON/.json",
-        "csv"  : "CSV/R6002_01352_PFP022_01_1D_concentraton_profile.csv",
-        "pdf"  : "PDF/Proxigram_R6002_01352_PFP022_01_WCWC.pdf", 
+        "csv"  : "CSV/R6002_ ... _standard - Concentration (W, C) - Proxigram.csv",
+        "pdf"  : "PDF/Proxigram_.pdf", 
         "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
     },
 
@@ -43,14 +42,14 @@
         
             "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar", "errorbar"],
 
-            "dataset_label" : ["W", "C", "Co", "Cr", "Ti"],
+            "dataset_label" : ["W", "C", "Co", "Ti", "Cr"],
 
             "CSV_column_x" : [0, 0, 0, 0, 0],
-            "CSV_column_y" : [4,2,3,6,11], 
+            "CSV_column_y" : [4,2,3,11,6], 
 
             "plot_type_settings" : {
                 "line": {
-                    "color" : ["#987654", "#050505", "#0000cd",  "#ff77ff", "#664c28"],
+                    "color" : ["#987654", "#050505", "#0000cd", "#664c28", "#ff77ff"],
                     "style" : ["-", "-", "-", "-", "-"],
                     "width" : [1.5, 1.5, 1.5, 1.5, 1.5]
                 },
@@ -63,22 +62,22 @@
 
                 "errorbar" : {
                     "on" : [true, true, true, true, true],
-                    "color" : ["#987654", "#050505", "#0000cd","#ff77ff", "#664c28"],
+                    "color" : ["#987654", "#050505", "#0000cd", "#664c28", "#ff77ff"],
 
                     "CSV_column_x" : [-1, -1, -1, -1, -1],
-                    "CSV_column_y" : [27,25,26,29,34]
+                    "CSV_column_y" : [27,25,26,34,29]
                 }
             },
 
             "axis" : {
 
                 "x" : {
-                    "label"           : "Distance (nm)",            
+                    "label"           : "Distance from phase boundary (nm)",            
                     "scale"           : "linear",
                     "float_precision" : 0,
                     "limit" : {
-                        "min" : 4, 
-                        "max" : 22
+                        "min" : false, 
+                        "max" : false
                     }
                 }, 
 

@@ -161,7 +161,7 @@ def main():
     
 
     print("===== PLOT DATA: Plot (end) =====")  
-    plt.show()
+    #plt.show()
 
 
 
