@@ -1,0 +1,188 @@
+﻿{
+    "comment" : {
+        "project" : "RESEARCH PROJECT CHALMERS SUMMER 2023 WC-Co CUTTING TOOLS",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-08-18",
+        "about"   : "Proxigram Co/WC phase boundary to see CrC in material FFP121"
+    },
+
+    "filepath"  :{
+        "csv"  : "CSV/R6002_01348_FPF121_01_standard_1D-concentration-CrC_proxigram.csv",
+        "pdf"  : "PDF/Proxigram_R6002_01348_FFP121_01_CoWC_Crc.pdf", 
+        "standard_values" : "JSON/STANDARD_VALUES_ERRORBAR.json"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 18,
+        "height_cm" : 12
+    },
+
+    "font_size" :{
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 1, 
+        "total_subplots" : 1, 
+        "share_x"        : false  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["Co", "C", "W", "Cr", "Ti"],
+
+            "CSV_column_x" : [0, 0, 0, 0, 0],
+            "CSV_column_y" : [3,2,4,6,11], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#0000cd", "#050505", "#987654", "#ff77ff", "#664c28"],
+                    "style" : ["-", "-", "-", "-", "-"],
+                    "width" : [1.5, 1.5, 1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", "", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [true, true, true, true, true],
+                    "color" : [ "#0000cd", "#050505", "#987654", "#ff77ff", "#664c28"],
+
+                    "CSV_column_x" : [-1, -1, -1, -1, -1],
+                    "CSV_column_y" : [26,25,27,29,34]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Distance (nm)",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : -0.0001, 
+                        "max" : 14.0001
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Concentration (atomic \\%)",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : -1,
+                        "max" : 101
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : false
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar", "errorbar"],
+
+            "dataset_label" : ["", "", ""],
+
+            "CSV_column_x" : [0, 0, 0],
+            "CSV_column_y" : [1, 2, 3], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000", "#000000"],
+                    "style" : ["-", "--", ":"],
+                    "width" : [1.5, 1.5, 1.5]
+                },
+
+                "marker" : {
+                    "type"      : ["", "", ""], 
+                    "size"      : [3.3, 3.3, 3.3], 
+                    "thickness" : [1.5, 1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false, false],
+
+                    "CSV_column_x" : [0, 0, 0],
+                    "CSV_column_y" : [0, 0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}
