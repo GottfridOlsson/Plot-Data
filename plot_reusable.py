@@ -55,12 +55,12 @@ fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(16/2.54, 9/2.54), sharex=Fals
 axs.plot(x_data, y_data, label='test', linewidth=1.5, linestyle='-', marker='', color='k')
 axs.vlines(vlines_x, 0, 1.05, linestyles='-', color='k', linewidth=0.8)
 for i in range(len(vlines_x)):  
-    axs.text(vlines_x[i], 1.05, text_strings[i], rotation='vertical', horizontalalignment='left', verticalalignment='center', rotation_mode='anchor', backgroundcolor='w', fontsize=8)
+    axs.text(vlines_x[i], 1.05, text_strings[i], rotation='horizontal', horizontalalignment='center', verticalalignment='center', rotation_mode='anchor', fontsize=7.5)# backgroundcolor='w', fontsize=8)
 
 # Settings for each axis
 f.set_font_size(axis=13, tick=11, legend=9)
 f.set_axis_scale(   axs, xScale_string='linear', yScale_string='linear')
-f.set_axis_labels(  axs, x_label="Dalton ($m/q$)", y_label="Normalized intensity")
+f.set_axis_labels(  axs, x_label="Mass-to-charge ratio / Da", y_label="Normalized intensity")
 f.set_axis_invert(  axs, x_invert=False, y_invert=False)
 f.set_axis_limits(  axs, x_lim[0], x_lim[1], y_lim[0], y_lim[1])
 f.set_grid(         axs, grid_major_on=True, grid_major_linewidth=0.7, grid_minor_on=False, grid_minor_linewidth=0.3) # set_grid must be after set_axis_scale for some reason (at least with 'log')
