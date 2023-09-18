@@ -13,7 +13,6 @@
 #    IMPORTS    #
 #---------------#
 
-import matplotlib                       # can remove? 2023-08-16
 import matplotlib.pyplot as plt         # to plot
 import get_JSON_data as JSON
 import CSV_handler as CSV
@@ -26,7 +25,7 @@ import numpy as np # for ceiling
 
 #------------#
 #    MAIN    #
-#------------#
+#------------#  
 
 
 def main():

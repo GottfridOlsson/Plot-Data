@@ -31,7 +31,7 @@ STANDARD_VALUES_JSON_PATH = CURRENT_PATH + "\\JSON\\" + 'STANDARD_VALUES_ERRORBA
 filepath_csv                    = J['filepath']['csv']
 filepath_pdf                    = J['filepath']['pdf']
 
-try: filepath_standard_values_json = J['filepath']['standard_values']
+try: filepath_standard_values_json = CURRENT_PATH + "\\" + J['filepath']['standard_values']
 except: filepath_standard_values_json = STANDARD_VALUES_JSON_PATH
 S = JSON.read(filepath_standard_values_json)
 

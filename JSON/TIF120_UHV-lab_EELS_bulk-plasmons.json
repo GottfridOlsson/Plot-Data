@@ -1,0 +1,185 @@
+﻿{
+    "comment" : {
+        "project" : "TIF120 Ultra-high vacuum surface spectroscopy, EELS spectrum",
+        "author"  : "Gottfrid Olsson",
+        "updated" : "2023-09-18",
+        "about"   : "Bulk plasmons: theoretical and measured"
+    },
+
+    "filepath"  :{
+        "csv"  : "CSV/TIF120_UHV-lab_EELS_bulk-plasmons.csv",
+        "pdf"  : "PDF/TIF120_UHV-lab_EELS_bulk-plasmons.pdf"
+    },
+
+    "figure_size" : {
+        "width_cm"  : 16,
+        "height_cm" : 10
+    },
+
+    "font_size" :{
+        "axis"   : 11,
+        "tick"   : 9, 
+        "legend" : 9 
+    },
+  
+    "figure_title"  : "",
+    "point_or_decimal_comma" : ".",
+
+    "subplot_setup" : {
+        "columns"        : 1,
+        "rows"           : 2, 
+        "total_subplots" : 2, 
+        "share_x"        : true  
+    },
+
+
+    "subplot_settings": [
+    {
+        "subplot_num" : 1, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar"],
+
+            "dataset_label" : ["Measured", "Theoretical"],
+
+            "CSV_column_x" : [3, 0],
+            "CSV_column_y" : [4, 1], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000"],
+                    "style" : ["-", ":"],
+                    "width" : [1.25, 1.25]
+                },
+
+                "marker" : {
+                    "type"      : [".", ""], 
+                    "size"      : [3.3, 3.3], 
+                    "thickness" : [1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false],
+
+                    "CSV_column_x" : [0, 0],
+                    "CSV_column_y" : [0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false, 
+                        "max" : false
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Intensity",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }, 
+
+    
+    {
+        "subplot_num" : 2, 
+
+        "datasets":{
+        
+            "plot_type"  : ["errorbar", "errorbar"],
+
+            "dataset_label" : ["Measured", "Theoretical"],
+
+            "CSV_column_x" : [3, 0],
+            "CSV_column_y" : [5, 2], 
+
+            "plot_type_settings" : {
+                "line": {
+                    "color" : ["#000000", "#000000"],
+                    "style" : ["-", ":"],
+                    "width" : [1.25, 1.25]
+                },
+
+                "marker" : {
+                    "type"      : [".", ""], 
+                    "size"      : [3.3, 3.3], 
+                    "thickness" : [1.5, 1.5]
+                }, 
+
+                "errorbar" : {
+                    "on" : [false, false],
+                    "CSV_column_x" : [0, 0],
+                    "CSV_column_y" : [0, 0]
+                }
+            },
+
+            "axis" : {
+
+                "x" : {
+                    "label"           : "Energy / eV",            
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : 6, 
+                        "max" : 74
+                    }
+                }, 
+
+                "y" : {
+                    "label"           : "Derivative of intensity",
+                    "scale"           : "linear",
+                    "float_precision" : 0,
+                    "limit" : {
+                        "min" : false,
+                        "max" : false
+                    }
+                }
+            }, 
+
+            "legend" : {
+                "on"       : true, 
+                "alpha"    : 1, 
+                "location" : "best"
+            },
+
+            "grid" : {
+                "major" : {
+                    "on"        : true
+                },
+                "minor" : {
+                    "on"        : true
+                }   
+            }
+        } 
+    }
+    
+
+  ]
+}
