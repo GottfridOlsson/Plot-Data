@@ -97,6 +97,8 @@ def main():
                     JSON.marker_type[i][k], JSON.marker_size[i][k], JSON.marker_thickness[i][k], JSON.marker_facecolor[i][k], i, JSON.errorbar_color[i][k], JSON.errorbar_alpha[i][k]
                     )
                 
+            
+                
 
                 
 
