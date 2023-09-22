@@ -23,9 +23,9 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="368.125"
-     inkscape:cy="72.625"
+     inkscape:zoom="2"
+     inkscape:cx="269.25"
+     inkscape:cy="151.75"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
@@ -1794,7 +1794,7 @@
   </g>
   <g
      id="g5477"
-     transform="translate(-0.03528695,-1.875)">
+     transform="translate(-0.03528695,-10.875)">
     <g
        fill="#000000"
        fill-opacity="1"
@@ -1922,6 +1922,37 @@
            x="412.24475"
            y="38.372936"
            id="use1718" />
+      </g>
+    </g>
+    <g
+       id="g2863"
+       transform="translate(-6.5332024e-7,11.17136)">
+      <g
+         fill="#000000"
+         fill-opacity="1"
+         id="g1712-0"
+         transform="translate(-128.2928,-15.161797)">
+        <use
+           xlink:href="#glyph-3-6"
+           x="399.59866"
+           y="36.380455"
+           id="use1708-4" />
+        <use
+           xlink:href="#glyph-3-2"
+           x="405.68835"
+           y="36.380455"
+           id="use1710-9" />
+      </g>
+      <g
+         fill="#000000"
+         fill-opacity="1"
+         id="g1716-3"
+         transform="translate(-128.2928,-15.161797)">
+        <use
+           xlink:href="#glyph-4-1"
+           x="412.24475"
+           y="32.935032"
+           id="use1714-8" />
       </g>
     </g>
   </g>
