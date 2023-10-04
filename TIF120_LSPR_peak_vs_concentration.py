@@ -37,7 +37,7 @@ CSV_header = CSV.get_header(CSV_data)
 
 concentrations = [0, 5, 10, 20, 30, 50] # percent glycol in water (zero means only water, values from lab)
 text_plot = ['0\,\%', '5\,\%', '10\,\%', '20\,\%', '30\,\%', '50\,\%', '?']
-LSPR_peak_time_ranges = [(70,130), (240,300), (395,455), (545,605), (700,760), (820,880), (1050,1110)] # corresponding times for concentrations (values from plot)
+LSPR_peak_time_ranges = [(70,130), (240,300), (395,455), (545,605), (690,750), (820,880), (1050,1110)] # corresponding times for concentrations (values from plot)
 LSPR_peak_means = []
 
 # DATA ANLYSIS / CALCULATIONS #
