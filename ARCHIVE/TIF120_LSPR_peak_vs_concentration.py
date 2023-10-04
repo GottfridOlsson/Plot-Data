@@ -59,7 +59,7 @@ fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(16/2.54, 9/2.54), sharex=Fals
 # Plot
 axs.plot(x_data, y_data, label='test', linewidth=1.5, linestyle='-', marker='', color='k')
 for i in range(len(LSPR_peak_time_ranges)):
-    axs.fill_betweenx((761,767), LSPR_peak_time_ranges[i][0], LSPR_peak_time_ranges[i][1], facecolor=['b'], alpha=0.15)
+    axs.fill_betweenx((761,767), LSPR_peak_time_ranges[i][0], LSPR_peak_time_ranges[i][1], facecolor=['b'], alpha=0.25)
     LSPR_peak_means.append((LSPR_peak_time_ranges[i][0]+LSPR_peak_time_ranges[i][1])/2)
     axs.text(LSPR_peak_means[i], y_lim[1]-0.4, s=text_plot[i], horizontalalignment='center', fontsize=8)
 
