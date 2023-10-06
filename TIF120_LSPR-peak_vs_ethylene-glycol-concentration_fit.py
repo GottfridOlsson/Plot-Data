@@ -54,8 +54,8 @@ fit_y_oneSigma = CSV_data[CSV_header[4]]
 
 
 # PLOT SETTINGS #
-x_lim = [761.6,766.8] #[np.min(x_data), np.max(x_data)]
-y_lim = [0,55] #[np.min(y_data), np.max(y_data)]
+x_lim = [761.3, 766.8] #[np.min(x_data), np.max(x_data)]
+y_lim = [0, 55] #[np.min(y_data), np.max(y_data)]
 
 f.set_LaTeX_and_CMU(True) #must be before plotting
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(16/2.54, 9/2.54), sharex=False, sharey=False)
@@ -64,7 +64,7 @@ fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(16/2.54, 9/2.54), sharex=Fals
 # Plot
 axs.plot(x_data, y_data, linewidth=1.5, linestyle='', color='k', marker='o', markersize='4.5', label='Measured data')
 axs.plot(fit_x, fit_y, color='k', linestyle='-', label='Linear fit')
-axs.fill_between(fit_x, fit_y + 2*fit_y_oneSigma, fit_y - 2*fit_y_oneSigma, color='b', alpha=0.25, label=f'Prediction interval ($2\\sigma$)')
+axs.fill_between(fit_x, fit_y + 2*fit_y_oneSigma, fit_y - 2*fit_y_oneSigma, color='b', alpha=0.25, edgecolor=None, label=f'Prediction interval ($2\\sigma$)')
 #axs.errorbar(763.8, 21.9, 1.5, label='Unknown concentration', color='r', capsize=2.5, marker='')
 
 # Settings for each axis
