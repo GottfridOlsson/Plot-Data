@@ -42,6 +42,8 @@ LSPR_peak_means = []
 
 # DATA ANLYSIS / CALCULATIONS #
 
+def concentration2refractiveIndex(C):
+    return 1.0051e-03 * C + 1.3325 #from analysis file (see github)
 
 # Select data
 x_data = CSV_data[CSV_header[0]]
@@ -62,15 +64,18 @@ fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(16/2.54, 9/2.54), sharex=Fals
 
 
 # Plot
-axs.plot(x_data, y_data, linewidth=1.5, linestyle='', color='k', marker='o', markersize='4.5', label='Measured data')
+axs.plot(x_data, y_data, linewidth=1.5, linestyle='', color='b', marker='o', markersize='4.5', label='Measured data', alpha=0.7)
 axs.plot(fit_x, fit_y, color='k', linestyle='-', label='Linear fit')
-axs.fill_between(fit_x, fit_y + 2*fit_y_oneSigma, fit_y - 2*fit_y_oneSigma, color='b', alpha=0.25, edgecolor=None, label=f'Prediction interval ($2\\sigma$)')
-#axs.errorbar(763.8, 21.9, 1.5, label='Unknown concentration', color='r', capsize=2.5, marker='')
+axs.fill_between(fit_x, fit_y + 2*fit_y_oneSigma, fit_y - 2*fit_y_oneSigma, color='k', alpha=0.2, edgecolor=None, label=f'Prediction interval ($2\\sigma$)')
+axs.errorbar(763.8, 21.9, 1.5, label='Unknown concentration', color='r', capsize=2.2, marker='.', linestyle='', alpha=0.7)
+
+second_ax = axs.secondary_yaxis('right', functions=(concentration2refractiveIndex, concentration2refractiveIndex))
+second_ax.set_ylabel('Refractive index / RIU') 
 
 # Settings for each axis
 f.set_font_size(axis=13, tick=11, legend=9)
 f.set_axis_scale(   axs, xScale_string='linear', yScale_string='linear')
-f.set_axis_labels(  axs, x_label="LSPR peak wavelength / nm", y_label="Concentration (\%)")
+f.set_axis_labels(  axs, x_label="LSPR peak wavelength / nm", y_label="Concentration / \%")
 f.set_axis_invert(  axs, x_invert=False, y_invert=False)
 f.set_axis_limits(  axs, x_lim[0], x_lim[1], y_lim[0], y_lim[1])
 f.set_grid(         axs, grid_major_on=False, grid_major_linewidth=0.7, grid_minor_on=False, grid_minor_linewidth=0.3) # set_grid must be after set_axis_scale for some reason (at least with 'log')
