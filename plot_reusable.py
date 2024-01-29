@@ -12,6 +12,7 @@
 ##======================================================================##
 
 
+
 # LIBRARIES #
 import CSV_handler as CSV
 import functions as f
@@ -19,6 +20,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import matplotlib.ticker as plticker
+
+
 
 # READ CSV #
 # Change these:
@@ -50,6 +53,9 @@ fit_y = CSV_data[CSV_header[3]]
 fit_y_oneSigma = CSV_data[CSV_header[4]]
 
 
+
+
+
 # PLOT SETTINGS #
 fig_width_cm = 16
 fig_height_cm = 9
@@ -58,8 +64,8 @@ font_size_axis = 13
 font_size_tick = 11
 font_size_legend = 9
 
-x_label = "X-axis, example time $t$ / s"
-y_label = "Y-axis, example $f(t)$"
+x_label = "X-axis, example time $\\sigma$"
+y_label = "Y-axis, example $f(\\sigma)$"
 
 x_lim = [np.min(x_data), np.max(x_data)]
 y_lim = [np.min(y_data), np.max(y_data)]
@@ -68,7 +74,12 @@ grid_major = True
 grid_minor = False
 legend_on = True
 
-f.set_LaTeX_and_CMU(True) #must be before plotting
+f.set_LaTeX_and_CMU(True) #must run before plotting
+
+
+
+
+
 
 # PLOT # 
 
