@@ -28,6 +28,7 @@ def read(CSV_file_path, skiprows=0, print_message=True):
         print("DONE: Reading CSV: " + CSV_file_path)
     return CSV
 
+
 # i'm not sure how to do this nicely. yet. //2022-02-04, 19:12
 def write_DataFrame_to_CSV(DataFrame, write_file_path, encoding='utf-8'):
     print("In progress: Exporting DataFrame to CSV")
