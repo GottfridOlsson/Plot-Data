@@ -41,8 +41,9 @@ cycle_data_header = CSV.get_header(cycle_data)
 
 # DATA ANLYSIS / CALCULATIONS #
 
-print(cycle_data_header)
+
 # Select data
+cycle_data = cycle_data[:-1] #drop last row (cycle 70 was not performed but cut short)
 cycles = cycle_data[cycle_data_header[0]]
 Coulombic_efficiency = cycle_data[cycle_data_header[1]]
 charging_capacity = cycle_data[cycle_data_header[5]]
@@ -52,7 +53,9 @@ area_cm2 = 0.7854
 
 
 # PLOT SETTINGS #
-fig_width_cm = 16
+A4_paper_width_cm = 21
+margins_in_Latex_cm = 2*2.8
+fig_width_cm = A4_paper_width_cm - margins_in_Latex_cm
 fig_height_cm = 9
 
 font_size_axis = 13
@@ -62,12 +65,12 @@ font_size_legend = 9
 x_label = "Cycle number"
 y_label = "Specific capacity / $\\mathrm{mAh}\\,\\mathrm{g}^{-1}$"
 
-x_lim = [np.min(cycles), np.max(cycles)]
-y_lim = [0, 2]
+x_lim = [-2.5, 72.5] #[np.min(cycles), np.max(cycles)]
+y_lim = [-0.05, 1.05]
 
 grid_major = True
 grid_minor = False
-legend_on = False
+legend_on = True
 
 f.set_LaTeX_and_CMU(True) #must run before plotting
 
@@ -82,13 +85,13 @@ f.set_LaTeX_and_CMU(True) #must run before plotting
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(fig_width_cm/2.54, fig_height_cm/2.54), sharex=False, sharey=False)
 
 # Plot your data (axs.plot, .errorbar, .hist, ...)
-axs.plot(cycles, charging_capacity, linewidth=1.5, linestyle='', color='k', marker='o', markersize='3', label='Charging')
-axs.plot(cycles, discharging_capacity, linewidth=1.5, linestyle='', color='k', marker='o', markersize='3', label='Discharging')
+axs.plot(cycles, charging_capacity, linewidth=1.5, linestyle='', color='b', marker='o', markersize='2.5', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, discharging_capacity, linewidth=1.5, linestyle='', color='r', marker='x', markersize='3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
 
 ax2 = axs.twinx()  # instantiate a second axes that shares the same x-axis
 
-ax2.plot(cycles, Coulombic_efficiency, linewidth=1.5, linestyle='', color='g', marker='o', markersize='3', label='Coulombic efficiency')
-ax2.set_ylabel("Coulombic efficiency / \%")
+ax2.plot(cycles, Coulombic_efficiency, linewidth=1.5, linestyle='', color='k', marker='^', markersize='3', label='Coulombic efficiency (\%)')
+ax2.set_ylabel("Coulombic efficiency / $\%$")
 
 # Settings for each axis (axs)
 f.set_font_size(axis=font_size_axis, tick=font_size_tick, legend=font_size_legend)
@@ -97,7 +100,12 @@ f.set_axis_labels(  axs, x_label=x_label, y_label=y_label)
 f.set_axis_invert(  axs, x_invert=False, y_invert=False)
 f.set_axis_limits(  axs, x_lim[0], x_lim[1], y_lim[0], y_lim[1])
 f.set_grid(         axs, grid_major_on=grid_major, grid_major_linewidth=0.7, grid_minor_on=grid_minor, grid_minor_linewidth=0.3) # set_grid must be after set_axis_scale for some reason (at least with 'log')
-f.set_legend(       axs, legend_on=legend_on, alpha=1.0, location='center')
+#f.set_legend(       axs, legend_on=legend_on, alpha=1.0, location='center')
+
+# get legend entries of both axis in the same legend (don't set legent as usual, why the above is commented out)
+lines, labels = axs.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax2.legend(lines2 + lines, labels2 + labels, loc='center', framealpha=1.0)
 
 #loc = plticker.MultipleLocator(base=5) # this locator puts ticks at regular intervals determined by base
 #axs.xaxis.set_major_locator(loc)
