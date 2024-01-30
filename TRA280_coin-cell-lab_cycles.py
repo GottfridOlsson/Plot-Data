@@ -1,6 +1,6 @@
 ##======================================================================##
 ##     Project: PLOT DATA
-##        File: plot_reusable.py
+##        File: TRA280_coin-cell-lab_cycles.py
 ##      Author: GOTTFRID OLSSON 
 ##     Created: 2023-05-27
 ##     Updated: 2024-01-29
@@ -26,7 +26,7 @@ import pandas as pd
 # READ CSV #
 # Change these:
 filename_csv = 'TRA280_coin-cell-lab_cycle-data_formatted.csv' 
-filename_pdf = 'TRA280_coin-cell-lab_LFP-Gr_V_vs_mAhg.pdf'
+filename_pdf = 'TRA280_coin-cell-lab_LFP-Gr_cycles.pdf'
 
 CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 CSV_path = CURRENT_PATH + "\\CSV\\" + filename_csv
@@ -39,7 +39,6 @@ cycle_data_header = CSV.get_header(cycle_data)
 # FUNCTIONS #
 
 
-# DATA ANLYSIS / CALCULATIONS #
 
 
 # Select data
@@ -50,6 +49,12 @@ charging_capacity = cycle_data[cycle_data_header[5]]
 discharging_capacity = cycle_data[cycle_data_header[8]]
 
 area_cm2 = 0.7854
+
+
+# DATA ANLYSIS / CALCULATIONS #
+
+avg_CE_cycles_10_to_69 = np.average(Coulombic_efficiency[9:70])
+print(f"\nAverage CE during cycle 10 through 69 is: {avg_CE_cycles_10_to_69:.3f} %\n")
 
 
 # PLOT SETTINGS #
@@ -74,7 +79,7 @@ legend_on = True
 
 f.set_LaTeX_and_CMU(True) #must run before plotting
 
-
+colors = ['#6a4c93', '#7eb820', '#88c724', '#ffca3a', '#ff595e']
 
 
 
@@ -85,12 +90,12 @@ f.set_LaTeX_and_CMU(True) #must run before plotting
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(fig_width_cm/2.54, fig_height_cm/2.54), sharex=False, sharey=False)
 
 # Plot your data (axs.plot, .errorbar, .hist, ...)
-axs.plot(cycles, charging_capacity, linewidth=1.5, linestyle='', color='b', marker='o', markersize='2.5', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
-axs.plot(cycles, discharging_capacity, linewidth=1.5, linestyle='', color='r', marker='x', markersize='3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, charging_capacity, linewidth=1.25, linestyle='-', color=colors[0], marker='o', markersize='2.75', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, discharging_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.25', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
 
 ax2 = axs.twinx()  # instantiate a second axes that shares the same x-axis
 
-ax2.plot(cycles, Coulombic_efficiency, linewidth=1.5, linestyle='', color='k', marker='^', markersize='3', label='Coulombic efficiency (\%)')
+ax2.plot(cycles, Coulombic_efficiency, linewidth=1.25, linestyle='-', color=colors[2], marker='^', markersize='3.25', label='Coulombic efficiency (\%)')
 ax2.set_ylabel("Coulombic efficiency / $\%$")
 
 # Settings for each axis (axs)
@@ -105,7 +110,7 @@ f.set_grid(         axs, grid_major_on=grid_major, grid_major_linewidth=0.7, gri
 # get legend entries of both axis in the same legend (don't set legent as usual, why the above is commented out)
 lines, labels = axs.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
-ax2.legend(lines2 + lines, labels2 + labels, loc='center', framealpha=1.0)
+ax2.legend(lines2 + lines, labels2 + labels, loc='best', framealpha=1.0)
 
 #loc = plticker.MultipleLocator(base=5) # this locator puts ticks at regular intervals determined by base
 #axs.xaxis.set_major_locator(loc)
