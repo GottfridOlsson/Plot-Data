@@ -79,7 +79,7 @@ legend_on = True
 
 f.set_LaTeX_and_CMU(True) #must run before plotting
 
-colors = ['#6a4c93', '#7eb820', '#88c724', '#ffca3a', '#ff595e']
+colors = ['#6a4c93', '#1982c4', '#88c724', '#ffca3a', '#ff595e']
 
 
 
@@ -90,12 +90,12 @@ colors = ['#6a4c93', '#7eb820', '#88c724', '#ffca3a', '#ff595e']
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(fig_width_cm/2.54, fig_height_cm/2.54), sharex=False, sharey=False)
 
 # Plot your data (axs.plot, .errorbar, .hist, ...)
-axs.plot(cycles, charging_capacity, linewidth=1.25, linestyle='-', color=colors[0], marker='o', markersize='2.75', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
-axs.plot(cycles, discharging_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.25', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, charging_capacity, linewidth=1.25, linestyle='-', color=colors[1], marker='o', markersize='2.8', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, discharging_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
 
 ax2 = axs.twinx()  # instantiate a second axes that shares the same x-axis
 
-ax2.plot(cycles, Coulombic_efficiency, linewidth=1.25, linestyle='-', color=colors[2], marker='^', markersize='3.25', label='Coulombic efficiency (\%)')
+ax2.plot(cycles, Coulombic_efficiency, linewidth=1.25, linestyle='-', color=colors[0], marker='^', markersize='3.3', label='Coulombic efficiency (\%)')
 ax2.set_ylabel("Coulombic efficiency / $\%$")
 
 # Settings for each axis (axs)
