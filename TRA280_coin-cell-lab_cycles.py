@@ -47,14 +47,28 @@ cycles = cycle_data[cycle_data_header[0]]
 Coulombic_efficiency = cycle_data[cycle_data_header[1]]
 charging_capacity = cycle_data[cycle_data_header[5]]
 discharging_capacity = cycle_data[cycle_data_header[8]]
+Energy_efficiency = cycle_data[cycle_data_header[2]]
 
 area_cm2 = 0.7854
+
+# from data sheet of LFP
+areal_capacity_LFP = 1.0 # mAh / cm2
+specific_capacity_LFP = 150 # mAH / g
+m_LFP = areal_capacity_LFP*area_cm2/specific_capacity_LFP # mAh / cm2 * cm2 * g / mAh = g
+
+charging_specific_capacity = charging_capacity / m_LFP
+discharging_specific_capacity = discharging_capacity / m_LFP
+
 
 
 # DATA ANLYSIS / CALCULATIONS #
 
 avg_CE_cycles_10_to_69 = np.average(Coulombic_efficiency[9:70])
-print(f"\nAverage CE during cycle 10 through 69 is: {avg_CE_cycles_10_to_69:.3f} %\n")
+avg_EE_cycles_10_to_69 = np.average(Energy_efficiency[9:70])
+
+print(f"\nAverage CE during cycle 10 through 69 is: {avg_CE_cycles_10_to_69:.3f} %")
+print(f"Average EE during cycle 10 through 69 is: {avg_EE_cycles_10_to_69:.3f} %\n")
+
 
 
 # PLOT SETTINGS #
@@ -71,7 +85,7 @@ x_label = "Cycle number"
 y_label = "Specific capacity / $\\mathrm{mAh}\\,\\mathrm{g}^{-1}$"
 
 x_lim = [-2.5, 72.5] #[np.min(cycles), np.max(cycles)]
-y_lim = [-0.05, 1.05]
+y_lim = [0, 165]
 
 grid_major = True
 grid_minor = False
@@ -90,8 +104,8 @@ colors = ['#6a4c93', '#1982c4', '#88c724', '#ffca3a', '#ff595e']
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(fig_width_cm/2.54, fig_height_cm/2.54), sharex=False, sharey=False)
 
 # Plot your data (axs.plot, .errorbar, .hist, ...)
-axs.plot(cycles, charging_capacity, linewidth=1.25, linestyle='-', color=colors[1], marker='o', markersize='2.8', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
-axs.plot(cycles, discharging_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, charging_specific_capacity, linewidth=1.25, linestyle='-', color=colors[1], marker='o', markersize='2.8', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles, discharging_specific_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
 
 ax2 = axs.twinx()  # instantiate a second axes that shares the same x-axis
 
@@ -112,8 +126,8 @@ lines, labels = axs.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 ax2.legend(lines2 + lines, labels2 + labels, loc='best', framealpha=1.0)
 
-#loc = plticker.MultipleLocator(base=5) # this locator puts ticks at regular intervals determined by base
-#axs.xaxis.set_major_locator(loc)
+loc = plticker.MultipleLocator(base=25) # this locator puts ticks at regular intervals determined by base
+axs.xaxis.set_major_locator(loc)
 
 f.align_labels(fig)
 f.set_layout_tight(fig)

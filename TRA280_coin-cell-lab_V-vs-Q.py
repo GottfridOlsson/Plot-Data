@@ -50,7 +50,7 @@ font_size_legend = 9
 x_label = "Specific capacity / $\\mathrm{mAh}\\,\\mathrm{g}^{-1}$"
 y_label = "Cell voltage / $\\mathrm{V}$"
 
-x_lim = [-0.0175, 0.35] #[np.min(x_data), np.max(x_data)]
+x_lim = [-2, 67] #[np.min(x_data), np.max(x_data)]
 y_lim = [2.4, 3.9] #[np.min(y_data), np.max(y_data)]
 
 grid_major = True
@@ -60,7 +60,12 @@ legend_on = True
 f.set_LaTeX_and_CMU(True) #must run before plotting
 
 
+area_cm2 = 0.7854 # cm2
 
+# from data sheet of LFP
+areal_capacity_LFP = 1.0 # mAh / cm2
+specific_capacity_LFP = 150 # mAh / g
+m_LFP = areal_capacity_LFP*area_cm2/specific_capacity_LFP # (mAh / cm2) * (cm2) / (mAh / g) = g
 
 
 
@@ -83,7 +88,9 @@ for i, cycle in enumerate(cycles):
     cycle_numbers = df_to_plot[header[0]]
     capacity_cycle = df_to_plot[header[1]]
     cell_voltage = df_to_plot[header[2]]
-    x_data = capacity_cycle
+    specific_capacity_cycle = capacity_cycle / m_LFP
+
+    x_data = specific_capacity_cycle
     y_data = cell_voltage
 
 
