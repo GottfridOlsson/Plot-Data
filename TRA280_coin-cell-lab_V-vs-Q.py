@@ -61,11 +61,57 @@ f.set_LaTeX_and_CMU(True) #must run before plotting
 
 
 area_cm2 = 0.7854 # cm2
+volume_cell = 1.0 # cm3
+mass_cell = 2.64 # g
 
 # from data sheet of LFP
 areal_capacity_LFP = 1.0 # mAh / cm2
 specific_capacity_LFP = 150 # mAh / g
 m_LFP = areal_capacity_LFP*area_cm2/specific_capacity_LFP # (mAh / cm2) * (cm2) / (mAh / g) = g
+
+cycle = 50
+df = waveform_data.loc[waveform_data[header[0]]==cycle] # df.loc[df['column_name'].isin(some_values)]
+df_cycle = df.loc[df[header[0]]==cycle]
+
+current_cycle = df_cycle[header[3]].to_numpy() # mA
+voltage_cycle = df_cycle[header[2]].to_numpy() # V
+time_cycle    = df_cycle[header[7]].to_numpy() # minutes from start of cycle
+
+current_charge = current_cycle[np.where(current_cycle > 0)]
+voltage_charge = voltage_cycle[np.where(current_cycle > 0)]
+time_charge    = time_cycle[np.where(current_cycle > 0)]
+
+current_discharge = current_cycle[np.where(current_cycle < 0)]
+voltage_discharge = voltage_cycle[np.where(current_cycle < 0)]
+time_discharge    = time_cycle[np.where(current_cycle < 0)]
+
+time_charge = time_charge/60 # minutes --> hours
+time_discharge = time_discharge/60 # minutes --> hours
+
+
+Q_charge = np.trapz(current_charge, time_charge) # mAh
+Q_discharge = np.trapz(current_discharge, time_discharge) # mAh
+E_charge = np.trapz(voltage_charge*current_charge, time_charge) # mAh*V = mWh
+E_discharge = np.trapz(voltage_discharge*current_discharge, time_discharge) # mAh*V = mWh
+P_charge = E_charge/(time_charge[-1] - time_charge[0])
+P_discharge = E_discharge/(time_discharge[-1] - time_discharge[0])
+
+print("\nDURING CHARGE")
+print(f"Q: {Q_charge:.3f} mAh")
+print(f"E: {E_charge:.3f} mWh")
+print(f"P: {P_charge:.3f} mW\n")
+
+print("DURING DISCHARGE")
+print(f"Q: {Q_discharge:.3f} mAh")
+print(f"E: {E_discharge:.3f} mWh")
+print(f"P: {P_discharge:.3f} mW")
+print(f"E/m: {E_discharge/mass_cell:.3f} mWh/g")
+print(f"E/V: {E_discharge/volume_cell:.3f} mWh/cm3\n")
+
+plt.plot(time_discharge, current_discharge, marker='o')
+plt.plot(time_discharge, voltage_discharge, marker='^')
+plt.show()
+quit()
 
 
 
