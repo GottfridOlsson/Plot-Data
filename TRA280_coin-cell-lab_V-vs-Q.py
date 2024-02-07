@@ -62,8 +62,8 @@ f.set_LaTeX_and_CMU(True) #must run before plotting
 
 area_cm2 = 0.7854 # cm2
 volume_cell = 1.0 # cm3
-mass_cell = 2.64 # g
-
+mass_cell = 3.64 # g
+    
 # from data sheet of LFP
 areal_capacity_LFP = 1.0 # mAh / cm2
 specific_capacity_LFP = 150 # mAh / g
@@ -96,12 +96,13 @@ E_discharge = np.trapz(voltage_discharge*current_discharge, time_discharge) # mA
 P_charge = E_charge/(time_charge[-1] - time_charge[0])
 P_discharge = E_discharge/(time_discharge[-1] - time_discharge[0])
 
-print("\nDURING CHARGE")
+
+print(f"\nDURING CHARGE CYCLE {cycle}")
 print(f"Q: {Q_charge:.3f} mAh")
 print(f"E: {E_charge:.3f} mWh")
 print(f"P: {P_charge:.3f} mW\n")
 
-print("DURING DISCHARGE")
+print(f"DURING DISCHARGE CYCLE {cycle}")
 print(f"Q: {Q_discharge:.3f} mAh")
 print(f"E: {E_discharge:.3f} mWh")
 print(f"P: {P_discharge:.3f} mW")
