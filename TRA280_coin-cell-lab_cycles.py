@@ -62,16 +62,23 @@ discharging_specific_capacity = discharging_capacity / m_LFP
 
 
 # DATA ANLYSIS / CALCULATIONS #
+for i in range(len(charging_specific_capacity)):
+    print(i, charging_specific_capacity[i])
 
-avg_charging_specific_capacity = np.average(charging_specific_capacity[9:70])
-avg_discharging_specific_capacity = np.average(discharging_specific_capacity[9:70])
-avg_CE_cycles_10_to_69 = np.average(Coulombic_efficiency[9:70])
-avg_EE_cycles_10_to_69 = np.average(Energy_efficiency[9:70])
+print(charging_specific_capacity[9:70], len(charging_specific_capacity))
 
-print(f"\nAverage CE during cycle 10 through 69 is: {avg_CE_cycles_10_to_69:.3f} %")
+avg_charging_specific_capacity = np.average(charging_specific_capacity[10:70])
+avg_discharging_specific_capacity = np.average(discharging_specific_capacity[10:70])
+avg_CE_cycles_10_to_69 = np.average(Coulombic_efficiency[10:70])
+avg_EE_cycles_10_to_69 = np.average(Energy_efficiency[10:70])
+
+print(f"\nCharging specific capacity cycle 1 {charging_specific_capacity[1]:.3f} mAh/g")
+print(f"Discharging specific capacity cycle 1 {discharging_specific_capacity[1]:.3f} mAh/g")
+print(f"Max specific capacity cycle 10 {discharging_specific_capacity[1]:.3f} mAh/g")
+print(f"Average CE during cycle 10 through 69 is: {avg_CE_cycles_10_to_69:.3f} %")
 print(f"Average EE during cycle 10 through 69 is: {avg_EE_cycles_10_to_69:.3f} %")
-print(f"Average charging specific capacity during cycle 10 through 69 is: {avg_charging_specific_capacity:.3f} mAh / g")
-print(f"Average discharging specific capacity during cycle 10 through 69 is: {avg_discharging_specific_capacity:.3f} mAh / g\n")
+print(f"Average charging specific capacity during cycle 10 through 69 is: {avg_charging_specific_capacity:.3f} mAh/g")
+print(f"Average discharging specific capacity during cycle 10 through 69 is: {avg_discharging_specific_capacity:.3f} mAh/g\n")
 
 
 
