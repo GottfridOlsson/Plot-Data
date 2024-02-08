@@ -62,8 +62,6 @@ discharging_specific_capacity = discharging_capacity / m_LFP
 
 
 # DATA ANLYSIS / CALCULATIONS #
-for i in range(len(discharging_specific_capacity)):
-    print(i, discharging_specific_capacity[i])
 
 avg_charging_specific_capacity = np.average(charging_specific_capacity[10:70])
 avg_discharging_specific_capacity = np.average(discharging_specific_capacity[10:70])
