@@ -112,12 +112,12 @@ colors = ['#6a4c93', '#1982c4', '#88c724', '#ffca3a', '#ff595e']
 fig, axs = plt.subplots(nrows=1, ncols=1, figsize=(fig_width_cm/2.54, fig_height_cm/2.54), sharex=False, sharey=False)
 
 # Plot your data (axs.plot, .errorbar, .hist, ...)
-axs.plot(cycles, charging_specific_capacity, linewidth=1.25, linestyle='-', color=colors[1], marker='o', markersize='2.8', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
-axs.plot(cycles, discharging_specific_capacity, linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles[1:-1], charging_specific_capacity[1:-1], linewidth=1.25, linestyle='-', color=colors[1], marker='o', markersize='2.8', label='Charging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
+axs.plot(cycles[1:-1], discharging_specific_capacity[1:-1], linewidth=1.25, linestyle='-', color=colors[4], marker='x', markersize='3.3', label='Discharging ($\\mathrm{mAh}\\,\\mathrm{g}^{-1}$)')
 
 ax2 = axs.twinx()  # instantiate a second axes that shares the same x-axis
 
-ax2.plot(cycles, Coulombic_efficiency, linewidth=1.25, linestyle='-', color=colors[0], marker='^', markersize='3.3', label='Coulombic efficiency (\%)')
+ax2.plot(cycles[1:-1], Coulombic_efficiency[1:-1], linewidth=1.25, linestyle='-', color=colors[0], marker='^', markersize='3.3', label='Coulombic efficiency (\%)')
 ax2.set_ylabel("Coulombic efficiency / $\%$")
 
 # Settings for each axis (axs)
@@ -125,14 +125,17 @@ f.set_font_size(axis=font_size_axis, tick=font_size_tick, legend=font_size_legen
 f.set_axis_scale(   axs, xScale_string='linear', yScale_string='linear')
 f.set_axis_labels(  axs, x_label=x_label, y_label=y_label)
 f.set_axis_invert(  axs, x_invert=False, y_invert=False)
-f.set_axis_limits(  axs, x_lim[0], x_lim[1], y_lim[0], y_lim[1])
+f.set_axis_limits(  axs, x_lim[0], x_lim[1], -5, y_lim[1])
+f.set_axis_limits(  ax2, x_lim[0], x_lim[1], -5, 105)
+
 f.set_grid(         axs, grid_major_on=grid_major, grid_major_linewidth=0.7, grid_minor_on=grid_minor, grid_minor_linewidth=0.3) # set_grid must be after set_axis_scale for some reason (at least with 'log')
+
 #f.set_legend(       axs, legend_on=legend_on, alpha=1.0, location='center')
 
 # get legend entries of both axis in the same legend (don't set legent as usual, why the above is commented out)
 lines, labels = axs.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
-ax2.legend(lines2 + lines, labels2 + labels, loc='best', framealpha=1.0)
+ax2.legend(lines2 + lines, labels2 + labels, loc='lower right', framealpha=1.0)
 
 loc = plticker.MultipleLocator(base=25) # this locator puts ticks at regular intervals determined by base
 axs.yaxis.set_major_locator(loc)
